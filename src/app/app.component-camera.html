@@ -1,0 +1,35 @@
+<div class="container">
+  <div class="row">
+    <div class="col-12 text-center">
+      <h3>Dermafique | Camera Module</h3>
+    </div>
+
+    <div class="col-12 text-center">
+      <div class="webcam">
+        <picture>
+          <source media="(max-width:960px)" srcset="./../assets/image-overlay.png">
+          <source media="(min-width:961px)" srcset="./../assets/image-overlay-w.png">
+          <img src="./../assets/image-overlay.png" class="video-overlay" alt="overlay">
+        </picture>
+        <webcam [height]="height" [trigger]="triggerObservable" [allowCameraSwitch]="allowCameraSwitch"
+          [videoOptions]="videoOptions" [switchCamera]="nextWebcamObservable" (imageCapture)="handleImage($event)"
+          [imageQuality]="1" (initError)="handleInitError($event)">
+        </webcam>
+      </div>
+      <br />
+      <button class="snap-button" (click)="triggerSnapshot();">TAKE SNAPSHOT</button>
+      <button class="upload-button"><input id="imgFile" type="file" (change)="changeImage($event)"
+          accept="image/*">UPLOAD IMAGE</button>
+    </div>
+  </div>
+</div>
+
+<div *ngIf="isImage" class="row">
+  <div class="col-md-6 col-sm-12 upload-image text-center">
+    <img [src]="url" class="image">
+  </div>
+  <div class="col-md-6 col-sm-12">
+    <h4>Message</h4>
+    <h5><b>{{ code }}</b></h5>{{ message }}
+  </div>
+</div>

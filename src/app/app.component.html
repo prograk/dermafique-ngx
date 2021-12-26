@@ -1,0 +1,932 @@
+
+<!--Slide 1 - Splash Screen -->
+<!-- <section class="slide1" *ngIf="hideMe">
+	<owl-carousel-o [options]="onBoardingSlider">
+    <ng-template carouselSlide>
+      <picture>
+        <source media="(max-width:960px)" srcset="./../assets/newassets/slide1.png">
+        <source media="(min-width:961px)" srcset="./../assets/newassets/slide1.png">
+        <img src="./../assets/newassets/slide1.jpg" class="slide1Img" alt="Dermafique Skin Analysis">
+      </picture>
+      <div class=""></div>
+    </ng-template>
+    <ng-template carouselSlide>
+      New Slide
+    </ng-template>
+	</owl-carousel-o>
+</section> -->
+
+<!--Slide 2 - Accept & Continue -->
+<!-- <section class="slide2" *ngIf="showMe">
+    <picture>
+        <source media="(max-width:960px)" srcset="./../assets/newassets/slide1.png">
+        <source media="(min-width:961px)" srcset="./../assets/newassets/slide1.png">
+        <img src="./../assets/newassets/slide1.png" class="logo" alt="Dermafique">
+    </picture>
+      <h1>Dermafique Skin Analysis</h1>
+      <p>Artificial Intelligence driven diagnosis technology that analyses, detects and ranks your skin against <strong>the 7 pivotal parameters of skin physiology.</strong></p>
+    <picture>
+        <source media="(max-width:960px)" srcset="./../assets/slide2-skinconcerns.jpg">
+        <source media="(min-width:961px)" srcset="./../assets/slide2-skinconcerns.jpg">
+        <img src="./../assets/slide2-skinconcerns.jpg" class="w100" alt="Skin Concerns">
+    </picture>
+
+    <p>
+        <strong>Co-created with expert advice from India’s leading dermatologists</strong>
+    </p>
+
+    <form>
+        <label>
+            <input type="checkbox" (change)="PolicyAgree($event)" value="Please tick here to agree with our Privacy Policy and  Terms &  Conditions" />
+            Please tick here to agree with our Privacy Policy and  Terms &  Conditions
+        </label>
+        <input type="submit" value="Start the Test" class="btnStyle" (click)="showSlide3()">
+    </form>
+</section> -->
+
+<!-- onboarding -->
+<section class="onboarding" [class.lastSlide]="onboardinActiveSlide === 2" *ngIf="showMe">
+  <owl-carousel-o [options]="onBoardingSlider" class="onboardingOwlCarousel" #owlOnboarding (changed)="getOnboardingData($event)">
+    <ng-template carouselSlide [id]="0">
+      <div class="onboardSlide onboardingSlide1">
+        <picture>
+          <source media="(max-width:960px)" srcset="./../assets/newassets/slide1.png">
+          <source media="(min-width:961px)" srcset="./../assets/newassets/slide1.png">
+          <img src="./../assets/newassets/slide1.png" class="w100" alt="slide1">
+        </picture>
+        <div class="onboardSlideWhiteOverlay">
+          <img src="./../assets/newassets/whitecurve.png" alt="whiteoverlay" />
+          <div class="onboardSlideWhiteOverlay-container">
+            <h1 class="c-red">Hi, Welcome to</h1>
+            <picture class="my-10">
+              <source media="(max-width:960px)" srcset="./../assets/newassets/smartdermaconsult.png">
+              <source media="(min-width:961px)" srcset="./../assets/newassets/smartdermaconsult.png">
+              <img src="./../assets/newassets/smartdermaconsult.png" class="w100" alt="smartdermaconsult">
+            </picture>
+            <p class="fs-14 lh-18 textcolor text-center">For your Artificial Intelligence powered Personalized Skin Health Analysis</p>
+          </div>
+        </div>
+      </div>
+    </ng-template>
+    <ng-template carouselSlide [id]="1">
+      <div class="onboardSlide onboardingSlide2">
+        <picture>
+          <source media="(max-width:960px)" srcset="./../assets/newassets/slide2.png">
+          <source media="(min-width:961px)" srcset="./../assets/newassets/slide2.png">
+          <img src="./../assets/newassets/slide2.png" class="w100" alt="slide2">
+        </picture>
+        <div class="onboardSlideWhiteOverlay">
+          <img src="./../assets/newassets/whitecurve.png" alt="whiteoverlay" />
+          <div class="onboardSlideWhiteOverlay-container">
+            <h1 class="c-red mb-10">Share your Selfie !</h1>
+            <p class="fs-14 lh-18 textcolor text-center">Just upload your image and let Smart Dermaconsult’s
+              Artificial Intelligence powered Technology take care
+              of the rest to generate your personalized Skin Health Analysis on 7 Skin Health Parameters and overall Skin Health Score
+            </p>
+          </div>
+        </div>
+      </div>
+    </ng-template>
+    <ng-template carouselSlide [id]="2">
+      <div class="onboardSlide onboardingSlide3">
+        <picture>
+          <source media="(max-width:960px)" srcset="./../assets/newassets/slide3.png">
+          <source media="(min-width:961px)" srcset="./../assets/newassets/slide3.png">
+          <img src="./../assets/newassets/slide3.png" class="w100" alt="slide3">
+        </picture>
+        <div class="onboardSlideWhiteOverlay">
+          <img src="./../assets/newassets/whitecurve.png" alt="whiteoverlay" />
+          <div class="onboardSlideWhiteOverlay-container">
+            <h1 class="c-red mb-10">Smart DermaConsult’s <br />
+              AI Powered Technology</h1>
+            <p class="fs-14 lh-18 textcolor text-center">helps you understand your skin’s unique needs
+              & shares personalized skin care recommendations 
+              for Healthy Skin !</p>
+            <form class="d-flex df-dir-c">
+              <label class="termsprivacy textcolor">
+                  <input type="checkbox" (change)="PolicyAgree($event)" value="I agree with your terms and privacy" />
+                  <span></span>
+                  I agree with your <a>terms and privacy</a>
+              </label>
+              <input type="submit" value="Let's start" class="btnStyle" (click)="showSlide3()">
+            </form>
+          </div>
+        </div>
+      </div>
+    </ng-template>
+  </owl-carousel-o>
+  <ng-container *ngIf="onboardinActiveSlide !== 2">
+	  <a class="onboardingSkip" (click)="owlOnboarding.to('2')">SKIP</a>
+	</ng-container>
+</section>
+
+<!--Slide 3 - Select Gender-->
+<section class="slide3" [class.show]="hideUntilCalled" *ngIf="hideUntilCalled">
+  <div class="topcurve">
+    <img src="./../assets/newassets/topcurve.png" alt="topcurve" />
+    <div class="topcurve-container">
+      <h1>Select Gender</h1>
+      <div>Structural differences are noticed <br />
+        between men's and women's skin.</div>
+    </div>
+  </div>
+	<div class="genderCarousel">
+		<owl-carousel-o [options]="genderSlider" (changed)="getGenderData($event)">
+			<ng-template carouselSlide id="female">
+				<!-- <input type="radio" id="female" [(ngModel)]="genderSelected" name="gender" value="female" [checked]="true" (change)="ChangeGender($event)"> -->
+				<label for="female">
+					<picture>
+						<source media="(max-width:960px)" srcset="./../assets/newassets/Female-image.png">
+						<source media="(min-width:961px)" srcset="./../assets/newassets/Female-image.png">
+						<img src="./../assets/newassets/Female-image.png" class="w100" alt="womenface">
+					</picture>
+				</label>
+			</ng-template>  
+			<ng-template carouselSlide id="male">
+				<!-- <input type="radio" id="male" [(ngModel)]="genderSelected" name="gender" value="male" (change)="ChangeGender($event)"> -->
+				<label for="male">
+					<picture>
+						<source media="(max-width:960px)" srcset="./../assets/newassets/Male-image.png">
+						<source media="(min-width:961px)" srcset="./../assets/newassets/Male-image.png">
+						<img src="./../assets/newassets/Male-image.png" class="w100" alt="Male">
+					</picture>
+				</label>
+			</ng-template>
+	  </owl-carousel-o>
+	</div>
+  <div class="bottomcurve">
+      <img src="./../assets/newassets/bottomcurve.png" alt="bottomcurve" />
+      <div class="bottomcurve-container">
+        <ul>
+            <li>
+                <a href="javascript:;" (click)="showSlide3()" class="selected">
+                    <strong>01</strong>
+                    <span>Gender</span>
+                </a>
+            </li>
+            <li>
+                <a href="javascript:;">
+                    <strong>02</strong>
+                    <span>Age</span>
+                </a>
+            </li>
+            <li>
+                <a href="javascript:;">
+                    <strong>03</strong>
+                    <span>Skin Type</span>
+                </a>
+            </li>
+        </ul>
+        <div class="nextPrevBx mt-20">
+          <a href="" (click)="showSlide4()" class="onboardingSkip">
+            Next →
+            <!-- <img src="../assets/next.png"> -->
+          </a>
+          <div class="clear"></div>
+        </div>
+      </div>
+    </div>
+</section>
+
+<!-- Slide 4 - Select Age -->
+<section class="slide3 slide4" [class.show]="slide4Show" *ngIf="slide4Show">
+  <div class="topcurve">
+    <img src="./../assets/newassets/topcurve.png" alt="topcurve" />
+    <div class="topcurve-container">
+      <h1>How old are you?</h1>
+      <div>Did you know the signs of ageing begin to<br/> show as early as the age of 25
+      </div>
+    </div>
+  </div>
+	<div class="genderCarousel">
+		<owl-carousel-o [options]="ageSlider" (changed)="getAgeData($event)">
+			<ng-template carouselSlide *ngFor="let age of defaultAgeArray" [id]="age">
+				<label for="{{age}}">
+          <span>{{age}}</span>
+          <picture style="visibility: hidden;">
+						<source media="(max-width:960px)" srcset="./../assets/newassets/Male-image.png">
+						<source media="(min-width:961px)" srcset="./../assets/newassets/Male-image.png">
+						<img src="./../assets/newassets/Male-image.png" class="w100" alt="Male">
+					</picture>
+				</label>
+			</ng-template>
+	  </owl-carousel-o>
+	</div>
+  <div class="bottomcurve">
+      <img src="./../assets/newassets/bottomcurve.png" alt="bottomcurve" />
+      <div class="bottomcurve-container">
+        <ul>
+            <li>
+                <a href="javascript:;" (click)="showSlide3()">
+                    <strong>01</strong>
+                    <span>Gender</span>
+                </a>
+            </li>
+            <li>
+                <a href="javascript:;" class="selected">
+                    <strong>02</strong>
+                    <span>Age</span>
+                </a>
+            </li>
+            <li>
+                <a href="javascript:;" >
+                    <strong>03</strong>
+                    <span>Skin Type</span>
+                </a>
+            </li>
+        </ul>
+        <div class="nextPrevBx mt-20">
+          <a href="" (click)="showSlide5()" class="onboardingSkip">
+            Next →
+            <!-- <img src="../assets/next.png"> -->
+          </a>
+          <div class="clear"></div>
+        </div>
+      </div>
+  </div>
+</section>
+
+<!--Slide 4 - Select Age -->
+<!-- <section class="slide4" *ngIf="slide4Show">
+    <h1>Enter your Age</h1>
+    <div class="ageSelector">
+			<div class="ageSelectorBx">
+			  <button class="btnStyle" (click)="minus()"><span>-</span></button>
+			  <input type="text" class="form-control ageTxtBig" [(ngModel)]="inputnumber" disabled>
+			  <button class="btnStyle" (click)="plus()"><span>+</span></button>
+			</div>
+
+        <h3>Derma Truth</h3>
+        <p>Structural differences are noticed between
+            men’s skin and women’s skin.</p>
+    </div>
+    <div class="steps1to3">
+        <ul>
+            <li>
+                <a href="javascript:;" (click)="showSlide3()">
+                    <strong>1</strong>
+                    <span>Gender</span>
+                </a>
+            </li>
+            <li>
+                <a href="javascript:;" class="selected">
+                    <strong>2</strong>
+                    <span>Age</span>
+                </a>
+            </li>
+            <li>
+                <a href="javascript:;">
+                    <strong>3</strong>
+                    <span>Skin Type</span>
+                </a>
+            </li>
+        </ul>
+        <div class="nextPrevBx mt-20">
+			<a href="javascript:;" (click)="showSlide3()" class="btnNext toLeft"><img src="../assets/prev.png"> Previous</a>
+        	<a href="javascript:;" (click)="showSlide5()" class="btnNext toRight">Next <img src="../assets/next.png"></a>
+			<div class="clear"></div>
+		</div>
+    </div>
+</section> -->
+
+<!--Slide 5 - Select Skin Type -->
+<section class="slide3 slide5" [class.show]="slide5Show" *ngIf="slide5Show">
+    <div class="topcurve">
+      <img src="./../assets/newassets/topcurve.png" alt="topcurve" />
+      <div class="topcurve-container">
+        <h1>Which skin type<br /> describes you the best? </h1>
+        <div>Did you know the signs of ageing begin to<br/> show as early as the age of 25
+        </div>
+      </div>
+    </div>
+		<div class="genderCarousel skinSlider">
+			<div *ngIf="GetSkinTypes">
+				<div>
+					<owl-carousel-o [options]="skinSlider" (changed)="getSkinData($event)">
+						<ng-template carouselSlide *ngFor="let type of GetSkinTypes" [id]="type.id">
+							<div class="{{type.title}}">
+								<!-- <input type="radio" id="{{type.id}}" [(ngModel)]="skinSelected" value="{{type.title}}" #tradio1 name="skinType" value="oily" (change)="Change($event, tradio1)"> -->
+								<label for="{{type.id}}">
+									<picture>
+										<source media="(max-width:200px)" srcset="{{type.image_not_selected}}">
+										<source media="(min-width:200px)" srcset="{{type.image_not_selected}}">
+										<img src="{{type.image_not_selected}}" class="w100" alt="{{type.title}}">
+									</picture>
+								</label>
+							</div>
+						</ng-template>
+				  </owl-carousel-o>
+			</div>
+		</div>   
+  </div>
+    
+  <div class="bottomcurve">
+    <img src="./../assets/newassets/bottomcurve.png" alt="bottomcurve" />
+    <div class="bottomcurve-container">
+      <ul>
+        <li>
+            <a href="javascript:;" (click)="showSlide3()">
+                <strong>1</strong>
+                <span>Gender</span>
+            </a>
+        </li>
+        <li>
+            <a href="javascript:;" (click)="showSlide4()">
+                <strong>2</strong>
+                <span>Age</span>
+            </a>
+        </li>
+        <li>
+            <a href="javascript:;" class="selected">
+                <strong>3</strong>
+                <span>Skin Type</span>
+            </a>
+        </li>
+    </ul>
+      <div class="nextPrevBx mt-20">
+        <a href="" (click)="showSlide5()" class="onboardingSkip">
+          ← Previous 
+        </a>
+        <a href="" (click)="showSlide6()" class="onboardingSkip">
+          Next →
+        </a>
+        <div class="clear"></div>
+      </div>
+    </div>
+</div>
+    <!-- <div class="steps1to3">
+        <ul>
+            <li>
+                <a href="javascript:;" (click)="showSlide3()">
+                    <strong>1</strong>
+                    <span>Gender</span>
+                </a>
+            </li>
+            <li>
+                <a href="javascript:;" (click)="showSlide4()">
+                    <strong>2</strong>
+                    <span>Age</span>
+                </a>
+            </li>
+            <li>
+                <a href="javascript:;" class="selected">
+                    <strong>3</strong>
+                    <span>Skin Type</span>
+                </a>
+            </li>
+        </ul>
+        <div class="nextPrevBx mt-20">
+			<a href="javascript:;" (click)="showSlide4()" class="btnNext toLeft"><img src="../assets/prev.png"> Previous</a>
+        	<a href="javascript:;" (click)="showSlide6()" class="btnNext toRight">Next <img src="../assets/next.png"></a>
+			<div class="clear"></div>
+		</div>
+    </div> -->
+</section>
+
+<!--Section 6 - Upload/Click Image And Analysing Screen -->
+<section class="slide3 slide6" [class.show]="slide6Show" *ngIf="slide6Show">
+	<video id="analysing" width="100%" height="100%" style="display: none;" autoplay muted loop>
+    <source src="./../assets/newassets/analysing-loader.mp4" type="video/mp4">
+	</video>
+  <!-- <source src="https://high-octane.in/analysing-loader.mp4" type="video/mp4"> -->
+	<div class="text-center">
+    <p class="toptitle">It's time for your</p>
+		<h1>No Makeup Selfie!</h1>
+    <div class="webcam">
+      <picture>
+        <source media="(max-width:960px)" srcset="./../assets/newassets/facescan.png">
+        <source media="(min-width:961px)" srcset="./../assets/newassets/facescan.png">
+        <img src="./../assets/newassets/facescan.png" class="video-overlay" alt="overlay">
+      </picture>
+      <webcam class="webcamUnit" [height]="height" [trigger]="triggerObservable" [allowCameraSwitch]="allowCameraSwitch"
+        [videoOptions]="videoOptions" [switchCamera]="nextWebcamObservable" (imageCapture)="handleImage($event)"
+        [imageQuality]="1" (initError)="handleInitError($event)">
+      </webcam>
+    </div>
+    <div class="bottomcurve slide6bottomcurve">
+      <img src="./../assets/newassets/uploadcurve.png" alt="bottomcurve" />
+      <div class="bottomcurve-container">
+        <div class="error" style="color: red;">{{ code }} - {{message}}</div>
+        <p class="textcolor fs-16 lh-22">Click the picture in natural light and<br />
+          keep a neutral expression</p>
+        <div class="imageCta">
+          <a href="javascript:;"><img src="../assets/newassets/uploadicon.png"><input id="imgFile" type="file" (change)="changeImage($event)"
+              accept="image/*"></a>
+          <a href="javascript:;" (click)="triggerSnapshot();"><img src="../assets/newassets/cameraicon.png"></a>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!--Section Login-->
+<section class="slide3 slideLogin" [class.show]="slideLogin" *ngIf="slideLogin">
+  <div class="topcurve">
+    <img src="./../assets/newassets/topcurve.png" alt="topcurve" />
+    <div class="topcurve-container">
+      <h1 class="mt-20">Your result is ready!</h1>
+	    <p class="fs-18 lh-22">Sign in for your analysis report</p>
+    </div>
+  </div>
+	<form [formGroup]="regForm"> 
+    <div *ngIf="dataaa">
+      <div class="registerBx">
+        <!-- <label formControlName="PushID">{{dataaa.id}}</label> -->
+        <input type="text" id="PushID" formControlName="PushID"  value="{{dataaa.id}}">
+        <input type="text" id="txtNumber" formControlName="txtNumber" placeholder="Enter Email / Mobile Number">
+        <!--<button (click)="SignIn()">Submit</button>-->
+        <a (click)="SignIn()" class="btnStyle">Submit</a>
+      </div>
+		
+		  <div class="dividerOr"><span>Or</span></div>
+		
+		  <div class="socialIcons">
+        <!--<a (click)="submitLogin()" class="btnStyle">Facebook Authentication</a>
+        <a class="btnStyle" #loginRef>Google Authentication</a>-->
+        <a (click)="submitLogin()"><img src="./../assets/fb-icon.png" alt="Facebook Icon"></a>
+        <a (click)="prepareLogin()" id="loginRef" #loginRef><img src="./../assets/google-icon.png" alt="Google Icon"></a>
+        <img src="./../assets/whatsapp-icon.png" alt="Whatsapp Icon">
+		  </div>
+		  <div class="dividerOr"><span>Or</span></div>
+      <a href="" (click)="showSlide7()" class="btnStyle">Continue as Guest</a>
+    </div>
+	</form>
+  <div class="bottomcurve slide6bottomcurve">
+    <img src="./../assets/newassets/signupbottomcurve.png" alt="bottomcurve" />
+    <div class="bottomcurve-container">
+    </div>
+  </div>
+</section>
+
+<!--Section 7 - Result-->
+<!-- <section class="slide7" [class.show]="slide7Show" *ngIf="slide7Show">
+	<div *ngIf="dataaa" class="row"  >
+        <h1>Here’s a detailed breakdown of your result…</h1>
+		<div class="c100 p{{dataaa.outputData['skin_health_score']}} big center green">
+			<span><em>{{dataaa.outputData['skin_health_score']}}%</em> <strong>Skin Health<br>Score</strong></span>
+			<div class="slice"><div class="bar"></div><div class="fill"></div></div>
+		</div>
+		<div class="clear w100"></div>
+		<div *ngFor="let use of dataaa.outputData | keyvalue">
+            <h2>{{use.value}}% <span>{{use.key}}</span></h2>
+        </div>-->
+		
+		<!-- <div class="clear"></div>
+		
+		<div class="sevenParamsBx">
+			<div class="circleUnit1 u1">
+				<span>{{dataaa.outputData['skin_dullness_percentage']}}%</span>
+				<h3>Dullness</h3>
+			</div>
+
+			<div class="circleUnit1 u2">
+				<span>{{dataaa.outputData['dark_spot_percentage']}}%</span>
+				<h3>Dark Spots</h3>
+			</div>
+			
+			<div class="circleUnit1 u3">
+				<span>{{dataaa.outputData['dark_circle_percentage']}}%</span>
+				<h3>Dark Circles</h3>
+			</div>
+
+		  <div class="col-md-6 col-sm-12 upload-image imageView text-center">
+			<img src="{{dataaa.outputImages['acne_image']}}" class="image">
+			<img src="./../assets/face-mesh.png" class="faceMesh">
+			</div>
+
+
+			<div class="circleUnit1 u4">
+				<span>{{dataaa.outputData['Smoothness']}}%</span>
+				<h3>Smoothness</h3>
+			</div>
+			
+			<div class="circleUnit1 u5">
+				<span>{{dataaa.outputData['uneven_skin_percentage']}}%</span>
+				<h3>Uneven Skin Tone</h3>
+			</div>
+			
+			<div class="circleUnit1 u6">
+				<span>{{dataaa.outputData['face_firmness_percentage']}}%</span>
+				<h3>Firmness</h3>
+			</div>
+			
+			<div class="clear"></div>
+			
+			<div class="circleUnit1 u7">
+				<span>{{dataaa.outputData['hydration_score']}}%</span>
+				<h3>Hydration Score</h3>
+			</div>
+		</div> -->
+		  
+		<!-- <div class="top3Priorities">
+			<h2>Your Top 3 Skin Priorities</h2>
+			
+			<div class="c100 p{{dataaa.outputData['hydration_score']}} small customSmall orange">
+				<span>{{dataaa.outputData['hydration_score']}}%</span>
+				<div class="slice">
+					<div class="bar"></div>
+					<div class="fill"></div>
+				</div>
+				<h3>Hydration Score</h3>
+			</div>
+			
+			<div class="c100 p{{dataaa.outputData['uneven_skin_percentage']}} small customSmall orange">
+				<span>{{dataaa.outputData['skin_dullness_percentage']}}%</span>
+				<div class="slice">
+					<div class="bar"></div>
+					<div class="fill"></div>
+				</div>
+				<h3>Dullness</h3>
+			</div>
+			
+			<div class="c100 p{{dataaa.outputData['face_firmness_percentage']}} small customSmall orange">
+				<span>{{dataaa.outputData['face_firmness_percentage']}}%</span>
+				<div class="slice">
+					<div class="bar"></div>
+					<div class="fill"></div>
+				</div>
+				<h3>Firmness</h3>
+			</div>
+
+			
+		</div> -->
+		
+		<!-- <div class="yourSkinAnlaysis" id="pdfTable" #pdfTable>
+			<h2>Your Detailed Skin Analysis Report</h2>
+			<p>Swipe to learn about each priority</p>
+			
+			<owl-carousel-o [options]="resultSlider">
+				
+					<div *ngFor="let use of dataaa.priorityInfo.topPriorities">
+						<ng-template carouselSlide>
+							<mat-tab-group>
+						  <mat-tab label="Priority">
+							<div class="tab1Content tab">
+							
+							<div class="c100 p{{use.priority_score}} small customSmall orange">
+								<span>{{use.priority_score}}%</span>
+								<div class="slice">
+									<div class="bar"></div>
+									<div class="fill"></div>
+								</div>
+								<h3>{{use.priority_name}}</h3>
+							</div>
+							<p>{{use.priority_desc}}</p>				
+							</div>	
+						  </mat-tab>
+						  <mat-tab label="Why & How To Use">
+							<div class="tab3Content tab">
+								<h6><strong>WHY</strong></h6>
+								<p>{{use.priority_prod_why}}</p>
+								<br><br>
+
+								<h6><strong>HOW</strong></h6>
+								<p>{{use.priority_prod_how}}</p>
+							</div>
+						  </mat-tab>
+						  <mat-tab label="Expert Tip">
+							<div class="tab1Content tab">
+						<ul>
+							<li>
+								<h6><strong>{{use.priority_prod_title}}</strong></h6> 
+								<p>{{use.priority_experttip}}</p>					
+								Combat signs of ageing with<br>
+								<strong>{{use.priority_prod_desc}}</strong>					
+								<img src="{{use.priority_experttip_image}}" class="prodImg">					
+								<a href="{{use.priority_prod_amazon}}"><img src="../assets/amazon.png" class="buyNowLinks"></a>
+								<a href="{{use.priority_prod_nykaa}}"><img src="../assets/nykaa.png" class="buyNowLinks"></a>
+								<!-- <img src="{{use.Priority_prod_why_image}}"> -->
+							<!-- </li>
+						</ul>
+						</div>
+						  </mat-tab>
+						</mat-tab-group>
+						</ng-template> 
+					</div>			
+				 
+	  		</owl-carousel-o> -->
+			
+            <!-- loop start -->
+            
+            <!--<div *ngFor="let use of dataaa.outputData | keyvalue">
+            <h2>{{use.value}}% <span>{{use.key}}</span></h2>
+        </div>-->
+        
+		<!-- </div> -->
+	  <!-- <div class="col-md-6 col-sm-12 thankYouWrap">
+		  
+		  <h5><img src="../assets/tick.png" class="imgTick">
+			  Thank you for taking the skin analysis!</h5>
+		  
+		  <a (click)="downloadAsPDF()" href="javascript:;" class="btnStyle">Download Report</a> -->
+		<!--<h4>Message</h4><h5><b>{{ code }}</b></h5>-->
+		 <!--<p><b>{{ code }}</b>{{message}}</p>--> 
+	  <!-- </div>
+	</div>
+</section> -->
+
+<section class="slide3 slide7" [class.show]="showSlide7" *ngIf="showSlide7">
+  <div class="topcurve">
+    <img src="./../assets/newassets/topcurve.png" alt="topcurve" />
+    <div class="topcurve-container">
+      <h1 class="mt-20">Let's go through the detailed<br />
+        breakdown of your result</h1>
+	    <section class="d-flex">
+        <div class="circle-svg large mr-10">
+          <svg class="circle-chart" viewBox="0 0 33.83098862 33.83098862" width="200" height="200" xmlns="http://www.w3.org/2000/svg">
+            <circle class="circle-chart__background" stroke="#959b90" stroke-width=".1" fill="none" cx="16.91549431" cy="16.91549431" r="15.91549431"></circle>
+            <circle class="circle-chart__circle" stroke="#acfc8f" stroke-width="2" stroke-dasharray="76,100" stroke-linecap="round" fill="none" cx="16.91549431" cy="16.91549431" r="15.91549431"></circle>
+          </svg>
+          <div class="circle-chart__info">
+            <span class="circle-chart__percent" style="color: #acfc8f">15%</span>
+          </div>
+        </div>
+        <span class="fs-18 textcolor">Skin Health<br>Score</span>
+      </section>
+    </div>
+  </div>
+  <div class="slide7content">
+    <div class="slide7content-wrapper">
+      <div class="score-wrapper">
+        <div class="sw-photopersent">
+          <img src="./../assets/newassets/Male-image.png" />
+          <div>
+            <div class="circle-svg small">
+              <svg class="circle-chart" viewBox="0 0 33.83098862 33.83098862" width="200" height="200" xmlns="http://www.w3.org/2000/svg">
+                <circle class="circle-chart__background" stroke="#959b90" stroke-width=".1" fill="none" cx="16.91549431" cy="16.91549431" r="15.91549431"></circle>
+                <circle class="circle-chart__circle" stroke="#acfc8f" stroke-width="2" stroke-dasharray="76,100" stroke-linecap="round" fill="none" cx="16.91549431" cy="16.91549431" r="15.91549431"></circle>
+              </svg>
+              <div class="circle-chart__info">
+                <span class="circle-chart__percent" style="color: #acfc8f">15%</span>
+              </div>
+            </div>
+            <div class="circle-svg small">
+              <svg class="circle-chart" viewBox="0 0 33.83098862 33.83098862" width="200" height="200" xmlns="http://www.w3.org/2000/svg">
+                <circle class="circle-chart__background" stroke="#959b90" stroke-width=".1" fill="none" cx="16.91549431" cy="16.91549431" r="15.91549431"></circle>
+                <circle class="circle-chart__circle" stroke="red" stroke-width="2" stroke-dasharray="76,100" stroke-linecap="round" fill="none" cx="16.91549431" cy="16.91549431" r="15.91549431"></circle>
+              </svg>
+              <div class="circle-chart__info">
+                <span class="circle-chart__percent" style="color: red">15%</span>
+              </div>
+            </div>
+            <div class="circle-svg small">
+              <svg class="circle-chart" viewBox="0 0 33.83098862 33.83098862" width="200" height="200" xmlns="http://www.w3.org/2000/svg">
+                <circle class="circle-chart__background" stroke="#959b90" stroke-width=".1" fill="none" cx="16.91549431" cy="16.91549431" r="15.91549431"></circle>
+                <circle class="circle-chart__circle" stroke="#acfc8f" stroke-width="2" stroke-dasharray="76,100" stroke-linecap="round" fill="none" cx="16.91549431" cy="16.91549431" r="15.91549431"></circle>
+              </svg>
+              <div class="circle-chart__info">
+                <span class="circle-chart__percent" style="color: #acfc8f">15%</span>
+              </div>
+            </div>
+            <div class="circle-svg small">
+              <svg class="circle-chart" viewBox="0 0 33.83098862 33.83098862" width="200" height="200" xmlns="http://www.w3.org/2000/svg">
+                <circle class="circle-chart__background" stroke="#959b90" stroke-width=".1" fill="none" cx="16.91549431" cy="16.91549431" r="15.91549431"></circle>
+                <circle class="circle-chart__circle" stroke="#acfc8f" stroke-width="2" stroke-dasharray="76,100" stroke-linecap="round" fill="none" cx="16.91549431" cy="16.91549431" r="15.91549431"></circle>
+              </svg>
+              <div class="circle-chart__info">
+                <span class="circle-chart__percent" style="color: #acfc8f">15%</span>
+              </div>
+            </div>
+            <div class="circle-svg small">
+              <svg class="circle-chart" viewBox="0 0 33.83098862 33.83098862" width="200" height="200" xmlns="http://www.w3.org/2000/svg">
+                <circle class="circle-chart__background" stroke="#959b90" stroke-width=".1" fill="none" cx="16.91549431" cy="16.91549431" r="15.91549431"></circle>
+                <circle class="circle-chart__circle" stroke="#acfc8f" stroke-width="2" stroke-dasharray="76,100" stroke-linecap="round" fill="none" cx="16.91549431" cy="16.91549431" r="15.91549431"></circle>
+              </svg>
+              <div class="circle-chart__info">
+                <span class="circle-chart__percent" style="color: #acfc8f">15%</span>
+              </div>
+            </div>
+            <div class="circle-svg small">
+              <svg class="circle-chart" viewBox="0 0 33.83098862 33.83098862" width="200" height="200" xmlns="http://www.w3.org/2000/svg">
+                <circle class="circle-chart__background" stroke="#959b90" stroke-width=".1" fill="none" cx="16.91549431" cy="16.91549431" r="15.91549431"></circle>
+                <circle class="circle-chart__circle" stroke="#acfc8f" stroke-width="2" stroke-dasharray="76,100" stroke-linecap="round" fill="none" cx="16.91549431" cy="16.91549431" r="15.91549431"></circle>
+              </svg>
+              <div class="circle-chart__info">
+                <span class="circle-chart__percent" style="color: #acfc8f">15%</span>
+              </div>
+            </div>
+            <div class="circle-svg small">
+              <svg class="circle-chart" viewBox="0 0 33.83098862 33.83098862" width="200" height="200" xmlns="http://www.w3.org/2000/svg">
+                <circle class="circle-chart__background" stroke="#959b90" stroke-width=".1" fill="none" cx="16.91549431" cy="16.91549431" r="15.91549431"></circle>
+                <circle class="circle-chart__circle" stroke="#acfc8f" stroke-width="2" stroke-dasharray="76,100" stroke-linecap="round" fill="none" cx="16.91549431" cy="16.91549431" r="15.91549431"></circle>
+              </svg>
+              <div class="circle-chart__info">
+                <span class="circle-chart__percent" style="color: #acfc8f">15%</span>
+              </div>
+            </div>
+          </div>
+        </div>
+        <div class="sw-colorindicator">
+          <ul>
+            <li>
+              High Priority
+            </li>
+            <li>
+              Medium Priority
+            </li>
+            <li>
+              Low Priority
+            </li>
+          </ul>
+        </div>
+      </div>
+      <div class="score-recommendation">
+        <h1>Your key skin concerns &<br /> Dermafique recommendations</h1>
+        <ul class="d-flex">
+          <li class="sr-wrapper">
+            <div class="sr-circle-wrapper">
+              <div class="circle-svg small">
+                <svg class="circle-chart" viewBox="0 0 33.83098862 33.83098862" width="200" height="200" xmlns="http://www.w3.org/2000/svg">
+                  <circle class="circle-chart__background" stroke="#959b90" stroke-width=".1" fill="none" cx="16.91549431" cy="16.91549431" r="15.91549431"></circle>
+                  <circle class="circle-chart__circle" stroke="red" stroke-width="2" stroke-dasharray="76,100" stroke-linecap="round" fill="none" cx="16.91549431" cy="16.91549431" r="15.91549431"></circle>
+                </svg>
+                <div class="circle-chart__info">
+                  <span class="circle-chart__percent" style="color: red">15%</span>
+                </div>
+              </div>
+              <span class="lh-18">Fine Lines<br />
+                & Wrinkles</span>
+            </div>
+            <div class="sr-buycard">
+              <img src="./../assets/newassets/Male-image.png" />
+              <a class="btnStyle">Buy Now →</a>
+            </div>
+          </li>
+          <li class="sr-wrapper">
+            <div class="sr-circle-wrapper">
+              <div class="circle-svg small">
+                <svg class="circle-chart" viewBox="0 0 33.83098862 33.83098862" width="200" height="200" xmlns="http://www.w3.org/2000/svg">
+                  <circle class="circle-chart__background" stroke="#959b90" stroke-width=".1" fill="none" cx="16.91549431" cy="16.91549431" r="15.91549431"></circle>
+                  <circle class="circle-chart__circle" stroke="red" stroke-width="2" stroke-dasharray="76,100" stroke-linecap="round" fill="none" cx="16.91549431" cy="16.91549431" r="15.91549431"></circle>
+                </svg>
+                <div class="circle-chart__info">
+                  <span class="circle-chart__percent" style="color: red">15%</span>
+                </div>
+              </div>
+              <span class="lh-18">Smoothness</span>
+            </div>
+            <div class="sr-buycard">
+              <img src="./../assets/newassets/Male-image.png" />
+              <a class="btnStyle">Buy Now →</a>
+            </div>
+          </li>
+          <li class="sr-wrapper">
+            <div class="sr-circle-wrapper">
+              <div class="circle-svg small">
+                <svg class="circle-chart" viewBox="0 0 33.83098862 33.83098862" width="200" height="200" xmlns="http://www.w3.org/2000/svg">
+                  <circle class="circle-chart__background" stroke="#959b90" stroke-width=".1" fill="none" cx="16.91549431" cy="16.91549431" r="15.91549431"></circle>
+                  <circle class="circle-chart__circle" stroke="red" stroke-width="2" stroke-dasharray="76,100" stroke-linecap="round" fill="none" cx="16.91549431" cy="16.91549431" r="15.91549431"></circle>
+                </svg>
+                <div class="circle-chart__info">
+                  <span class="circle-chart__percent" style="color: red">15%</span>
+                </div>
+              </div>
+              <span class="lh-18">Hyderation</span>
+            </div>
+            <div class="sr-buycard">
+              <img src="./../assets/newassets/Male-image.png" />
+              <a class="btnStyle">Buy Now →</a>
+            </div>
+          </li>
+        </ul>
+      </div>
+      <div class="skin-detailanalysis">
+        <h1>Your Detailed Skin Analysis Report</h1>
+        <div class="sd-top">
+          <section class="d-flex">
+            <div class="circle-svg medium mr-10">
+              <svg class="circle-chart" viewBox="0 0 33.83098862 33.83098862" width="200" height="200" xmlns="http://www.w3.org/2000/svg">
+                <circle class="circle-chart__background" stroke="#959b90" stroke-width=".1" fill="none" cx="16.91549431" cy="16.91549431" r="15.91549431"></circle>
+                <circle class="circle-chart__circle" stroke="red" stroke-width="2" stroke-dasharray="76,100" stroke-linecap="round" fill="none" cx="16.91549431" cy="16.91549431" r="15.91549431"></circle>
+              </svg>
+              <div class="circle-chart__info">
+                <span class="circle-chart__percent" style="color: red">15%</span>
+              </div>
+            </div>
+            <span>Your key skin concern is low hydration.</span>
+          </section>
+          <div class="sd-product">
+            <div class="sdp-left">
+              <img src="./../assets/newassets/product.png" />
+            </div>
+            <div class="sdp-right">
+              <div class="sdpr-title">Title</div>
+              <div class="sdpr-subtitle">subtitle</div>
+              <a class="btnStyle">Buy Now →</a>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="consolexpert">
+        <div class="cse-card mb-20">
+          <div class="cse-title">Concern</div>
+          <ul class="cse-content">
+            <li class="d-flex df-a-fs mb-10">
+              <div class="csec-image">
+                <img src="./../assets/newassets/concern1.png" />
+              </div>
+              <div class="csec-text">
+                <h4>How this is caused:</h4>
+                <p class="text-justify">This is usually caused by a compromised skin barrier over time, which results in transepidermal water loss (when water passively evaporates from the skin), especially in the case of dry skin. </p>
+              </div>
+            </li>
+            <li class="d-flex df-a-fs">
+              <div class="csec-image">
+                <img src="./../assets/newassets/concern2.png" />
+              </div>
+              <div class="csec-text">
+                <h4>What you need:</h4>
+                <p class="text-justify">This is usually caused by a compromised skin barrier over time, which results in transepidermal water loss (when water passively evaporates from the skin), especially in the case of dry skin. </p>
+              </div>
+            </li>
+          </ul>
+        </div>
+
+        <div class="cse-card mb-20">
+          <div class="cse-title">Solution</div>
+          <ul class="cse-content">
+            <div class="csec-text text-center mb-20">
+              <h4>How this is caused:</h4>
+              <p class="text-justify">The Dermafique Hydra Tonique Gel Crème, a lightweight daily crème that will solve your skin concern of lack of hydration. A deeply hydrating crème, it boosts and binds moisture to nourish skin, as well as maintains the skin's barrier.  Hydra Tonique Gel Crème prevents transepidermal moisture loss, and is:</p>
+            </div>
+            <li class="d-flex df-a-fs mb-10">
+              <div class="csec-image">
+                <img src="./../assets/newassets/concern1.png" />
+              </div>
+              <div class="csec-text">
+                <h4>How this is caused:</h4>
+                <p class="text-justify">This is usually caused by a compromised skin barrier over time, which results in transepidermal water loss (when water passively evaporates from the skin), especially in the case of dry skin. </p>
+              </div>
+            </li>
+            <li class="d-flex df-a-fs">
+              <div class="csec-image">
+                <img src="./../assets/newassets/concern2.png" />
+              </div>
+              <div class="csec-text">
+                <h4>What you need:</h4>
+                <p class="text-justify">This is usually caused by a compromised skin barrier over time, which results in transepidermal water loss (when water passively evaporates from the skin), especially in the case of dry skin. </p>
+              </div>
+            </li>
+          </ul>
+        </div>
+
+        <div class="cse-card mb-20">
+          <div class="cse-title">Expert Tip</div>
+          <ul class="cse-content">
+            <div class="csec-text text-center mb-20">
+              <h4>How this is caused:</h4>
+              <p class="text-justify">Dehydrated skin can be caused by seasonal changes, an unhealthy diet and lifestyle choices, such as alcohol and coffee consumption. 
+                To restore moisture to your skin, you should:</p>
+            </div>
+            <li class="d-flex df-a-fs mb-10">
+              <div class="csec-image">
+                <img src="./../assets/newassets/concern1.png" />
+              </div>
+              <div class="csec-text">
+                <h4>How this is caused:</h4>
+                <p class="text-justify">This is usually caused by a compromised skin barrier over time, which results in transepidermal water loss (when water passively evaporates from the skin), especially in the case of dry skin. </p>
+              </div>
+            </li>
+            <li class="d-flex df-a-fs">
+              <div class="csec-image">
+                <img src="./../assets/newassets/concern2.png" />
+              </div>
+              <div class="csec-text">
+                <h4>What you need:</h4>
+                <p class="text-justify">This is usually caused by a compromised skin barrier over time, which results in transepidermal water loss (when water passively evaporates from the skin), especially in the case of dry skin. </p>
+              </div>
+            </li>
+          </ul>
+        </div>
+      </div>
+      <div class="skin-healthparameters">
+        <h4 class="fs-14 text-center mb-10">Click below to view other Skin Health Parameters</h4>
+        <ul>
+          <li>Fine Lines & Wrinkles</li>
+          <li>Smoothness</li>
+          <li class="selected">Hyderation</li>
+          <li>&nbsp; + &nbsp;</li>
+        </ul>
+        <ul class="mt-10">
+          <li>Uneven Skin Tone</li>
+          <li>Dark Spots</li>
+          <li>Firmness</li>
+          <li>Dullness</li>
+        </ul>
+      </div>
+      <div class="thank-form">
+        <img src="./../assets/newassets/thankyoutick.png" />
+        <h1>
+          Thank you for taking<br />the skin analysis!
+        </h1>
+        <p>In case you haven't signed up already, please enter your details below<br /> to recieve the full report on your Phone or Email ID.</p>
+        <div class="registerBx">
+          <!-- <input type="text" id="PushID" formControlName="PushID"  value="{{dataaa.id}}"> -->
+          <input type="text" id="txtNumber" formControlName="txtNumber" placeholder="Mobile Number">
+          <input type="email" id="txtNumber" formControlName="txtNumber" placeholder="Email ID">
+          <a (click)="SignIn()" class="btnStyle">Send →</a>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
