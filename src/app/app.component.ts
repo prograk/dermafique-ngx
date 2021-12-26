@@ -221,7 +221,7 @@ export class AppComponent implements OnInit {
   private nextWebcam: Subject<boolean | string> = new Subject<boolean | string>();
 
 
-  private regForm:FormGroup;
+  public regForm:FormGroup;
   private txtNumber:FormControl;
   private PushID:FormControl;
 
@@ -333,12 +333,12 @@ export class AppComponent implements OnInit {
     this._appService.GetSkinTypes().subscribe((data: IGetSkinTypes[]) => this.GetSkinTypes = data);
 
     this.hideMe = false;
-    this.showMe = false;
+    this.showMe = true;
     this.hideUntilCalled = false;
     this.slide4Show = false;
     this.slide5Show = false;
     this.slide6Show = false;
-    this.slide7Show = true;
+    this.slide7Show = false;
     this.slideLogin = false;
 
     //   setTimeout(function() {
@@ -439,7 +439,7 @@ export class AppComponent implements OnInit {
   *  ---------------------------------
   */
 
-  public dataaa = [] as IGetResult[];
+  public dataaa = null as IGetResult;
 
   // public dataaa:any = {"id":"61c6f0319c82b100256f6679","outputData":{ "oxygen_score":68,"dark_circle_percentage":5,"dark_spot_percentage":6,"acne_percentage":4,"uneven_skin_percentage":64,"skin_dullness_percentage":11,"face_wrinkle_percentage":18,"crowsfeet_percentage":4,"eye_wrinkle_percentage":4,"face_firmness_percentage":82,"Smoothness":56,"hydration_score":67,"skin_health_score":67},"outputImages":{"acne_image":"https://sandbox.scderma.orbo.tech/api/media/skincaredermafiqresult/download/f6150a09-c878-418c-a16c-2f9b37a5d8besm-acne-sm.jpeg","face_wrinkle_image":"https://sandbox.scderma.orbo.tech/api/media/skincaredermafiqresult/download/f6150a09-c878-418c-a16c-2f9b37a5d8besm-facewrinkle-sm.jpeg","eye_wrinkle_image":"https://sandbox.scderma.orbo.tech/api/media/skincaredermafiqresult/download/f6150a09-c878-418c-a16c-2f9b37a5d8besm-eyewrinkle-sm.jpeg","crowsfeet_image":"https://sandbox.scderma.orbo.tech/api/media/skincaredermafiqresult/download/f6150a09-c878-418c-a16c-2f9b37a5d8besm-crowsfeet-sm.jpeg","skin_dullness_image":"https://sandbox.scderma.orbo.tech/api/media/skincaredermafiqresult/download/f6150a09-c878-418c-a16c-2f9b37a5d8besm-dullness-sm.jpeg","uneven_skin_image":"https://sandbox.scderma.orbo.tech/api/media/skincaredermafiqresult/download/f6150a09-c878-418c-a16c-2f9b37a5d8besm-uneven-sm.jpeg","dark_spot_image":"https://sandbox.scderma.orbo.tech/api/media/skincaredermafiqresult/download/f6150a09-c878-418c-a16c-2f9b37a5d8besm-dspot-sm.jpeg","dark_circle_image":"https://sandbox.scderma.orbo.tech/api/media/skincaredermafiqresult/download/f6150a09-c878-418c-a16c-2f9b37a5d8besm-dcircle-sm.jpeg","strength_image":"https://sandbox.scderma.orbo.tech/api/media/skincaredermafiqresult/download/f6150a09-c878-418c-a16c-2f9b37a5d8besm-strength.jpg"},"start_test":"yes","name":"","email":"","mobile":"9028272356","gender":"female","age":"20","skin_type":"5fb651ddccc0b45b856842b1","location":"Mumbai"};
 
@@ -447,12 +447,10 @@ export class AppComponent implements OnInit {
     this.code = '';
     this.message = 'Loading...';
 	  document.getElementById("analysing").style.display = "block";
-    this._appService.checkSkin(this.imgFile).subscribe((res: IGetResult[]) => {
+    this._appService.checkSkin(this.imgFile).subscribe((res: any) => {
       this.code = 'SUCCESSFUL';
       this.dataaa = res;
-      console.log(this.dataaa);
-      console.log(res);
-      this.apiId = this.dataaa['id'];      
+      this.apiId = this.dataaa.id;      
       this.message = JSON.stringify(res);
 	    this.slide6Show = false;
       this.slideLogin = true;
