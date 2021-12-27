@@ -1,27 +1,32 @@
 /* You can add global styles to this file, and also import other style files */
+@import './assets/newassets/fonts/font.css';
 
 :root {
-    --white: #ffffff;
-    --red: #de686a;
-    --pink: #ebb5bb;
-    --textcolor: #4f352e;
-    --pink-rgba: 235, 181, 178;
-    font-size: 14px;
+  --white: #ffffff;
+  --red: #de686a;
+  --pink: #ebb5bb;
+  --textcolor: #4f352e;
+  --pink-rgba: 235, 181, 178;
+  font-size: 14px;
 }
 
 html, body { height: 100%; }
-body { margin: 0; font-family: Roboto, "Helvetica Neue", sans-serif; }
+body { margin: 0; font-family: 'SF Pro Display'; }
+
+.poppins {
+  font-family: 'Poppins';
+}
 
 .c-red {
-    color: var(--red);
+  color: var(--red);
 }
 
 .c-pink {
-    color: var(--pink);
+  color: var(--pink);
 }
 
 .c-textcolor, .textcolor {
-    color: var(--textcolor);
+  color: var(--textcolor);
 }
 
 .mt-10 {

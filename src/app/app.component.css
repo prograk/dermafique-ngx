@@ -588,7 +588,8 @@ p.bottomdesc {
 }
 
 .sw-photopersent {
-  width: 90%;
+  /* width: 90%; */
+  width: 351px;
   padding: 70px 80px 80px 50px;
   border: 3px solid var(--white);
   border-radius: 100%;
@@ -639,6 +640,8 @@ p.bottomdesc {
   width: 100%;
   background: #f6dbdd;
   border-radius: 100%;
+  object-fit: cover;
+  aspect-ratio: 1/1;
 }
 
 .sw-colorindicator ul {
@@ -764,6 +767,8 @@ p.bottomdesc {
 
 .consolexpert {
   padding: 20px;
+  display: flex;
+  flex-direction: column;
 }
 
 .cse-title {
@@ -782,7 +787,7 @@ p.bottomdesc {
 }
 
 .csec-image img {
-  padding: 20px;
+  padding: 14px;
   max-width: 65px;
   border: 1px solid var(--red);
   border-radius: 10px;

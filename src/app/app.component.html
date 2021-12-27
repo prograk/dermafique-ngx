@@ -180,7 +180,7 @@
         <div class="nextPrevBx mt-20">
           <a href="" (click)="showSlide4()" class="onboardingSkip">
             Next →
-            <!-- <img src="../assets/next.png"> -->
+            <!-- <img src="assets/next.png"> -->
           </a>
           <div class="clear"></div>
         </div>
@@ -238,7 +238,7 @@
         <div class="nextPrevBx mt-20">
           <a href="" (click)="showSlide5()" class="onboardingSkip">
             Next →
-            <!-- <img src="../assets/next.png"> -->
+            <!-- <img src="assets/next.png"> -->
           </a>
           <div class="clear"></div>
         </div>
@@ -282,8 +282,8 @@
             </li>
         </ul>
         <div class="nextPrevBx mt-20">
-			<a href="javascript:;" (click)="showSlide3()" class="btnNext toLeft"><img src="../assets/prev.png"> Previous</a>
-        	<a href="javascript:;" (click)="showSlide5()" class="btnNext toRight">Next <img src="../assets/next.png"></a>
+			<a href="javascript:;" (click)="showSlide3()" class="btnNext toLeft"><img src="assets/prev.png"> Previous</a>
+        	<a href="javascript:;" (click)="showSlide5()" class="btnNext toRight">Next <img src="assets/next.png"></a>
 			<div class="clear"></div>
 		</div>
     </div>
@@ -303,7 +303,7 @@
 			<div *ngIf="GetSkinTypes">
 				<div>
 					<owl-carousel-o [options]="skinSlider" (changed)="getSkinData($event)">
-						<ng-template carouselSlide *ngFor="let type of GetSkinTypes" [id]="type.id">
+						<ng-template carouselSlide *ngFor="let type of GetSkinTypes" [id]="type.code">
 							<div class="{{type.title}}">
 								<!-- <input type="radio" id="{{type.id}}" [(ngModel)]="skinSelected" value="{{type.title}}" #tradio1 name="skinType" value="oily" (change)="Change($event, tradio1)"> -->
 								<label for="{{type.id}}">
@@ -326,14 +326,14 @@
       <ul>
         <li>
             <a href="javascript:;" (click)="showSlide3()">
-                <strong>1</strong>
-                <span>Gender</span>
+              <strong>1</strong>
+              <span>Gender</span>
             </a>
         </li>
         <li>
             <a href="javascript:;" (click)="showSlide4()">
-                <strong>2</strong>
-                <span>Age</span>
+              <strong>2</strong>
+              <span>Age</span>
             </a>
         </li>
         <li>
@@ -342,7 +342,7 @@
                 <span>Skin Type</span>
             </a>
         </li>
-    </ul>
+      </ul>
       <div class="nextPrevBx mt-20">
         <a href="" (click)="showSlide5()" class="onboardingSkip">
           ← Previous 
@@ -353,7 +353,7 @@
         <div class="clear"></div>
       </div>
     </div>
-</div>
+  </div>
     <!-- <div class="steps1to3">
         <ul>
             <li>
@@ -376,8 +376,8 @@
             </li>
         </ul>
         <div class="nextPrevBx mt-20">
-			<a href="javascript:;" (click)="showSlide4()" class="btnNext toLeft"><img src="../assets/prev.png"> Previous</a>
-        	<a href="javascript:;" (click)="showSlide6()" class="btnNext toRight">Next <img src="../assets/next.png"></a>
+			<a href="javascript:;" (click)="showSlide4()" class="btnNext toLeft"><img src="assets/prev.png"> Previous</a>
+        	<a href="javascript:;" (click)="showSlide6()" class="btnNext toRight">Next <img src="assets/next.png"></a>
 			<div class="clear"></div>
 		</div>
     </div> -->
@@ -410,9 +410,10 @@
         <p class="textcolor fs-16 lh-22">Click the picture in natural light and<br />
           keep a neutral expression</p>
         <div class="imageCta">
-          <a href="javascript:;"><img src="../assets/newassets/uploadicon.png"><input id="imgFile" type="file" (change)="changeImage($event)"
-              accept="image/*"></a>
-          <a href="javascript:;" (click)="triggerSnapshot();"><img src="../assets/newassets/cameraicon.png"></a>
+          <a href="javascript:;"><img src="assets/newassets/uploadicon.png">
+            <input id="imgFile" type="file" (change)="changeImage($event)" accept="image/*">
+          </a>
+          <a href="javascript:;" (click)="triggerSnapshot();"><img src="assets/newassets/cameraicon.png"></a>
         </div>
       </div>
     </div>
@@ -593,8 +594,8 @@
 								Combat signs of ageing with<br>
 								<strong>{{use.priority_prod_desc}}</strong>					
 								<img src="{{use.priority_experttip_image}}" class="prodImg">					
-								<a href="{{use.priority_prod_amazon}}"><img src="../assets/amazon.png" class="buyNowLinks"></a>
-								<a href="{{use.priority_prod_nykaa}}"><img src="../assets/nykaa.png" class="buyNowLinks"></a>
+								<a href="{{use.priority_prod_amazon}}"><img src="assets/amazon.png" class="buyNowLinks"></a>
+								<a href="{{use.priority_prod_nykaa}}"><img src="assets/nykaa.png" class="buyNowLinks"></a>
 								<!-- <img src="{{use.Priority_prod_why_image}}"> -->
 							<!-- </li>
 						</ul>
@@ -615,7 +616,7 @@
 		<!-- </div> -->
 	  <!-- <div class="col-md-6 col-sm-12 thankYouWrap">
 		  
-		  <h5><img src="../assets/tick.png" class="imgTick">
+		  <h5><img src="assets/tick.png" class="imgTick">
 			  Thank you for taking the skin analysis!</h5>
 		  
 		  <a (click)="downloadAsPDF()" href="javascript:;" class="btnStyle">Download Report</a> -->
@@ -625,308 +626,434 @@
 	</div>
 </section> -->
 
-<section class="slide3 slide7" [class.show]="showSlide7" *ngIf="showSlide7">
-  <div class="topcurve">
-    <img src="assets/newassets/topcurve.png" alt="topcurve" />
-    <div class="topcurve-container">
-      <h1 class="mt-20">Let's go through the detailed<br />
-        breakdown of your result</h1>
-	    <section class="d-flex">
-        <div class="circle-svg large mr-10">
-          <svg class="circle-chart" viewBox="0 0 33.83098862 33.83098862" width="200" height="200" xmlns="http://www.w3.org/2000/svg">
-            <circle class="circle-chart__background" stroke="#959b90" stroke-width=".1" fill="none" cx="16.91549431" cy="16.91549431" r="15.91549431"></circle>
-            <circle class="circle-chart__circle" stroke="#acfc8f" stroke-width="2" stroke-dasharray="76,100" stroke-linecap="round" fill="none" cx="16.91549431" cy="16.91549431" r="15.91549431"></circle>
-          </svg>
-          <div class="circle-chart__info">
-            <span class="circle-chart__percent" style="color: #acfc8f">15%</span>
-          </div>
-        </div>
-        <span class="fs-18 textcolor">Skin Health<br>Score</span>
-      </section>
-    </div>
-  </div>
-  <div class="slide7content">
-    <div class="slide7content-wrapper">
-      <div class="score-wrapper">
-        <div class="sw-photopersent">
-          <img src="assets/newassets/Male-image.png" />
-          <div>
-            <div class="circle-svg small">
-              <svg class="circle-chart" viewBox="0 0 33.83098862 33.83098862" width="200" height="200" xmlns="http://www.w3.org/2000/svg">
-                <circle class="circle-chart__background" stroke="#959b90" stroke-width=".1" fill="none" cx="16.91549431" cy="16.91549431" r="15.91549431"></circle>
-                <circle class="circle-chart__circle" stroke="#acfc8f" stroke-width="2" stroke-dasharray="76,100" stroke-linecap="round" fill="none" cx="16.91549431" cy="16.91549431" r="15.91549431"></circle>
-              </svg>
-              <div class="circle-chart__info">
-                <span class="circle-chart__percent" style="color: #acfc8f">15%</span>
-              </div>
-            </div>
-            <div class="circle-svg small">
-              <svg class="circle-chart" viewBox="0 0 33.83098862 33.83098862" width="200" height="200" xmlns="http://www.w3.org/2000/svg">
-                <circle class="circle-chart__background" stroke="#959b90" stroke-width=".1" fill="none" cx="16.91549431" cy="16.91549431" r="15.91549431"></circle>
-                <circle class="circle-chart__circle" stroke="red" stroke-width="2" stroke-dasharray="76,100" stroke-linecap="round" fill="none" cx="16.91549431" cy="16.91549431" r="15.91549431"></circle>
-              </svg>
-              <div class="circle-chart__info">
-                <span class="circle-chart__percent" style="color: red">15%</span>
-              </div>
-            </div>
-            <div class="circle-svg small">
-              <svg class="circle-chart" viewBox="0 0 33.83098862 33.83098862" width="200" height="200" xmlns="http://www.w3.org/2000/svg">
-                <circle class="circle-chart__background" stroke="#959b90" stroke-width=".1" fill="none" cx="16.91549431" cy="16.91549431" r="15.91549431"></circle>
-                <circle class="circle-chart__circle" stroke="#acfc8f" stroke-width="2" stroke-dasharray="76,100" stroke-linecap="round" fill="none" cx="16.91549431" cy="16.91549431" r="15.91549431"></circle>
-              </svg>
-              <div class="circle-chart__info">
-                <span class="circle-chart__percent" style="color: #acfc8f">15%</span>
-              </div>
-            </div>
-            <div class="circle-svg small">
-              <svg class="circle-chart" viewBox="0 0 33.83098862 33.83098862" width="200" height="200" xmlns="http://www.w3.org/2000/svg">
-                <circle class="circle-chart__background" stroke="#959b90" stroke-width=".1" fill="none" cx="16.91549431" cy="16.91549431" r="15.91549431"></circle>
-                <circle class="circle-chart__circle" stroke="#acfc8f" stroke-width="2" stroke-dasharray="76,100" stroke-linecap="round" fill="none" cx="16.91549431" cy="16.91549431" r="15.91549431"></circle>
-              </svg>
-              <div class="circle-chart__info">
-                <span class="circle-chart__percent" style="color: #acfc8f">15%</span>
-              </div>
-            </div>
-            <div class="circle-svg small">
-              <svg class="circle-chart" viewBox="0 0 33.83098862 33.83098862" width="200" height="200" xmlns="http://www.w3.org/2000/svg">
-                <circle class="circle-chart__background" stroke="#959b90" stroke-width=".1" fill="none" cx="16.91549431" cy="16.91549431" r="15.91549431"></circle>
-                <circle class="circle-chart__circle" stroke="#acfc8f" stroke-width="2" stroke-dasharray="76,100" stroke-linecap="round" fill="none" cx="16.91549431" cy="16.91549431" r="15.91549431"></circle>
-              </svg>
-              <div class="circle-chart__info">
-                <span class="circle-chart__percent" style="color: #acfc8f">15%</span>
-              </div>
-            </div>
-            <div class="circle-svg small">
-              <svg class="circle-chart" viewBox="0 0 33.83098862 33.83098862" width="200" height="200" xmlns="http://www.w3.org/2000/svg">
-                <circle class="circle-chart__background" stroke="#959b90" stroke-width=".1" fill="none" cx="16.91549431" cy="16.91549431" r="15.91549431"></circle>
-                <circle class="circle-chart__circle" stroke="#acfc8f" stroke-width="2" stroke-dasharray="76,100" stroke-linecap="round" fill="none" cx="16.91549431" cy="16.91549431" r="15.91549431"></circle>
-              </svg>
-              <div class="circle-chart__info">
-                <span class="circle-chart__percent" style="color: #acfc8f">15%</span>
-              </div>
-            </div>
-            <div class="circle-svg small">
-              <svg class="circle-chart" viewBox="0 0 33.83098862 33.83098862" width="200" height="200" xmlns="http://www.w3.org/2000/svg">
-                <circle class="circle-chart__background" stroke="#959b90" stroke-width=".1" fill="none" cx="16.91549431" cy="16.91549431" r="15.91549431"></circle>
-                <circle class="circle-chart__circle" stroke="#acfc8f" stroke-width="2" stroke-dasharray="76,100" stroke-linecap="round" fill="none" cx="16.91549431" cy="16.91549431" r="15.91549431"></circle>
-              </svg>
-              <div class="circle-chart__info">
-                <span class="circle-chart__percent" style="color: #acfc8f">15%</span>
-              </div>
+<section class="slide3 slide7" [class.show]="slide7Show" *ngIf="slide7Show">
+  <!-- <ng-template *ngIf="dataaa !== null"> -->
+    <div class="topcurve">
+      <img src="assets/newassets/topcurve.png" alt="topcurve" />
+      <div class="topcurve-container">
+        <h1 class="mt-20">Let's go through the detailed<br />
+          breakdown of your result</h1>
+        <section class="d-flex">
+          <div class="circle-svg large mr-10">
+            <svg class="circle-chart" viewBox="0 0 33.83098862 33.83098862" width="200" height="200" xmlns="http://www.w3.org/2000/svg">
+              <circle class="circle-chart__background" stroke="#959b90" stroke-width=".1" fill="none" cx="16.91549431" cy="16.91549431" r="15.91549431"></circle>
+              <circle class="circle-chart__circle main" 
+                stroke-width="2"
+                [attr.stroke]="colorMap['G']"
+                [attr.stroke-dasharray]="dataaa.outputData.skin_health_score + ', 100'" 
+                stroke-linecap="round" fill="none" cx="16.91549431" cy="16.91549431" r="15.91549431"></circle>
+            </svg>
+            <div class="circle-chart__info">
+              <span class="circle-chart__percent" [style.color]="colorMap['G']">{{dataaa.outputData.skin_health_score}}%</span>
             </div>
           </div>
-        </div>
-        <div class="sw-colorindicator">
-          <ul>
-            <li>
-              High Priority
-            </li>
-            <li>
-              Medium Priority
-            </li>
-            <li>
-              Low Priority
-            </li>
-          </ul>
-        </div>
-      </div>
-      <div class="score-recommendation">
-        <h1>Your key skin concerns &<br /> Dermafique recommendations</h1>
-        <ul class="d-flex">
-          <li class="sr-wrapper">
-            <div class="sr-circle-wrapper">
-              <div class="circle-svg small">
-                <svg class="circle-chart" viewBox="0 0 33.83098862 33.83098862" width="200" height="200" xmlns="http://www.w3.org/2000/svg">
-                  <circle class="circle-chart__background" stroke="#959b90" stroke-width=".1" fill="none" cx="16.91549431" cy="16.91549431" r="15.91549431"></circle>
-                  <circle class="circle-chart__circle" stroke="red" stroke-width="2" stroke-dasharray="76,100" stroke-linecap="round" fill="none" cx="16.91549431" cy="16.91549431" r="15.91549431"></circle>
-                </svg>
-                <div class="circle-chart__info">
-                  <span class="circle-chart__percent" style="color: red">15%</span>
-                </div>
-              </div>
-              <span class="lh-18">Fine Lines<br />
-                & Wrinkles</span>
-            </div>
-            <div class="sr-buycard">
-              <img src="assets/newassets/Male-image.png" />
-              <a class="btnStyle">Buy Now →</a>
-            </div>
-          </li>
-          <li class="sr-wrapper">
-            <div class="sr-circle-wrapper">
-              <div class="circle-svg small">
-                <svg class="circle-chart" viewBox="0 0 33.83098862 33.83098862" width="200" height="200" xmlns="http://www.w3.org/2000/svg">
-                  <circle class="circle-chart__background" stroke="#959b90" stroke-width=".1" fill="none" cx="16.91549431" cy="16.91549431" r="15.91549431"></circle>
-                  <circle class="circle-chart__circle" stroke="red" stroke-width="2" stroke-dasharray="76,100" stroke-linecap="round" fill="none" cx="16.91549431" cy="16.91549431" r="15.91549431"></circle>
-                </svg>
-                <div class="circle-chart__info">
-                  <span class="circle-chart__percent" style="color: red">15%</span>
-                </div>
-              </div>
-              <span class="lh-18">Smoothness</span>
-            </div>
-            <div class="sr-buycard">
-              <img src="assets/newassets/Male-image.png" />
-              <a class="btnStyle">Buy Now →</a>
-            </div>
-          </li>
-          <li class="sr-wrapper">
-            <div class="sr-circle-wrapper">
-              <div class="circle-svg small">
-                <svg class="circle-chart" viewBox="0 0 33.83098862 33.83098862" width="200" height="200" xmlns="http://www.w3.org/2000/svg">
-                  <circle class="circle-chart__background" stroke="#959b90" stroke-width=".1" fill="none" cx="16.91549431" cy="16.91549431" r="15.91549431"></circle>
-                  <circle class="circle-chart__circle" stroke="red" stroke-width="2" stroke-dasharray="76,100" stroke-linecap="round" fill="none" cx="16.91549431" cy="16.91549431" r="15.91549431"></circle>
-                </svg>
-                <div class="circle-chart__info">
-                  <span class="circle-chart__percent" style="color: red">15%</span>
-                </div>
-              </div>
-              <span class="lh-18">Hyderation</span>
-            </div>
-            <div class="sr-buycard">
-              <img src="assets/newassets/Male-image.png" />
-              <a class="btnStyle">Buy Now →</a>
-            </div>
-          </li>
-        </ul>
-      </div>
-      <div class="skin-detailanalysis">
-        <h1>Your Detailed Skin Analysis Report</h1>
-        <div class="sd-top">
-          <section class="d-flex">
-            <div class="circle-svg medium mr-10">
-              <svg class="circle-chart" viewBox="0 0 33.83098862 33.83098862" width="200" height="200" xmlns="http://www.w3.org/2000/svg">
-                <circle class="circle-chart__background" stroke="#959b90" stroke-width=".1" fill="none" cx="16.91549431" cy="16.91549431" r="15.91549431"></circle>
-                <circle class="circle-chart__circle" stroke="red" stroke-width="2" stroke-dasharray="76,100" stroke-linecap="round" fill="none" cx="16.91549431" cy="16.91549431" r="15.91549431"></circle>
-              </svg>
-              <div class="circle-chart__info">
-                <span class="circle-chart__percent" style="color: red">15%</span>
-              </div>
-            </div>
-            <span>Your key skin concern is low hydration.</span>
-          </section>
-          <div class="sd-product">
-            <div class="sdp-left">
-              <img src="assets/newassets/product.png" />
-            </div>
-            <div class="sdp-right">
-              <div class="sdpr-title">Title</div>
-              <div class="sdpr-subtitle">subtitle</div>
-              <a class="btnStyle">Buy Now →</a>
-            </div>
-          </div>
-        </div>
-      </div>
-      <div class="consolexpert">
-        <div class="cse-card mb-20">
-          <div class="cse-title">Concern</div>
-          <ul class="cse-content">
-            <li class="d-flex df-a-fs mb-10">
-              <div class="csec-image">
-                <img src="assets/newassets/concern1.png" />
-              </div>
-              <div class="csec-text">
-                <h4>How this is caused:</h4>
-                <p class="text-justify">This is usually caused by a compromised skin barrier over time, which results in transepidermal water loss (when water passively evaporates from the skin), especially in the case of dry skin. </p>
-              </div>
-            </li>
-            <li class="d-flex df-a-fs">
-              <div class="csec-image">
-                <img src="assets/newassets/concern2.png" />
-              </div>
-              <div class="csec-text">
-                <h4>What you need:</h4>
-                <p class="text-justify">This is usually caused by a compromised skin barrier over time, which results in transepidermal water loss (when water passively evaporates from the skin), especially in the case of dry skin. </p>
-              </div>
-            </li>
-          </ul>
-        </div>
-
-        <div class="cse-card mb-20">
-          <div class="cse-title">Solution</div>
-          <ul class="cse-content">
-            <div class="csec-text text-center mb-20">
-              <h4>How this is caused:</h4>
-              <p class="text-justify">The Dermafique Hydra Tonique Gel Crème, a lightweight daily crème that will solve your skin concern of lack of hydration. A deeply hydrating crème, it boosts and binds moisture to nourish skin, as well as maintains the skin's barrier.  Hydra Tonique Gel Crème prevents transepidermal moisture loss, and is:</p>
-            </div>
-            <li class="d-flex df-a-fs mb-10">
-              <div class="csec-image">
-                <img src="assets/newassets/concern1.png" />
-              </div>
-              <div class="csec-text">
-                <h4>How this is caused:</h4>
-                <p class="text-justify">This is usually caused by a compromised skin barrier over time, which results in transepidermal water loss (when water passively evaporates from the skin), especially in the case of dry skin. </p>
-              </div>
-            </li>
-            <li class="d-flex df-a-fs">
-              <div class="csec-image">
-                <img src="assets/newassets/concern2.png" />
-              </div>
-              <div class="csec-text">
-                <h4>What you need:</h4>
-                <p class="text-justify">This is usually caused by a compromised skin barrier over time, which results in transepidermal water loss (when water passively evaporates from the skin), especially in the case of dry skin. </p>
-              </div>
-            </li>
-          </ul>
-        </div>
-
-        <div class="cse-card mb-20">
-          <div class="cse-title">Expert Tip</div>
-          <ul class="cse-content">
-            <div class="csec-text text-center mb-20">
-              <h4>How this is caused:</h4>
-              <p class="text-justify">Dehydrated skin can be caused by seasonal changes, an unhealthy diet and lifestyle choices, such as alcohol and coffee consumption. 
-                To restore moisture to your skin, you should:</p>
-            </div>
-            <li class="d-flex df-a-fs mb-10">
-              <div class="csec-image">
-                <img src="assets/newassets/concern1.png" />
-              </div>
-              <div class="csec-text">
-                <h4>How this is caused:</h4>
-                <p class="text-justify">This is usually caused by a compromised skin barrier over time, which results in transepidermal water loss (when water passively evaporates from the skin), especially in the case of dry skin. </p>
-              </div>
-            </li>
-            <li class="d-flex df-a-fs">
-              <div class="csec-image">
-                <img src="assets/newassets/concern2.png" />
-              </div>
-              <div class="csec-text">
-                <h4>What you need:</h4>
-                <p class="text-justify">This is usually caused by a compromised skin barrier over time, which results in transepidermal water loss (when water passively evaporates from the skin), especially in the case of dry skin. </p>
-              </div>
-            </li>
-          </ul>
-        </div>
-      </div>
-      <div class="skin-healthparameters">
-        <h4 class="fs-14 text-center mb-10">Click below to view other Skin Health Parameters</h4>
-        <ul>
-          <li>Fine Lines & Wrinkles</li>
-          <li>Smoothness</li>
-          <li class="selected">Hyderation</li>
-          <li>&nbsp; + &nbsp;</li>
-        </ul>
-        <ul class="mt-10">
-          <li>Uneven Skin Tone</li>
-          <li>Dark Spots</li>
-          <li>Firmness</li>
-          <li>Dullness</li>
-        </ul>
-      </div>
-      <div class="thank-form">
-        <img src="assets/newassets/thankyoutick.png" />
-        <h1>
-          Thank you for taking<br />the skin analysis!
-        </h1>
-        <p>In case you haven't signed up already, please enter your details below<br /> to recieve the full report on your Phone or Email ID.</p>
-        <div class="registerBx">
-          <!-- <input type="text" id="PushID" formControlName="PushID"  value="{{dataaa.id}}"> -->
-          <input type="text" id="txtNumber" formControlName="txtNumber" placeholder="Mobile Number">
-          <input type="email" id="txtNumber" formControlName="txtNumber" placeholder="Email ID">
-          <a (click)="SignIn()" class="btnStyle">Send →</a>
-        </div>
+          <span class="fs-18 textcolor">Skin Health<br>Score</span>
+        </section>
       </div>
     </div>
-  </div>
+    <div class="slide7content">
+      <div class="slide7content-wrapper">
+        <div class="score-wrapper">
+          <div class="sw-photopersent">
+            <img [src]="dataaa.outputImages.strength_image" />
+            <div>
+              <div class="circle-svg small">
+                <svg class="circle-chart" viewBox="0 0 33.83098862 33.83098862" width="200" height="200" xmlns="http://www.w3.org/2000/svg">
+                  <circle class="circle-chart__background" stroke="#959b90" stroke-width=".1" fill="none" cx="16.91549431" cy="16.91549431" r="15.91549431"></circle>
+                  <circle class="circle-chart__circle" 
+                    stroke-width="2"
+                    [attr.stroke]="colorMap[dataaa.outputData.face_firmness_percentage_color_code]"  
+                    [attr.stroke-dasharray]="dataaa.outputData.face_firmness_percentage + ', 100'" 
+                    stroke-linecap="round" fill="none" cx="16.91549431" cy="16.91549431" r="15.91549431"></circle></svg>
+                <div class="circle-chart__info">
+                  <span class="circle-chart__percent" [style.color]="colorMap[dataaa.outputData.face_firmness_percentage_color_code]">{{dataaa.outputData.face_firmness_percentage}}%</span>
+                </div>
+                <!-- <span>Firmness</span> -->
+              </div>
+              <div class="circle-svg small">
+                <svg class="circle-chart" viewBox="0 0 33.83098862 33.83098862" width="200" height="200" xmlns="http://www.w3.org/2000/svg">
+                  <circle class="circle-chart__background" stroke="#959b90" stroke-width=".1" fill="none" cx="16.91549431" cy="16.91549431" r="15.91549431"></circle>
+                  <circle class="circle-chart__circle" 
+                    stroke-width="2"
+                    [attr.stroke]="colorMap[dataaa.outputData.Smoothness_color_code]"  
+                    [attr.stroke-dasharray]="dataaa.outputData.Smoothness + ', 100'" 
+                    stroke-linecap="round" fill="none" cx="16.91549431" cy="16.91549431" r="15.91549431"></circle></svg>
+                <div class="circle-chart__info">
+                  <span class="circle-chart__percent" [style.color]="colorMap[dataaa.outputData.Smoothness_color_code]">{{dataaa.outputData.Smoothness}}%</span>
+                </div>
+              </div>
+              <div class="circle-svg small">
+                <svg class="circle-chart" viewBox="0 0 33.83098862 33.83098862" width="200" height="200" xmlns="http://www.w3.org/2000/svg">
+                  <circle class="circle-chart__background" stroke="#959b90" stroke-width=".1" fill="none" cx="16.91549431" cy="16.91549431" r="15.91549431"></circle>
+                  <circle class="circle-chart__circle" 
+                    stroke-width="2"
+                    [attr.stroke]="colorMap[dataaa.outputData.hydration_score_color_code]"  
+                    [attr.stroke-dasharray]="dataaa.outputData.hydration_score + ', 100'" 
+                    stroke-linecap="round" fill="none" cx="16.91549431" cy="16.91549431" r="15.91549431"></circle></svg>
+                <div class="circle-chart__info">
+                  <span class="circle-chart__percent" [style.color]="colorMap[dataaa.outputData.hydration_score_color_code]">{{dataaa.outputData.hydration_score}}%</span>
+                </div>
+              </div>
+              <div class="circle-svg small">
+                <svg class="circle-chart" viewBox="0 0 33.83098862 33.83098862" width="200" height="200" xmlns="http://www.w3.org/2000/svg">
+                  <circle class="circle-chart__background" stroke="#959b90" stroke-width=".1" fill="none" cx="16.91549431" cy="16.91549431" r="15.91549431"></circle>
+                  <circle class="circle-chart__circle" 
+                    stroke-width="2"
+                    [attr.stroke]="colorMap[dataaa.outputData.skin_dullness_percentage_color_code]"  
+                    [attr.stroke-dasharray]="dataaa.outputData.skin_dullness_percentage + ', 100'" 
+                    stroke-linecap="round" fill="none" cx="16.91549431" cy="16.91549431" r="15.91549431"></circle></svg>
+                <div class="circle-chart__info">
+                  <span class="circle-chart__percent" [style.color]="colorMap[dataaa.outputData.skin_dullness_percentage_color_code]">{{dataaa.outputData.skin_dullness_percentage}}%</span>
+                </div>
+              </div>
+              <div class="circle-svg small">
+                <svg class="circle-chart" viewBox="0 0 33.83098862 33.83098862" width="200" height="200" xmlns="http://www.w3.org/2000/svg">
+                  <circle class="circle-chart__background" stroke="#959b90" stroke-width=".1" fill="none" cx="16.91549431" cy="16.91549431" r="15.91549431"></circle>
+                  <circle class="circle-chart__circle" 
+                    stroke-width="2"
+                    [attr.stroke]="colorMap[dataaa.outputData.uneven_skin_percentage_color_code]"  
+                    [attr.stroke-dasharray]="dataaa.outputData.uneven_skin_percentage + ', 100'" 
+                    stroke-linecap="round" fill="none" cx="16.91549431" cy="16.91549431" r="15.91549431"></circle></svg>
+                <div class="circle-chart__info">
+                  <span class="circle-chart__percent" [style.color]="colorMap[dataaa.outputData.uneven_skin_percentage_color_code]">{{dataaa.outputData.uneven_skin_percentage}}%</span>
+                </div>
+              </div>
+              <div class="circle-svg small">
+                <svg class="circle-chart" viewBox="0 0 33.83098862 33.83098862" width="200" height="200" xmlns="http://www.w3.org/2000/svg">
+                  <circle class="circle-chart__background" stroke="#959b90" stroke-width=".1" fill="none" cx="16.91549431" cy="16.91549431" r="15.91549431"></circle>
+                  <circle class="circle-chart__circle" 
+                    stroke-width="2"
+                    [attr.stroke]="colorMap[dataaa.outputData.face_wrinkle_percentage_color_code]"  
+                    [attr.stroke-dasharray]="dataaa.outputData.face_wrinkle_percentage + ', 100'" 
+                    stroke-linecap="round" fill="none" cx="16.91549431" cy="16.91549431" r="15.91549431"></circle></svg>
+                <div class="circle-chart__info">
+                  <span class="circle-chart__percent" [style.color]="colorMap[dataaa.outputData.face_wrinkle_percentage_color_code]">{{dataaa.outputData.face_wrinkle_percentage}}%</span>
+                </div>
+              </div>
+              <div class="circle-svg small">
+                <svg class="circle-chart" viewBox="0 0 33.83098862 33.83098862" width="200" height="200" xmlns="http://www.w3.org/2000/svg">
+                  <circle class="circle-chart__background" stroke="#959b90" stroke-width=".1" fill="none" cx="16.91549431" cy="16.91549431" r="15.91549431"></circle>
+                  <circle class="circle-chart__circle" 
+                    stroke-width="2"
+                    [attr.stroke]="colorMap[dataaa.outputData.dark_spot_percentage_color_code]"  
+                    [attr.stroke-dasharray]="dataaa.outputData.dark_spot_percentage + ', 100'" 
+                    stroke-linecap="round" fill="none" cx="16.91549431" cy="16.91549431" r="15.91549431"></circle></svg>
+                <div class="circle-chart__info">
+                  <span class="circle-chart__percent" [style.color]="colorMap[dataaa.outputData.dark_spot_percentage_color_code]">{{dataaa.outputData.dark_spot_percentage}}%</span>
+                </div>
+              </div>
+            </div>
+          </div>
+          <div class="sw-colorindicator">
+            <ul>
+              <li>
+                High Priority
+              </li>
+              <li>
+                Medium Priority
+              </li>
+              <li>
+                Low Priority
+              </li>
+            </ul>
+          </div>
+        </div>
+        <!-- <div class="score-recommendation">
+          <h1>Your key skin concerns &<br /> Dermafique recommendations</h1>
+          <h1>{{data.priority_product_info.skin_analysis_report}}</h1>
+          <ul class="d-flex">
+            <li class="sr-wrapper">
+              <div class="sr-circle-wrapper">
+                <div class="circle-svg small">
+                  <svg class="circle-chart" viewBox="0 0 33.83098862 33.83098862" width="200" height="200" xmlns="http://www.w3.org/2000/svg">
+                    <circle class="circle-chart__background" stroke="#959b90" stroke-width=".1" fill="none" cx="16.91549431" cy="16.91549431" r="15.91549431"></circle>
+                    <circle class="circle-chart__circle" 
+                      stroke-width="2"
+                      [attr.stroke]="colorMap[dataaa.outputData.skin_health_score_color_code]"  
+                      [attr.stroke-dasharray]="dataaa.outputData.skin_health_score + ', 100'" 
+                      stroke-linecap="round" fill="none" cx="16.91549431" cy="16.91549431" r="15.91549431"></circle></svg>
+                  <div class="circle-chart__info">
+                    <span class="circle-chart__percent" style="color: red">15%</span>
+                  </div>
+                </div>
+                <span class="lh-18">Fine Lines<br />
+                  & Wrinkles</span>
+              </div>
+              <div class="sr-buycard">
+                <img src="assets/newassets/Male-image.png" />
+                <a class="btnStyle">Buy Now →</a>
+              </div>
+            </li>
+            <li class="sr-wrapper">
+              <div class="sr-circle-wrapper">
+                <div class="circle-svg small">
+                  <svg class="circle-chart" viewBox="0 0 33.83098862 33.83098862" width="200" height="200" xmlns="http://www.w3.org/2000/svg">
+                    <circle class="circle-chart__background" stroke="#959b90" stroke-width=".1" fill="none" cx="16.91549431" cy="16.91549431" r="15.91549431"></circle>
+                    <circle class="circle-chart__circle" 
+                stroke-width="2"
+                [attr.stroke]="colorMap[dataaa.outputData.skin_health_score_color_code]"  
+                [attr.stroke-dasharray]="dataaa.outputData.skin_health_score + ', 100'" 
+                stroke-linecap="round" fill="none" cx="16.91549431" cy="16.91549431" r="15.91549431"></circle></svg>
+                  <div class="circle-chart__info">
+                    <span class="circle-chart__percent" style="color: red">15%</span>
+                  </div>
+                </div>
+                <span class="lh-18">Smoothness</span>
+              </div>
+              <div class="sr-buycard">
+                <img src="assets/newassets/Male-image.png" />
+                <a class="btnStyle">Buy Now →</a>
+              </div>
+            </li>
+            <li class="sr-wrapper">
+              <div class="sr-circle-wrapper">
+                <div class="circle-svg small">
+                  <svg class="circle-chart" viewBox="0 0 33.83098862 33.83098862" width="200" height="200" xmlns="http://www.w3.org/2000/svg">
+                    <circle class="circle-chart__background" stroke="#959b90" stroke-width=".1" fill="none" cx="16.91549431" cy="16.91549431" r="15.91549431"></circle>
+                    <circle class="circle-chart__circle" 
+                stroke-width="2"
+                [attr.stroke]="colorMap[dataaa.outputData.skin_health_score_color_code]"  
+                [attr.stroke-dasharray]="dataaa.outputData.skin_health_score + ', 100'" 
+                stroke-linecap="round" fill="none" cx="16.91549431" cy="16.91549431" r="15.91549431"></circle></svg>
+                  <div class="circle-chart__info">
+                    <span class="circle-chart__percent" style="color: red">15%</span>
+                  </div>
+                </div>
+                <span class="lh-18">Hyderation</span>
+              </div>
+              <div class="sr-buycard">
+                <img src="assets/newassets/Male-image.png" />
+                <a class="btnStyle">Buy Now →</a>
+              </div>
+            </li>
+          </ul>
+        </div> -->
+
+        <ng-container *ngIf="{ data: skinResultSelected } as selectedVal">
+          <div class="skin-detailanalysis mt-20">
+            <h1>Your Detailed Skin Analysis Report</h1>
+              <div class="sd-top">
+                <section class="d-flex mt-20 mb-10">
+                  <div class="circle-svg medium mr-10">
+                    <svg class="circle-chart" viewBox="0 0 33.83098862 33.83098862" width="200" height="200" xmlns="http://www.w3.org/2000/svg">
+                      <circle class="circle-chart__background" stroke="#959b90" stroke-width=".1" fill="none" cx="16.91549431" cy="16.91549431" r="15.91549431"></circle>
+                      <circle class="circle-chart__circle" 
+                        stroke-width="2"
+                        [attr.stroke]="colorMap[selectedVal.data.priority_color_code]"  
+                        [attr.stroke-dasharray]="selectedVal.data.priority_score + ', 100'"
+                        stroke-linecap="round" fill="none" cx="16.91549431" cy="16.91549431" r="15.91549431"></circle></svg>
+                    <div class="circle-chart__info">
+                      <span class="circle-chart__percent" [style.color]="colorMap[selectedVal.data.priority_color_code]">
+                        {{selectedVal.data.priority_score}}%
+                      </span>
+                    </div>
+                  </div>
+                  <span>{{selectedVal.data.priority_product_info.skin_analysis_report}}</span>
+                </section>
+                <div class="sd-product mb-20">
+                  <div class="sdp-left">
+                    <img [src]="selectedVal.data.priority_product_info.product_image_thumbnail" />
+                  </div>
+                  <div class="sdp-right">
+                    <div class="sdpr-title">{{selectedVal.data.priority_product_info.product_name}}</div>
+                    <div class="sdpr-subtitle">{{selectedVal.data.priority_product_info.product_desc}}</div>
+                    <a class="btnStyle">Buy Now →</a>
+                  </div>
+                </div>
+              </div>
+          </div>
+          <div class="consolexpert">
+            <div class="cse-card mb-20 mt-20">
+              <div class="cse-title">Concern</div>
+              <ul class="cse-content">
+                <li class="d-flex df-a-fs mb-10">
+                  <div class="csec-image">
+                    <img [src]="selectedVal.data.priority_product_info.how_this_is_caused_image" />
+                  </div>
+                  <div class="csec-text">
+                    <h4>How this is caused:</h4>
+                    <p class="text-justify">
+                      {{selectedVal.data.priority_product_info.how_this_is_caused_1}}
+                      {{selectedVal.data.priority_product_info.how_this_is_caused_2}}
+                      {{selectedVal.data.priority_product_info.how_this_is_caused_3}}
+                      {{selectedVal.data.priority_product_info.how_this_is_caused_4}}
+                    </p>
+                  </div>
+                </li>
+                <li class="d-flex df-a-fs">
+                  <div class="csec-image">
+                    <img [src]="selectedVal.data.priority_product_info.what_you_need_image" />
+                  </div>
+                  <div class="csec-text">
+                    <h4>What you need:</h4>
+                    <p class="text-justify">
+                      {{selectedVal.data.priority_product_info.what_you_need_point_1}}
+                      {{selectedVal.data.priority_product_info.what_you_need_point_2}}
+                    </p>
+                  </div>
+                </li>
+              </ul>
+            </div>
+
+            <div class="cse-card mb-20 mt-20">
+              <div class="cse-title">Solution</div>
+              <ul class="cse-content">
+                <div class="csec-text text-center mb-20">
+                  <!-- <h4>How this is caused:</h4> -->
+                  <p class="text-justify">{{selectedVal.data.priority_product_info.solution_recommends}}</p>
+                </div>
+                <li class="d-flex df-a-fs mb-10">
+                  <div class="csec-image">
+                    <img [src]="selectedVal.data.priority_product_info.solution_point_1_image" />
+                  </div>
+                  <div class="csec-text">
+                    <!-- <h4>How this is caused:</h4> -->
+                    <p class="text-justify">
+                      {{selectedVal.data.priority_product_info.solution_point_1}}
+                    </p>
+                  </div>
+                </li>
+                <li class="d-flex df-a-fs mb-10">
+                  <div class="csec-image">
+                    <img [src]="selectedVal.data.priority_product_info.solution_point_2_image" />
+                  </div>
+                  <div class="csec-text">
+                    <!-- <h4>How this is caused:</h4> -->
+                    <p class="text-justify">
+                      {{selectedVal.data.priority_product_info.solution_point_2}}
+                    </p>
+                  </div>
+                </li>
+                <li class="d-flex df-a-fs mb-10">
+                  <div class="csec-image">
+                    <img [src]="selectedVal.data.priority_product_info.solution_point_3_image" />
+                  </div>
+                  <div class="csec-text">
+                    <!-- <h4>How this is caused:</h4> -->
+                    <p class="text-justify">
+                      {{selectedVal.data.priority_product_info.solution_point_3}}
+                    </p>
+                  </div>
+                </li>
+                <li class="d-flex df-a-fs mb-10">
+                  <div class="csec-image">
+                    <img [src]="selectedVal.data.priority_product_info.solution_point_4_image" />
+                  </div>
+                  <div class="csec-text">
+                    <!-- <h4>How this is caused:</h4> -->
+                    <p class="text-justify">
+                      {{selectedVal.data.priority_product_info.solution_point_4}}
+                    </p>
+                  </div>
+                </li>
+                <li class="d-flex df-a-fs">
+                  <div class="csec-image">
+                    <img src="assets/newassets/concern2.png" />
+                  </div>
+                  <div class="csec-text">
+                    <!-- <h4>What you need:</h4> -->
+                    <p class="text-justify">This is usually caused by a compromised skin barrier over time, which results in transepidermal water loss (when water passively evaporates from the skin), especially in the case of dry skin. </p>
+                  </div>
+                </li>
+                <div class="csec-text text-center mt-20">
+                  <!-- <h4>How this is caused:</h4> -->
+                  <p class="text-justify">{{selectedVal.data.priority_product_info.solution_concluding_paragraph}}</p>
+                </div>
+              </ul>
+            </div>
+
+            <div class="cse-card mb-20 mt-20">
+              <div class="cse-title">Expert Tip</div>
+              <ul class="cse-content">
+                <!-- <div class="csec-text text-center mb-20">
+                  <h4>How this is caused:</h4>
+                  <p class="text-justify">{{selectedVal.data.priority_product_info.expert_tip}}</p>
+                </div> -->
+                <li class="d-flex df-a-fs mb-10">
+                  <div class="csec-image">
+                    <img [src]="selectedVal.data.priority_product_info.expert_tip_point_1_image" />
+                  </div>
+                  <div class="csec-text">
+                    <!-- <h4>How this is caused:</h4> -->
+                    <p class="text-justify">{{selectedVal.data.priority_product_info.expert_tip_point_1}}</p>
+                  </div>
+                </li>
+                <li class="d-flex df-a-fs mb-10">
+                  <div class="csec-image">
+                    <img [src]="selectedVal.data.priority_product_info.expert_tip_point_2_image" />
+                  </div>
+                  <div class="csec-text">
+                    <!-- <h4>How this is caused:</h4> -->
+                    <p class="text-justify">{{selectedVal.data.priority_product_info.expert_tip_point_2}}</p>
+                  </div>
+                </li>
+                <li class="d-flex df-a-fs mb-10">
+                  <div class="csec-image">
+                    <img [src]="selectedVal.data.priority_product_info.expert_tip_point_3_image" />
+                  </div>
+                  <div class="csec-text">
+                    <!-- <h4>How this is caused:</h4> -->
+                    <p class="text-justify">{{selectedVal.data.priority_product_info.expert_tip_point_3}}</p>
+                  </div>
+                </li>
+                <li class="d-flex df-a-fs mb-10">
+                  <div class="csec-image">
+                    <img [src]="selectedVal.data.priority_product_info.expert_tip_point_4_image" />
+                  </div>
+                  <div class="csec-text">
+                    <!-- <h4>How this is caused:</h4> -->
+                    <p class="text-justify">{{selectedVal.data.priority_product_info.expert_tip_point_4}}</p>
+                  </div>
+                </li>
+                <li class="d-flex df-a-fs mb-10">
+                  <div class="csec-image">
+                    <img [src]="selectedVal.data.priority_product_info.expert_tip_point_5_image" />
+                  </div>
+                  <div class="csec-text">
+                    <!-- <h4>How this is caused:</h4> -->
+                    <p class="text-justify">{{selectedVal.data.priority_product_info.expert_tip_point_5}}</p>
+                  </div>
+                </li>
+                <div class="csec-text text-center mt-20">
+                  <!-- <h4>How this is caused:</h4> -->
+                  <p class="text-justify">{{selectedVal.data.priority_product_info.expert_tip_concluding_paragraph}}</p>
+                </div>
+              </ul>
+            </div>
+          </div>
+        </ng-container>
+        <ng-container *ngIf="{ dataArr: dataaa.priorityInfo.topPriorities } as topPriorities">
+          <div class="skin-healthparameters mb-20">
+            <h4 class="fs-14 text-center mb-10">Click below to view other Skin Health Parameters</h4>
+            <ul>
+              <ng-container *ngFor="let data of topPriorities.dataArr; let i = index">
+                <ng-container *ngIf="i < 3">
+                  <li [class.selected]="i === 0">{{data.priority_name}}</li>
+                </ng-container>
+              </ng-container>
+              <li>&nbsp; + &nbsp;</li>
+            </ul>
+            <ul class="mt-10">
+              <ng-container *ngFor="let data of topPriorities.dataArr; let i = index">
+                <ng-container *ngIf="i > 2">
+                  <li>{{data.priority_name}}</li>
+                </ng-container>
+              </ng-container>
+            </ul>
+          </div>
+        </ng-container>
+        <!-- <div class="thank-form">
+          <img src="assets/newassets/thankyoutick.png" />
+          <h1>
+            Thank you for taking<br />the skin analysis!
+          </h1>
+          <p>In case you haven't signed up already, please enter your details below<br /> to recieve the full report on your Phone or Email ID.</p>
+          <div class="registerBx">
+            <input type="text" id="txtNumber" formControlName="txtNumber" placeholder="Mobile Number">
+            <input type="email" id="txtNumber" formControlName="txtNumber" placeholder="Email ID">
+            <a (click)="SignIn()" class="btnStyle">Send →</a>
+          </div>
+        </div> -->
+      </div>
+    </div>
 </section>

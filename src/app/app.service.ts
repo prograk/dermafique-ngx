@@ -10,19 +10,24 @@ import { IGetSkinTypes } from './GetSkinTypes';
 
 export class AppService {
 
-  readonly rootUrl = 'https://sandbox.scderma.orbo.tech/api';
-  // readonly rootUrl = 'https://skincaredemo.orbo.ai/api';
-  readonly clientKey = 'ngpfRN7dJXT2EEmxrVAPXF7a0JKQoOiQxLbdzLfJBIDMu3hoqKKvgrBNO9k53ruv';
+  // readonly rootUrl = 'https://sandbox.scderma.orbo.tech/api';
+  // readonly clientKey = 'ngpfRN7dJXT2EEmxrVAPXF7a0JKQoOiQxLbdzLfJBIDMu3hoqKKvgrBNO9k53ruv';
+
+  readonly rootUrl = 'https://skincaredemo.orbo.ai/api';
+  readonly clientKey = 'IOS9B6E7369D7D0CCE2002101AA32CD5EA4078A182CF491C7452487195B801D63E7';
 
   constructor(private _http: HttpClient) { }
 
-  checkSkin(image): Observable<IGetResult[]> {
+  checkSkin(image, skinType, age): Observable<IGetResult[]> {
     const form = new FormData();
-    form.append('image', image);
+    form.append('image', image, image.name);
+    form.append('skinType', skinType);
+    form.append('age', age);
     const options = {
       reportProgress: true
     };
-    return this._http.post<IGetResult[]>(this.rootUrl + '/media/skincaredermafiq/upload?clientkey=' + this.clientKey, form, options);
+    // return this._http.post<IGetResult[]>(this.rootUrl + '/media/skincaredermafiq/upload?clientkey=' + this.clientKey, form, options);
+    return this._http.post<any[]>(this.rootUrl + '/media/skinanalysis/upload?clientkey=' + this.clientKey, form, options);
   }
 
   public GetSkinTypes() : Observable<IGetSkinTypes[]> {
