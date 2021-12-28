@@ -2102,7 +2102,7 @@ section.slideLogin{
   }
 }
 
-@media screen and (max-width: 360px) {
+@media screen and (max-width: 420px) {
   .btnStyle > img {
     max-width: 14px;
     margin-right: 2px;

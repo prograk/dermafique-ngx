@@ -678,7 +678,7 @@
                     </div>
                     <div class="csec-text">
                       <h4>How this is caused:</h4>
-                      <p class="text-justify">
+                      <p class="">
                         <ng-container *ngFor="let point of concern.c.causes.points">
                           {{point}}
                         </ng-container>
@@ -691,7 +691,7 @@
                     </div>
                     <div class="csec-text">
                       <h4>What you need:</h4>
-                      <p class="text-justify">
+                      <p class="">
                         <ng-container *ngFor="let point of concern.c.needs.points">
                           {{point}}
                         </ng-container>
@@ -707,7 +707,7 @@
               <ng-container *ngIf="{ s: selectedVal.data.priority_product_info.solution } as solution">
                 <ul class="cse-content">
                   <div class="csec-text text-center mb-20">
-                    <p class="text-justify">{{solution.s.solution_recommends}}</p>
+                    <p class="">{{solution.s.solution_recommends}}</p>
                   </div>
                   <ng-container *ngFor="let point of solution.s.points">
                     <li class="d-flex df-a-fs mb-10">
@@ -715,14 +715,14 @@
                         <img [src]="point.image" />
                       </div>
                       <div class="csec-text">
-                        <p class="text-justify">
+                        <p class="">
                           {{point.point}}
                         </p>
                       </div>
                     </li>
                   </ng-container>
                   <div class="csec-text text-center mt-20">
-                    <p class="text-justify">{{solution.s.solution_concluding_paragraph}}</p>
+                    <p class="">{{solution.s.solution_concluding_paragraph}}</p>
                   </div>
                 </ul>
               </ng-container>
@@ -734,7 +734,7 @@
                 <ul class="cse-content">
                   <div class="csec-text text-center mb-20">
                     <h4>How this is caused:</h4>
-                    <p class="text-justify">{{expert.e.expert_tip}}</p>
+                    <p class="">{{expert.e.expert_tip}}</p>
                   </div>
                   <ng-container *ngFor="let point of expert.e.points">
                     <li class="d-flex df-a-fs mb-10">
@@ -742,12 +742,12 @@
                         <img [src]="point.image" />
                       </div>
                       <div class="csec-text">
-                        <p class="text-justify">{{point.point}}</p>
+                        <p class="">{{point.point}}</p>
                       </div>
                     </li>
                   </ng-container>
                   <div class="csec-text text-center mt-20">
-                    <p class="text-justify">{{expert.e.expert_tip_concluding_paragraph}}</p>
+                    <p class="">{{expert.e.expert_tip_concluding_paragraph}}</p>
                   </div>
                 </ul>
               </ng-container>
