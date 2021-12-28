@@ -225,7 +225,7 @@ label.termsprivacy input:checked + span:before {
 
 .slide3.show {
   display: flex;
-  animation: showAnimate .3s linear;
+  animation: showAnimate .5s linear;
 }
 
 @keyframes showAnimate {
