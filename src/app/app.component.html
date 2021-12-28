@@ -488,7 +488,7 @@
     </div>
     <div class="slide7content">
       <div class="slide7content-wrapper">
-        <!-- <div class="score-wrapper">
+        <div class="score-wrapper">
           <div class="sw-photopersent">
             <img [src]="url" />
             <div>
@@ -598,7 +598,7 @@
               </li>
             </ul>
           </div>
-        </div> -->
+        </div>
         <!-- <div class="score-recommendation">
           <h1>Your key skin concerns &<br /> Dermafique recommendations</h1>
           <h1>{{data.priority_product_info.skin_analysis_report}}</h1>
@@ -670,9 +670,9 @@
           </ul>
         </div> -->
 
-        <!-- <ng-container *ngIf="{ data: skinResultSelected } as selectedVal">
+        <ng-container *ngIf="{ data: skinResultSelected } as selectedVal">
           <div class="skin-detailanalysis mt-20">
-            <h1>Your Detailed Skin Analysis Report</h1>
+            <h2>Your Detailed Skin Analysis Report</h2>
               <div class="sd-top">
                 <section class="d-flex mt-20 mb-10">
                   <div class="circle-svg medium mr-10">
@@ -689,16 +689,16 @@
                       </span>
                     </div>
                   </div>
-                  <span>{{selectedVal.data.priority_product_info.skin_analysis_report}}</span>
+                  <span class="fs-16 lh-22 textcolor">{{selectedVal.data.priority_product_info.skin_analysis_report}}</span>
                 </section>
                 <div class="sd-product mb-20">
-                  <div class="sdp-left">
+                  <div class="sdp-left pr-20">
                     <img [src]="selectedVal.data.priority_product_info.product_image_thumbnail" />
                   </div>
                   <div class="sdp-right">
                     <div class="sdpr-title">{{selectedVal.data.priority_product_info.product_name}}</div>
                     <div class="sdpr-subtitle">{{selectedVal.data.priority_product_info.product_desc}}</div>
-                    <a class="btnStyle">Buy Now →</a>
+                    <a class="btnStyle" target="_blank" [href]="selectedVal.data.priority_product_info.product_link">Buy Now →</a>
                   </div>
                 </div>
               </div>
@@ -706,147 +706,87 @@
           <div class="consolexpert">
             <div class="cse-card mb-20 mt-20">
               <div class="cse-title">Concern</div>
-              <ul class="cse-content">
-                <li class="d-flex df-a-fs mb-10">
-                  <div class="csec-image">
-                    <img [src]="selectedVal.data.priority_product_info.how_this_is_caused_image" />
-                  </div>
-                  <div class="csec-text">
-                    <h4>How this is caused:</h4>
-                    <p class="text-justify">
-                      {{selectedVal.data.priority_product_info.how_this_is_caused_1}}
-                      {{selectedVal.data.priority_product_info.how_this_is_caused_2}}
-                      {{selectedVal.data.priority_product_info.how_this_is_caused_3}}
-                      {{selectedVal.data.priority_product_info.how_this_is_caused_4}}
-                    </p>
-                  </div>
-                </li>
-                <li class="d-flex df-a-fs">
-                  <div class="csec-image">
-                    <img [src]="selectedVal.data.priority_product_info.what_you_need_image" />
-                  </div>
-                  <div class="csec-text">
-                    <h4>What you need:</h4>
-                    <p class="text-justify">
-                      {{selectedVal.data.priority_product_info.what_you_need_point_1}}
-                      {{selectedVal.data.priority_product_info.what_you_need_point_2}}
-                    </p>
-                  </div>
-                </li>
-              </ul>
+              <ng-container *ngIf="{ c: selectedVal.data.priority_product_info.concerns } as concern">
+                <ul class="cse-content">
+                  <li class="d-flex df-a-fs mb-10">
+                    <div class="csec-image">
+                      <img [src]="concern.c.causes.image" />
+                    </div>
+                    <div class="csec-text">
+                      <h4>How this is caused:</h4>
+                      <p class="text-justify">
+                        <ng-container *ngFor="let point of concern.c.causes.points">
+                          {{point}}
+                        </ng-container>
+                      </p>
+                    </div>
+                  </li>
+                  <li class="d-flex df-a-fs">
+                    <div class="csec-image">
+                      <img [src]="concern.c.needs.image" />
+                    </div>
+                    <div class="csec-text">
+                      <h4>What you need:</h4>
+                      <p class="text-justify">
+                        <ng-container *ngFor="let point of concern.c.needs.points">
+                          {{point}}
+                        </ng-container>
+                      </p>
+                    </div>
+                  </li>
+                </ul>
+              </ng-container>
             </div>
 
             <div class="cse-card mb-20 mt-20">
               <div class="cse-title">Solution</div>
-              <ul class="cse-content">
-                <div class="csec-text text-center mb-20">
-                  <p class="text-justify">{{selectedVal.data.priority_product_info.solution_recommends}}</p>
-                </div>
-                <li class="d-flex df-a-fs mb-10">
-                  <div class="csec-image">
-                    <img [src]="selectedVal.data.priority_product_info.solution_point_1_image" />
+              <ng-container *ngIf="{ s: selectedVal.data.priority_product_info.solution } as solution">
+                <ul class="cse-content">
+                  <div class="csec-text text-center mb-20">
+                    <p class="text-justify">{{solution.s.solution_recommends}}</p>
                   </div>
-                  <div class="csec-text">
-                    <p class="text-justify">
-                      {{selectedVal.data.priority_product_info.solution_point_1}}
-                    </p>
+                  <ng-container *ngFor="let point of solution.s.points">
+                    <li class="d-flex df-a-fs mb-10">
+                      <div class="csec-image">
+                        <img [src]="point.image" />
+                      </div>
+                      <div class="csec-text">
+                        <p class="text-justify">
+                          {{point.point}}
+                        </p>
+                      </div>
+                    </li>
+                  </ng-container>
+                  <div class="csec-text text-center mt-20">
+                    <p class="text-justify">{{solution.s.solution_concluding_paragraph}}</p>
                   </div>
-                </li>
-                <li class="d-flex df-a-fs mb-10">
-                  <div class="csec-image">
-                    <img [src]="selectedVal.data.priority_product_info.solution_point_2_image" />
-                  </div>
-                  <div class="csec-text">
-                    <p class="text-justify">
-                      {{selectedVal.data.priority_product_info.solution_point_2}}
-                    </p>
-                  </div>
-                </li>
-                <li class="d-flex df-a-fs mb-10">
-                  <div class="csec-image">
-                    <img [src]="selectedVal.data.priority_product_info.solution_point_3_image" />
-                  </div>
-                  <div class="csec-text">
-                    <p class="text-justify">
-                      {{selectedVal.data.priority_product_info.solution_point_3}}
-                    </p>
-                  </div>
-                </li>
-                <li class="d-flex df-a-fs mb-10">
-                  <div class="csec-image">
-                    <img [src]="selectedVal.data.priority_product_info.solution_point_4_image" />
-                  </div>
-                  <div class="csec-text">
-                    <p class="text-justify">
-                      {{selectedVal.data.priority_product_info.solution_point_4}}
-                    </p>
-                  </div>
-                </li>
-                <li class="d-flex df-a-fs">
-                  <div class="csec-image">
-                    <img src="assets/newassets/concern2.png" />
-                  </div>
-                  <div class="csec-text">
-                    <p class="text-justify">This is usually caused by a compromised skin barrier over time, which results in transepidermal water loss (when water passively evaporates from the skin), especially in the case of dry skin. </p>
-                  </div>
-                </li>
-                <div class="csec-text text-center mt-20">
-                  <p class="text-justify">{{selectedVal.data.priority_product_info.solution_concluding_paragraph}}</p>
-                </div>
-              </ul>
+                </ul>
+              </ng-container>
             </div>
 
             <div class="cse-card mb-20 mt-20">
               <div class="cse-title">Expert Tip</div>
-              <ul class="cse-content">
-                <div class="csec-text text-center mb-20">
-                  <h4>How this is caused:</h4>
-                  <p class="text-justify">{{selectedVal.data.priority_product_info.expert_tip}}</p>
-                </div>
-                <li class="d-flex df-a-fs mb-10">
-                  <div class="csec-image">
-                    <img [src]="selectedVal.data.priority_product_info.expert_tip_point_1_image" />
+              <ng-container *ngIf="{ e: selectedVal.data.priority_product_info.expert } as expert">
+                <ul class="cse-content">
+                  <div class="csec-text text-center mb-20">
+                    <h4>How this is caused:</h4>
+                    <p class="text-justify">{{expert.e.expert_tip}}</p>
                   </div>
-                  <div class="csec-text">
-                    <p class="text-justify">{{selectedVal.data.priority_product_info.expert_tip_point_1}}</p>
+                  <ng-container *ngFor="let point of expert.e.points">
+                    <li class="d-flex df-a-fs mb-10">
+                      <div class="csec-image">
+                        <img [src]="point.image" />
+                      </div>
+                      <div class="csec-text">
+                        <p class="text-justify">{{point.point}}</p>
+                      </div>
+                    </li>
+                  </ng-container>
+                  <div class="csec-text text-center mt-20">
+                    <p class="text-justify">{{expert.e.expert_tip_concluding_paragraph}}</p>
                   </div>
-                </li>
-                <li class="d-flex df-a-fs mb-10">
-                  <div class="csec-image">
-                    <img [src]="selectedVal.data.priority_product_info.expert_tip_point_2_image" />
-                  </div>
-                  <div class="csec-text">
-                    <p class="text-justify">{{selectedVal.data.priority_product_info.expert_tip_point_2}}</p>
-                  </div>
-                </li>
-                <li class="d-flex df-a-fs mb-10">
-                  <div class="csec-image">
-                    <img [src]="selectedVal.data.priority_product_info.expert_tip_point_3_image" />
-                  </div>
-                  <div class="csec-text">
-                    <p class="text-justify">{{selectedVal.data.priority_product_info.expert_tip_point_3}}</p>
-                  </div>
-                </li>
-                <li class="d-flex df-a-fs mb-10">
-                  <div class="csec-image">
-                    <img [src]="selectedVal.data.priority_product_info.expert_tip_point_4_image" />
-                  </div>
-                  <div class="csec-text">
-                    <p class="text-justify">{{selectedVal.data.priority_product_info.expert_tip_point_4}}</p>
-                  </div>
-                </li>
-                <li class="d-flex df-a-fs mb-10">
-                  <div class="csec-image">
-                    <img [src]="selectedVal.data.priority_product_info.expert_tip_point_5_image" />
-                  </div>
-                  <div class="csec-text">
-                    <p class="text-justify">{{selectedVal.data.priority_product_info.expert_tip_point_5}}</p>
-                  </div>
-                </li>
-                <div class="csec-text text-center mt-20">
-                  <p class="text-justify">{{selectedVal.data.priority_product_info.expert_tip_concluding_paragraph}}</p>
-                </div>
-              </ul>
+                </ul>
+              </ng-container>
             </div>
           </div>
         </ng-container>
@@ -856,32 +796,36 @@
             <ul>
               <ng-container *ngFor="let data of topPriorities.dataArr; let i = index">
                 <ng-container *ngIf="i < 3">
-                  <li [class.selected]="i === 0">{{data.priority_name}}</li>
+                  <li [class.selected]="activeResultTab === data.priority_name" (click)="ActiveTab($event, data.priority_name)">{{data.priority_name}}</li>
                 </ng-container>
               </ng-container>
-              <li>&nbsp; + &nbsp;</li>
+              <li (click)="ShowRestTabFn()" [class.selected]="showRestTabs">&nbsp; + &nbsp;</li>
             </ul>
-            <ul class="mt-10">
-              <ng-container *ngFor="let data of topPriorities.dataArr; let i = index">
-                <ng-container *ngIf="i > 2">
-                  <li>{{data.priority_name}}</li>
+            <ng-template [ngIf]="showRestTabs">
+              <ul>
+                <ng-container *ngFor="let data of topPriorities.dataArr; let i = index">
+                  <ng-container *ngIf="i > 2">
+                    <li [class.selected]="activeResultTab === data.priority_name" (click)="ActiveTab($event, data.priority_name)">{{data.priority_name}}</li>
+                  </ng-container>
                 </ng-container>
-              </ng-container>
-            </ul>
+              </ul>
+            </ng-template>
           </div>
-        </ng-container> -->
-        <div class="thank-form">
+        </ng-container>
+        <!-- <div class="thank-form">
           <img src="assets/newassets/thankyoutick.png" />
           <h1>
             Thank you for taking<br />the skin analysis!
           </h1>
           <p>In case you haven't signed up already, please enter your details below<br /> to recieve the full report on your Phone or Email ID.</p>
-          <div class="registerBx">
-            <input type="text" id="txtThankYouNumber" formControlName="txtThankYouNumber" placeholder="Mobile Number">
-            <input type="email" id="txtThankYouEmail" formControlName="txtThankYouEmail" placeholder="Email ID">
-            <a (click)="ThankYou()" class="btnStyle">Send →</a>
-          </div>
-        </div>
+          <form [formGroup]="regForm"> 
+            <div class="registerBx">
+              <input type="text" id="txtThankYouNumber" formControlName="txtThankYouNumber" placeholder="Mobile Number">
+              <input type="email" id="txtThankYouEmail" formControlName="txtThankYouEmail" placeholder="Email ID">
+              <a (click)="ThankYou()" class="btnStyle">Send →</a>
+            </div>
+          </form>
+        </div> -->
       </div>
     </div>
 </section>

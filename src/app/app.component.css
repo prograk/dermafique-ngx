@@ -250,7 +250,17 @@ label.termsprivacy input:checked + span:before {
   font-size: 24px;
   font-weight: 500;
   margin-bottom: 10px;
+  white-space: nowrap;
 }
+.slide3 h2 {
+  text-align: center; 
+  color: var(--red);
+  font-size: 20px;
+  font-weight: 500;
+  margin-bottom: 10px;
+  white-space: nowrap;
+}
+
 .slide3 .owl-item{display: inline-block; width: 48%; margin: 1em auto; text-align: center;}
 .slide3 .owl-item img{width: 100%;}
 .slide3 .owl-item h3{font-size: 1em; text-align: center; font-style: italic; padding-top: 3em;}
@@ -325,6 +335,8 @@ section.slide3 {
 
 section.slide7 {
   background: url(./../assets/newassets/responsepagebg.png) 0 no-repeat;
+  background-position: 100% 0;
+  background-size: contain;
   height: unset;
 }
 
@@ -564,6 +576,11 @@ p.bottomdesc {
   margin-bottom: 0.2em;
 }
 
+ul.cse-content {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+}
 
 .slide7 .yourSkinAnlaysis p{
 	font-size: 1em; text-align: center;
@@ -613,11 +630,11 @@ p.bottomdesc {
 .sw-photopersent {
   /* width: 90%; */
   width: 351px;
-  padding: 70px 80px 80px 50px;
+  padding: 80px;
   border: 3px solid var(--white);
   border-radius: 100%;
-  margin-left: -30px;
-  margin-top: -200px;
+  margin-left: -60px;
+  margin-top: -190px;
   position: relative;
 }
 
@@ -641,26 +658,26 @@ p.bottomdesc {
 
 .sw-photopersent > div .circle-svg:nth-child(4) {
   top: 245px;
-  right: -5px;
+  right: 5px;
 }
 
 .sw-photopersent > div .circle-svg:nth-child(5) {
-  top: 300px;
-  right: 35px;
-}
-
-.sw-photopersent > div .circle-svg:nth-child(5) > span, .sw-photopersent > div .circle-svg:nth-child(6) > span {
-  bottom: -35px;
+  top: 290px;
+  right: 48px;
 }
 
 .sw-photopersent > div .circle-svg:nth-child(6) {
-  top: 335px;
-  right: 90px;
+  top: 315px;
+  right: 105px;
 }
 
 .sw-photopersent > div .circle-svg:nth-child(7) {
   top: 350px;
-  right: 160px;
+  right: 170px;
+}
+
+.sw-photopersent > div .circle-svg:nth-child(5) > span, .sw-photopersent > div .circle-svg:nth-child(6) > span {
+  bottom: -35px;
 }
 
 .sw-photopersent img {
@@ -671,6 +688,10 @@ p.bottomdesc {
   aspect-ratio: 1/1;
 }
 
+.sw-colorindicator {
+  margin-top: 100px;
+}
+
 .sw-colorindicator ul {
   margin-top: 70px;
   display: flex;
@@ -679,7 +700,7 @@ p.bottomdesc {
 }
 
 .sw-colorindicator ul li {
-  max-width: 70px;
+  width: 70px;
   text-align: center;
   line-height: 17px;
 }
@@ -811,6 +832,7 @@ p.bottomdesc {
   top: -25px;
   left: 50%;
   transform: translateX(-50%);
+  font-family: poppins;
 }
 
 .csec-image img {
@@ -840,7 +862,7 @@ p.bottomdesc {
   border-radius: 100px;
   color: var(--red);
   font-weight: bold;
-  margin: 0 2px !important;
+  margin: 0 2px 10px !important;
 }
 
 .skin-healthparameters li.selected {
@@ -1854,7 +1876,7 @@ section.slideLogin{
 /* .slideLogin h1{text-align: center; font-size: 1.5em; color: #5b5a5a;} */
 .slideLogin #PushID{width: 0; padding: 0; border: 0; height: 0; position: relative; z-index: -1;}
 #txtNumber{border-radius: 100px; border: 1px solid #ccc; margin-bottom: 1em; display: block; width: 100%;}
-.slideLogin .btnStyle{margin-bottom: 0; text-align: center;}
+.slideLogin .btnStyle{ margin-bottom: 0; text-align: center; }
 .slideLogin .btnStyle, .slideLogin input {
   display: block;
   text-align: center;
@@ -1933,6 +1955,8 @@ section.slideLogin{
   display: flex;
   padding: 14px 44px;
   border-radius: 20px;
+  font-family: 'poppins';
+  white-space: nowrap;
 }
 
 .slide7 .c100 strong{
