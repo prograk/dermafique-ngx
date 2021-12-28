@@ -16,6 +16,9 @@ export class AppService {
   readonly rootUrl = 'https://skincaredemo.orbo.ai/api';
   readonly clientKey = 'IOS9B6E7369D7D0CCE2002101AA32CD5EA4078A182CF491C7452487195B801D63E7';
 
+  // readonly rootUrl = 'https://smartskinadvisor.orbo.tech/api';
+  // readonly clientKey = 'IOS9B6E7369D7D0CCE2002101AA32CD5EA4078A182CF491C7452487195B801D63E7';
+
   constructor(private _http: HttpClient) { }
 
   checkSkin(image, skinType, age): Observable<IGetResult[]> {
@@ -46,7 +49,7 @@ export class AppService {
       gender: gender,
       age: age,
       skin_type: skinType,
-      location: "Mumbai" 
+      location: "" 
     }, options);
   }
 }

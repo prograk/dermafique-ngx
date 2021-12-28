@@ -69,10 +69,19 @@ section{
 .onboarding {
   position: relative;
   height: 100%;
+  background-color: #fff3f4;
+}
+
+.onboarding ::ng-deep .owl-carousel .owl-stage-outer {
+  overflow: visible;
 }
 
 .onboarding.lastSlide ::ng-deep .owl-dots {
   display: none;
+}
+
+.onboarding ::ng-deep .owl-theme {
+  position: unset;
 }
 
 .onboarding ::ng-deep .owl-dots {
@@ -99,6 +108,8 @@ section{
   background-color: rgba(var(--pink-rgba), .5);
   color: var(--red);
   border-radius: 100px;
+  height: 30px;
+  width: 30px;
 }
 
 .onboarding ::ng-deep .owl-nav .owl-prev {
@@ -151,7 +162,7 @@ section{
 
 .onboardSlideWhiteOverlay > img {
   width: 100%;
-  height: 48vh;
+  /* height: 48vh; */
 }
 
 .onboardSlideWhiteOverlay-container {
@@ -168,7 +179,7 @@ section{
 }
 
 .onboardSlide {
-  height: 100vh;
+  /* height: 100vh; */
 }
 
 .onboardingSlide1 .onboardSlideWhiteOverlay {
@@ -218,10 +229,12 @@ label.termsprivacy input:checked + span:before {
 
 @keyframes showAnimate {
   0% {
-    opacity: 0;
+    opacity: .3;
+    /* transform: translateX(100%); */
   }
   100% {
     opacity: 1;
+    /* transform: translateX(0); */
   }
 }
 
@@ -290,6 +303,7 @@ label.termsprivacy input:checked + span:before {
 
 .topcurve img, .bottomcurve img {
   width: 100%;
+  height: 100%;
 }
 
 .topcurve .topcurve-container, .bottomcurve .bottomcurve-container {
@@ -306,6 +320,11 @@ section.slide3 {
   background: url(./../assets/newassets/gender-bg.png) 0 no-repeat;
   background-size: cover;
   height: 100%;
+}
+
+section.slide7 {
+  background: url(./../assets/newassets/responsepagebg.png) 0 no-repeat;
+  height: unset;
 }
 
 .bottomcurve .bottomcurve-container {
@@ -385,6 +404,8 @@ section.slide3 .bottomcurve-container li a.selected strong {
 
 /*Slide 4 Age Slider */
 /* .slide4 h1{text-align: center; font-size: 1.5em; color: #5b5a5a;} */
+/* .slide4 { display: none !important; }
+.slide4.show { display: flex !important; } */
 .slide4 ul.genderSlider li{display: inline-block; width: 48%; margin: 1em auto; text-align: center;}
 .slide4 ul.genderSlider li img{width: 100%;}
 .slide4 h3{font-size: 1em; text-align: center; margin-top: 2em; font-style: italic;}
@@ -623,7 +644,11 @@ p.bottomdesc {
 
 .sw-photopersent > div .circle-svg:nth-child(5) {
   top: 300px;
-  right: 35px
+  right: 35px;
+}
+
+.sw-photopersent > div .circle-svg:nth-child(5) > span, .sw-photopersent > div .circle-svg:nth-child(6) > span {
+  bottom: -35px;
 }
 
 .sw-photopersent > div .circle-svg:nth-child(6) {
@@ -1777,6 +1802,15 @@ p.bottomdesc {
   height: 40px;
 }
 
+.circle-svg.small > span {
+  position: absolute;
+  bottom: -20px;
+  left: 50%;
+  transform: translateX(-50%);
+  text-align: center;
+  white-space: nowrap;
+}
+
 .circle-svg.small .circle-chart__percent {
   font-size: 16px;
 }
@@ -1980,6 +2014,32 @@ section.slideLogin{
 .slide7 .thankYouWrap .imgTick{display: block; width: 50px; margin: 1em auto;}
 .slide7 .thankYouWrap h5{font-size: 1.4em; text-align: center; width: 80%; margin: 0 auto 1em auto; color: #5b5a5a;}
 .slide7 .thankYouWrap .btnStyle{width: 250px;}
+.thank-form {
+  padding: 40px 50px;
+  margin: 0 -10px;
+  background-color: var(--white);
+  text-align: center;
+}
+.thank-form > img {
+  max-width: 50px;
+  margin: 0 auto;
+  display: block;
+  margin-bottom: 10px;
+}
+.thank-form input {
+  border-radius: 100px;
+  border: 1px solid var(--red) !important;
+  background: transparent;
+  margin-bottom: 10px;
+  text-align: center;
+  width: 70%;
+}
+.thank-form a {
+  display: inline-block !important;
+}
+.thank-form ::placeholder {
+  color: var(--red);
+}
 /* section.slide7 {
   background: url(./../assets/newassets/resultpagebg.png) 0 no-repeat;
   background-size: cover;

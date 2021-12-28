@@ -106,7 +106,7 @@
               <label class="termsprivacy textcolor">
                   <input type="checkbox" (change)="PolicyAgree($event)" value="I agree with your terms and privacy" />
                   <span></span>
-                  I agree with your <a>terms and privacy</a>
+                  I agree with your&nbsp;<a>terms and privacy</a>
               </label>
               <input type="submit" value="Let's start" class="btnStyle" (click)="showSlide3()">
             </form>
@@ -199,7 +199,7 @@
     </div>
   </div>
 	<div class="genderCarousel">
-		<owl-carousel-o [options]="ageSlider" (changed)="getAgeData($event)">
+		<owl-carousel-o [options]="ageSlider" (changed)="getAgeData($event)" #ageSliderRef>
 			<ng-template carouselSlide *ngFor="let age of defaultAgeArray" [id]="age">
 				<label for="{{age}}">
           <span>{{age}}</span>
@@ -236,6 +236,9 @@
             </li>
         </ul>
         <div class="nextPrevBx mt-20">
+          <a href="javascript:;" (click)="showSlide3()" class="onboardingSkip">
+            ← Previous 
+          </a>
           <a href="" (click)="showSlide5()" class="onboardingSkip">
             Next →
             <!-- <img src="assets/next.png"> -->
@@ -326,28 +329,28 @@
       <ul>
         <li>
             <a href="javascript:;" (click)="showSlide3()">
-              <strong>1</strong>
+              <strong>01</strong>
               <span>Gender</span>
             </a>
         </li>
         <li>
             <a href="javascript:;" (click)="showSlide4()">
-              <strong>2</strong>
+              <strong>02</strong>
               <span>Age</span>
             </a>
         </li>
         <li>
             <a href="javascript:;" class="selected">
-                <strong>3</strong>
+                <strong>03</strong>
                 <span>Skin Type</span>
             </a>
         </li>
       </ul>
       <div class="nextPrevBx mt-20">
-        <a href="" (click)="showSlide5()" class="onboardingSkip">
+        <a href="javascript:;" (click)="showSlide4()" class="onboardingSkip">
           ← Previous 
         </a>
-        <a href="" (click)="showSlide6()" class="onboardingSkip">
+        <a href="javascript:;" (click)="showSlide6()" class="onboardingSkip">
           Next →
         </a>
         <div class="clear"></div>
@@ -459,173 +462,6 @@
   </div>
 </section>
 
-<!--Section 7 - Result-->
-<!-- <section class="slide7" [class.show]="slide7Show" *ngIf="slide7Show">
-	<div *ngIf="dataaa" class="row"  >
-        <h1>Here’s a detailed breakdown of your result…</h1>
-		<div class="c100 p{{dataaa.outputData['skin_health_score']}} big center green">
-			<span><em>{{dataaa.outputData['skin_health_score']}}%</em> <strong>Skin Health<br>Score</strong></span>
-			<div class="slice"><div class="bar"></div><div class="fill"></div></div>
-		</div>
-		<div class="clear w100"></div>
-		<div *ngFor="let use of dataaa.outputData | keyvalue">
-            <h2>{{use.value}}% <span>{{use.key}}</span></h2>
-        </div>-->
-		
-		<!-- <div class="clear"></div>
-		
-		<div class="sevenParamsBx">
-			<div class="circleUnit1 u1">
-				<span>{{dataaa.outputData['skin_dullness_percentage']}}%</span>
-				<h3>Dullness</h3>
-			</div>
-
-			<div class="circleUnit1 u2">
-				<span>{{dataaa.outputData['dark_spot_percentage']}}%</span>
-				<h3>Dark Spots</h3>
-			</div>
-			
-			<div class="circleUnit1 u3">
-				<span>{{dataaa.outputData['dark_circle_percentage']}}%</span>
-				<h3>Dark Circles</h3>
-			</div>
-
-		  <div class="col-md-6 col-sm-12 upload-image imageView text-center">
-			<img src="{{dataaa.outputImages['acne_image']}}" class="image">
-			<img src="assets/face-mesh.png" class="faceMesh">
-			</div>
-
-
-			<div class="circleUnit1 u4">
-				<span>{{dataaa.outputData['Smoothness']}}%</span>
-				<h3>Smoothness</h3>
-			</div>
-			
-			<div class="circleUnit1 u5">
-				<span>{{dataaa.outputData['uneven_skin_percentage']}}%</span>
-				<h3>Uneven Skin Tone</h3>
-			</div>
-			
-			<div class="circleUnit1 u6">
-				<span>{{dataaa.outputData['face_firmness_percentage']}}%</span>
-				<h3>Firmness</h3>
-			</div>
-			
-			<div class="clear"></div>
-			
-			<div class="circleUnit1 u7">
-				<span>{{dataaa.outputData['hydration_score']}}%</span>
-				<h3>Hydration Score</h3>
-			</div>
-		</div> -->
-		  
-		<!-- <div class="top3Priorities">
-			<h2>Your Top 3 Skin Priorities</h2>
-			
-			<div class="c100 p{{dataaa.outputData['hydration_score']}} small customSmall orange">
-				<span>{{dataaa.outputData['hydration_score']}}%</span>
-				<div class="slice">
-					<div class="bar"></div>
-					<div class="fill"></div>
-				</div>
-				<h3>Hydration Score</h3>
-			</div>
-			
-			<div class="c100 p{{dataaa.outputData['uneven_skin_percentage']}} small customSmall orange">
-				<span>{{dataaa.outputData['skin_dullness_percentage']}}%</span>
-				<div class="slice">
-					<div class="bar"></div>
-					<div class="fill"></div>
-				</div>
-				<h3>Dullness</h3>
-			</div>
-			
-			<div class="c100 p{{dataaa.outputData['face_firmness_percentage']}} small customSmall orange">
-				<span>{{dataaa.outputData['face_firmness_percentage']}}%</span>
-				<div class="slice">
-					<div class="bar"></div>
-					<div class="fill"></div>
-				</div>
-				<h3>Firmness</h3>
-			</div>
-
-			
-		</div> -->
-		
-		<!-- <div class="yourSkinAnlaysis" id="pdfTable" #pdfTable>
-			<h2>Your Detailed Skin Analysis Report</h2>
-			<p>Swipe to learn about each priority</p>
-			
-			<owl-carousel-o [options]="resultSlider">
-				
-					<div *ngFor="let use of dataaa.priorityInfo.topPriorities">
-						<ng-template carouselSlide>
-							<mat-tab-group>
-						  <mat-tab label="Priority">
-							<div class="tab1Content tab">
-							
-							<div class="c100 p{{use.priority_score}} small customSmall orange">
-								<span>{{use.priority_score}}%</span>
-								<div class="slice">
-									<div class="bar"></div>
-									<div class="fill"></div>
-								</div>
-								<h3>{{use.priority_name}}</h3>
-							</div>
-							<p>{{use.priority_desc}}</p>				
-							</div>	
-						  </mat-tab>
-						  <mat-tab label="Why & How To Use">
-							<div class="tab3Content tab">
-								<h6><strong>WHY</strong></h6>
-								<p>{{use.priority_prod_why}}</p>
-								<br><br>
-
-								<h6><strong>HOW</strong></h6>
-								<p>{{use.priority_prod_how}}</p>
-							</div>
-						  </mat-tab>
-						  <mat-tab label="Expert Tip">
-							<div class="tab1Content tab">
-						<ul>
-							<li>
-								<h6><strong>{{use.priority_prod_title}}</strong></h6> 
-								<p>{{use.priority_experttip}}</p>					
-								Combat signs of ageing with<br>
-								<strong>{{use.priority_prod_desc}}</strong>					
-								<img src="{{use.priority_experttip_image}}" class="prodImg">					
-								<a href="{{use.priority_prod_amazon}}"><img src="assets/amazon.png" class="buyNowLinks"></a>
-								<a href="{{use.priority_prod_nykaa}}"><img src="assets/nykaa.png" class="buyNowLinks"></a>
-								<!-- <img src="{{use.Priority_prod_why_image}}"> -->
-							<!-- </li>
-						</ul>
-						</div>
-						  </mat-tab>
-						</mat-tab-group>
-						</ng-template> 
-					</div>			
-				 
-	  		</owl-carousel-o> -->
-			
-            <!-- loop start -->
-            
-            <!--<div *ngFor="let use of dataaa.outputData | keyvalue">
-            <h2>{{use.value}}% <span>{{use.key}}</span></h2>
-        </div>-->
-        
-		<!-- </div> -->
-	  <!-- <div class="col-md-6 col-sm-12 thankYouWrap">
-		  
-		  <h5><img src="assets/tick.png" class="imgTick">
-			  Thank you for taking the skin analysis!</h5>
-		  
-		  <a (click)="downloadAsPDF()" href="javascript:;" class="btnStyle">Download Report</a> -->
-		<!--<h4>Message</h4><h5><b>{{ code }}</b></h5>-->
-		 <!--<p><b>{{ code }}</b>{{message}}</p>--> 
-	  <!-- </div>
-	</div>
-</section> -->
-
 <section class="slide3 slide7" [class.show]="slide7Show" *ngIf="slide7Show">
   <!-- <ng-template *ngIf="dataaa !== null"> -->
     <div class="topcurve">
@@ -653,9 +489,9 @@
     </div>
     <div class="slide7content">
       <div class="slide7content-wrapper">
-        <div class="score-wrapper">
+        <!-- <div class="score-wrapper">
           <div class="sw-photopersent">
-            <img [src]="dataaa.outputImages.strength_image" />
+            <img [src]="url" />
             <div>
               <div class="circle-svg small">
                 <svg class="circle-chart" viewBox="0 0 33.83098862 33.83098862" width="200" height="200" xmlns="http://www.w3.org/2000/svg">
@@ -668,7 +504,7 @@
                 <div class="circle-chart__info">
                   <span class="circle-chart__percent" [style.color]="colorMap[dataaa.outputData.face_firmness_percentage_color_code]">{{dataaa.outputData.face_firmness_percentage}}%</span>
                 </div>
-                <!-- <span>Firmness</span> -->
+                <span>Firmness</span>
               </div>
               <div class="circle-svg small">
                 <svg class="circle-chart" viewBox="0 0 33.83098862 33.83098862" width="200" height="200" xmlns="http://www.w3.org/2000/svg">
@@ -681,6 +517,7 @@
                 <div class="circle-chart__info">
                   <span class="circle-chart__percent" [style.color]="colorMap[dataaa.outputData.Smoothness_color_code]">{{dataaa.outputData.Smoothness}}%</span>
                 </div>
+                <span>Smoothness</span>
               </div>
               <div class="circle-svg small">
                 <svg class="circle-chart" viewBox="0 0 33.83098862 33.83098862" width="200" height="200" xmlns="http://www.w3.org/2000/svg">
@@ -693,6 +530,7 @@
                 <div class="circle-chart__info">
                   <span class="circle-chart__percent" [style.color]="colorMap[dataaa.outputData.hydration_score_color_code]">{{dataaa.outputData.hydration_score}}%</span>
                 </div>
+                <span>Hydration Score</span>
               </div>
               <div class="circle-svg small">
                 <svg class="circle-chart" viewBox="0 0 33.83098862 33.83098862" width="200" height="200" xmlns="http://www.w3.org/2000/svg">
@@ -705,6 +543,7 @@
                 <div class="circle-chart__info">
                   <span class="circle-chart__percent" [style.color]="colorMap[dataaa.outputData.skin_dullness_percentage_color_code]">{{dataaa.outputData.skin_dullness_percentage}}%</span>
                 </div>
+                <span>Dullness</span>
               </div>
               <div class="circle-svg small">
                 <svg class="circle-chart" viewBox="0 0 33.83098862 33.83098862" width="200" height="200" xmlns="http://www.w3.org/2000/svg">
@@ -717,6 +556,7 @@
                 <div class="circle-chart__info">
                   <span class="circle-chart__percent" [style.color]="colorMap[dataaa.outputData.uneven_skin_percentage_color_code]">{{dataaa.outputData.uneven_skin_percentage}}%</span>
                 </div>
+                <span>Uneven<br /> Skin Tone</span>
               </div>
               <div class="circle-svg small">
                 <svg class="circle-chart" viewBox="0 0 33.83098862 33.83098862" width="200" height="200" xmlns="http://www.w3.org/2000/svg">
@@ -729,6 +569,7 @@
                 <div class="circle-chart__info">
                   <span class="circle-chart__percent" [style.color]="colorMap[dataaa.outputData.face_wrinkle_percentage_color_code]">{{dataaa.outputData.face_wrinkle_percentage}}%</span>
                 </div>
+                <span>Face Lines<br /> &amp; Wrinkles</span>
               </div>
               <div class="circle-svg small">
                 <svg class="circle-chart" viewBox="0 0 33.83098862 33.83098862" width="200" height="200" xmlns="http://www.w3.org/2000/svg">
@@ -741,23 +582,24 @@
                 <div class="circle-chart__info">
                   <span class="circle-chart__percent" [style.color]="colorMap[dataaa.outputData.dark_spot_percentage_color_code]">{{dataaa.outputData.dark_spot_percentage}}%</span>
                 </div>
+                <span>Dark Spots</span>
               </div>
             </div>
           </div>
           <div class="sw-colorindicator">
             <ul>
               <li>
-                High Priority
+                High<br/>Priority
               </li>
               <li>
-                Medium Priority
+                Medium<br/>Priority
               </li>
               <li>
-                Low Priority
+                Low<br/>Priority
               </li>
             </ul>
           </div>
-        </div>
+        </div> -->
         <!-- <div class="score-recommendation">
           <h1>Your key skin concerns &<br /> Dermafique recommendations</h1>
           <h1>{{data.priority_product_info.skin_analysis_report}}</h1>
@@ -829,7 +671,7 @@
           </ul>
         </div> -->
 
-        <ng-container *ngIf="{ data: skinResultSelected } as selectedVal">
+        <!-- <ng-container *ngIf="{ data: skinResultSelected } as selectedVal">
           <div class="skin-detailanalysis mt-20">
             <h1>Your Detailed Skin Analysis Report</h1>
               <div class="sd-top">
@@ -899,7 +741,6 @@
               <div class="cse-title">Solution</div>
               <ul class="cse-content">
                 <div class="csec-text text-center mb-20">
-                  <!-- <h4>How this is caused:</h4> -->
                   <p class="text-justify">{{selectedVal.data.priority_product_info.solution_recommends}}</p>
                 </div>
                 <li class="d-flex df-a-fs mb-10">
@@ -907,7 +748,6 @@
                     <img [src]="selectedVal.data.priority_product_info.solution_point_1_image" />
                   </div>
                   <div class="csec-text">
-                    <!-- <h4>How this is caused:</h4> -->
                     <p class="text-justify">
                       {{selectedVal.data.priority_product_info.solution_point_1}}
                     </p>
@@ -918,7 +758,6 @@
                     <img [src]="selectedVal.data.priority_product_info.solution_point_2_image" />
                   </div>
                   <div class="csec-text">
-                    <!-- <h4>How this is caused:</h4> -->
                     <p class="text-justify">
                       {{selectedVal.data.priority_product_info.solution_point_2}}
                     </p>
@@ -929,7 +768,6 @@
                     <img [src]="selectedVal.data.priority_product_info.solution_point_3_image" />
                   </div>
                   <div class="csec-text">
-                    <!-- <h4>How this is caused:</h4> -->
                     <p class="text-justify">
                       {{selectedVal.data.priority_product_info.solution_point_3}}
                     </p>
@@ -940,7 +778,6 @@
                     <img [src]="selectedVal.data.priority_product_info.solution_point_4_image" />
                   </div>
                   <div class="csec-text">
-                    <!-- <h4>How this is caused:</h4> -->
                     <p class="text-justify">
                       {{selectedVal.data.priority_product_info.solution_point_4}}
                     </p>
@@ -951,12 +788,10 @@
                     <img src="assets/newassets/concern2.png" />
                   </div>
                   <div class="csec-text">
-                    <!-- <h4>What you need:</h4> -->
                     <p class="text-justify">This is usually caused by a compromised skin barrier over time, which results in transepidermal water loss (when water passively evaporates from the skin), especially in the case of dry skin. </p>
                   </div>
                 </li>
                 <div class="csec-text text-center mt-20">
-                  <!-- <h4>How this is caused:</h4> -->
                   <p class="text-justify">{{selectedVal.data.priority_product_info.solution_concluding_paragraph}}</p>
                 </div>
               </ul>
@@ -965,16 +800,15 @@
             <div class="cse-card mb-20 mt-20">
               <div class="cse-title">Expert Tip</div>
               <ul class="cse-content">
-                <!-- <div class="csec-text text-center mb-20">
+                <div class="csec-text text-center mb-20">
                   <h4>How this is caused:</h4>
                   <p class="text-justify">{{selectedVal.data.priority_product_info.expert_tip}}</p>
-                </div> -->
+                </div>
                 <li class="d-flex df-a-fs mb-10">
                   <div class="csec-image">
                     <img [src]="selectedVal.data.priority_product_info.expert_tip_point_1_image" />
                   </div>
                   <div class="csec-text">
-                    <!-- <h4>How this is caused:</h4> -->
                     <p class="text-justify">{{selectedVal.data.priority_product_info.expert_tip_point_1}}</p>
                   </div>
                 </li>
@@ -983,7 +817,6 @@
                     <img [src]="selectedVal.data.priority_product_info.expert_tip_point_2_image" />
                   </div>
                   <div class="csec-text">
-                    <!-- <h4>How this is caused:</h4> -->
                     <p class="text-justify">{{selectedVal.data.priority_product_info.expert_tip_point_2}}</p>
                   </div>
                 </li>
@@ -992,7 +825,6 @@
                     <img [src]="selectedVal.data.priority_product_info.expert_tip_point_3_image" />
                   </div>
                   <div class="csec-text">
-                    <!-- <h4>How this is caused:</h4> -->
                     <p class="text-justify">{{selectedVal.data.priority_product_info.expert_tip_point_3}}</p>
                   </div>
                 </li>
@@ -1001,7 +833,6 @@
                     <img [src]="selectedVal.data.priority_product_info.expert_tip_point_4_image" />
                   </div>
                   <div class="csec-text">
-                    <!-- <h4>How this is caused:</h4> -->
                     <p class="text-justify">{{selectedVal.data.priority_product_info.expert_tip_point_4}}</p>
                   </div>
                 </li>
@@ -1010,12 +841,10 @@
                     <img [src]="selectedVal.data.priority_product_info.expert_tip_point_5_image" />
                   </div>
                   <div class="csec-text">
-                    <!-- <h4>How this is caused:</h4> -->
                     <p class="text-justify">{{selectedVal.data.priority_product_info.expert_tip_point_5}}</p>
                   </div>
                 </li>
                 <div class="csec-text text-center mt-20">
-                  <!-- <h4>How this is caused:</h4> -->
                   <p class="text-justify">{{selectedVal.data.priority_product_info.expert_tip_concluding_paragraph}}</p>
                 </div>
               </ul>
@@ -1041,19 +870,19 @@
               </ng-container>
             </ul>
           </div>
-        </ng-container>
-        <!-- <div class="thank-form">
+        </ng-container> -->
+        <div class="thank-form">
           <img src="assets/newassets/thankyoutick.png" />
           <h1>
             Thank you for taking<br />the skin analysis!
           </h1>
           <p>In case you haven't signed up already, please enter your details below<br /> to recieve the full report on your Phone or Email ID.</p>
           <div class="registerBx">
-            <input type="text" id="txtNumber" formControlName="txtNumber" placeholder="Mobile Number">
-            <input type="email" id="txtNumber" formControlName="txtNumber" placeholder="Email ID">
-            <a (click)="SignIn()" class="btnStyle">Send →</a>
+            <input type="text" id="txtThankYouNumber" formControlName="txtThankYouNumber" placeholder="Mobile Number">
+            <input type="email" id="txtThankYouEmail" formControlName="txtThankYouEmail" placeholder="Email ID">
+            <a (click)="ThankYou()" class="btnStyle">Send →</a>
           </div>
-        </div> -->
+        </div>
       </div>
     </div>
 </section>
