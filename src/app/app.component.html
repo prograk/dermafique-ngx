@@ -599,76 +599,40 @@
             </ul>
           </div>
         </div>
-        <!-- <div class="score-recommendation">
+        <div class="score-recommendation">
           <h1>Your key skin concerns &<br /> Dermafique recommendations</h1>
-          <h1>{{data.priority_product_info.skin_analysis_report}}</h1>
-          <ul class="d-flex">
-            <li class="sr-wrapper">
-              <div class="sr-circle-wrapper">
-                <div class="circle-svg small">
-                  <svg class="circle-chart" viewBox="0 0 33.83098862 33.83098862" width="200" height="200" xmlns="http://www.w3.org/2000/svg">
-                    <circle class="circle-chart__background" stroke="#959b90" stroke-width=".1" fill="none" cx="16.91549431" cy="16.91549431" r="15.91549431"></circle>
-                    <circle class="circle-chart__circle" 
-                      stroke-width="2"
-                      [attr.stroke]="colorMap[dataaa.outputData.skin_health_score_color_code]"  
-                      [attr.stroke-dasharray]="dataaa.outputData.skin_health_score + ', 100'" 
-                      stroke-linecap="round" fill="none" cx="16.91549431" cy="16.91549431" r="15.91549431"></circle></svg>
-                  <div class="circle-chart__info">
-                    <span class="circle-chart__percent" style="color: red">15%</span>
-                  </div>
-                </div>
-                <span class="lh-18">Fine Lines<br />
-                  & Wrinkles</span>
-              </div>
-              <div class="sr-buycard">
-                <img src="assets/newassets/Male-image.png" />
-                <a class="btnStyle">Buy Now →</a>
-              </div>
-            </li>
-            <li class="sr-wrapper">
-              <div class="sr-circle-wrapper">
-                <div class="circle-svg small">
-                  <svg class="circle-chart" viewBox="0 0 33.83098862 33.83098862" width="200" height="200" xmlns="http://www.w3.org/2000/svg">
-                    <circle class="circle-chart__background" stroke="#959b90" stroke-width=".1" fill="none" cx="16.91549431" cy="16.91549431" r="15.91549431"></circle>
-                    <circle class="circle-chart__circle" 
-                stroke-width="2"
-                [attr.stroke]="colorMap[dataaa.outputData.skin_health_score_color_code]"  
-                [attr.stroke-dasharray]="dataaa.outputData.skin_health_score + ', 100'" 
-                stroke-linecap="round" fill="none" cx="16.91549431" cy="16.91549431" r="15.91549431"></circle></svg>
-                  <div class="circle-chart__info">
-                    <span class="circle-chart__percent" style="color: red">15%</span>
-                  </div>
-                </div>
-                <span class="lh-18">Smoothness</span>
-              </div>
-              <div class="sr-buycard">
-                <img src="assets/newassets/Male-image.png" />
-                <a class="btnStyle">Buy Now →</a>
-              </div>
-            </li>
-            <li class="sr-wrapper">
-              <div class="sr-circle-wrapper">
-                <div class="circle-svg small">
-                  <svg class="circle-chart" viewBox="0 0 33.83098862 33.83098862" width="200" height="200" xmlns="http://www.w3.org/2000/svg">
-                    <circle class="circle-chart__background" stroke="#959b90" stroke-width=".1" fill="none" cx="16.91549431" cy="16.91549431" r="15.91549431"></circle>
-                    <circle class="circle-chart__circle" 
-                stroke-width="2"
-                [attr.stroke]="colorMap[dataaa.outputData.skin_health_score_color_code]"  
-                [attr.stroke-dasharray]="dataaa.outputData.skin_health_score + ', 100'" 
-                stroke-linecap="round" fill="none" cx="16.91549431" cy="16.91549431" r="15.91549431"></circle></svg>
-                  <div class="circle-chart__info">
-                    <span class="circle-chart__percent" style="color: red">15%</span>
-                  </div>
-                </div>
-                <span class="lh-18">Hyderation</span>
-              </div>
-              <div class="sr-buycard">
-                <img src="assets/newassets/Male-image.png" />
-                <a class="btnStyle">Buy Now →</a>
-              </div>
-            </li>
-          </ul>
-        </div> -->
+          <ng-container *ngIf="{ tp: dataaa.priorityInfo.topPriorities } as topPriorities">
+            <ul class="d-flex">
+              <ng-container *ngFor="let priority of topPriorities.tp; let i = index;">
+                <ng-container *ngIf="i < 3">
+                  <li class="sr-wrapper">
+                    <div class="sr-circle-wrapper">
+                      <div class="circle-svg small">
+                        <svg class="circle-chart" viewBox="0 0 33.83098862 33.83098862" width="200" height="200" xmlns="http://www.w3.org/2000/svg">
+                          <circle class="circle-chart__background" stroke="#959b90" stroke-width=".1" fill="none" cx="16.91549431" cy="16.91549431" r="15.91549431"></circle>
+                          <circle class="circle-chart__circle" 
+                            stroke-width="2"
+                            [attr.stroke]="colorMap[priority.priority_color_code]"  
+                            [attr.stroke-dasharray]="priority.priority_score + ', 100'" 
+                            stroke-linecap="round" fill="none" cx="16.91549431" cy="16.91549431" r="15.91549431"></circle></svg>
+                        <div class="circle-chart__info">
+                          <span class="circle-chart__percent" [style.color]="colorMap[priority.priority_color_code]">{{priority.priority_score}}%</span>
+                        </div>
+                      </div>
+                      <span class="lh-18">{{priority.priority_title}}</span>
+                    </div>
+                    <div class="sr-buycard">
+                      <img [src]="priority.priority_product_info.product_image_thumbnail" />
+                      <a class="btnStyle" target="_blank" [href]="priority.priority_product_info.product_link">
+                        <img src="./../assets/newassets/bagico.png" alt="bagicon" />&nbsp;Buy Now →
+                      </a>
+                    </div>
+                  </li>
+                </ng-container>
+              </ng-container>
+            </ul>
+          </ng-container>
+        </div>
 
         <ng-container *ngIf="{ data: skinResultSelected } as selectedVal">
           <div class="skin-detailanalysis mt-20">
@@ -698,7 +662,9 @@
                   <div class="sdp-right">
                     <div class="sdpr-title">{{selectedVal.data.priority_product_info.product_name}}</div>
                     <div class="sdpr-subtitle">{{selectedVal.data.priority_product_info.product_desc}}</div>
-                    <a class="btnStyle" target="_blank" [href]="selectedVal.data.priority_product_info.product_link">Buy Now →</a>
+                    <a class="btnStyle" target="_blank" [href]="selectedVal.data.priority_product_info.product_link">
+                      <img src="./../assets/newassets/bagico.png" alt="bagicon" />&nbsp;Buy Now →
+                    </a>
                   </div>
                 </div>
               </div>

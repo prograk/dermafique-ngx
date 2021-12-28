@@ -739,6 +739,7 @@ ul.cse-content {
   align-items: center;
   justify-content: space-between;
   padding: 0 10px;
+  flex: 1;
 }
 
 .score-recommendation ul {
@@ -749,6 +750,8 @@ ul.cse-content {
 
 .sr-buycard {
   margin-top: 20px;
+  display: flex;
+  flex-direction: column;
 }
 
 .sr-buycard a {
@@ -760,10 +763,13 @@ ul.cse-content {
 }
 
 
-.sr-buycard img {
+.sr-buycard > img {
   width: 100%;
-  border-radius: 100px;
-  background: #f5e1de;
+  height: 100%;
+  max-width: 100%;
+  overflow: visible;
+  aspect-ratio: 1/1;
+  object-fit: contain;
 }
 
 .sr-buycard .btnStyle {
@@ -1957,6 +1963,12 @@ section.slideLogin{
   border-radius: 20px;
   font-family: 'poppins';
   white-space: nowrap;
+}
+
+.btnStyle > img {
+  max-width: 18px;
+  margin-right: 4px;
+  margin-top: -3px;
 }
 
 .slide7 .c100 strong{
