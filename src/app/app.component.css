@@ -176,7 +176,7 @@ section{
 }
 
 .onboardSlideWhiteOverlay-container img {
-  max-width: 160px
+  max-width: 140px
 }
 
 .onboardSlide {
@@ -353,6 +353,7 @@ section.slide3 .bottomcurve-container ul {
   display: inline-block;
   border-top-left-radius: 12px;
   border-bottom-right-radius: 12px;
+  white-space: nowrap;
 }
 
 .topcurve-container {
@@ -2054,5 +2055,17 @@ section.slideLogin{
   .video-overlay {
     width: 375px;
 	  width: 100%;
+  }
+}
+
+@media screen and (max-height: 665px) {
+  .onboardSlideWhiteOverlay-container {
+    padding: 105px 25px 0;
+  }
+  .bottomcurve .bottomcurve-container {
+    padding: 105px 25px 0;
+  }
+  section.slide3 > div:nth-child(2) {
+    flex: .5;
   }
 }

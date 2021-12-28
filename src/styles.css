@@ -70,29 +70,33 @@ body { margin: 0; font-family: 'SF Pro Display'; }
 }
 
 .fs-12 {
-    font-size: 12px;
+    font-size: 0.857rem;
 }
 .lh-16 {
-    line-height: 16px;
+    line-height: 1.143rem;
 }
 
 .fs-14 {
-    font-size: 14px;
+    font-size: 1rem;
 }
 .lh-18 {
-    line-height: 18px;
+    line-height: 1.286rem;
 }
 
 .fs-16 {
-    font-size: 16px;
+    font-size: 1.143rem;
 }
 
 .fs-18 {
-    font-size: 18px;
+    font-size: 1.286rem;
 }
 
 .lh-22 {
-    line-height: 22px;
+    line-height: 1.571rem;
+}
+
+h1 {
+  line-height: 2.3rem;
 }
 
 .d-flex {
@@ -112,4 +116,10 @@ body { margin: 0; font-family: 'SF Pro Display'; }
 
 .df-a-fs {
   align-items: flex-start;
+}
+
+@media screen and (max-height: 665px) {
+  :root {
+    font-size: 12px;
+  }
 }
