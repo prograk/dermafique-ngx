@@ -2102,12 +2102,23 @@ section.slideLogin{
   }
 }
 
+@media screen and (max-width: 360px) {
+  .btnStyle > img {
+    max-width: 14px;
+    margin-right: 2px;
+  }
+
+  .sr-buycard .btnStyle {
+      font-size: 0.8rem;
+  }
+}
+
 @media screen and (max-height: 700px) {
   .onboardSlideWhiteOverlay-container {
-    padding: 105px 25px 0;
+    padding: 95px 25px 0;
   }
   .bottomcurve .bottomcurve-container {
-    padding: 105px 25px 0;
+    padding: 95px 25px 0;
   }
   section.slide3 > div:nth-child(2) {
     flex: .5;
