@@ -733,6 +733,10 @@ ul.cse-content {
   align-items: center;
 }
 
+.score-recommendation {
+  margin: 30px 0;
+}
+
 .score-recommendation ul li {
   display: flex;
   flex-direction: column;
