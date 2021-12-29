@@ -2195,3 +2195,15 @@ section.slideLogin{
     flex: .5;
   }
 }
+
+@media screen and (max-height: 600px) {
+  .bottomcurve {
+    border-bottom: 60px solid var(--white);
+  }
+  .onboardSlideWhiteOverlay {
+    border-bottom: 60px solid #FEF4F4;
+  }
+  .bottomcurve.slide6bottomcurve {
+    border-bottom: 0;
+  }
+}
