@@ -550,11 +550,14 @@ export class AppComponent implements OnInit {
   ShowRestTabFn() {
     this.showRestTabs = !this.showRestTabs
   }
+
+  public showAnalyseVideo = false;
   
   callApi() {
     this.code = '';
     this.message = 'Loading...';
-	  document.getElementById("analysing").style.display = "block";
+	  // document.getElementById("analysing").style.display = "block";
+    this.showAnalyseVideo = true;
     this._appService.checkSkin(this.imgFile, this.selectedSkin, this.selectedAge).subscribe((res: any) => {
       this.code = 'SUCCESSFUL';
       this.dataaa = res;
@@ -568,7 +571,8 @@ export class AppComponent implements OnInit {
         console.log(err.error && err.error.error && err.error.error.message);
         this.code = err.error && err.error.error && err.error.error.code;
         this.message = err.error && err.error.error && err.error.error.message;
-		    document.getElementById("analysing").style.display = "none";
+		    // document.getElementById("analysing").style.display = "none";
+        this.showAnalyseVideo = false;
       });
   }
 
