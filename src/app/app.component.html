@@ -655,7 +655,7 @@
                 </section>
                 <div class="sd-product mb-20">
                   <div class="sdp-left pr-20">
-                    <img [src]="selectedVal.data.priority_product_info.product_image_thumbnail" />
+                    <img [src]="selectedVal.data.priority_product_info.product_image" />
                   </div>
                   <div class="sdp-right">
                     <div class="sdpr-title">{{selectedVal.data.priority_product_info.product_name}}</div>
@@ -672,7 +672,7 @@
               <div class="cse-title">Concern</div>
               <ng-container *ngIf="{ c: selectedVal.data.priority_product_info.concerns } as concern">
                 <ul class="cse-content">
-                  <li class="d-flex df-a-fs mb-10">
+                  <li class="d-flex df-a-fs mb-20">
                     <div class="csec-image">
                       <img [src]="concern.c.causes.image" />
                     </div>

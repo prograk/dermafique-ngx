@@ -1,4 +1,4 @@
-import { Component, OnInit, OnChanges, ChangeDetectorRef } from '@angular/core';
+import { Component, OnInit, OnChanges, ChangeDetectorRef, HostListener } from '@angular/core';
 import { FormsModule, ReactiveFormsModule, FormControl, FormGroup, FormBuilder, Validators } from '@angular/forms';
 import { HttpErrorResponse } from '@angular/common/http';
 import { WebcamImage, WebcamInitError, WebcamUtil } from 'ngx-webcam';
@@ -35,6 +35,14 @@ export class AppComponent implements OnInit {
   @ViewChild("videoPlayer", { static: false }) videoplayer: ElementRef;
 
   @ViewChild('ageSliderRef', { static: false }) ageSliderRef: CarouselComponent;
+
+  // @ViewChild('scoreRecommendationRef', { static: false}) scoreRecommendationRef: ElementRef;
+
+  @HostListener('window:scroll', ['$event'])
+  handleScroll(event: any) {
+    console.log(event);
+    debugger;
+  }
   
   isPlay: boolean = false;
   toggleVideo(event: any) {
@@ -181,6 +189,10 @@ export class AppComponent implements OnInit {
     this.googleInitialize();
     return false;
   }
+
+  scrollRecommendation(event: any) {
+    console.log(event);
+  }
 	
   showSlide7() {
     this.showMe = false;
@@ -190,6 +202,10 @@ export class AppComponent implements OnInit {
     this.slide6Show = false;
 	  this.slideLogin = false;
     this.slide7Show = true;
+    // this.changeDetector.detectChanges();
+    // setTimeout(() => {
+    //   this.elementRef.nativeElement.querySelector('.score-recommendation').addEventListener('scroll', this.scoreRecommendationFn, true);
+    // }, 100);
     return false;
   }
 
@@ -238,7 +254,12 @@ export class AppComponent implements OnInit {
   public txtThankYouNumber:FormControl;
   public txtThankYouEmail:FormControl;
 
-  constructor(private _appService: AppService, private _formBuilder: FormBuilder, private changeDetector : ChangeDetectorRef) { }
+  constructor(
+    private _appService: AppService, 
+    private _formBuilder: FormBuilder, 
+    private changeDetector: ChangeDetectorRef,
+    private elementRef: ElementRef
+  ) { }
 
   public GetSkinTypes = [] as any;
 
@@ -672,4 +693,15 @@ export class AppComponent implements OnInit {
 		  }
 	  },
 	}
+
+  isInViewport(el: any) {
+    const rect = el.getBoundingClientRect();
+    return (
+        rect.top >= 0 &&
+        rect.left >= 0 &&
+        rect.bottom <= (window.innerHeight || document.documentElement.clientHeight) &&
+        rect.right <= (window.innerWidth || document.documentElement.clientWidth)
+
+    );
+  }
 }

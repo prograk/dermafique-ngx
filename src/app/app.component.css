@@ -825,7 +825,7 @@ ul.cse-content {
   background: #fcf1ef;
   border-radius: 40px;
   position: relative;
-  box-shadow: inset 0 0 87px 0 rgb(255 165 143 / 80%);
+  box-shadow: inset 0 0 27px 0 rgb(255 165 143 / 80%);
 }
 
 .consolexpert {
@@ -850,7 +850,7 @@ ul.cse-content {
 }
 
 .csec-image img {
-  padding: 14px;
+  padding: 8px;
   max-width: 65px;
   border: 1px solid var(--red);
   border-radius: 10px;
@@ -1823,7 +1823,7 @@ ul.cse-content {
 }
 
 .circle-svg.large .circle-chart__percent {
-  font-size: 40px;
+  font-size: 30px;
 }
 
 .circle-svg.medium svg {
@@ -1832,7 +1832,7 @@ ul.cse-content {
 }
 
 .circle-svg.medium .circle-chart__percent {
-  font-size: 30px;
+  font-size: 22px;
 }
 
 .circle-svg.small svg {
@@ -1850,7 +1850,7 @@ ul.cse-content {
 }
 
 .circle-svg.small .circle-chart__percent {
-  font-size: 16px;
+  font-size: 13px;
 }
 
 .circle-chart__info {
