@@ -2174,6 +2174,11 @@ section.slideLogin{
     height: 70px;
     width: 70px;
   }
+
+  section.slide3 .bottomcurve-container li a span {
+    white-space: nowrap;
+    font-size: .8rem;
+  }
 }
 
 @media screen and (max-height: 700px) {
