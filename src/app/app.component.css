@@ -740,6 +740,7 @@ ul.cse-content {
 
 .score-recommendation {
   margin: 30px 0;
+  opacity: 0;
 }
 
 .score-recommendation ul li {
@@ -862,6 +863,11 @@ ul.cse-content {
   margin-bottom: 5px;
 }
 
+.skin-analysiswrapper {
+  opacity: 0;
+  padding-bottom: 120px;
+}
+
 .skin-healthparameters ul {
   display: flex;
   flex-wrap: wrap;
@@ -885,6 +891,48 @@ ul.cse-content {
   color: var(--white);
 }
 
+.skin-healthparameters.paramTabsSticky {
+  position: fixed;
+  background: var(--white);
+  padding: 10px 0;
+  margin: 0 !important;
+  animation: .5s fadeSticky linear;
+  animation-fill-mode: forwards;
+}
+
+.inView {
+  animation: .5s fadeIn linear;
+  animation-fill-mode: forwards;
+}
+
+@keyframes fadeIn {
+  0% {
+    opacity: 0;
+    transform: translateY(20px);
+  }
+  50% {
+    opacity: 0;
+    transform: translateY(10px);
+  }
+  100% {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+@keyframes fadeSticky {
+  0% {
+    opacity: 0;
+    bottom: -200px;
+  }
+  50% {
+    opacity: 0;
+  }
+  100% {
+    opacity: 1;
+    bottom: 0;
+  }
+}
 
 
 

@@ -1,4 +1,4 @@
-import { Component, OnInit, OnChanges, ChangeDetectorRef, HostListener } from '@angular/core';
+import { Component, OnInit, OnChanges, ChangeDetectorRef, HostListener, ViewChildren } from '@angular/core';
 import { FormsModule, ReactiveFormsModule, FormControl, FormGroup, FormBuilder, Validators } from '@angular/forms';
 import { HttpErrorResponse } from '@angular/common/http';
 import { WebcamImage, WebcamInitError, WebcamUtil } from 'ngx-webcam';
@@ -38,10 +38,56 @@ export class AppComponent implements OnInit {
 
   // @ViewChild('scoreRecommendationRef', { static: false}) scoreRecommendationRef: ElementRef;
 
+  // @HostListener('window:scroll', ['$event'])
+  // handleScroll(event: any) {
+  //   console.log(event);
+  //   // debugger;
+  // }
+
+  isElementXPercentInViewport = (el: any, percentVisible: any) => {
+    let
+      rect = el.getBoundingClientRect(),
+      windowHeight = (window.innerHeight || document.documentElement.clientHeight);
+  
+    return !(
+      Math.floor(100 - (((rect.top >= 0 ? 0 : rect.top) / +-rect.height) * 100)) < percentVisible ||
+      Math.floor(100 - ((rect.bottom - windowHeight) / rect.height) * 100) < percentVisible
+    )
+  };
+
+  @ViewChild('scrollRecommendationIntoViewRef', { static: false }) private scrollRecommendationIntoViewRef: ElementRef<HTMLDivElement>;
+  @ViewChild('scrollAnalysisIntoViewRef', { static: false }) private scrollAnalysisIntoViewRef: ElementRef<HTMLDivElement>;
+  isRecommendationScrolledIntoView = false;
+  isRecommendationAlreadyRendered = false;
+  isAnalysisScrolledIntoView = false;
+  isAnalysisAlreadyRendered = false;
+
   @HostListener('window:scroll', ['$event'])
-  handleScroll(event: any) {
-    console.log(event);
-    debugger;
+  isScrolledIntoView(){
+    if (this.scrollRecommendationIntoViewRef) {
+      const el = this.scrollRecommendationIntoViewRef.nativeElement;
+      // .getBoundingClientRect();
+      this.isRecommendationScrolledIntoView = this.isElementXPercentInViewport(el, 10);
+      if(this.isRecommendationScrolledIntoView && !this.isRecommendationAlreadyRendered) {
+        this.isRecommendationAlreadyRendered = true;
+      }
+      // const topShown = rect.top >= 0;
+      // const bottomShown = rect.bottom <= window.innerHeight;
+      // this.isRecommendationScrolledIntoView = topShown && bottomShown;
+      // console.log(this.isRecommendationScrolledIntoView);
+    }
+    if (this.scrollAnalysisIntoViewRef) {
+      const el = this.scrollAnalysisIntoViewRef.nativeElement;
+      // .getBoundingClientRect();
+      this.isAnalysisScrolledIntoView = this.isElementXPercentInViewport(el, 10);
+      if(this.isAnalysisScrolledIntoView && !this.isAnalysisAlreadyRendered) {
+        this.isAnalysisAlreadyRendered = true;
+      }
+      // const topShown = rect.top >= 0;
+      // const bottomShown = rect.bottom <= window.innerHeight;
+      // this.isAnalysisScrolledIntoView = topShown && bottomShown;
+      // console.log(this.isAnalysisScrolledIntoView);
+    }
   }
   
   isPlay: boolean = false;
