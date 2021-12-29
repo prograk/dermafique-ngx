@@ -36,14 +36,6 @@ export class AppComponent implements OnInit {
 
   @ViewChild('ageSliderRef', { static: false }) ageSliderRef: CarouselComponent;
 
-  // @ViewChild('scoreRecommendationRef', { static: false}) scoreRecommendationRef: ElementRef;
-
-  // @HostListener('window:scroll', ['$event'])
-  // handleScroll(event: any) {
-  //   console.log(event);
-  //   // debugger;
-  // }
-
   isElementXPercentInViewport = (el: any, percentVisible: any) => {
     let
       rect = el.getBoundingClientRect(),
@@ -62,7 +54,7 @@ export class AppComponent implements OnInit {
   isAnalysisScrolledIntoView = false;
   isAnalysisAlreadyRendered = false;
 
-  @HostListener('window:scroll', ['$event'])
+  @HostListener('window:scroll', [])
   isScrolledIntoView(){
     if (this.scrollRecommendationIntoViewRef) {
       const el = this.scrollRecommendationIntoViewRef.nativeElement;
