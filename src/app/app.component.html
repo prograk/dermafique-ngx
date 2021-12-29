@@ -756,7 +756,7 @@
           </div>
         </ng-container>
         <ng-container *ngIf="{ dataArr: dataaa.priorityInfo.topPriorities } as topPriorities">
-          <div class="skin-healthparameters mb-20" [class.paramTabsSticky]="isAnalysisScrolledIntoView">
+          <div class="skin-healthparameters mb-20 w100" [class.paramTabsSticky]="isAnalysisScrolledIntoView">
             <h4 class="fs-14 text-center mb-10">Click below to view other Skin Health Parameters</h4>
             <ul>
               <ng-container *ngFor="let data of topPriorities.dataArr; let i = index">
@@ -791,6 +791,9 @@
             </div>
           </form>
         </div> -->
+        <div class="static-banner">
+          <img src="assets/newassets/resultbanner.png" class="w100" alt="banner" />
+        </div>
       </div>
     </div>
 </section>

@@ -865,7 +865,6 @@ ul.cse-content {
 
 .skin-analysiswrapper {
   opacity: 0;
-  padding-bottom: 120px;
 }
 
 .skin-healthparameters ul {
@@ -934,8 +933,11 @@ ul.cse-content {
   }
 }
 
-
-
+.static-banner {
+  padding-bottom: 140px;
+  margin-left: -10px;
+  margin-right: -10px;
+}
 
 
 
