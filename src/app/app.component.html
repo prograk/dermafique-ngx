@@ -607,7 +607,7 @@
                 <ng-container *ngIf="i < 3">
                   <li class="sr-wrapper">
                     <div class="sr-circle-wrapper">
-                      <div class="circle-svg small" (click)="ActiveTab($event, priority.priority_name)">
+                      <div class="circle-svg small" (click)="ActiveTab($event, priority.priority_name, scrollAnalysisIntoViewRef)">
                         <svg class="circle-chart" viewBox="0 0 33.83098862 33.83098862" width="200" height="200" xmlns="http://www.w3.org/2000/svg">
                           <circle class="circle-chart__background" stroke="#959b90" stroke-width=".1" fill="none" cx="16.91549431" cy="16.91549431" r="15.91549431"></circle>
                           <circle class="circle-chart__circle" 
@@ -765,7 +765,7 @@
                 <!-- <ng-container *ngIf="i < 3"> -->
                   <li [class.d-none]="(i > 2 && showRestTabs === false)" 
                       [class.selected]="activeResultTab === data.priority_name" 
-                      (click)="ActiveTab($event, data.priority_name)">{{data.priority_name}}</li>
+                      (click)="ActiveTab($event, data.priority_name, scrollAnalysisIntoViewRef)">{{data.priority_name}}</li>
                 <!-- </ng-container> -->
               </ng-container>
               <li (click)="ShowRestTabFn()" [class.selected]="showRestTabs">&nbsp; {{ showRestTabs == true ? '-' : '+' }} &nbsp;</li>
