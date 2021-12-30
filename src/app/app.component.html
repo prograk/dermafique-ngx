@@ -100,12 +100,12 @@
             <h1 class="c-red mb-10 text-center">Smart DermaConsult’s AI Powered Technology</h1>
             <p class="fs-14 lh-18 textcolor text-center">helps you understand your skin’s unique needs
               & shares personalized skin care recommendations 
-              for Healthy Skin !</p>
+              for Healthy Skin!</p>
             <form class="d-flex df-dir-c">
               <label class="termsprivacy textcolor">
                   <input type="checkbox" (change)="PolicyAgree($event)" value="I agree with your terms and privacy" />
                   <span></span>
-                  I agree with your&nbsp;<a>terms and privacy</a>
+                  I agree with your&nbsp;<a>terms of privacy</a>
               </label>
               <input type="submit" value="Let's start" class="btnStyle" (click)="showSlide3()">
             </form>
@@ -766,7 +766,7 @@
                   <li [class.d-none]="(i > 2 && showRestTabs === false)" [class.selected]="activeResultTab === data.priority_name" (click)="ActiveTab($event, data.priority_name)">{{data.priority_name}}</li>
                 <!-- </ng-container> -->
               </ng-container>
-              <li (click)="ShowRestTabFn()" [class.selected]="showRestTabs">&nbsp; + &nbsp;</li>
+              <li (click)="ShowRestTabFn()" [class.selected]="showRestTabs">&nbsp; {{ showRestTabs == true ? '-' : '+' }} &nbsp;</li>
             </ul>
             <!-- <ng-template [ngIf]="showRestTabs">
               <ul>

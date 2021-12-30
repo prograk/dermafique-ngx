@@ -203,8 +203,8 @@ label.termsprivacy input {
 }
 
 label.termsprivacy span {
-  height: 12px;
-  width: 12px;
+  height: 18px;
+  width: 18px;
   margin-right: 6px;
   display: inline-flex;
   align-items: center;
@@ -219,7 +219,7 @@ label.termsprivacy {
 
 label.termsprivacy input:checked + span:before {
   content: "✔️";
-  font-size: 10px;
+  font-size: 16px;
 }
 
 .slide3 {

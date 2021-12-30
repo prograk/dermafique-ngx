@@ -185,7 +185,7 @@ export class AppComponent implements OnInit {
       this.slide5Show = false;
       return false;
     } else {
-      alert('Please agree Privacy Policy to go ahead');      
+      alert('Please accept the terms of privacy to proceed');      
     }
     
   }
