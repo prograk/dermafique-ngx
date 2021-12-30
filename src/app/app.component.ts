@@ -47,6 +47,7 @@ export class AppComponent implements OnInit {
     )
   };
 
+  // @ViewChild('circleScrollToRef', { static: false }) private circleScrollToRef: ElementRef<HTMLDivElement>;
   @ViewChild('scrollRecommendationIntoViewRef', { static: false }) private scrollRecommendationIntoViewRef: ElementRef<HTMLDivElement>;
   @ViewChild('scrollAnalysisIntoViewRef', { static: false }) private scrollAnalysisIntoViewRef: ElementRef<HTMLDivElement>;
   isRecommendationScrolledIntoView = false;
@@ -58,27 +59,17 @@ export class AppComponent implements OnInit {
   isScrolledIntoView(){
     if (this.scrollRecommendationIntoViewRef) {
       const el = this.scrollRecommendationIntoViewRef.nativeElement;
-      // .getBoundingClientRect();
       this.isRecommendationScrolledIntoView = this.isElementXPercentInViewport(el, 10);
       if(this.isRecommendationScrolledIntoView && !this.isRecommendationAlreadyRendered) {
         this.isRecommendationAlreadyRendered = true;
       }
-      // const topShown = rect.top >= 0;
-      // const bottomShown = rect.bottom <= window.innerHeight;
-      // this.isRecommendationScrolledIntoView = topShown && bottomShown;
-      // console.log(this.isRecommendationScrolledIntoView);
     }
     if (this.scrollAnalysisIntoViewRef) {
       const el = this.scrollAnalysisIntoViewRef.nativeElement;
-      // .getBoundingClientRect();
       this.isAnalysisScrolledIntoView = this.isElementXPercentInViewport(el, 10);
       if(this.isAnalysisScrolledIntoView && !this.isAnalysisAlreadyRendered) {
         this.isAnalysisAlreadyRendered = true;
       }
-      // const topShown = rect.top >= 0;
-      // const bottomShown = rect.bottom <= window.innerHeight;
-      // this.isAnalysisScrolledIntoView = topShown && bottomShown;
-      // console.log(this.isAnalysisScrolledIntoView);
     }
   }
   
@@ -544,8 +535,9 @@ export class AppComponent implements OnInit {
     if(this.activeResultTab !== activeTabText) {
       this.skinResultSelected = topPriorities.find(tp => tp.priority_name === activeTabText);
       this.activeResultTab = activeTabText;
+      this.changeDetector.detectChanges();
       if(scrollToElem !== undefined) {
-        scrollToElem.scrollIntoView({ behavior: "smooth" });
+        scrollToElem.nativeElement.scrollIntoView({ behavior: "smooth" });
       }
     }
   }

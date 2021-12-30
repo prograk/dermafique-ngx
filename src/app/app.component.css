@@ -746,6 +746,10 @@ ul.cse-content {
   align-items: center;
 }
 
+.sr-circle-wrapper .circle-svg {
+  cursor: pointer;
+}
+
 .score-recommendation {
   margin: 30px 0;
   opacity: 0;
@@ -778,6 +782,7 @@ ul.cse-content {
 
 .sr-circle-wrapper > span {
   margin-top: 10px;
+  text-align: center;
 }
 
 
