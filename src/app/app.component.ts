@@ -47,9 +47,8 @@ export class AppComponent implements OnInit {
     )
   };
 
-  // @ViewChild('circleScrollToRef', { static: false }) private circleScrollToRef: ElementRef<HTMLDivElement>;
   @ViewChild('scrollRecommendationIntoViewRef', { static: false }) private scrollRecommendationIntoViewRef: ElementRef<HTMLDivElement>;
-  @ViewChild('scrollAnalysisIntoViewRef', { static: false }) private scrollAnalysisIntoViewRef: ElementRef<HTMLDivElement>;
+  @ViewChild('scrollAnalysisIntoViewRef', { static: false }) public scrollAnalysisIntoViewRef: ElementRef<HTMLDivElement>;
   isRecommendationScrolledIntoView = false;
   isRecommendationAlreadyRendered = false;
   isAnalysisScrolledIntoView = false;
