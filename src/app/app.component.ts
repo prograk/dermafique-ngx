@@ -128,7 +128,7 @@ export class AppComponent implements OnInit {
   public slideLogin = false;
   // inputnumber = 20;
   selectedSkin = "os";
-  selectedAge: string = '25';
+  selectedAge: string = '35';
   selectedGender = "female";
   apiId:any;
   LoginEmail = "";
@@ -201,7 +201,7 @@ export class AppComponent implements OnInit {
     this.changeDetector.detectChanges();
     let anyService = this.ageSliderRef as any;
     let carouselService = anyService.carouselService as CarouselService;
-    carouselService.to(13, 0);
+    carouselService.to(23, 0);
     return false;
   }
 
@@ -539,11 +539,14 @@ export class AppComponent implements OnInit {
   public activeResultTab:string;
   public showRestTabs = false;
 
-  ActiveTab(event: any, activeTabText: string) {
+  ActiveTab(event: any, activeTabText: string, scrollToElem = undefined) {
     const { priorityInfo: { topPriorities } } = this.dataaa;
     if(this.activeResultTab !== activeTabText) {
       this.skinResultSelected = topPriorities.find(tp => tp.priority_name === activeTabText);
       this.activeResultTab = activeTabText;
+      if(scrollToElem !== undefined) {
+        scrollToElem.scrollIntoView({ behavior: "smooth" });
+      }
     }
   }
 

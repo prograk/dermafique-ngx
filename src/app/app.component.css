@@ -543,6 +543,10 @@ p.bottomdesc {
   flex: unset;
 }
 
+.slide7 .topcurve {
+  pointer-events: none;
+}
+
 .slide7 .top3Priorities {
   padding: 2em 0; 
   width: 100%; 
@@ -652,6 +656,7 @@ ul.cse-content {
   right: 15px;
   background: white;
   border-radius: 100px;
+  cursor: pointer;
 }
 
 .sw-photopersent > div .circle-svg:nth-child(2) {

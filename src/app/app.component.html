@@ -492,7 +492,7 @@
           <div class="sw-photopersent">
             <img [src]="url" />
             <div>
-              <div class="circle-svg small">
+              <div class="circle-svg small" (click)="ActiveTab($event, 'Firmness', scrollRecommendationIntoViewRef)">
                 <svg class="circle-chart" viewBox="0 0 33.83098862 33.83098862" width="200" height="200" xmlns="http://www.w3.org/2000/svg">
                   <circle class="circle-chart__background" stroke="#959b90" stroke-width=".1" fill="none" cx="16.91549431" cy="16.91549431" r="15.91549431"></circle>
                   <circle class="circle-chart__circle" 
@@ -505,7 +505,7 @@
                 </div>
                 <span>Firmness</span>
               </div>
-              <div class="circle-svg small">
+              <div class="circle-svg small" (click)="ActiveTab($event, 'Smoothness', scrollRecommendationIntoViewRef)">
                 <svg class="circle-chart" viewBox="0 0 33.83098862 33.83098862" width="200" height="200" xmlns="http://www.w3.org/2000/svg">
                   <circle class="circle-chart__background" stroke="#959b90" stroke-width=".1" fill="none" cx="16.91549431" cy="16.91549431" r="15.91549431"></circle>
                   <circle class="circle-chart__circle" 
@@ -518,7 +518,7 @@
                 </div>
                 <span>Smoothness</span>
               </div>
-              <div class="circle-svg small">
+              <div class="circle-svg small" (click)="ActiveTab($event, 'Hydration Score', scrollRecommendationIntoViewRef)">
                 <svg class="circle-chart" viewBox="0 0 33.83098862 33.83098862" width="200" height="200" xmlns="http://www.w3.org/2000/svg">
                   <circle class="circle-chart__background" stroke="#959b90" stroke-width=".1" fill="none" cx="16.91549431" cy="16.91549431" r="15.91549431"></circle>
                   <circle class="circle-chart__circle" 
@@ -531,7 +531,7 @@
                 </div>
                 <span>Hydration Score</span>
               </div>
-              <div class="circle-svg small">
+              <div class="circle-svg small" (click)="ActiveTab($event, 'Dullness', scrollRecommendationIntoViewRef)">
                 <svg class="circle-chart" viewBox="0 0 33.83098862 33.83098862" width="200" height="200" xmlns="http://www.w3.org/2000/svg">
                   <circle class="circle-chart__background" stroke="#959b90" stroke-width=".1" fill="none" cx="16.91549431" cy="16.91549431" r="15.91549431"></circle>
                   <circle class="circle-chart__circle" 
@@ -544,7 +544,7 @@
                 </div>
                 <span>Dullness</span>
               </div>
-              <div class="circle-svg small">
+              <div class="circle-svg small" (click)="ActiveTab($event, 'Uneven Skin Tone', scrollRecommendationIntoViewRef)">
                 <svg class="circle-chart" viewBox="0 0 33.83098862 33.83098862" width="200" height="200" xmlns="http://www.w3.org/2000/svg">
                   <circle class="circle-chart__background" stroke="#959b90" stroke-width=".1" fill="none" cx="16.91549431" cy="16.91549431" r="15.91549431"></circle>
                   <circle class="circle-chart__circle" 
@@ -557,7 +557,7 @@
                 </div>
                 <span>Uneven<br /> Skin Tone</span>
               </div>
-              <div class="circle-svg small">
+              <div class="circle-svg small" (click)="ActiveTab($event, 'Fine Lines & wrinkle', scrollRecommendationIntoViewRef)">
                 <svg class="circle-chart" viewBox="0 0 33.83098862 33.83098862" width="200" height="200" xmlns="http://www.w3.org/2000/svg">
                   <circle class="circle-chart__background" stroke="#959b90" stroke-width=".1" fill="none" cx="16.91549431" cy="16.91549431" r="15.91549431"></circle>
                   <circle class="circle-chart__circle" 
@@ -570,7 +570,7 @@
                 </div>
                 <span>Face Lines<br /> &amp; Wrinkles</span>
               </div>
-              <div class="circle-svg small">
+              <div class="circle-svg small" (click)="ActiveTab($event, 'Dark Spots', scrollRecommendationIntoViewRef)">
                 <svg class="circle-chart" viewBox="0 0 33.83098862 33.83098862" width="200" height="200" xmlns="http://www.w3.org/2000/svg">
                   <circle class="circle-chart__background" stroke="#959b90" stroke-width=".1" fill="none" cx="16.91549431" cy="16.91549431" r="15.91549431"></circle>
                   <circle class="circle-chart__circle" 
@@ -763,7 +763,9 @@
             <ul>
               <ng-container *ngFor="let data of topPriorities.dataArr; let i = index">
                 <!-- <ng-container *ngIf="i < 3"> -->
-                  <li [class.d-none]="(i > 2 && showRestTabs === false)" [class.selected]="activeResultTab === data.priority_name" (click)="ActiveTab($event, data.priority_name)">{{data.priority_name}}</li>
+                  <li [class.d-none]="(i > 2 && showRestTabs === false)" 
+                      [class.selected]="activeResultTab === data.priority_name" 
+                      (click)="ActiveTab($event, data.priority_name)">{{data.priority_name}}</li>
                 <!-- </ng-container> -->
               </ng-container>
               <li (click)="ShowRestTabFn()" [class.selected]="showRestTabs">&nbsp; {{ showRestTabs == true ? '-' : '+' }} &nbsp;</li>
