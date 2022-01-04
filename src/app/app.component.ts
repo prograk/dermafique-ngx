@@ -343,7 +343,6 @@ export class AppComponent implements OnInit {
     window['googleSDKLoaded'] = () => {
       window['gapi'].load('auth2', () => {
         this.auth2 = window['gapi'].auth2.init({
-          
           client_id: '385303878640-2peie9oqcfksd6ebejvoj5t566auhup3.apps.googleusercontent.com',
           cookie_policy: 'single_host_origin',
           scope: 'profile email'
@@ -360,10 +359,8 @@ export class AppComponent implements OnInit {
   }
 	
   prepareLogin() {
-    debugger;
     this.auth2.attachClickHandler(this.loginRef.nativeElement, {},
       (googleUser) => {
-        debugger;
         let profile = googleUser.getBasicProfile();
         //console.log('Token || ' + googleUser.getAuthResponse().id_token);
         //this.show = true;
@@ -374,7 +371,6 @@ export class AppComponent implements OnInit {
         //console.log('Email: ' + profile.getEmail());
       }, 
       (error) => {
-        debugger;
         console.log(error);
         // alert(JSON.stringify(error, undefined, 2));
       });
