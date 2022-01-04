@@ -15,7 +15,7 @@ import html2canvas from 'html2canvas';
 import { CarouselService } from 'ngx-owl-carousel-o/lib/services/carousel.service';
 
 declare var FB: any;
-declare var loginRef: any;
+// declare var loginRef: any;
 @Component({
   selector: 'app-root',
   templateUrl: './app.component.html',
@@ -29,7 +29,7 @@ export class AppComponent implements OnInit {
 
   // @ViewChild('pdfTable', {static: false}) pdfTable: ElementRef;
   
-  @ViewChild('loginRef', {static: false }) loginRef: ElementRef;
+  @ViewChild('loginRef', { static: false }) loginRef: ElementRef;
   /*@ViewChild('loginRef', {static: true }) loginElement: ElementRef;*/
 	
   @ViewChild("videoPlayer", { static: false }) videoplayer: ElementRef;
@@ -245,6 +245,7 @@ export class AppComponent implements OnInit {
     this.slide6Show = false;
     this.slide7Show = false;
     this.slideLogin = true;
+    this.changeDetector.detectChanges();
     return false;
   }
 
@@ -359,8 +360,10 @@ export class AppComponent implements OnInit {
   }
 	
   prepareLogin() {
+    debugger;
     this.auth2.attachClickHandler(this.loginRef.nativeElement, {},
       (googleUser) => {
+        debugger;
         let profile = googleUser.getBasicProfile();
         //console.log('Token || ' + googleUser.getAuthResponse().id_token);
         //this.show = true;
@@ -371,7 +374,9 @@ export class AppComponent implements OnInit {
         //console.log('Email: ' + profile.getEmail());
       }, 
       (error) => {
-        alert(JSON.stringify(error, undefined, 2));
+        debugger;
+        console.log(error);
+        // alert(JSON.stringify(error, undefined, 2));
       });
   }
 
@@ -559,7 +564,8 @@ export class AppComponent implements OnInit {
       this.skinResultSelected = this.dataaa.priorityInfo.topPriorities[0];
       this.activeResultTab = this.skinResultSelected.priority_name;
       this.message = JSON.stringify(res);
-      this.showSlide7();
+      // this.showSlide7();
+      this.showSlideLogin();
     },
       (err: HttpErrorResponse) => {
         console.log(err.error && err.error.error && err.error.error.message);
