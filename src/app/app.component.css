@@ -842,6 +842,10 @@ ul.cse-content {
   box-shadow: inset 0 0 27px 0 rgb(255 165 143 / 80%);
 }
 
+#printPDF .cse-card {
+  box-shadow: unset;
+}
+
 .consolexpert {
   padding: 20px;
   display: flex;
@@ -1924,6 +1928,10 @@ ul.cse-content {
   animation: circle-chart-fill 2s reverse;
   transform: rotate(-90deg);
   transform-origin: center;
+}
+
+#printPDF .circle-chart__circle {
+  animation: unset;
 }
 
 @keyframes circle-chart-fill {

@@ -954,9 +954,9 @@
                       <span class="lh-18">{{priority.priority_title}}</span>
                     </div>
                     <div class="sr-buycard">
-                      <img src="http://localhost:4200/assets/newassets/dermafique-tone-perfecting-bio-cellulose-face-masque-thumb.png" />
+                      <img [src]="priority.priority_product_info.product_image_thumbnail" #imageBase64Ref />
                       <a class="btnStyle" target="_blank" [href]="priority.priority_product_info.product_link">
-                        <img src="http://localhost:4200/assets/newassets/bagico.png" alt="bagicon" />&nbsp;Buy Now →
+                        <img src="assets/newassets/bagico.png" alt="bagicon" />&nbsp;Buy Now →
                       </a>
                     </div>
                   </li>
@@ -990,7 +990,7 @@
                   </section>
                   <div class="sd-product mb-20">
                     <div class="sdp-left pr-20">
-                      <img [src]="selectedVal.priority_product_info.product_image" />
+                      <img [src]="selectedVal.priority_product_info.product_image" #imageBase64Ref />
                     </div>
                     <div class="sdp-right">
                       <div class="sdpr-title">{{selectedVal.priority_product_info.product_name}}</div>
@@ -1009,7 +1009,7 @@
                     <ul class="cse-content">
                       <li class="d-flex df-a-fs mb-20">
                         <div class="csec-image">
-                          <img [src]="concern.c.causes.image" />
+                          <img [src]="concern.c.causes.image" #imageBase64Ref />
                         </div>
                         <div class="csec-text">
                           <h4>How this is caused:</h4>
@@ -1022,7 +1022,7 @@
                       </li>
                       <li class="d-flex df-a-fs">
                         <div class="csec-image">
-                          <img [src]="concern.c.needs.image" />
+                          <img [src]="concern.c.needs.image" #imageBase64Ref />
                         </div>
                         <div class="csec-text">
                           <h4>What you need:</h4>
@@ -1047,7 +1047,7 @@
                       <ng-container *ngFor="let point of solution.s.points">
                         <li class="d-flex df-a-fs mb-10">
                           <div class="csec-image">
-                            <img [src]="point.image" />
+                            <img [src]="point.image" #imageBase64Ref />
                           </div>
                           <div class="csec-text">
                             <p class="">
@@ -1074,7 +1074,7 @@
                       <ng-container *ngFor="let point of expert.e.points">
                         <li class="d-flex df-a-fs mb-10">
                           <div class="csec-image">
-                            <img [src]="point.image" />
+                            <img [src]="point.image" #imageBase64Ref />
                           </div>
                           <div class="csec-text">
                             <p class="">{{point.point}}</p>

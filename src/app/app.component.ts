@@ -1,4 +1,4 @@
-import { Component, OnInit, OnChanges, ChangeDetectorRef, HostListener, ViewChildren } from '@angular/core';
+import { Component, OnInit, OnChanges, ChangeDetectorRef, HostListener, ViewChildren, Renderer2 } from '@angular/core';
 import { FormsModule, ReactiveFormsModule, FormControl, FormGroup, FormBuilder, Validators } from '@angular/forms';
 import { HttpErrorResponse } from '@angular/common/http';
 import { WebcamImage, WebcamInitError, WebcamUtil } from 'ngx-webcam';
@@ -15,6 +15,7 @@ import html2canvas from 'html2canvas';
 import { CarouselService } from 'ngx-owl-carousel-o/lib/services/carousel.service';
 import { NgxCaptureService } from 'ngx-capture';
 import { DomSanitizer } from '@angular/platform-browser';
+import * as html2pdf from 'html2pdf.js';
 // import domtoimage from 'dom-to-image';
 
 declare var FB: any;
@@ -58,7 +59,7 @@ export class AppComponent implements OnInit {
   isAnalysisAlreadyRendered = false;
 
   @HostListener('window:scroll', [])
-  isScrolledIntoView(){
+  isScrolledIntoView() {
     if (this.scrollRecommendationIntoViewRef) {
       const el = this.scrollRecommendationIntoViewRef.nativeElement;
       this.isRecommendationScrolledIntoView = this.isElementXPercentInViewport(el, 10);
@@ -97,22 +98,56 @@ export class AppComponent implements OnInit {
     });
   }
 
-  @ViewChild('screenRef', { static: false }) screenRef: any;
-  // @ViewChildren('imageBase64Ref') imageBase64Ref: any;
+  savePDF() {
+    const element = document.getElementById('printPDF');
+    const opt = {
+      margin:       [0, 1],
+      filename:     'myfilenew.pdf',
+      image:        { type: 'jpeg', quality: 0.98 },
+      html2canvas:  { scale: 1 },
+      jsPDF:        { unit: 'in', format: 'a4', orientation: 'portrait' },
+    };
+    
+    // New Promise-based usage:
+    html2pdf().from(element).set(opt).save();
+    this.downloadPDF = false;
+    this.base64Converted = false;
+  }
 
-  public downloadPDF = true;
+  @ViewChild('screenRef', { static: false }) screenRef: any;
+  @ViewChildren('imageBase64Ref') imageBase64Ref: any;
+
+  public downloadPDF = false;
+  public base64Converted = false;
   public img = '';
-  // public priorityImg1: any = '';
-  // public priorityImg2: any = '';
-  // public priorityImg3: any = '';
-  async saveImage1() {
+
+  saveImage1() {
     this.downloadPDF = true;
     this.changeDetector.detectChanges();
+
+    let counter = 1;
+
+    if(this.base64Converted === false) {
+      this.imageBase64Ref.map(async (e: any) => {
+        const { nativeElement } = e;
+        const { src } = nativeElement;
+        const data: any = await this.getBase64FromUrl(src);
+        this.renderer.setProperty(nativeElement, 'src', data);
+        counter++;
+        if(this.imageBase64Ref.length === counter) {
+          this.base64Converted = true;
+          this.savePDF();
+        }
+      });
+    } else {
+      this.savePDF();
+    }
 
     // var data = document.getElementById('printPDF');  //Id of the table
     // html2canvas(data, {
     //   useCORS: true,
     //   allowTaint: true,
+    //   scale: .5,
     // }).then((canvas) => {
     //   // Few necessary setting options
     //   let imgWidth = 208;
@@ -140,31 +175,6 @@ export class AppComponent implements OnInit {
 
     // this.priorityImg = baseData;
 
-    // this.imageBase64Ref.map(async (e: any, index) => {
-    //   let { nativeElement } = e;
-    //   let src = nativeElement.getAttribute('data-url');
-    //     const data: any = await this.getBase64FromUrl(src);
-    //   console.log(data);
-    //     // const security: any = this._sanitizer.bypassSecurityTrustResourceUrl(data);
-    //     switch(index) {
-    //       case 0: {
-    //         this.priorityImg1 = data;
-    //         break;
-    //       }
-    //       case 1: {
-    //         this.priorityImg2 = data;
-    //         break;
-    //       }
-    //       case 2: {
-    //         this.priorityImg3 = data;
-    //         break;
-    //       }
-    //     }
-    //     console.log(src);
-    //   })
-
-    // this.changeDetector.detectChanges();
-
     // let pdf = new jsPDF();
     // pdf.html(this.screenRef.nativeElement, {
     //   html2canvas: {
@@ -189,19 +199,19 @@ export class AppComponent implements OnInit {
     //   });
     // }, 100);
 
-    this.captureService.getImage(this.screenRef.nativeElement, true).then(img => {
-      // const { innerHeight, innerWidth } = window;
-      // let pdf = new jsPDF('p', 'mm', [innerWidth, 14400], true);
-      // let position = 0;
-      // pdf.addImage(img, 'PNG', 0, position, innerWidth, 14400);
-      // pdf.save('MYPdfNew.pdf'); // Generated PDF
-      var a = document.createElement("a"); //Create <a>
-      a.href = img; //Image Base64 Goes here
-      a.download = "imgDown.png"; //File name Here
-      a.click(); //Downloaded file
-    }).catch(err => {
-      console.log(err);
-    })
+    // this.captureService.getImage(this.screenRef.nativeElement, true).then(img => {
+    //   const { innerHeight, innerWidth } = window;
+    //   let pdf = new jsPDF('p', 'mm', [innerWidth, 14400], true);
+    //   let position = 0;
+    //   pdf.addImage(img, 'PNG', 0, position, innerWidth, 14400);
+    //   pdf.save('MYPdfNew.pdf'); // Generated PDF
+    //   // var a = document.createElement("a"); //Create <a>
+    //   // a.href = img; //Image Base64 Goes here
+    //   // a.download = "imgDown.png"; //File name Here
+    //   // a.click(); //Downloaded file
+    // }).catch(err => {
+    //   console.log(err);
+    // })
     // this.img = img;
   }
 
@@ -474,13 +484,13 @@ export class AppComponent implements OnInit {
   private nextWebcam: Subject<boolean | string> = new Subject<boolean | string>();
 
 
-  private regForm: FormGroup;
-  private txtNumber: FormControl;
-  private PushID: FormControl;
+  public regForm: FormGroup;
+  public txtNumber: FormControl;
+  public PushID: FormControl;
 
-  private thankYouForm: FormGroup;
-  private txtThankYouNumber: FormControl;
-  private txtThankYouEmail: FormControl;
+  public thankYouForm: FormGroup;
+  public txtThankYouNumber: FormControl;
+  public txtThankYouEmail: FormControl;
 
   constructor(
     private _appService: AppService,
@@ -489,6 +499,7 @@ export class AppComponent implements OnInit {
     private elementRef: ElementRef,
     private captureService: NgxCaptureService,
     private _sanitizer: DomSanitizer,
+    private renderer: Renderer2,
   ) { }
 
   public GetSkinTypes = [] as any;
