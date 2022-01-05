@@ -464,7 +464,7 @@
 <section class="slide3 slide7" [class.show]="slide7Show" *ngIf="slide7Show">
   <!-- <ng-template *ngIf="dataaa !== null"> -->
     <!-- <button (click)="downloadAsPDF()">pdf</button> -->
-    <button (click)="saveImage()">Save Image</button>
+    <button (click)="saveImage1()">Save Image</button>
     <ng-container *ngIf="!downloadPDF">
       <div class="topcurve">
         <img src="assets/newassets/topcurve.png" alt="topcurve" />
@@ -765,23 +765,12 @@
               <h4 class="fs-14 text-center mb-10">Click below to view other Skin Health Parameters</h4>
               <ul>
                 <ng-container *ngFor="let data of topPriorities.dataArr; let i = index">
-                  <!-- <ng-container *ngIf="i < 3"> -->
-                    <li [class.d-none]="(i > 2 && showRestTabs === false)"
-                        [class.selected]="activeResultTab === data.priority_name"
-                        (click)="ActiveTab($event, data.priority_name, scrollAnalysisIntoViewRef)">{{data.priority_name}}</li>
-                  <!-- </ng-container> -->
+                  <li [class.d-none]="(i > 2 && showRestTabs === false)"
+                      [class.selected]="activeResultTab === data.priority_name"
+                      (click)="ActiveTab($event, data.priority_name, scrollAnalysisIntoViewRef)">{{data.priority_name}}</li>
                 </ng-container>
                 <li (click)="ShowRestTabFn()" [class.selected]="showRestTabs">&nbsp; {{ showRestTabs == true ? '-' : '+' }} &nbsp;</li>
               </ul>
-              <!-- <ng-template [ngIf]="showRestTabs">
-                <ul>
-                  <ng-container *ngFor="let data of topPriorities.dataArr; let i = index">
-                    <ng-container *ngIf="i > 2">
-                      <li [class.selected]="activeResultTab === data.priority_name" (click)="ActiveTab($event, data.priority_name)">{{data.priority_name}}</li>
-                    </ng-container>
-                  </ng-container>
-                </ul>
-              </ng-template> -->
             </div>
           </ng-container>
           <ng-container *ngIf="guestResult">
@@ -965,9 +954,9 @@
                       <span class="lh-18">{{priority.priority_title}}</span>
                     </div>
                     <div class="sr-buycard">
-                      <img [src]="priority.priority_product_info.product_image_thumbnail" />
+                      <img src="http://localhost:4200/assets/newassets/dermafique-tone-perfecting-bio-cellulose-face-masque-thumb.png" />
                       <a class="btnStyle" target="_blank" [href]="priority.priority_product_info.product_link">
-                        <img src="assets/newassets/bagico.png" alt="bagicon" />&nbsp;Buy Now →
+                        <img src="http://localhost:4200/assets/newassets/bagico.png" alt="bagicon" />&nbsp;Buy Now →
                       </a>
                     </div>
                   </li>
@@ -1104,5 +1093,4 @@
         </ng-container>
       </div>
     </ng-container>
-    <!-- <ngx-capture [target]="screenRef" (resultImage)="saveImage($event)"></ngx-capture> -->
 </section>

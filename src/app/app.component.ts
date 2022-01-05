@@ -11,10 +11,11 @@ import { IGetSkinTypes } from './GetSkinTypes';
 import { ViewChild, ElementRef } from '@angular/core'
 import { KeyValuePipe } from '@angular/common';
 import { jsPDF } from 'jspdf';
-// import html2canvas from 'html2canvas';
+import html2canvas from 'html2canvas';
 import { CarouselService } from 'ngx-owl-carousel-o/lib/services/carousel.service';
 import { NgxCaptureService } from 'ngx-capture';
-import domtoimage from 'dom-to-image';
+import { DomSanitizer } from '@angular/platform-browser';
+// import domtoimage from 'dom-to-image';
 
 declare var FB: any;
 // declare var loginRef: any;
@@ -83,22 +84,95 @@ export class AppComponent implements OnInit {
     console.log("afterinit");
   }
 
-  @ViewChild('screenRef', { static: false }) screenRef: any;
+  getBase64FromUrl = async (url) => {
+    const data = await fetch(url);
+    const blob = await data.blob();
+    return new Promise((resolve) => {
+      const reader = new FileReader();
+      reader.readAsDataURL(blob); 
+      reader.onloadend = () => {
+        const base64data = reader.result;   
+        resolve(base64data);
+      }
+    });
+  }
 
-  public downloadPDF = false;
+  @ViewChild('screenRef', { static: false }) screenRef: any;
+  // @ViewChildren('imageBase64Ref') imageBase64Ref: any;
+
+  public downloadPDF = true;
   public img = '';
-  saveImage1() {
+  // public priorityImg1: any = '';
+  // public priorityImg2: any = '';
+  // public priorityImg3: any = '';
+  async saveImage1() {
     this.downloadPDF = true;
     this.changeDetector.detectChanges();
 
-    let pdf = new jsPDF();
-    pdf.html(this.screenRef.nativeElement, {
-      html2canvas: {
-        scale: .45,
-      },
-      x: 10,
-      y: 10,
-    }).then(() => pdf.save('tesing.pdf'));
+    // var data = document.getElementById('printPDF');  //Id of the table
+    // html2canvas(data, {
+    //   useCORS: true,
+    //   allowTaint: true,
+    // }).then((canvas) => {
+    //   // Few necessary setting options
+    //   let imgWidth = 208;
+    //   let pageHeight = 295;
+    //   let imgHeight = canvas.height * imgWidth / canvas.width;
+    //   let heightLeft = imgHeight;
+    //   const { innerHeight, innerWidth } = window;
+    //   const { height } = canvas;
+
+    //   const { clientHeight } = document.querySelector('#printPDF');
+
+    //   const contentDataURL = canvas.toDataURL('image/png');
+    //   let pdf = new jsPDF('p', 'mm', [innerWidth, height], true); 
+    //   // let pdf = new jsPDF('p', 'mm', 'a4', true); // A4 size page of PDF
+    //   let position = 0;
+    //   pdf.addImage(contentDataURL, 'PNG', 0, position, innerWidth, height);
+    //   pdf.save('MYPdfNew.pdf'); // Generated PDF
+    // });
+
+    // this.imageBase64Ref.nativeElement;
+
+    // const dataUrl = this.imageBase64Ref.nativeElement.getAttribute('data-url');
+
+    // const baseData = await this.getBase64FromUrl(dataUrl);
+
+    // this.priorityImg = baseData;
+
+    // this.imageBase64Ref.map(async (e: any, index) => {
+    //   let { nativeElement } = e;
+    //   let src = nativeElement.getAttribute('data-url');
+    //     const data: any = await this.getBase64FromUrl(src);
+    //   console.log(data);
+    //     // const security: any = this._sanitizer.bypassSecurityTrustResourceUrl(data);
+    //     switch(index) {
+    //       case 0: {
+    //         this.priorityImg1 = data;
+    //         break;
+    //       }
+    //       case 1: {
+    //         this.priorityImg2 = data;
+    //         break;
+    //       }
+    //       case 2: {
+    //         this.priorityImg3 = data;
+    //         break;
+    //       }
+    //     }
+    //     console.log(src);
+    //   })
+
+    // this.changeDetector.detectChanges();
+
+    // let pdf = new jsPDF();
+    // pdf.html(this.screenRef.nativeElement, {
+    //   html2canvas: {
+    //     scale: .45,
+    //   },
+    //   x: 10,
+    //   y: 10,
+    // }).then(() => pdf.save('tesing.pdf'));
 
     // setTimeout(() => {
     //   let pdf = new jsPDF('p', 'mm', 'a4', true);
@@ -115,71 +189,69 @@ export class AppComponent implements OnInit {
     //   });
     // }, 100);
 
-    // this.captureService.getImage(this.screenRef.nativeElement, true).then(img => {
-    //   const { innerHeight, innerWidth } = window;
-    //   let pdf = new jsPDF('p', 'mm', [innerWidth, 14400], true);
-    //   let position = 0;
-    //   pdf.addImage(img, 'PNG', 0, position, innerWidth, 14400);
-    //   pdf.save('MYPdfNew.pdf'); // Generated PDF
-    //   // var a = document.createElement("a"); //Create <a>
-    //   // a.href = img; //Image Base64 Goes here
-    //   // a.download = "imgDown.png"; //File name Here
-    //   // a.click(); //Downloaded file
-    // }).catch(err => {
-    //   debugger;
-    //   console.log(err);
-    // })
+    this.captureService.getImage(this.screenRef.nativeElement, true).then(img => {
+      // const { innerHeight, innerWidth } = window;
+      // let pdf = new jsPDF('p', 'mm', [innerWidth, 14400], true);
+      // let position = 0;
+      // pdf.addImage(img, 'PNG', 0, position, innerWidth, 14400);
+      // pdf.save('MYPdfNew.pdf'); // Generated PDF
+      var a = document.createElement("a"); //Create <a>
+      a.href = img; //Image Base64 Goes here
+      a.download = "imgDown.png"; //File name Here
+      a.click(); //Downloaded file
+    }).catch(err => {
+      console.log(err);
+    })
     // this.img = img;
   }
 
-  saveImage() {
-    this.downloadPDF = true;
-    this.changeDetector.detectChanges();
-    // debugger;
-    var node = this.screenRef.nativeElement;
+  // saveImage() {
+  //   this.downloadPDF = true;
+  //   this.changeDetector.detectChanges();
+  //   // debugger;
+  //   var node = this.screenRef.nativeElement;
 
-    var img;
-    var filename;
-    var newImage;
+  //   var img;
+  //   var filename;
+  //   var newImage;
 
-    domtoimage.toPng(node, { bgcolor: '#fff' })
-      .then((dataUrl) => {
-        debugger;
-        img = new Image();
-        img.src = dataUrl;
-        newImage = img.src;
+  //   domtoimage.toPng(node, { bgcolor: '#fff' })
+  //     .then((dataUrl) => {
+  //       debugger;
+  //       img = new Image();
+  //       img.src = dataUrl;
+  //       newImage = img.src;
 
-        img.onload = function(){
+  //       img.onload = function(){
 
-        var pdfWidth = img.width;
-        var pdfHeight = img.height;
+  //       var pdfWidth = img.width;
+  //       var pdfHeight = img.height;
 
-          // FileSaver.saveAs(dataUrl, 'my-pdfimage.png'); // Save as Image
+  //         // FileSaver.saveAs(dataUrl, 'my-pdfimage.png'); // Save as Image
 
-          var doc;
+  //         var doc;
 
-          if(pdfWidth > pdfHeight) {
-            doc = new jsPDF('l', 'px', [pdfWidth , pdfHeight]);
-          } else {
-            doc = new jsPDF('p', 'px', [pdfWidth , pdfHeight]);
-          }
+  //         if(pdfWidth > pdfHeight) {
+  //           doc = new jsPDF('l', 'px', [pdfWidth , pdfHeight]);
+  //         } else {
+  //           doc = new jsPDF('p', 'px', [pdfWidth , pdfHeight]);
+  //         }
 
-          var width = doc.internal.pageSize.getWidth();
-          var height = doc.internal.pageSize.getHeight();
+  //         var width = doc.internal.pageSize.getWidth();
+  //         var height = doc.internal.pageSize.getHeight();
 
 
-          doc.addImage(newImage, 'PNG',  10, 10, width, height);
-          filename = 'mypdf_' + '.pdf';
-          doc.save(filename);
-        };
+  //         doc.addImage(newImage, 'PNG',  10, 10, width, height);
+  //         filename = 'mypdf_' + '.pdf';
+  //         doc.save(filename);
+  //       };
 
-      })
-      .catch((error) => {
-        debugger;
-        console.log(error);
-        // Error Handling
-      });
-  }
+  //     })
+  //     .catch((error) => {
+  //       debugger;
+  //       console.log(error);
+  //     });
+  // }
 
 
 
@@ -415,7 +487,8 @@ export class AppComponent implements OnInit {
     private _formBuilder: FormBuilder,
     private changeDetector: ChangeDetectorRef,
     private elementRef: ElementRef,
-    private captureService: NgxCaptureService
+    private captureService: NgxCaptureService,
+    private _sanitizer: DomSanitizer,
   ) { }
 
   public GetSkinTypes = [] as any;
