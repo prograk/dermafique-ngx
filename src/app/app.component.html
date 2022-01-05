@@ -435,7 +435,7 @@
     <div *ngIf="dataaa">
       <div class="registerBx">
         <!-- <label formControlName="PushID">{{dataaa.id}}</label> -->
-        <input type="text" id="PushID" formControlName="PushID"  value="{{dataaa.id}}">
+        <input type="text" id="PushID" formControlName="PushID"  value="{{apiId}}">
         <input type="text" id="txtNumber" formControlName="txtNumber" placeholder="Enter Email / Mobile Number">
         <!--<button (click)="SignIn()">Submit</button>-->
         <a (click)="SignIn()" class="btnStyle">Submit</a>
@@ -447,11 +447,11 @@
         <!--<a (click)="submitLogin()" class="btnStyle">Facebook Authentication</a>
         <a class="btnStyle" #loginRef>Google Authentication</a>-->
         <a (click)="submitLogin()"><img src="assets/fb-icon.png" alt="Facebook Icon"></a>
-        <a (click)="prepareLogin()" id="loginRef" #loginRef><img src="assets/google-icon.png" alt="Google Icon"></a>
+        <a (click)="googleLogin()" id="loginRef" #loginRef><img src="assets/google-icon.png" alt="Google Icon"></a>
         <!-- <img src="assets/whatsapp-icon.png" alt="Whatsapp Icon"> -->
 		  </div>
 		  <div class="dividerOr"><span>Or</span></div>
-      <a href="" (click)="showSlide7()" class="btnStyle">Continue as Guest</a>
+      <a href="" (click)="showSlide7(true)" class="btnStyle">Continue as Guest</a>
     </div>
 	</form>
   <div class="bottomcurve slide6bottomcurve">
@@ -781,20 +781,22 @@
             </ng-template> -->
           </div>
         </ng-container>
-        <!-- <div class="thank-form">
-          <img src="assets/newassets/thankyoutick.png" />
-          <h1>
-            Thank you for taking<br />the skin analysis!
-          </h1>
-          <p>In case you haven't signed up already, please enter your details below<br /> to recieve the full report on your Phone or Email ID.</p>
-          <form [formGroup]="regForm"> 
-            <div class="registerBx">
-              <input type="text" id="txtThankYouNumber" formControlName="txtThankYouNumber" placeholder="Mobile Number">
-              <input type="email" id="txtThankYouEmail" formControlName="txtThankYouEmail" placeholder="Email ID">
-              <a (click)="ThankYou()" class="btnStyle">Send →</a>
-            </div>
-          </form>
-        </div> -->
+        <ng-container *ngIf="guestResult">
+        <div class="thank-form">
+            <img src="assets/newassets/thankyoutick.png" />
+            <h1>
+              Thank you for taking<br />the skin analysis!
+            </h1>
+            <p>In case you haven't signed up already, please enter your details below<br /> to recieve the full report on your Phone or Email ID.</p>
+            <form [formGroup]="thankYouForm"> 
+              <div class="registerBx">
+                <input type="text" id="txtThankYouNumber" formControlName="txtThankYouNumber" placeholder="Mobile Number">
+                <input type="email" id="txtThankYouEmail" formControlName="txtThankYouEmail" placeholder="Email ID">
+                <a (click)="ThankYou()" class="btnStyle">Send →</a>
+              </div>
+            </form>
+          </div>
+        </ng-container>
         <div class="static-banner">
           <img src="assets/newassets/resultbanner.png" class="w100" alt="banner" />
         </div>

@@ -491,7 +491,7 @@ section.slide3 .bottomcurve-container li a.selected strong {
 /* .slide5 .skinSlider{padding: 4em 0 2em 0; overflow: hidden;} */
 
 /*Slide 6*/
-.slide6{padding: 3em 0;};
+.slide6{padding: 3em 0;}
 /* .slide6 h1{text-align: center; font-size: 1.5em; color: #5b5a5a; padding-top: 1em;} */
 .webcamUnit video, .mirrored{display: block; width: 100%;}
 .webcam{overflow: hidden; width: 80%; position: relative; margin: 1em auto; width: 288px; height: 384px;}
@@ -906,7 +906,9 @@ ul.cse-content {
 .skin-healthparameters.paramTabsSticky {
   position: fixed;
   background: var(--white);
-  padding: 10px 0;
+  left: 0;
+  right: 0;
+  padding: 10px;
   margin: 0 !important;
   animation: .5s fadeSticky linear;
   animation-fill-mode: forwards;
@@ -948,21 +950,10 @@ ul.cse-content {
 
 
 .static-banner {
-  padding-bottom: 140px;
+  padding-bottom: 16rem;
   margin-left: -10px;
   margin-right: -10px;
 }
-
-
-
-
-
-
-
-
-
-
-
 
 
 .clear, .after {
