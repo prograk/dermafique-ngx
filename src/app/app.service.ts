@@ -55,11 +55,14 @@ export class AppService {
   }
 
   public sendPdf(name, mobile, email, pdf): Observable<any> {
+    const form = new FormData();
+    form.append('name', name);
+    form.append('mobile', mobile);
+    form.append('email', email);
+    form.append('pdf', pdf.toString());
     const options = {
       reportProgress: true
     };
-    return this._http.post<any>(this.pdfSendUrl, {
-      name, mobile, email, pdf
-    }, options);
+    return this._http.post<any>(this.pdfSendUrl, form, options);
   }
 }

@@ -479,7 +479,7 @@
 
 <section class="slide3 slide7" [class.show]="slide7Show" *ngIf="slide7Show">
   <!-- <ng-template *ngIf="dataaa !== null"> -->
-    <button (click)="saveImage()">Save Image</button>
+    <!-- <button (click)="saveImage()">Save Image</button> -->
     <ng-container>
       <div class="topcurve">
         <img src="assets/newassets/topcurve.png" alt="topcurve" />
@@ -788,27 +788,37 @@
               </ul>
             </div>
           </ng-container>
-          <!-- <ng-container *ngIf="guestResult"> -->
+          <ng-container *ngIf="!pdfSent">
             <div class="thank-form">
               <img src="assets/newassets/thankyoutick.png" />
               <h1>
                 Thank you for taking<br />the skin analysis!
               </h1>
-              <ng-template [ngIf]="guestResult" [ngIfElse]="notGuest">
-                <p>In case you haven't signed up already, please enter your details below<br /> to recieve the full report on your Phone or Email ID.</p>
-                <form [formGroup]="thankYouForm">
-                  <div class="registerBx">
-                    <input type="text" id="txtThankYouNumber" formControlName="txtThankYouNumber" placeholder="Mobile Number">
-                    <input type="email" id="txtThankYouEmail" formControlName="txtThankYouEmail" placeholder="Email ID">
-                    <a (click)="ThankYou()" class="btnStyle">Send →</a>
-                  </div>
+              <!-- <ng-template [ngIf]="guestResult" [ngIfElse]="notGuest"> -->
+              <p>In case you haven't signed up already, please enter your details below<br /> to recieve the full report on your Phone or Email ID.</p>
+              <div >
+                <form class="registerBx" [formGroup]="thankYouForm">
+                  <input type="text" id="txtThankYouNumber" formControlName="txtThankYouNumber" placeholder="Mobile Number">
+                  <input type="email" id="txtThankYouEmail" formControlName="txtThankYouEmail" placeholder="Email ID"
+                    [class.invalid]="thankYouForm.get('txtThankYouEmail').invalid && (thankYouForm.get('txtThankYouEmail').dirty || thankYouForm.get('txtThankYouEmail').touched)"
+                  >
+                  <a (click)="SendSaveImage()" class="btnStyle" [class.disabled]="!thankYouForm.valid">Send →</a>
                 </form>
-              </ng-template>
-              <ng-template #notGuest>
+              </div>
+              <!-- </ng-template> -->
+              <!-- <ng-template #notGuest>
                 <a (click)="SendSaveImage()" class="btnStyle mt-20">Send →</a>
-              </ng-template>
+              </ng-template> -->
             </div>
-          <!-- </ng-container> -->
+          </ng-container>
+          <ng-container *ngIf="pdfSent">
+            <div class="thank-form">
+              <img src="assets/newassets/thankyoutick.png" />
+              <h1>
+                Thank you for taking<br />the skin analysis!
+              </h1>
+            </div>
+          </ng-container>
           <div class="static-banner">
             <img src="assets/newassets/resultbanner.png" class="w100" alt="banner" />
           </div>
