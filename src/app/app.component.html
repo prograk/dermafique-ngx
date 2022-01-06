@@ -425,6 +425,11 @@
 
 <!--Section Login-->
 <section class="slide3 slideLogin" [class.show]="slideLogin" *ngIf="slideLogin">
+  <div class="loader-container" *ngIf="showLoader">
+    <div class="loader">
+      loading...
+    </div>
+  </div>
   <div class="topcurve">
     <img src="assets/newassets/topcurve.png" alt="topcurve" />
     <div class="topcurve-container">
@@ -433,16 +438,24 @@
     </div>
   </div>
 	<div class="form">
-    <ng-container *ngIf="dataaa">
+    <!-- <ng-container *ngIf="dataaa"> -->
       <form class="registerBx" [formGroup]="regForm" (ngSubmit)="SignIn()">
         <!-- <label formControlName="PushID">{{dataaa.id}}</label> -->
         <input type="text" id="PushID" formControlName="PushID"  value="{{apiId}}">
-        <input type="text" id="txtNumber" formControlName="txtNumber" placeholder="Enter Email / Mobile Number"
-          [class.invalid]="regForm.get('txtNumber').invalid && (regForm.get('txtNumber').dirty || regForm.get('txtNumber').touched)"
-        >
+        <div style="position: relative;">
+          <input type="text" id="txtNumber" formControlName="txtNumber" placeholder="Enter Email / Mobile Number"
+            autocomplete="off"
+            [class.invalid]="regForm.get('txtNumber').invalid && (regForm.get('txtNumber').dirty || regForm.get('txtNumber').touched)"
+          >
+          <span class="regFormError error" *ngIf="!regForm.valid && (regForm.get('txtNumber').dirty || regForm.get('txtNumber').touched)">Enter valid input</span>
+        </div>
         <!--<button (click)="SignIn()">Submit</button>-->
-        <button type="submit" class="btnStyle w100">Submit</button>
+        <button type="submit" class="btnStyle w100" [class.disabled]="!regForm.valid">Submit</button>
       </form>
+
+      <!-- {{regForm.status}}
+      {{regForm.get('txtNumber').value}}
+      {{regForm.get('PushID').value}} -->
 
 		  <div class="dividerOr"><span>Or</span></div>
 
@@ -455,7 +468,7 @@
 		  </div>
 		  <div class="dividerOr"><span>Or</span></div>
       <a href="" (click)="showSlide7(true)" class="btnStyle">Continue as Guest</a>
-    </ng-container>
+    <!-- </ng-container> -->
   </div>
   <div class="bottomcurve slide6bottomcurve">
     <img src="assets/newassets/signupbottomcurve.png" alt="bottomcurve" />
@@ -466,7 +479,6 @@
 
 <section class="slide3 slide7" [class.show]="slide7Show" *ngIf="slide7Show">
   <!-- <ng-template *ngIf="dataaa !== null"> -->
-    <!-- <button (click)="downloadAsPDF()">pdf</button> -->
     <button (click)="saveImage()">Save Image</button>
     <ng-container *ngIf="!downloadPDF">
       <div class="topcurve">
@@ -805,6 +817,11 @@
     </ng-container>
     <ng-container *ngIf="downloadPDF">
       <div id="printPDF" #screenRef>
+        <div class="loader-container" *ngIf="showLoader">
+          <div class="loader">
+            loading...
+          </div>
+        </div>
         <div class="topcurve">
           <img src="assets/newassets/topcurve.png" alt="topcurve" />
           <div class="topcurve-container">

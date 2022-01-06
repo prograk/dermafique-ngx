@@ -641,13 +641,37 @@ ul.cse-content {
 
 .sw-photopersent {
   /* width: 90%; */
-  width: 351px;
+  /* width: 351px;
   padding: 80px;
   border: 3px solid var(--white);
   border-radius: 100%;
   margin-left: -60px;
   margin-top: -190px;
+  position: relative; */
+  width: 351px;
+  height: 351px;
+  border: 3px solid var(--white);
+  border-radius: 100%;
+  margin-left: -60px;
+  margin-top: -190px;
   position: relative;
+}
+
+.sw-photopersent img {
+  /* width: 100%;
+  background: #f6dbdd;
+  border-radius: 100%;
+  object-fit: cover;
+  aspect-ratio: 1/1; */
+  width: 60%;
+  height: 60%;
+  background: #f6dbdd;
+  border-radius: 100%;
+  object-fit: cover;
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
 }
 
 .sw-photopersent .circle-svg {
@@ -691,14 +715,6 @@ ul.cse-content {
 
 .sw-photopersent > div .circle-svg:nth-child(5) > span, .sw-photopersent > div .circle-svg:nth-child(6) > span {
   bottom: -35px;
-}
-
-.sw-photopersent img {
-  width: 100%;
-  background: #f6dbdd;
-  border-radius: 100%;
-  object-fit: cover;
-  aspect-ratio: 1/1;
 }
 
 .sw-colorindicator {
@@ -841,6 +857,80 @@ ul.cse-content {
   position: relative;
   box-shadow: inset 0 0 27px 0 rgb(255 165 143 / 80%);
 }
+
+.loader-container {
+  position: fixed;
+  top: 0;
+  left: 0;
+  bottom: 0;
+  right: 0;
+  z-index: 9;
+  background: rgb(0 0 0 / 60%);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.loader,
+.loader:before,
+.loader:after {
+  background: #ffffff;
+  -webkit-animation: load1 1s infinite ease-in-out;
+  animation: load1 1s infinite ease-in-out;
+  width: 1em;
+  height: 4em;
+}
+.loader {
+  color: #ffffff;
+  text-indent: -9999em;
+  margin: 88px auto;
+  position: relative;
+  font-size: 11px;
+  -webkit-transform: translateZ(0);
+  -ms-transform: translateZ(0);
+  transform: translateZ(0);
+  -webkit-animation-delay: -0.16s;
+  animation-delay: -0.16s;
+}
+.loader:before,
+.loader:after {
+  position: absolute;
+  top: 0;
+  content: '';
+}
+.loader:before {
+  left: -1.5em;
+  -webkit-animation-delay: -0.32s;
+  animation-delay: -0.32s;
+}
+.loader:after {
+  left: 1.5em;
+}
+@-webkit-keyframes load1 {
+  0%,
+  80%,
+  100% {
+    box-shadow: 0 0;
+    height: 4em;
+  }
+  40% {
+    box-shadow: 0 -2em;
+    height: 5em;
+  }
+}
+@keyframes load1 {
+  0%,
+  80%,
+  100% {
+    box-shadow: 0 0;
+    height: 4em;
+  }
+  40% {
+    box-shadow: 0 -2em;
+    height: 5em;
+  }
+}
+
 
 #printPDF .cse-card {
   box-shadow: unset;
@@ -1976,9 +2066,22 @@ section.slideLogin{
 	text-align: center;
 }
 
-.registerBx input, .registerBx button {
+.registerBx input {
 	padding: 1em;
   display: inline-block;
+}
+
+.registerBx input.invalid {
+  border-color: var(--red) !important; 
+}
+
+span.regFormError.error {
+  position: absolute;
+  bottom: 108%;
+  right: 10px;
+  color: var(--red);
+  font-size: 10px;
+  white-space: nowrap;
 }
 
 .socialIcons {
@@ -2034,6 +2137,11 @@ section.slideLogin{
   border-radius: 20px;
   font-family: 'poppins';
   white-space: nowrap;
+}
+
+.btnStyle.disabled {
+  opacity: .6;
+  pointer-events: none;
 }
 
 .btnStyle > img {
@@ -2203,7 +2311,13 @@ section.slideLogin{
   section.slide3 > div:nth-child(2) {
     flex: .5;
   }
-}
+  section.slideLogin > div:nth-child(2) {
+    z-index: 9;
+  }
+  .socialIcons img {
+    width: 55px;
+  }
+} 
 
 @media screen and (max-height: 600px) {
   .bottomcurve {
