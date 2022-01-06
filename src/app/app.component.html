@@ -116,6 +116,7 @@
   </owl-carousel-o>
   <ng-container *ngIf="onboardinActiveSlide !== 2">
 	  <a class="onboardingSkip" (click)="owlOnboarding.to('2')">SKIP</a>
+    <!-- <a class="btnStyle" (click)="showSlideLogin()">Login</a> -->
 	</ng-container>
 </section>
 
@@ -431,15 +432,17 @@
 	    <p class="fs-18 lh-22">Sign in for your analysis report</p>
     </div>
   </div>
-	<form [formGroup]="regForm">
-    <div *ngIf="dataaa">
-      <div class="registerBx">
+	<div class="form">
+    <ng-container *ngIf="dataaa">
+      <form class="registerBx" [formGroup]="regForm" (ngSubmit)="SignIn()">
         <!-- <label formControlName="PushID">{{dataaa.id}}</label> -->
         <input type="text" id="PushID" formControlName="PushID"  value="{{apiId}}">
-        <input type="text" id="txtNumber" formControlName="txtNumber" placeholder="Enter Email / Mobile Number">
+        <input type="text" id="txtNumber" formControlName="txtNumber" placeholder="Enter Email / Mobile Number"
+          [class.invalid]="regForm.get('txtNumber').invalid && (regForm.get('txtNumber').dirty || regForm.get('txtNumber').touched)"
+        >
         <!--<button (click)="SignIn()">Submit</button>-->
-        <a (click)="SignIn()" class="btnStyle">Submit</a>
-      </div>
+        <button type="submit" class="btnStyle w100">Submit</button>
+      </form>
 
 		  <div class="dividerOr"><span>Or</span></div>
 
@@ -452,8 +455,8 @@
 		  </div>
 		  <div class="dividerOr"><span>Or</span></div>
       <a href="" (click)="showSlide7(true)" class="btnStyle">Continue as Guest</a>
-    </div>
-	</form>
+    </ng-container>
+  </div>
   <div class="bottomcurve slide6bottomcurve">
     <img src="assets/newassets/signupbottomcurve.png" alt="bottomcurve" />
     <div class="bottomcurve-container">
@@ -773,22 +776,27 @@
               </ul>
             </div>
           </ng-container>
-          <ng-container *ngIf="guestResult">
-        <div class="thank-form">
-            <img src="assets/newassets/thankyoutick.png" />
-            <h1>
-              Thank you for taking<br />the skin analysis!
-            </h1>
-            <p>In case you haven't signed up already, please enter your details below<br /> to recieve the full report on your Phone or Email ID.</p>
-            <form [formGroup]="thankYouForm">
-              <div class="registerBx">
-                <input type="text" id="txtThankYouNumber" formControlName="txtThankYouNumber" placeholder="Mobile Number">
-                <input type="email" id="txtThankYouEmail" formControlName="txtThankYouEmail" placeholder="Email ID">
-                <a (click)="ThankYou()" class="btnStyle">Send →</a>
-              </div>
-            </form>
-          </div>
-        </ng-container>
+          <!-- <ng-container *ngIf="guestResult"> -->
+            <div class="thank-form">
+              <img src="assets/newassets/thankyoutick.png" />
+              <h1>
+                Thank you for taking<br />the skin analysis!
+              </h1>
+              <ng-template [ngIf]="guestResult" [ngIfElse]="notGuest">
+                <p>In case you haven't signed up already, please enter your details below<br /> to recieve the full report on your Phone or Email ID.</p>
+                <form [formGroup]="thankYouForm">
+                  <div class="registerBx">
+                    <input type="text" id="txtThankYouNumber" formControlName="txtThankYouNumber" placeholder="Mobile Number">
+                    <input type="email" id="txtThankYouEmail" formControlName="txtThankYouEmail" placeholder="Email ID">
+                    <a (click)="ThankYou()" class="btnStyle">Send →</a>
+                  </div>
+                </form>
+              </ng-template>
+              <ng-template #notGuest>
+                <a (click)="ThankYou()" class="btnStyle mt-20">Send →</a>
+              </ng-template>
+            </div>
+          <!-- </ng-container> -->
           <div class="static-banner">
             <img src="assets/newassets/resultbanner.png" class="w100" alt="banner" />
           </div>

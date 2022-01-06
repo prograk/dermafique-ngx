@@ -626,9 +626,9 @@ export class AppComponent implements OnInit {
 
   ngOnInit() {
     this.regForm = this._formBuilder.group({
-      txtNumber: ['', Validators.required, Validators.pattern(/^([_a-z0-9]+(\.[_a-z0-9]+)*@[a-z0-9-]+(\.[a-z0-9-]+)*(\.[a-z]{2,5}))|(\d+$)$/)],
+      txtNumber: ['', Validators.required, Validators.pattern(/^(?:\d{10}|\w+@\w+\.\w{2,3})$/)],
       PushID: ['', Validators.required],
-	    cb: [false, Validators.requiredTrue],
+	    // cb: [false, Validators.requiredTrue],
     });
 
     this.thankYouForm = this._formBuilder.group({

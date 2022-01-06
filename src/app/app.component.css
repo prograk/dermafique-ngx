@@ -1962,7 +1962,7 @@ section.slideLogin{
 .slide3.slideLogin {
   display: block;
 }
-.slideLogin form {
+.slideLogin .form {
   position: absolute;
   padding: 0 4em;
   left: 0;
