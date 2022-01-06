@@ -14,6 +14,7 @@ export class AppService {
   // readonly clientKey = 'ngpfRN7dJXT2EEmxrVAPXF7a0JKQoOiQxLbdzLfJBIDMu3hoqKKvgrBNO9k53ruv';
 
   readonly rootUrl = 'https://skincaredemo.orbo.ai/api';
+  readonly pdfSendUrl = 'https://smartskinadvisor.com/api/sendmail.php';
   readonly clientKey = 'IOS9B6E7369D7D0CCE2002101AA32CD5EA4078A182CF491C7452487195B801D63E7';
 
   // readonly rootUrl = 'https://smartskinadvisor.orbo.tech/api';
@@ -50,6 +51,15 @@ export class AppService {
       age: age,
       skin_type: skinType,
       location: "" 
+    }, options);
+  }
+
+  public sendPdf(name, mobile, email, pdf): Observable<any> {
+    const options = {
+      reportProgress: true
+    };
+    return this._http.post<any>(this.pdfSendUrl, {
+      name, mobile, email, pdf
     }, options);
   }
 }
