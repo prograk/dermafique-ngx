@@ -2020,6 +2020,10 @@ ul.cse-content {
   transform-origin: center;
 }
 
+.circle-chart__circle.slowAnime {
+  animation: circle-chart-fill 4s reverse;
+}
+
 #printPDF .circle-chart__circle {
   animation: unset;
 }

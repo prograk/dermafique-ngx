@@ -441,12 +441,12 @@
     <!-- <ng-container *ngIf="dataaa"> -->
       <form class="registerBx" [formGroup]="regForm" (ngSubmit)="SignIn()">
         <!-- <label formControlName="PushID">{{dataaa.id}}</label> -->
-        <input type="text" id="PushID" formControlName="PushID"  value="{{apiId}}">
+        <input type="text" id="PushID" formControlName="PushID"  value="{{apiId}}" />
         <div style="position: relative;">
           <input type="text" id="txtNumber" formControlName="txtNumber" placeholder="Enter Email / Mobile Number"
             autocomplete="off"
             [class.invalid]="regForm.get('txtNumber').invalid && (regForm.get('txtNumber').dirty || regForm.get('txtNumber').touched)"
-          >
+          />
           <span class="regFormError error" *ngIf="!regForm.valid && (regForm.get('txtNumber').dirty || regForm.get('txtNumber').touched)">Enter valid input</span>
         </div>
         <!--<button (click)="SignIn()">Submit</button>-->
@@ -479,7 +479,7 @@
 
 <section class="slide3 slide7" [class.show]="slide7Show" *ngIf="slide7Show">
   <!-- <ng-template *ngIf="dataaa !== null"> -->
-    <!-- <button (click)="saveImage()">Save Image</button> -->
+    <button (click)="saveImage()">Save Image</button>
     <ng-container>
       <div class="topcurve">
         <img src="assets/newassets/topcurve.png" alt="topcurve" />
@@ -490,7 +490,7 @@
             <div class="circle-svg large mr-10">
               <svg class="circle-chart" viewBox="0 0 33.83098862 33.83098862" width="200" height="200" xmlns="http://www.w3.org/2000/svg">
                 <circle class="circle-chart__background" stroke="#959b90" stroke-width=".1" fill="none" cx="16.91549431" cy="16.91549431" r="15.91549431"></circle>
-                <circle class="circle-chart__circle main"
+                <circle class="circle-chart__circle main slowAnime"
                   stroke-width="2"
                   [attr.stroke]="colorMap['G']"
                   [attr.stroke-dasharray]="dataaa.outputData.skin_health_score + ', 100'"
@@ -798,10 +798,10 @@
               <p>In case you haven't signed up already, please enter your details below<br /> to recieve the full report on your Phone or Email ID.</p>
               <div >
                 <form class="registerBx" [formGroup]="thankYouForm">
-                  <input type="text" id="txtThankYouNumber" formControlName="txtThankYouNumber" placeholder="Mobile Number">
+                  <input type="text" id="txtThankYouNumber" formControlName="txtThankYouNumber" placeholder="Mobile Number" />
                   <input type="email" id="txtThankYouEmail" formControlName="txtThankYouEmail" placeholder="Email ID"
                     [class.invalid]="thankYouForm.get('txtThankYouEmail').invalid && (thankYouForm.get('txtThankYouEmail').dirty || thankYouForm.get('txtThankYouEmail').touched)"
-                  >
+                  />
                   <a (click)="SendSaveImage()" class="btnStyle" [class.disabled]="!thankYouForm.valid">Send →</a>
                 </form>
               </div>
