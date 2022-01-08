@@ -1,4 +1,4 @@
-import { Component, OnInit, OnChanges, ChangeDetectorRef, HostListener, ViewChildren, Renderer2 } from '@angular/core';
+import { Component, OnInit, AfterViewInit, OnChanges, ChangeDetectorRef, HostListener, ViewChildren, Renderer2 } from '@angular/core';
 import { FormsModule, ReactiveFormsModule, FormControl, FormGroup, FormBuilder, Validators } from '@angular/forms';
 import { HttpErrorResponse } from '@angular/common/http';
 import { WebcamImage, WebcamInitError, WebcamUtil } from 'ngx-webcam';
@@ -27,7 +27,7 @@ declare var xepOnline: any;
   styleUrls: ['./app.component.css']
 })
 
-export class AppComponent implements OnInit {
+export class AppComponent implements OnInit, AfterViewInit {
   title = 'cameraModule';
 
   auth2:any;
@@ -84,6 +84,14 @@ export class AppComponent implements OnInit {
 
   ngAfterViewInit() {
     console.log("afterinit");
+    // document.querySelectorAll('.sw-photopersent > div .animSlideIn').forEach(el => el.className = el.className + ' animated slideIn')
+    // setTimeout(() => {
+      const aninElem = document.querySelectorAll('.animSlideIn');
+      aninElem.forEach(el => {
+        this.renderer.addClass(el, 'animated');
+        this.renderer.addClass(el, 'slideInDelay');
+      });
+    // }, 1000)
   }
 
   getBase64FromUrl = async (url) => {
@@ -100,23 +108,73 @@ export class AppComponent implements OnInit {
   }
 
   savePDF() {
-    // this.showLoader = false;
-    // this.changeDetector.detectChanges();
+    this.showLoader = false;
+    this.changeDetector.detectChanges();
     const element = document.getElementById('printPDF');
     const opt = {
       margin:       [0, 1],
-      enableLinks:  true,
       filename:     'myfilenew.pdf',
       image:        { type: 'jpeg', quality: 0.98 },
       html2canvas:  { scale: 1 },
       jsPDF:        { unit: 'in', format: 'a4', orientation: 'portrait' },
     };
+
+    // let pdf = new jsPDF();
+    // pdf.addFont("../assets/newassets/fonts/SFProDisplay/SFProDisplay-Regular.woff2", "SF Pro Display", "normal");
+    // pdf.setFont("SF Pro Display"); // set font
+    // pdf.html(element, {
+    //   margin: [0, 1],
+    //   autoPaging: true,
+    //   html2canvas: {
+    //     scale: .45,
+    //     letterRendering: true,
+    //     useCORS: true,
+    //     width: 310,
+    //   },
+    //   // fontFaces: [
+    //   //   {
+    //   //     family: 'SF Pro Display',
+    //   //     src: [{
+    //   //       url: 'http://localhost:4200/assets/newassets/fonts/SFProDisplay/SFProDisplay-Bold.woff2',
+    //   //       format: "truetype",
+    //   //     }, {
+    //   //       url: 'http://localhost:4200/assets/newassets/fonts/SFProDisplay/SFProDisplay-Light.woff2',
+    //   //       format: "truetype",
+    //   //     }, {
+    //   //       url: 'http://localhost:4200/assets/newassets/fonts/SFProDisplay/SFProDisplay-Medium.woff',
+    //   //       format: "truetype",
+    //   //     }, {
+    //   //       url: 'http://localhost:4200/assets/newassets/fonts/SFProDisplay/SFProDisplay-Regular.woff2',
+    //   //       format: "truetype",
+    //   //     }],
+    //   //   },
+    //   // ],
+    //   x: 10,
+    //   y: 10,
+    // }).then(() => pdf.save());
+
+    // {
+    //   family: 'poppins',
+    //   src: [{
+    //     url: 'assets/newassets/fonts/Poppins/Poppins-Bold.woff2',
+    //     format: "truetype",
+    //   }, {
+    //     url: 'assets/newassets/fonts/Poppins/Poppins-Light.woff2',
+    //     format: "truetype",
+    //   }, {
+    //     url: 'assets/newassets/fonts/Poppins/Poppins-Medium.woff2',
+    //     format: "truetype",
+    //   }, {
+    //     url: 'assets/newassets/fonts/Poppins/Poppins-SemiBold.woff2',
+    //     format: "truetype",
+    //   }],
+    // }
     
-    // New Promise-based usage:
+    // // New Promise-based usage:
     html2pdf().from(element).set(opt).save();
+    // debugger;
     this.downloadPDF = false;
     this.base64Converted = false;
-    this.showLoader = false;
   }
 
   @ViewChild('screenRef', { static: false }) screenRef: any;
@@ -519,7 +577,7 @@ export class AppComponent implements OnInit {
     console.log(event);
   }
 
-  showSlide7(guest = false) {
+  showSlide7() {
     this.showMe = false;
     this.hideUntilCalled = false;
     this.slide4Show = false;
@@ -531,6 +589,8 @@ export class AppComponent implements OnInit {
     // if(guest) {
     //   this.guestResult = true
     // }
+    // const aninElem = document.querySelectorAll('.animSlideIn');
+    // aninElem.forEach(el => this.renderer.setAttribute(el, 'class', 'slideIn'));
     this.thankYouForm.controls['txtThankYouEmail'].setValue(this.LoginEmail);
     this.thankYouForm.controls['txtThankYouNumber'].setValue(this.LoginMobile);
     // setTimeout(() => {

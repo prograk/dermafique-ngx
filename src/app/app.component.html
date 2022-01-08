@@ -479,7 +479,7 @@
 
 <section class="slide3 slide7" [class.show]="slide7Show" *ngIf="slide7Show">
   <!-- <ng-template *ngIf="dataaa !== null"> -->
-    <!-- <button (click)="saveImage()">Save Image</button> -->
+    <button (click)="saveImage()">Save Image</button>
     <ng-container>
       <div class="topcurve">
         <img src="assets/newassets/topcurve.png" alt="topcurve" />
@@ -510,7 +510,7 @@
             <div class="sw-photopersent">
               <img [src]="url" />
               <div>
-                <div class="circle-svg small" (click)="ActiveTab($event, 'Firmness', scrollAnalysisIntoViewRef)">
+                <div class="circle-svg small hide-on-init animSlideIn" (click)="ActiveTab($event, 'Firmness', scrollAnalysisIntoViewRef)">
                   <svg class="circle-chart" viewBox="0 0 33.83098862 33.83098862" width="200" height="200" xmlns="http://www.w3.org/2000/svg">
                     <circle class="circle-chart__background" stroke="#959b90" stroke-width=".1" fill="none" cx="16.91549431" cy="16.91549431" r="15.91549431"></circle>
                     <circle class="circle-chart__circle"
@@ -523,7 +523,7 @@
                   </div>
                   <span>Firmness</span>
                 </div>
-                <div class="circle-svg small" (click)="ActiveTab($event, 'Smoothness', scrollAnalysisIntoViewRef)">
+                <div class="circle-svg small hide-on-init animSlideIn anim-delay-1" (click)="ActiveTab($event, 'Smoothness', scrollAnalysisIntoViewRef)">
                   <svg class="circle-chart" viewBox="0 0 33.83098862 33.83098862" width="200" height="200" xmlns="http://www.w3.org/2000/svg">
                     <circle class="circle-chart__background" stroke="#959b90" stroke-width=".1" fill="none" cx="16.91549431" cy="16.91549431" r="15.91549431"></circle>
                     <circle class="circle-chart__circle"
@@ -536,7 +536,7 @@
                   </div>
                   <span>Smoothness</span>
                 </div>
-                <div class="circle-svg small" (click)="ActiveTab($event, 'Hydration Score', scrollAnalysisIntoViewRef)">
+                <div class="circle-svg small hide-on-init animSlideIn anim-delay-2" (click)="ActiveTab($event, 'Hydration Score', scrollAnalysisIntoViewRef)">
                   <svg class="circle-chart" viewBox="0 0 33.83098862 33.83098862" width="200" height="200" xmlns="http://www.w3.org/2000/svg">
                     <circle class="circle-chart__background" stroke="#959b90" stroke-width=".1" fill="none" cx="16.91549431" cy="16.91549431" r="15.91549431"></circle>
                     <circle class="circle-chart__circle"
@@ -549,7 +549,7 @@
                   </div>
                   <span>Hydration Score</span>
                 </div>
-                <div class="circle-svg small" (click)="ActiveTab($event, 'Dullness', scrollAnalysisIntoViewRef)">
+                <div class="circle-svg small hide-on-init animSlideIn anim-delay-3" (click)="ActiveTab($event, 'Dullness', scrollAnalysisIntoViewRef)">
                   <svg class="circle-chart" viewBox="0 0 33.83098862 33.83098862" width="200" height="200" xmlns="http://www.w3.org/2000/svg">
                     <circle class="circle-chart__background" stroke="#959b90" stroke-width=".1" fill="none" cx="16.91549431" cy="16.91549431" r="15.91549431"></circle>
                     <circle class="circle-chart__circle"
@@ -562,7 +562,7 @@
                   </div>
                   <span>Dullness</span>
                 </div>
-                <div class="circle-svg small" (click)="ActiveTab($event, 'Uneven Skin Tone', scrollAnalysisIntoViewRef)">
+                <div class="circle-svg small hide-on-init animSlideIn anim-delay-4" (click)="ActiveTab($event, 'Uneven Skin Tone', scrollAnalysisIntoViewRef)">
                   <svg class="circle-chart" viewBox="0 0 33.83098862 33.83098862" width="200" height="200" xmlns="http://www.w3.org/2000/svg">
                     <circle class="circle-chart__background" stroke="#959b90" stroke-width=".1" fill="none" cx="16.91549431" cy="16.91549431" r="15.91549431"></circle>
                     <circle class="circle-chart__circle"
@@ -575,7 +575,7 @@
                   </div>
                   <span>Uneven<br /> Skin Tone</span>
                 </div>
-                <div class="circle-svg small" (click)="ActiveTab($event, 'Fine Lines & wrinkle', scrollAnalysisIntoViewRef)">
+                <div class="circle-svg small hide-on-init animSlideIn anim-delay-5" (click)="ActiveTab($event, 'Fine Lines & wrinkle', scrollAnalysisIntoViewRef)">
                   <svg class="circle-chart" viewBox="0 0 33.83098862 33.83098862" width="200" height="200" xmlns="http://www.w3.org/2000/svg">
                     <circle class="circle-chart__background" stroke="#959b90" stroke-width=".1" fill="none" cx="16.91549431" cy="16.91549431" r="15.91549431"></circle>
                     <circle class="circle-chart__circle"
@@ -588,7 +588,7 @@
                   </div>
                   <span>Face Lines<br /> &amp; Wrinkles</span>
                 </div>
-                <div class="circle-svg small" (click)="ActiveTab($event, 'Dark Spots', scrollAnalysisIntoViewRef)">
+                <div class="circle-svg small hide-on-init animSlideIn anim-delay-6" (click)="ActiveTab($event, 'Dark Spots', scrollAnalysisIntoViewRef)">
                   <svg class="circle-chart" viewBox="0 0 33.83098862 33.83098862" width="200" height="200" xmlns="http://www.w3.org/2000/svg">
                     <circle class="circle-chart__background" stroke="#959b90" stroke-width=".1" fill="none" cx="16.91549431" cy="16.91549431" r="15.91549431"></circle>
                     <circle class="circle-chart__circle"
@@ -836,6 +836,7 @@
         </div>
         <div id="printPDF" #screenRef>
           <div class="topcurve">
+            <p>href="www.google.com"</p>
             <img src="assets/newassets/topcurve.png" alt="topcurve" />
             <div class="topcurve-container">
               <h1 class="mt-20">Let's go through the detailed<br />

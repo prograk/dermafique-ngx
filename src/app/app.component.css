@@ -981,8 +981,45 @@ ul.cse-content {
   visibility: hidden;
 }
 .slideIn {
-  animation: .5s fadeIn linear;
+  animation: .5s fadeInAnimation linear;
   animation-fill-mode: forwards;
+}
+
+.slideInDelay {
+  animation: .5s fadeInAnimation linear;
+  animation-fill-mode: forwards;
+  animation-delay: 4s;
+}
+.animSlideIn {
+  opacity: 0;
+}
+
+/* .anim-delay-1 {
+  animation-delay: 4.05s;
+} */
+
+.anim-delay-1 {
+  animation-delay: 4.15s;
+}
+
+.anim-delay-2 {
+  animation-delay: 4.35s;
+}
+
+.anim-delay-3 {
+  animation-delay: 4.55s;
+}
+
+.anim-delay-4 {
+  animation-delay: 4.75s;
+}
+
+.anim-delay-5 {
+  animation-delay: 4.95s;
+}
+
+.anim-delay-6 {
+  animation-delay: 5.15s;
 }
 
 .skin-healthparameters ul {
@@ -1020,11 +1057,11 @@ ul.cse-content {
 }
 
 .inView {
-  animation: .5s fadeIn linear;
+  animation: .5s fadeInAnimation linear;
   animation-fill-mode: forwards;
 }
 
-@keyframes fadeIn {
+@keyframes fadeInAnimation {
   0% {
     opacity: 0;
     transform: translateY(20px);
