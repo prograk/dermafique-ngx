@@ -84,14 +84,6 @@ export class AppComponent implements OnInit, AfterViewInit {
 
   ngAfterViewInit() {
     console.log("afterinit");
-    // document.querySelectorAll('.sw-photopersent > div .animSlideIn').forEach(el => el.className = el.className + ' animated slideIn')
-    // setTimeout(() => {
-      const aninElem = document.querySelectorAll('.animSlideIn');
-      aninElem.forEach(el => {
-        this.renderer.addClass(el, 'animated');
-        this.renderer.addClass(el, 'slideInDelay');
-      });
-    // }, 1000)
   }
 
   getBase64FromUrl = async (url) => {
@@ -589,8 +581,11 @@ export class AppComponent implements OnInit, AfterViewInit {
     // if(guest) {
     //   this.guestResult = true
     // }
-    // const aninElem = document.querySelectorAll('.animSlideIn');
-    // aninElem.forEach(el => this.renderer.setAttribute(el, 'class', 'slideIn'));
+    const aninElem = document.querySelectorAll('.animSlideIn');
+    aninElem.forEach(el => {
+      this.renderer.addClass(el, 'animated');
+      this.renderer.addClass(el, 'slideInDelay');
+    });
     this.thankYouForm.controls['txtThankYouEmail'].setValue(this.LoginEmail);
     this.thankYouForm.controls['txtThankYouNumber'].setValue(this.LoginMobile);
     // setTimeout(() => {
@@ -826,12 +821,12 @@ export class AppComponent implements OnInit, AfterViewInit {
     this._appService.GetSkinTypes().subscribe((data: IGetSkinTypes[]) => this.GetSkinTypes = data);
 
     this.hideMe = false;
-    this.showMe = false;
+    this.showMe = true;
     this.hideUntilCalled = false;
     this.slide4Show = false;
     this.slide5Show = false;
     this.slide6Show = false;
-    this.slide7Show = true;
+    this.slide7Show = false;
     this.slideLogin = false;
 
     // this.changeDetector.detectChanges();
