@@ -52,6 +52,7 @@ export class AppComponent implements OnInit, AfterViewInit {
   pdfSent = false;
   imgFile = undefined;
   isImage: boolean;
+  imageViaCamera = false;
   height: number;
   width: number;
 
@@ -774,11 +775,11 @@ export class AppComponent implements OnInit, AfterViewInit {
     this._appService.GetSkinTypes().subscribe((data: IGetSkinTypes[]) => this.GetSkinTypes = data);
 
     this.hideMe = false;
-    this.showMe = false;
+    this.showMe = true;
     this.hideUntilCalled = false;
     this.slide4Show = false;
     this.slide5Show = false;
-    this.slide6Show = true;
+    this.slide6Show = false;
     this.slide7Show = false;
     this.slideLogin = false;
 
@@ -808,11 +809,6 @@ export class AppComponent implements OnInit, AfterViewInit {
 
   ngAfterViewInit() {
     console.log("afterinit");
-    const maxTimer = 106;
-    const int = interval(50).subscribe((val) => {
-      if(maxTimer === this.analyseCounter) return;
-      this.analyseCounter++; 
-    })
   }
 
   // @ViewChild('pdfTable', {static: false}) pdfTable: ElementRef;
@@ -1481,7 +1477,7 @@ export class AppComponent implements OnInit, AfterViewInit {
   public triggerSnapshot(): void {
     if(this.showWebcam)
       this.trigger.next();
-    else this.toggleWebcam();
+    else this.showWebcam = true;
   }
 
   public toggleWebcam(): void {
@@ -1510,6 +1506,7 @@ export class AppComponent implements OnInit, AfterViewInit {
     this.imgFile = new File([imageBlob], 'image.jpeg', { type: 'image/jpeg' });
     this.callApi();
     this.isImage = true;
+    this.imageViaCamera = true;
     this.toggleWebcam();
   }
   /*
@@ -1578,10 +1575,12 @@ export class AppComponent implements OnInit, AfterViewInit {
     this.message = 'Loading...';
 	  // document.getElementById("analysing").style.display = "block";
     this.showAnalyseVideo = true;
-    // const int = interval(100).subscribe((val) => {
-    //   this.analyseCounter++; 
-    //   this.changeDetector.detectChanges(); 
-    // })
+    this.analyseCounter = 0;
+    const maxTimer = 106;
+    const int = interval(50).subscribe((val) => {
+      if(maxTimer === this.analyseCounter) return;
+      this.analyseCounter++; 
+    })
     this._appService.checkSkin(this.imgFile, this.selectedSkin, this.selectedAge).subscribe((res: any) => {
       this.code = 'SUCCESSFUL';
       this.dataaa = res;
@@ -1598,6 +1597,7 @@ export class AppComponent implements OnInit, AfterViewInit {
         this.message = err.error && err.error.error && err.error.error.message;
 		    // document.getElementById("analysing").style.display = "none";
         this.showAnalyseVideo = false;
+        if(this.imageViaCamera) this.showWebcam = true;
       });
   }
 

@@ -390,7 +390,7 @@
     <!-- <video id="analysing" width="100%" height="100%" autoplay muted loop>
       <source src="assets/newassets/analysing-loader.mp4" type="video/mp4">
     </video> -->
-    <div class="showAnalysisWrapper">
+    <div class="showAnalysisWrapper" *ngIf="showAnalyseVideo">
       <div class="topcurve">
         <img src="assets/newassets/topcurve.png" alt="topcurve" />
         <div class="topcurve-container">
@@ -401,9 +401,9 @@
       <div class="analysisContainer">
         <div class="ac-content">
           <picture>
-						<source media="(max-width:960px)" srcset="assets/newassets/a3.jpeg">
-						<source media="(min-width:961px)" srcset="assets/newassets/a3.jpeg">
-						<img src="assets/newassets/a3.jpeg" class="w100" alt="Male">
+						<source media="(max-width:960px)" [srcset]="url">
+						<source media="(min-width:961px)" [srcset]="url">
+						<img [src]="url" class="w100" alt="Male">
 					</picture>
         </div>
       </div>
@@ -442,7 +442,7 @@
           <a href="javascript:;"><img src="assets/newassets/uploadicon.png">
             <input id="imgFile" type="file" (change)="changeImage($event)" accept="image/*">
           </a>
-          <a href="javascript:;" (click)="toggleWebcam();"><img src="assets/newassets/cameraicon.png"></a>
+          <a href="javascript:;" (click)="triggerSnapshot();"><img src="assets/newassets/cameraicon.png"></a>
         </div>
       </div>
     </div>
