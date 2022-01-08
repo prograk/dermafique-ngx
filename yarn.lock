@@ -5633,6 +5633,13 @@ neo-async@^2.5.0, neo-async@^2.6.1:
   resolved "https://registry.npmjs.org/neo-async/-/neo-async-2.6.2.tgz"
   integrity sha512-Yd3UES5mWCSqR+qNT93S3UoYUkqAZ9lLg8a7g9rimsWmYGK8cVToA4/sF3RrshdyV3sAGMXVUmpMYOw+dLpOuw==
 
+ng2-animate-on-scroll@^2.3.2:
+  version "2.3.2"
+  resolved "https://registry.yarnpkg.com/ng2-animate-on-scroll/-/ng2-animate-on-scroll-2.3.2.tgz#f94013cdc6036dc0ac88fd37fed3be37cd0f5999"
+  integrity sha512-JmX32K/OC6UtsWizpZU0tyK5MtGVsR/dzQoyz9ZurULI4WLHiTBKRIsNM9q5zzZ8JZzw/YWdzwi7BwYE5ZEUJQ==
+  dependencies:
+    tslib "^2.0.0"
+
 ngx-capture@^0.0.3-alpha:
   version "0.0.3-alpha"
   resolved "https://registry.npmjs.org/ngx-capture/-/ngx-capture-0.0.3-alpha.tgz"

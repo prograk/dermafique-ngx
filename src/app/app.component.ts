@@ -19,6 +19,7 @@ import * as html2pdf from 'html2pdf.js';
 // import domtoimage from 'dom-to-image';
 
 declare var FB: any;
+declare var xepOnline: any;
 // declare var loginRef: any;
 @Component({
   selector: 'app-root',
@@ -51,7 +52,7 @@ export class AppComponent implements OnInit {
     )
   };
 
-  @ViewChild('scrollRecommendationIntoViewRef', { static: false }) private scrollRecommendationIntoViewRef: ElementRef<HTMLDivElement>;
+  // @ViewChild('scrollRecommendationIntoViewRef', { static: false }) private scrollRecommendationIntoViewRef: ElementRef<HTMLDivElement>;
   @ViewChild('scrollAnalysisIntoViewRef', { static: false }) public scrollAnalysisIntoViewRef: ElementRef<HTMLDivElement>;
   isRecommendationScrolledIntoView = false;
   isRecommendationAlreadyRendered = false;
@@ -60,13 +61,13 @@ export class AppComponent implements OnInit {
 
   @HostListener('window:scroll', [])
   isScrolledIntoView() {
-    if (this.scrollRecommendationIntoViewRef) {
-      const el = this.scrollRecommendationIntoViewRef.nativeElement;
-      this.isRecommendationScrolledIntoView = this.isElementXPercentInViewport(el, 10);
-      if(this.isRecommendationScrolledIntoView && !this.isRecommendationAlreadyRendered) {
-        this.isRecommendationAlreadyRendered = true;
-      }
-    }
+    // if (this.scrollRecommendationIntoViewRef) {
+    //   const el = this.scrollRecommendationIntoViewRef.nativeElement;
+    //   this.isRecommendationScrolledIntoView = this.isElementXPercentInViewport(el, 10);
+    //   if(this.isRecommendationScrolledIntoView && !this.isRecommendationAlreadyRendered) {
+    //     this.isRecommendationAlreadyRendered = true;
+    //   }
+    // }
     if (this.scrollAnalysisIntoViewRef) {
       const el = this.scrollAnalysisIntoViewRef.nativeElement;
       this.isAnalysisScrolledIntoView = this.isElementXPercentInViewport(el, 10);
@@ -104,14 +105,12 @@ export class AppComponent implements OnInit {
     const element = document.getElementById('printPDF');
     const opt = {
       margin:       [0, 1],
+      enableLinks:  true,
       filename:     'myfilenew.pdf',
       image:        { type: 'jpeg', quality: 0.98 },
       html2canvas:  { scale: 1 },
       jsPDF:        { unit: 'in', format: 'a4', orientation: 'portrait' },
-      enableLinks:  true,
     };
-
-    debugger;
     
     // New Promise-based usage:
     html2pdf().from(element).set(opt).save();
@@ -130,8 +129,13 @@ export class AppComponent implements OnInit {
 
   saveImage() {
     this.downloadPDF = true;
-    this.showLoader = true;
+    // this.showLoader = true;
     this.changeDetector.detectChanges();
+
+    // xepOnline.Formatter.Format('printPDF', { pageMargin: [0, 1], pageWidth: '216mm', pageHeight: '279mm', render: 'download' });
+    
+
+    // window.xepOnline.
 
     let counter = 1;
 
@@ -276,7 +280,6 @@ export class AppComponent implements OnInit {
       image:        { type: 'jpeg', quality: 0.98 },
       html2canvas:  { scale: 1 },
       jsPDF:        { unit: 'in', format: 'a4', orientation: 'portrait' },
-      enableLinks:  true,
     };
 
     this.sendFile = await html2pdf().from(element).set(opt).toPdf().output('datauristring');

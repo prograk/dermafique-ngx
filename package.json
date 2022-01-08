@@ -30,6 +30,7 @@
     "html2canvas": "^1.4.0",
     "html2pdf.js": "^0.10.1",
     "jspdf": "^2.5.0",
+    "ng2-animate-on-scroll": "^2.3.2",
     "ngx-capture": "^0.0.3-alpha",
     "ngx-owl-carousel-o": "^2.1.1",
     "ngx-webcam": "^0.3.0",

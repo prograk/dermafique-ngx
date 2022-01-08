@@ -479,7 +479,7 @@
 
 <section class="slide3 slide7" [class.show]="slide7Show" *ngIf="slide7Show">
   <!-- <ng-template *ngIf="dataaa !== null"> -->
-    <button (click)="saveImage()">Save Image</button>
+    <!-- <button (click)="saveImage()">Save Image</button> -->
     <ng-container>
       <div class="topcurve">
         <img src="assets/newassets/topcurve.png" alt="topcurve" />
@@ -617,7 +617,8 @@
               </ul>
             </div>
           </div>
-          <div class="score-recommendation" [class.inView]="isRecommendationScrolledIntoView || isAnalysisAlreadyRendered" #scrollRecommendationIntoViewRef>
+          <div class="score-recommendation hide-on-init" animateOnScroll animationName="animated slideIn" offset="10">
+            <!-- [class.inView]="isRecommendationScrolledIntoView || isAnalysisAlreadyRendered" #scrollRecommendationIntoViewRef> -->
             <h1>Your key skin concerns &<br /> Dermafique recommendations</h1>
             <ng-container *ngIf="{ tp: dataaa.priorityInfo.topPriorities } as topPriorities">
               <ul class="d-flex">
@@ -652,8 +653,9 @@
             </ng-container>
           </div>
           <ng-container *ngIf="{ data: skinResultSelected } as selectedVal">
-            <div class="skin-analysiswrapper" [class.inView]="isAnalysisScrolledIntoView || isAnalysisAlreadyRendered" #scrollAnalysisIntoViewRef>
-              <div class="skin-detailanalysis mt-20">
+            <div class="skin-analysiswrapper" #scrollAnalysisIntoViewRef>
+            <!-- [class.inView]="isAnalysisScrolledIntoView || isAnalysisAlreadyRendered" #scrollAnalysisIntoViewRef> -->
+              <div class="skin-detailanalysis mt-20 hide-on-init" animateOnScroll animationName="animated slideIn" offset="10">
                 <h2>Your Detailed Skin Analysis Report</h2>
                   <div class="sd-top">
                     <section class="d-flex mt-20 mb-10">
@@ -688,7 +690,7 @@
                   </div>
               </div>
               <div class="consolexpert">
-                <div class="cse-card mb-20 mt-20">
+                <div class="cse-card mb-20 mt-20 hide-on-init" animateOnScroll animationName="animated slideIn" offset="10">
                   <div class="cse-title">Concern</div>
                   <ng-container *ngIf="{ c: selectedVal.data.priority_product_info.concerns } as concern">
                     <ul class="cse-content">
@@ -722,7 +724,7 @@
                   </ng-container>
                 </div>
 
-                <div class="cse-card mb-20 mt-20">
+                <div class="cse-card mb-20 mt-20 hide-on-init" animateOnScroll animationName="animated slideIn" offset="10">
                   <div class="cse-title">Solution</div>
                   <ng-container *ngIf="{ s: selectedVal.data.priority_product_info.solution } as solution">
                     <ul class="cse-content">
@@ -748,7 +750,7 @@
                   </ng-container>
                 </div>
 
-                <div class="cse-card mb-20 mt-20">
+                <div class="cse-card mb-20 mt-20 hide-on-init" animateOnScroll animationName="animated slideIn" offset="10">
                   <div class="cse-title">Expert Tip</div>
                   <ng-container *ngIf="{ e: selectedVal.data.priority_product_info.expert } as expert">
                     <ul class="cse-content">

@@ -768,7 +768,7 @@ ul.cse-content {
 
 .score-recommendation {
   margin: 30px 0;
-  opacity: 0;
+  /* opacity: 0; */
 }
 
 .score-recommendation ul li {
@@ -971,7 +971,18 @@ ul.cse-content {
 }
 
 .skin-analysiswrapper {
-  opacity: 0;
+  /* opacity: 0; */
+}
+
+.animated {
+  visibility: visible !important;
+}
+.hide-on-init {
+  visibility: hidden;
+}
+.slideIn {
+  animation: .5s fadeIn linear;
+  animation-fill-mode: forwards;
 }
 
 .skin-healthparameters ul {
