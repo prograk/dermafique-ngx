@@ -184,7 +184,7 @@
           <div class="clear"></div>
         </div>
       </div>
-    </div>
+  </div>
 </section>
 
 <!-- Slide 4 - Select Age -->
@@ -384,13 +384,37 @@
     </div> -->
 </section>
 
-<!--Section 6 - Upload/Click Image And Analysing Screen -->
+<!--Section 6 - Upload\/Click Image And Analysing Screen -->
 <section class="slide3 slide6" [class.show]="slide6Show" *ngIf="slide6Show">
-  <ng-template [ngIf]="showAnalyseVideo">
-    <video id="analysing" width="100%" height="100%" autoplay muted loop>
+  <!-- <ng-template [ngIf]="showAnalyseVideo"> -->
+    <!-- <video id="analysing" width="100%" height="100%" autoplay muted loop>
       <source src="assets/newassets/analysing-loader.mp4" type="video/mp4">
-    </video>
-  </ng-template>
+    </video> -->
+    <div class="showAnalysisWrapper">
+      <div class="topcurve">
+        <img src="assets/newassets/topcurve.png" alt="topcurve" />
+        <div class="topcurve-container">
+          <h1 class="mt-20">Now analysing {{analyseCounter}}</h1>
+          <p class="fs-18 lh-22">Key indicators on your face...</p>
+        </div>
+      </div>
+      <div class="analysisContainer">
+        <div class="ac-content">
+          <picture>
+						<source media="(max-width:960px)" srcset="assets/newassets/a3.jpeg">
+						<source media="(min-width:961px)" srcset="assets/newassets/a3.jpeg">
+						<img src="assets/newassets/a3.jpeg" class="w100" alt="Male">
+					</picture>
+        </div>
+      </div>
+      <div class="bottomcurve">
+        <img src="assets/newassets/bottomcurve.png" alt="bottomcurve" />
+        <div class="bottomcurve-container d-flex">
+          <p class="c-red">Analysing fine lines & wrinkles...</p>
+        </div>
+      </div>
+    </div>
+  <!-- </ng-template> -->
   <!-- <source src="https://high-octane.in/analysing-loader.mp4" type="video/mp4"> -->
 	<div class="text-center">
     <p class="toptitle">It's time for your</p>
@@ -401,22 +425,24 @@
         <source media="(min-width:961px)" srcset="assets/newassets/facescan.png">
         <img src="assets/newassets/facescan.png" class="video-overlay" alt="overlay">
       </picture>
-      <webcam class="webcamUnit" [height]="height" [trigger]="triggerObservable" [allowCameraSwitch]="allowCameraSwitch"
-        [videoOptions]="videoOptions" [switchCamera]="nextWebcamObservable" (imageCapture)="handleImage($event)"
-        [imageQuality]="1" (initError)="handleInitError($event)">
-      </webcam>
+      <ng-container *ngIf="showWebcam">
+        <webcam class="webcamUnit" [height]="height" [trigger]="triggerObservable" [allowCameraSwitch]="allowCameraSwitch"
+          [videoOptions]="videoOptions" [switchCamera]="nextWebcamObservable" (imageCapture)="handleImage($event)"
+          [imageQuality]="1" (initError)="handleInitError($event)">
+        </webcam>
+      </ng-container>
     </div>
     <div class="bottomcurve slide6bottomcurve">
       <img src="assets/newassets/uploadcurve.png" alt="bottomcurve" />
       <div class="bottomcurve-container">
-        <div class="error" style="color: red;">{{ code }} - {{message}}</div>
+        <div class="error" [class.d-none]="!showWebcam" style="color: red;">{{ code }} - {{message}}</div>
         <p class="textcolor fs-16 lh-22">Click the picture in natural light and<br />
           keep a neutral expression</p>
         <div class="imageCta">
           <a href="javascript:;"><img src="assets/newassets/uploadicon.png">
             <input id="imgFile" type="file" (change)="changeImage($event)" accept="image/*">
           </a>
-          <a href="javascript:;" (click)="triggerSnapshot();"><img src="assets/newassets/cameraicon.png"></a>
+          <a href="javascript:;" (click)="toggleWebcam();"><img src="assets/newassets/cameraicon.png"></a>
         </div>
       </div>
     </div>
@@ -467,7 +493,7 @@
         <!-- <img src="assets/whatsapp-icon.png" alt="Whatsapp Icon"> -->
 		  </div>
 		  <div class="dividerOr"><span>Or</span></div>
-      <a href="" (click)="showSlide7(true)" class="btnStyle">Continue as Guest</a>
+      <a href="" (click)="showSlide7()" class="btnStyle">Continue as Guest</a>
     <!-- </ng-container> -->
   </div>
   <div class="bottomcurve slide6bottomcurve">

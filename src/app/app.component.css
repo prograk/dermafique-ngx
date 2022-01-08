@@ -13,6 +13,7 @@ section{
 .video-overlay {
   position: absolute;
   top: 0;
+  left: 0;
   z-index: 1;
   margin: 0;
   width: 640px;
@@ -522,6 +523,76 @@ p.bottomdesc {
 .bottomcurve.slide6bottomcurve > img {
   max-height: 300px;
 }
+
+.showAnalysisWrapper {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  z-index: 9;
+  display: flex;
+  flex-flow: column;
+  justify-content: space-between;
+  background: url(./../assets/newassets/responsepagebg.png) var(--white) 0 no-repeat;
+  background-position: 100% 0;
+  background-size: 150%;
+  height: unset;
+}
+
+.ac-content img {
+  width: 55vw;
+  height: 55vw;
+  border-radius: 100%;
+  object-fit: cover;
+  margin: 0 auto;
+  box-shadow: 0 0 48px 6px rgb(200 149 155 / 43%);
+}
+
+.ac-content:after, .ac-content:before {
+  content: "";
+  height: 4px;
+  right: 50%;
+  width: 0;
+  position: absolute;
+  background: #fff;
+  box-shadow: 1px 25px 20px 11px rgb(255 0 0 / 21%);
+  bottom: 0;
+  /* animation: 3s scanningAnim alternate infinite; */
+  animation: 1s widthInc ease-out forwards, 5s 1s scanningAnim forwards, 1s 6s widthDec ease-In forwards;
+}
+
+.ac-content {
+  max-width: 60vw;
+  margin: 0 auto;
+  position: relative;
+}
+
+.ac-content:after {
+  left: 50%;
+}
+
+@keyframes widthInc {
+  to {
+    width: 50%;
+  }
+}
+
+@keyframes widthDec {
+  to {
+    width: 0;
+  }
+}
+
+@keyframes scanningAnim {
+  0% {
+    bottom: 0;
+  }
+  100% {
+    bottom: 100%;
+  }
+}
+
 
 /*Slide 7*/
 /* .slide7 {
