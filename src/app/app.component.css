@@ -550,17 +550,20 @@ p.bottomdesc {
   box-shadow: 0 0 48px 6px rgb(200 149 155 / 43%);
 }
 
-.ac-content:after, .ac-content:before {
-  content: "";
+.ac-content .analysisAfter, .ac-content .analysisBefore {
+  /* content: ""; */
+  /* -webkit-animation: 1s widthInc ease-out forwards, 5s 1s scanningAnim forwards, 1s 6s widthDec ease-In forwards;
+  animation: 1s widthInc ease-out forwards, 5s 1s scanningAnim forwards, 1s 6s widthDec ease-In forwards; */
+  -webkit-animation: 1s ease-out widthInc, 5s linear scanningAnim 1s, 1s ease-In widthDec 6s;
+  animation: 1s ease-out widthInc, 5s linear scanningAnim 1s, 1s ease-In widthDec 6s;
+  animation-fill-mode: forwards;
   height: 4px;
   right: 50%;
   width: 0;
   position: absolute;
-  background: #fff;
+  background: var(--white);
   box-shadow: 1px 25px 20px 11px rgb(255 0 0 / 21%);
   bottom: 0;
-  -webkit-animation: 1s widthInc ease-out forwards, 5s 1s scanningAnim forwards, 1s 6s widthDec ease-In forwards;
-  animation: 1s widthInc ease-out forwards, 5s 1s scanningAnim forwards, 1s 6s widthDec ease-In forwards;
 }
 
 .ac-content {
@@ -569,7 +572,7 @@ p.bottomdesc {
   position: relative;
 }
 
-.ac-content:after {
+.ac-content .analysisAfter {
   left: 50%;
 }
 
