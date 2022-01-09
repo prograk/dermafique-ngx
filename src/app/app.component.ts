@@ -1589,6 +1589,7 @@ export class AppComponent implements OnInit, AfterViewInit {
       this.activeResultTab = this.skinResultSelected.priority_name;
       this.message = JSON.stringify(res);
       // this.showSlide7();
+      int.unsubscribe();
       this.showSlideLogin();
     },
       (err: HttpErrorResponse) => {
@@ -1596,6 +1597,7 @@ export class AppComponent implements OnInit, AfterViewInit {
         this.code = err.error && err.error.error && err.error.error.code;
         this.message = err.error && err.error.error && err.error.error.message;
 		    // document.getElementById("analysing").style.display = "none";
+        int.unsubscribe();
         this.showAnalyseVideo = false;
         if(this.imageViaCamera) this.showWebcam = true;
       });
