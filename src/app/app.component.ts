@@ -775,11 +775,11 @@ export class AppComponent implements OnInit, AfterViewInit {
     this._appService.GetSkinTypes().subscribe((data: IGetSkinTypes[]) => this.GetSkinTypes = data);
 
     this.hideMe = false;
-    this.showMe = true;
+    this.showMe = false;
     this.hideUntilCalled = false;
     this.slide4Show = false;
     this.slide5Show = false;
-    this.slide6Show = false;
+    this.slide6Show = true;
     this.slide7Show = false;
     this.slideLogin = false;
 
@@ -809,6 +809,13 @@ export class AppComponent implements OnInit, AfterViewInit {
 
   ngAfterViewInit() {
     console.log("afterinit");
+    this.showAnalyseVideo = true;
+    this.analyseCounter = 0;
+    const maxTimer = 106;
+    const int = interval(50).subscribe((val) => {
+      if(maxTimer === this.analyseCounter) return;
+      this.analyseCounter++; 
+    })
   }
 
   // @ViewChild('pdfTable', {static: false}) pdfTable: ElementRef;

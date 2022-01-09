@@ -229,6 +229,7 @@ label.termsprivacy input:checked + span:before {
 
 .slide3.show {
   display: flex;
+  -webkit-animation: .5s linear showAnimate;
   animation: .5s linear showAnimate;
 }
 
@@ -558,6 +559,7 @@ p.bottomdesc {
   background: #fff;
   box-shadow: 1px 25px 20px 11px rgb(255 0 0 / 21%);
   bottom: 0;
+  -webkit-animation: 1s widthInc ease-out forwards, 5s 1s scanningAnim forwards, 1s 6s widthDec ease-In forwards;
   animation: 1s widthInc ease-out forwards, 5s 1s scanningAnim forwards, 1s 6s widthDec ease-In forwards;
 }
 
@@ -1051,11 +1053,13 @@ ul.cse-content {
   visibility: hidden;
 }
 .slideIn {
+  -webkit-animation: .5s fadeInAnimation linear;
   animation: .5s fadeInAnimation linear;
   animation-fill-mode: forwards;
 }
 
 .slideInDelay {
+  -webkit-animation: .5s fadeInAnimation linear;
   animation: .5s fadeInAnimation linear;
   animation-fill-mode: forwards;
   animation-delay: 4s;
@@ -1122,11 +1126,13 @@ ul.cse-content {
   right: 0;
   padding: 10px;
   margin: 0 !important;
+  -webkit-animation: .5s fadeSticky linear;
   animation: .5s fadeSticky linear;
   animation-fill-mode: forwards;
 }
 
 .inView {
+  -webkit-animation: .5s fadeInAnimation linear;
   animation: .5s fadeInAnimation linear;
   animation-fill-mode: forwards;
 }
@@ -2133,16 +2139,19 @@ ul.cse-content {
 }
 
 .circle-chart__circle {
+  -webkit-animation: circle-chart-fill 2s reverse;
   animation: circle-chart-fill 2s reverse;
   transform: rotate(-90deg);
   transform-origin: center;
 }
 
 .circle-chart__circle.slowAnime {
+  -webkit-animation: circle-chart-fill 4s reverse;
   animation: circle-chart-fill 4s reverse;
 }
 
 #printPDF .circle-chart__circle {
+  -webkit-animation: unset;
   animation: unset;
 }
 
