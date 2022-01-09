@@ -554,9 +554,15 @@ p.bottomdesc {
   /* content: ""; */
   /* -webkit-animation: 1s widthInc ease-out forwards, 5s 1s scanningAnim forwards, 1s 6s widthDec ease-In forwards;
   animation: 1s widthInc ease-out forwards, 5s 1s scanningAnim forwards, 1s 6s widthDec ease-In forwards; */
-  -webkit-animation: 1s ease-out widthInc, 5s linear scanningAnim 1s, 1s ease-In widthDec 6s;
+  /* -webkit-animation: 1s ease-out widthInc, 5s linear scanningAnim 1s, 1s ease-In widthDec 6s;
   animation: 1s ease-out widthInc, 5s linear scanningAnim 1s, 1s ease-In widthDec 6s;
-  animation-fill-mode: forwards;
+  animation-fill-mode: forwards, forwards, forwards; */
+  animation-name: widthInc, scanningAnim, widthDec;
+  animation-duration: 1s, 5s, 1s;
+  animation-delay: 0s, 1s, 6s;
+  animation-timing-function: ease-out, linear, ease-in;
+  animation-iteration-count: 1, 1, 1;
+  animation-fill-mode: forwards, forwards, forwards;
   height: 4px;
   right: 50%;
   width: 0;
@@ -1029,7 +1035,7 @@ ul.cse-content {
   top: -21px;
   left: 50%;
   transform: translateX(-50%);
-  font-family: 'poppins';
+  /* font-family: 'poppins'; */
 }
 
 .csec-image img {
@@ -2269,7 +2275,7 @@ span.regFormError.error {
   display: flex;
   padding: 14px 44px;
   border-radius: 20px;
-  font-family: 'poppins';
+  /* font-family: 'poppins'; */
   white-space: nowrap;
 }
 

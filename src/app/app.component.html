@@ -507,7 +507,10 @@
 
 <section class="slide3 slide7" [class.show]="slide7Show" *ngIf="slide7Show">
   <!-- <ng-template *ngIf="dataaa !== null"> -->
-    <button (click)="saveImage()">Save Image</button>
+    <!-- <button (click)="saveImage()">Save Image</button> -->
+    <!-- <button (click)="savePDF()">Save PDF</button> -->
+    <!-- <button (click)="sejdaPDF()">Sejda Image</button> -->
+    <button (click)="htmlMakeFn()">HTML Make Image</button>
     <ng-container>
       <div class="topcurve">
         <img src="assets/newassets/topcurve.png" alt="topcurve" />
@@ -863,14 +866,13 @@
           </div>
         </div>
         <div id="printPDF" #screenRef>
-          <div class="topcurve">
-            <p>href="www.google.com"</p>
-            <img src="assets/newassets/topcurve.png" alt="topcurve" />
-            <div class="topcurve-container">
+          <div class="topcurve" style="position: relative; z-index: 1;">
+            <img src="assets/newassets/topcurve.png" alt="topcurve" #imageBase64Ref style="width: 100%; height: 100%;" />
+            <div class="topcurve-container" style="position: absolute; left: 0; right: 0; top: 0; bottom: 0;">
               <h1 class="mt-20">Let's go through the detailed<br />
                 breakdown of your result</h1>
               <section class="d-flex">
-                <div class="circle-svg large mr-10">
+                <!-- <div class="circle-svg large mr-10">
                   <svg class="circle-chart" viewBox="0 0 33.83098862 33.83098862" width="200" height="200" xmlns="http://www.w3.org/2000/svg">
                     <circle class="circle-chart__background" stroke="#959b90" stroke-width=".1" fill="none" cx="16.91549431" cy="16.91549431" r="15.91549431"></circle>
                     <circle class="circle-chart__circle main"
@@ -882,13 +884,13 @@
                   <div class="circle-chart__info">
                     <span class="circle-chart__percent" [style.color]="colorMap['G']">{{dataaa.outputData.skin_health_score}}%</span>
                   </div>
-                </div>
+                </div> -->
                 <span class="fs-18 textcolor">Skin Health<br>Score</span>
               </section>
             </div>
           </div>
           <div class="score-wrapper">
-            <div class="sw-photopersent">
+            <!-- <div class="sw-photopersent">
               <img [src]="url" />
               <div>
                 <div class="circle-svg small" (click)="ActiveTab($event, 'Firmness', scrollAnalysisIntoViewRef)">
@@ -983,7 +985,7 @@
                   <span>Dark Spots</span>
                 </div>
               </div>
-            </div>
+            </div> -->
             <div class="sw-colorindicator">
               <ul>
                 <li>
@@ -1006,7 +1008,7 @@
                   <ng-container *ngIf="i < 3">
                     <li class="sr-wrapper">
                       <div class="sr-circle-wrapper">
-                        <div class="circle-svg small" (click)="ActiveTab($event, priority.priority_name, scrollAnalysisIntoViewRef)">
+                        <!-- <div class="circle-svg small" (click)="ActiveTab($event, priority.priority_name, scrollAnalysisIntoViewRef)">
                           <svg class="circle-chart" viewBox="0 0 33.83098862 33.83098862" width="200" height="200" xmlns="http://www.w3.org/2000/svg">
                             <circle class="circle-chart__background" stroke="#959b90" stroke-width=".1" fill="none" cx="16.91549431" cy="16.91549431" r="15.91549431"></circle>
                             <circle class="circle-chart__circle"
@@ -1017,14 +1019,15 @@
                           <div class="circle-chart__info">
                             <span class="circle-chart__percent" [style.color]="colorMap[priority.priority_color_code]">{{priority.priority_score}}%</span>
                           </div>
-                        </div>
+                        </div> -->
                         <span class="lh-18">{{priority.priority_title}}</span>
                       </div>
                       <div class="sr-buycard">
                         <img [src]="priority.priority_product_info.product_image_thumbnail" #imageBase64Ref />
-                        <a class="btnStyle" target="_blank" [href]="priority.priority_product_info.product_link">
-                          <img src="assets/newassets/bagico.png" alt="bagicon" />&nbsp;Buy Now →
-                        </a>
+                        <p style="font-size: 10px;">https://shorturl.at/qDLO5</p>
+                        <a class="btnStyle" href='https://www.nykaa.com/dermafique-bio-cellulose-tone-perfecting-face-mask/p/958791?productId=958791&pps=7?utm_source=social%20media&utm_medium=banner%20ad&utm_campaign=dermafique%20dec%2021'>Buy</a>
+                          <!-- <img src="assets/newassets/bagico.png" alt="bagicon" #imageBase64Ref />&nbsp;Buy Now →
+                        </a> -->
                       </div>
                     </li>
                   </ng-container>
@@ -1039,7 +1042,7 @@
                   <h2>Your Detailed Skin Analysis Report</h2>
                   <div class="sd-top">
                     <section class="d-flex mt-20 mb-10">
-                      <div class="circle-svg medium mr-10">
+                      <!-- <div class="circle-svg medium mr-10">
                         <svg class="circle-chart" viewBox="0 0 33.83098862 33.83098862" width="200" height="200" xmlns="http://www.w3.org/2000/svg">
                           <circle class="circle-chart__background" stroke="#959b90" stroke-width=".1" fill="none" cx="16.91549431" cy="16.91549431" r="15.91549431"></circle>
                           <circle class="circle-chart__circle"
@@ -1052,7 +1055,7 @@
                             {{selectedVal.priority_score}}%
                           </span>
                         </div>
-                      </div>
+                      </div> -->
                       <span class="fs-16 lh-22 textcolor">{{selectedVal.priority_product_info.skin_analysis_report}}</span>
                     </section>
                     <div class="sd-product mb-20">
@@ -1063,7 +1066,7 @@
                         <div class="sdpr-title">{{selectedVal.priority_product_info.product_name}}</div>
                         <div class="sdpr-subtitle">{{selectedVal.priority_product_info.product_desc}}</div>
                         <a class="btnStyle" target="_blank" [href]="selectedVal.priority_product_info.product_link">
-                          <img src="assets/newassets/bagico.png" alt="bagicon" />&nbsp;Buy Now →
+                          <img src="assets/newassets/bagico.png" alt="bagicon" #imageBase64Ref />&nbsp;Buy Now →
                         </a>
                       </div>
                     </div>
@@ -1159,6 +1162,7 @@
             </ng-container>
           </ng-container>
         </div>
+      
       </div>
     </ng-container>
 </section>

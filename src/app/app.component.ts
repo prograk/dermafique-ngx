@@ -16,10 +16,15 @@ import { CarouselService } from 'ngx-owl-carousel-o/lib/services/carousel.servic
 import { NgxCaptureService } from 'ngx-capture';
 import { DomSanitizer } from '@angular/platform-browser';
 import * as html2pdf from 'html2pdf.js';
+import domToPdf from 'dom-to-pdf';
 // import domtoimage from 'dom-to-image';
 
 declare var FB: any;
 declare var xepOnline: any;
+declare var SejdaJsApi: any;
+declare var htmlToPdfmake: any;
+declare var pdfMake: any;
+declare var computedStyleToInlineStyle: any;
 // declare var loginRef: any;
 @Component({
   selector: 'app-root',
@@ -731,6 +736,7 @@ export class AppComponent implements OnInit, AfterViewInit {
   //       }
   //   }
   // };
+
   public showAnalyseVideo = false;
   analyseCounter = 0;
   public dataaa: any;
@@ -775,11 +781,11 @@ export class AppComponent implements OnInit, AfterViewInit {
     this._appService.GetSkinTypes().subscribe((data: IGetSkinTypes[]) => this.GetSkinTypes = data);
 
     this.hideMe = false;
-    this.showMe = false;
+    this.showMe = true;
     this.hideUntilCalled = false;
     this.slide4Show = false;
     this.slide5Show = false;
-    this.slide6Show = true;
+    this.slide6Show = false;
     this.slide7Show = false;
     this.slideLogin = false;
 
@@ -809,13 +815,11 @@ export class AppComponent implements OnInit, AfterViewInit {
 
   ngAfterViewInit() {
     console.log("afterinit");
-    this.showAnalyseVideo = true;
-    this.analyseCounter = 0;
-    const maxTimer = 106;
-    const int = interval(50).subscribe((val) => {
-      if(maxTimer === this.analyseCounter) return;
-      this.analyseCounter++; 
-    })
+    // const aninElem = document.querySelectorAll('.animSlideIn');
+    // aninElem.forEach(el => {
+    //   this.renderer.addClass(el, 'animated');
+    //   this.renderer.addClass(el, 'slideInDelay');
+    // });
   }
 
   // @ViewChild('pdfTable', {static: false}) pdfTable: ElementRef;
@@ -880,50 +884,44 @@ export class AppComponent implements OnInit, AfterViewInit {
   }
 
   savePDF() {
-    this.showLoader = false;
+    this.downloadPDF = true;
+    this.showLoader = true;
     this.changeDetector.detectChanges();
-    const element = document.getElementById('printPDF');
-    const opt = {
-      margin:       [0, 1],
-      filename:     'myfilenew.pdf',
-      image:        { type: 'jpeg', quality: 0.98 },
-      html2canvas:  { scale: 1 },
-      jsPDF:        { unit: 'in', format: 'a4', orientation: 'portrait' },
-    };
+    const element = document.getElementById('printPDF').innerHTML;
 
-    // let pdf = new jsPDF();
+    let pdf = new jsPDF();
     // pdf.addFont("../assets/newassets/fonts/SFProDisplay/SFProDisplay-Regular.woff2", "SF Pro Display", "normal");
     // pdf.setFont("SF Pro Display"); // set font
-    // pdf.html(element, {
-    //   margin: [0, 1],
-    //   autoPaging: true,
-    //   html2canvas: {
-    //     scale: .45,
-    //     letterRendering: true,
-    //     useCORS: true,
-    //     width: 310,
-    //   },
-    //   // fontFaces: [
-    //   //   {
-    //   //     family: 'SF Pro Display',
-    //   //     src: [{
-    //   //       url: 'http://localhost:4200/assets/newassets/fonts/SFProDisplay/SFProDisplay-Bold.woff2',
-    //   //       format: "truetype",
-    //   //     }, {
-    //   //       url: 'http://localhost:4200/assets/newassets/fonts/SFProDisplay/SFProDisplay-Light.woff2',
-    //   //       format: "truetype",
-    //   //     }, {
-    //   //       url: 'http://localhost:4200/assets/newassets/fonts/SFProDisplay/SFProDisplay-Medium.woff',
-    //   //       format: "truetype",
-    //   //     }, {
-    //   //       url: 'http://localhost:4200/assets/newassets/fonts/SFProDisplay/SFProDisplay-Regular.woff2',
-    //   //       format: "truetype",
-    //   //     }],
-    //   //   },
-    //   // ],
-    //   x: 10,
-    //   y: 10,
-    // }).then(() => pdf.save());
+    pdf.html(element, {
+      margin: [0, 1],
+      autoPaging: true,
+      html2canvas: {
+        scale: .45,
+        letterRendering: true,
+        useCORS: true,
+        width: 310,
+      },
+      // fontFaces: [
+      //   {
+      //     family: 'SF Pro Display',
+      //     src: [{
+      //       url: 'http://localhost:4200/assets/newassets/fonts/SFProDisplay/SFProDisplay-Bold.woff2',
+      //       format: "truetype",
+      //     }, {
+      //       url: 'http://localhost:4200/assets/newassets/fonts/SFProDisplay/SFProDisplay-Light.woff2',
+      //       format: "truetype",
+      //     }, {
+      //       url: 'http://localhost:4200/assets/newassets/fonts/SFProDisplay/SFProDisplay-Medium.woff',
+      //       format: "truetype",
+      //     }, {
+      //       url: 'http://localhost:4200/assets/newassets/fonts/SFProDisplay/SFProDisplay-Regular.woff2',
+      //       format: "truetype",
+      //     }],
+      //   },
+      // ],
+      x: 10,
+      y: 10,
+    }).then(() => pdf.save());
 
     // {
     //   family: 'poppins',
@@ -941,12 +939,75 @@ export class AppComponent implements OnInit, AfterViewInit {
     //     format: "truetype",
     //   }],
     // }
+
+    // const opt = {
+    //   margin:       [0, 1],
+    //   filename:     'myfilenew.pdf',
+    //   image:        { type: 'jpeg', quality: 0.98 },
+    //   html2canvas:  { scale: 1 },
+    //   jsPDF:        { unit: 'in', format: 'a4', orientation: 'portrait' },
+    // };
     
-    // // New Promise-based usage:
-    html2pdf().from(element).set(opt).save();
+    // // // New Promise-based usage:
+    // html2pdf().from(element).set(opt).save();
     // debugger;
     this.downloadPDF = false;
     this.base64Converted = false;
+  }
+
+  htmlMakeFn() {
+    this.downloadPDF = true;
+    // this.showLoader = true;
+    this.changeDetector.detectChanges();
+
+
+    // debugger;
+    let counter = 0;
+
+    this.imageBase64Ref.map(async (e: any) => {
+      const { nativeElement } = e;
+      const { src } = nativeElement;
+      const data: any = await this.getBase64FromUrl(src);
+      this.renderer.setProperty(nativeElement, 'src', data);
+      counter++;
+      if(this.imageBase64Ref.length === counter) {
+        // this.base64Converted = true;
+        // this.savePDF();
+        computedStyleToInlineStyle(document.querySelector('#printPDF'), {
+          recursive: true,
+        });
+    
+        setTimeout(() => {
+          // xepOnline.Formatter.Format('printPDF', { pageMargin: [0, 1], pageWidth: '216mm', pageHeight: '279mm', render: 'download' });
+    
+          // var val = htmlToPdfmake(document.querySelector('#printPDF').innerHTML);
+          // var dd = { content: val };
+          // pdfMake.createPdf(dd).download();
+          let pdf = new jsPDF();
+          pdf.html(document.querySelector('#printPDF').innerHTML, {
+            margin: [0, 1],
+            html2canvas: {
+              scale: .45,
+              letterRendering: true,
+              useCORS: true,
+              width: 310,
+            },
+            x: 10,
+            y: 10,
+          }).then(() => pdf.save('hehe.pdf'));
+          // var val = htmlToPdfmake(document.querySelector('#printPDF').innerHTML);
+          // var dd = { content: val };
+          // debugger;
+          // pdfMake.createPdf(dd).download();
+        }, 1000);
+
+        // var val = htmlToPdfmake(document.querySelector('#printPDF'));
+        // var dd = { content: val };
+        // pdfMake.createPdf(dd).download();
+        // debugger;
+        // this.screenShot();
+      }
+    });
   }
 
   saveImage() {
@@ -996,6 +1057,33 @@ export class AppComponent implements OnInit, AfterViewInit {
     }).catch(err => {
       console.log(err);
     })
+  }
+
+  sejdaPDF() {
+    this.downloadPDF = true;
+    this.showLoader = true;
+    this.changeDetector.detectChanges();
+
+    // debugger;
+
+    SejdaJsApi.htmlToPdf({
+      filename: 'out.pdf',
+      /* leave blank for one long page */
+      pageSize: 'a4',
+      publishableKey: 'api_public_87bb0f95e0554348b130e43a2bd05fd5',
+      htmlCode: document.querySelector('#printPDF').innerHTML,
+      /* url: window.location.href */
+      always: function() {
+        // PDF download should have started
+        debugger;
+        this.showLoader = false;
+      },
+      error: function(err) {
+        this.showLoader = false;
+        console.error(err);
+        alert('An error occurred');
+      }
+    });
   }
 
   // var data = document.getElementById('printPDF');  //Id of the table

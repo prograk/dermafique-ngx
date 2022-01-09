@@ -11,7 +11,8 @@
 }
 
 html, body { height: 100%; }
-body { margin: 0; font-family: 'SF Pro Display'; }
+/* body { margin: 0; font-family: 'SF Pro Display'; } */
+body { margin: 0; font-family: 'Helvetica'; }
 
 .poppins {
   font-family: 'Poppins';
