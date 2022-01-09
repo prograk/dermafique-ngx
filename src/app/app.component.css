@@ -558,7 +558,6 @@ p.bottomdesc {
   background: #fff;
   box-shadow: 1px 25px 20px 11px rgb(255 0 0 / 21%);
   bottom: 0;
-  /* animation: 3s scanningAnim alternate infinite; */
   animation: 1s widthInc ease-out forwards, 5s 1s scanningAnim forwards, 1s 6s widthDec ease-In forwards;
 }
 
