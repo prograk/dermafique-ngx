@@ -830,17 +830,6 @@ export class AppComponent implements OnInit, AfterViewInit {
   @ViewChild('screenRef', { static: false }) screenRef: any;
   @ViewChildren('imageBase64Ref') imageBase64Ref: any;
 
-  isElementXPercentInViewport = (el: any, percentVisible: any) => {
-    let
-      rect = el.getBoundingClientRect(),
-      windowHeight = (window.innerHeight || document.documentElement.clientHeight);
-
-    return !(
-      Math.floor(100 - (((rect.top >= 0 ? 0 : rect.top) / +-rect.height) * 100)) < percentVisible ||
-      Math.floor(100 - ((rect.bottom - windowHeight) / rect.height) * 100) < percentVisible
-    )
-  };
-
   // @ViewChild('scrollRecommendationIntoViewRef', { static: false }) private scrollRecommendationIntoViewRef: ElementRef<HTMLDivElement>;
   @ViewChild('scrollAnalysisIntoViewRef', { static: false }) public scrollAnalysisIntoViewRef: ElementRef<HTMLDivElement>;
   isRecommendationScrolledIntoView = false;
@@ -865,6 +854,17 @@ export class AppComponent implements OnInit, AfterViewInit {
       }
     }
   }
+
+  isElementXPercentInViewport = (el: any, percentVisible: any) => {
+    let
+      rect = el.getBoundingClientRect(),
+      windowHeight = (window.innerHeight || document.documentElement.clientHeight);
+
+    return !(
+      Math.floor(100 - (((rect.top >= 0 ? 0 : rect.top) / +-rect.height) * 100)) < percentVisible ||
+      Math.floor(100 - ((rect.bottom - windowHeight) / rect.height) * 100) < percentVisible
+    )
+  };
 
   toggleVideo(event: any) {
     this.videoplayer.nativeElement.play();
@@ -1059,32 +1059,32 @@ export class AppComponent implements OnInit, AfterViewInit {
     })
   }
 
-  sejdaPDF() {
-    this.downloadPDF = true;
-    this.showLoader = true;
-    this.changeDetector.detectChanges();
+  // sejdaPDF() {
+  //   this.downloadPDF = true;
+  //   this.showLoader = true;
+  //   this.changeDetector.detectChanges();
 
-    // debugger;
+  //   // debugger;
 
-    SejdaJsApi.htmlToPdf({
-      filename: 'out.pdf',
-      /* leave blank for one long page */
-      pageSize: 'a4',
-      publishableKey: 'api_public_87bb0f95e0554348b130e43a2bd05fd5',
-      htmlCode: document.querySelector('#printPDF').innerHTML,
-      /* url: window.location.href */
-      always: function() {
-        // PDF download should have started
-        debugger;
-        this.showLoader = false;
-      },
-      error: function(err) {
-        this.showLoader = false;
-        console.error(err);
-        alert('An error occurred');
-      }
-    });
-  }
+  //   SejdaJsApi.htmlToPdf({
+  //     filename: 'out.pdf',
+  //     /* leave blank for one long page */
+  //     pageSize: 'a4',
+  //     publishableKey: 'api_public_87bb0f95e0554348b130e43a2bd05fd5',
+  //     htmlCode: document.querySelector('#printPDF').innerHTML,
+  //     /* url: window.location.href */
+  //     always: function() {
+  //       // PDF download should have started
+  //       debugger;
+  //       this.showLoader = false;
+  //     },
+  //     error: function(err) {
+  //       this.showLoader = false;
+  //       console.error(err);
+  //       alert('An error occurred');
+  //     }
+  //   });
+  // }
 
   // var data = document.getElementById('printPDF');  //Id of the table
   // html2canvas(data, {
@@ -1409,9 +1409,6 @@ export class AppComponent implements OnInit, AfterViewInit {
 	  this.slideLogin = false;
     this.slide7Show = true;
     this.changeDetector.detectChanges();
-    // if(guest) {
-    //   this.guestResult = true
-    // }
     const aninElem = document.querySelectorAll('.animSlideIn');
     aninElem.forEach(el => {
       this.renderer.addClass(el, 'animated');

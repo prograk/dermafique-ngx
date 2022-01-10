@@ -404,7 +404,7 @@
           <picture>
 						<source media="(max-width:960px)" [srcset]="url">
 						<source media="(min-width:961px)" [srcset]="url">
-						<img [src]="url" class="w100" alt="Male">
+						<img [src]="url" class="w100" alt="Pic">
 					</picture>
           <span class="analysisAfter"></span>
         </div>
@@ -507,227 +507,590 @@
 
 <section class="slide3 slide7" [class.show]="slide7Show" *ngIf="slide7Show">
   <!-- <ng-template *ngIf="dataaa !== null"> -->
-    <!-- <button (click)="saveImage()">Save Image</button> -->
-    <!-- <button (click)="savePDF()">Save PDF</button> -->
-    <!-- <button (click)="sejdaPDF()">Sejda Image</button> -->
-    <button (click)="htmlMakeFn()">HTML Make Image</button>
-    <ng-container>
-      <div class="topcurve">
-        <img src="assets/newassets/topcurve.png" alt="topcurve" />
-        <div class="topcurve-container">
-          <h1 class="mt-20">Let's go through the detailed<br />
-            breakdown of your result</h1>
-          <section class="d-flex">
-            <div class="circle-svg large mr-10">
-              <svg class="circle-chart" viewBox="0 0 33.83098862 33.83098862" width="200" height="200" xmlns="http://www.w3.org/2000/svg">
-                <circle class="circle-chart__background" stroke="#959b90" stroke-width=".1" fill="none" cx="16.91549431" cy="16.91549431" r="15.91549431"></circle>
-                <circle class="circle-chart__circle main slowAnime"
-                  stroke-width="2"
-                  [attr.stroke]="colorMap['G']"
-                  [attr.stroke-dasharray]="dataaa.outputData.skin_health_score + ', 100'"
-                  stroke-linecap="round" fill="none" cx="16.91549431" cy="16.91549431" r="15.91549431"></circle>
-              </svg>
-              <div class="circle-chart__info">
-                <span class="circle-chart__percent" [style.color]="colorMap['G']">{{dataaa.outputData.skin_health_score}}%</span>
-              </div>
+  <!-- <button (click)="saveImage()">Save Image</button> -->
+  <!-- <button (click)="savePDF()">Save PDF</button> -->
+  <!-- <button (click)="sejdaPDF()">Sejda Image</button> -->
+  <!-- <button (click)="htmlMakeFn()">HTML Make Image</button> -->
+  <ng-container>
+    <div class="topcurve">
+      <img src="assets/newassets/topcurve.png" alt="topcurve" />
+      <div class="topcurve-container">
+        <h1 class="mt-20">Let's go through the detailed<br />
+          breakdown of your result</h1>
+        <section class="d-flex">
+          <div class="circle-svg large mr-10">
+            <svg class="circle-chart" viewBox="0 0 33.83098862 33.83098862" width="200" height="200" xmlns="http://www.w3.org/2000/svg">
+              <circle class="circle-chart__background" stroke="#959b90" stroke-width=".1" fill="none" cx="16.91549431" cy="16.91549431" r="15.91549431"></circle>
+              <circle class="circle-chart__circle main slowAnime"
+                stroke-width="2"
+                [attr.stroke]="colorMap['G']"
+                [attr.stroke-dasharray]="dataaa.outputData.skin_health_score + ', 100'"
+                stroke-linecap="round" fill="none" cx="16.91549431" cy="16.91549431" r="15.91549431"></circle>
+            </svg>
+            <div class="circle-chart__info">
+              <span class="circle-chart__percent" [style.color]="colorMap['G']">{{dataaa.outputData.skin_health_score}}%</span>
             </div>
-            <span class="fs-18 textcolor">Skin Health<br>Score</span>
-          </section>
-        </div>
+          </div>
+          <span class="fs-18 textcolor">Skin Health<br>Score</span>
+        </section>
       </div>
-      <div class="slide7content">
-        <div class="slide7content-wrapper">
-          <div class="score-wrapper">
-            <div class="sw-photopersent">
-              <img [src]="url" />
-              <div>
-                <div class="circle-svg small hide-on-init animSlideIn" (click)="ActiveTab($event, 'Firmness', scrollAnalysisIntoViewRef)">
-                  <svg class="circle-chart" viewBox="0 0 33.83098862 33.83098862" width="200" height="200" xmlns="http://www.w3.org/2000/svg">
-                    <circle class="circle-chart__background" stroke="#959b90" stroke-width=".1" fill="none" cx="16.91549431" cy="16.91549431" r="15.91549431"></circle>
-                    <circle class="circle-chart__circle"
-                      stroke-width="2"
-                      [attr.stroke]="colorMap[dataaa.outputData.face_firmness_percentage_color_code]"
-                      [attr.stroke-dasharray]="dataaa.outputData.face_firmness_percentage + ', 100'"
-                      stroke-linecap="round" fill="none" cx="16.91549431" cy="16.91549431" r="15.91549431"></circle></svg>
-                  <div class="circle-chart__info">
-                    <span class="circle-chart__percent" [style.color]="colorMap[dataaa.outputData.face_firmness_percentage_color_code]">{{dataaa.outputData.face_firmness_percentage}}%</span>
-                  </div>
-                  <span>Firmness</span>
+    </div>
+    <div class="slide7content">
+      <div class="slide7content-wrapper">
+        <div class="score-wrapper">
+          <div class="sw-photopersent">
+            <img [src]="url" />
+            <div>
+              <div class="circle-svg small hide-on-init animSlideIn" (click)="ActiveTab($event, 'Firmness', scrollAnalysisIntoViewRef)">
+                <svg class="circle-chart" viewBox="0 0 33.83098862 33.83098862" width="200" height="200" xmlns="http://www.w3.org/2000/svg">
+                  <circle class="circle-chart__background" stroke="#959b90" stroke-width=".1" fill="none" cx="16.91549431" cy="16.91549431" r="15.91549431"></circle>
+                  <circle class="circle-chart__circle"
+                    stroke-width="2"
+                    [attr.stroke]="colorMap[dataaa.outputData.face_firmness_percentage_color_code]"
+                    [attr.stroke-dasharray]="dataaa.outputData.face_firmness_percentage + ', 100'"
+                    stroke-linecap="round" fill="none" cx="16.91549431" cy="16.91549431" r="15.91549431"></circle>
+                </svg>
+                <div class="circle-chart__info">
+                  <span class="circle-chart__percent" [style.color]="colorMap[dataaa.outputData.face_firmness_percentage_color_code]">{{dataaa.outputData.face_firmness_percentage}}%</span>
                 </div>
-                <div class="circle-svg small hide-on-init animSlideIn anim-delay-1" (click)="ActiveTab($event, 'Smoothness', scrollAnalysisIntoViewRef)">
-                  <svg class="circle-chart" viewBox="0 0 33.83098862 33.83098862" width="200" height="200" xmlns="http://www.w3.org/2000/svg">
-                    <circle class="circle-chart__background" stroke="#959b90" stroke-width=".1" fill="none" cx="16.91549431" cy="16.91549431" r="15.91549431"></circle>
-                    <circle class="circle-chart__circle"
-                      stroke-width="2"
-                      [attr.stroke]="colorMap[dataaa.outputData.Smoothness_color_code]"
-                      [attr.stroke-dasharray]="dataaa.outputData.Smoothness + ', 100'"
-                      stroke-linecap="round" fill="none" cx="16.91549431" cy="16.91549431" r="15.91549431"></circle></svg>
-                  <div class="circle-chart__info">
-                    <span class="circle-chart__percent" [style.color]="colorMap[dataaa.outputData.Smoothness_color_code]">{{dataaa.outputData.Smoothness}}%</span>
-                  </div>
-                  <span>Smoothness</span>
+                <span>Firmness</span>
+              </div>
+              <div class="circle-svg small hide-on-init animSlideIn anim-delay-1" (click)="ActiveTab($event, 'Smoothness', scrollAnalysisIntoViewRef)">
+                <svg class="circle-chart" viewBox="0 0 33.83098862 33.83098862" width="200" height="200" xmlns="http://www.w3.org/2000/svg">
+                  <circle class="circle-chart__background" stroke="#959b90" stroke-width=".1" fill="none" cx="16.91549431" cy="16.91549431" r="15.91549431"></circle>
+                  <circle class="circle-chart__circle"
+                    stroke-width="2"
+                    [attr.stroke]="colorMap[dataaa.outputData.Smoothness_color_code]"
+                    [attr.stroke-dasharray]="dataaa.outputData.Smoothness + ', 100'"
+                    stroke-linecap="round" fill="none" cx="16.91549431" cy="16.91549431" r="15.91549431"></circle>
+                </svg>
+                <div class="circle-chart__info">
+                  <span class="circle-chart__percent" [style.color]="colorMap[dataaa.outputData.Smoothness_color_code]">{{dataaa.outputData.Smoothness}}%</span>
                 </div>
-                <div class="circle-svg small hide-on-init animSlideIn anim-delay-2" (click)="ActiveTab($event, 'Hydration Score', scrollAnalysisIntoViewRef)">
-                  <svg class="circle-chart" viewBox="0 0 33.83098862 33.83098862" width="200" height="200" xmlns="http://www.w3.org/2000/svg">
-                    <circle class="circle-chart__background" stroke="#959b90" stroke-width=".1" fill="none" cx="16.91549431" cy="16.91549431" r="15.91549431"></circle>
-                    <circle class="circle-chart__circle"
-                      stroke-width="2"
-                      [attr.stroke]="colorMap[dataaa.outputData.hydration_score_color_code]"
-                      [attr.stroke-dasharray]="dataaa.outputData.hydration_score + ', 100'"
-                      stroke-linecap="round" fill="none" cx="16.91549431" cy="16.91549431" r="15.91549431"></circle></svg>
-                  <div class="circle-chart__info">
-                    <span class="circle-chart__percent" [style.color]="colorMap[dataaa.outputData.hydration_score_color_code]">{{dataaa.outputData.hydration_score}}%</span>
-                  </div>
-                  <span>Hydration Score</span>
+                <span>Smoothness</span>
+              </div>
+              <div class="circle-svg small hide-on-init animSlideIn anim-delay-2" (click)="ActiveTab($event, 'Hydration Score', scrollAnalysisIntoViewRef)">
+                <svg class="circle-chart" viewBox="0 0 33.83098862 33.83098862" width="200" height="200" xmlns="http://www.w3.org/2000/svg">
+                  <circle class="circle-chart__background" stroke="#959b90" stroke-width=".1" fill="none" cx="16.91549431" cy="16.91549431" r="15.91549431"></circle>
+                  <circle class="circle-chart__circle"
+                    stroke-width="2"
+                    [attr.stroke]="colorMap[dataaa.outputData.hydration_score_color_code]"
+                    [attr.stroke-dasharray]="dataaa.outputData.hydration_score + ', 100'"
+                    stroke-linecap="round" fill="none" cx="16.91549431" cy="16.91549431" r="15.91549431"></circle>
+                </svg>
+                <div class="circle-chart__info">
+                  <span class="circle-chart__percent" [style.color]="colorMap[dataaa.outputData.hydration_score_color_code]">{{dataaa.outputData.hydration_score}}%</span>
                 </div>
-                <div class="circle-svg small hide-on-init animSlideIn anim-delay-3" (click)="ActiveTab($event, 'Dullness', scrollAnalysisIntoViewRef)">
-                  <svg class="circle-chart" viewBox="0 0 33.83098862 33.83098862" width="200" height="200" xmlns="http://www.w3.org/2000/svg">
-                    <circle class="circle-chart__background" stroke="#959b90" stroke-width=".1" fill="none" cx="16.91549431" cy="16.91549431" r="15.91549431"></circle>
-                    <circle class="circle-chart__circle"
-                      stroke-width="2"
-                      [attr.stroke]="colorMap[dataaa.outputData.skin_dullness_percentage_color_code]"
-                      [attr.stroke-dasharray]="dataaa.outputData.skin_dullness_percentage + ', 100'"
-                      stroke-linecap="round" fill="none" cx="16.91549431" cy="16.91549431" r="15.91549431"></circle></svg>
-                  <div class="circle-chart__info">
-                    <span class="circle-chart__percent" [style.color]="colorMap[dataaa.outputData.skin_dullness_percentage_color_code]">{{dataaa.outputData.skin_dullness_percentage}}%</span>
-                  </div>
-                  <span>Dullness</span>
+                <span>Hydration Score</span>
+              </div>
+              <div class="circle-svg small hide-on-init animSlideIn anim-delay-3" (click)="ActiveTab($event, 'Dullness', scrollAnalysisIntoViewRef)">
+                <svg class="circle-chart" viewBox="0 0 33.83098862 33.83098862" width="200" height="200" xmlns="http://www.w3.org/2000/svg">
+                  <circle class="circle-chart__background" stroke="#959b90" stroke-width=".1" fill="none" cx="16.91549431" cy="16.91549431" r="15.91549431"></circle>
+                  <circle class="circle-chart__circle"
+                    stroke-width="2"
+                    [attr.stroke]="colorMap[dataaa.outputData.skin_dullness_percentage_color_code]"
+                    [attr.stroke-dasharray]="dataaa.outputData.skin_dullness_percentage + ', 100'"
+                    stroke-linecap="round" fill="none" cx="16.91549431" cy="16.91549431" r="15.91549431"></circle>
+                </svg>
+                <div class="circle-chart__info">
+                  <span class="circle-chart__percent" [style.color]="colorMap[dataaa.outputData.skin_dullness_percentage_color_code]">{{dataaa.outputData.skin_dullness_percentage}}%</span>
                 </div>
-                <div class="circle-svg small hide-on-init animSlideIn anim-delay-4" (click)="ActiveTab($event, 'Uneven Skin Tone', scrollAnalysisIntoViewRef)">
-                  <svg class="circle-chart" viewBox="0 0 33.83098862 33.83098862" width="200" height="200" xmlns="http://www.w3.org/2000/svg">
-                    <circle class="circle-chart__background" stroke="#959b90" stroke-width=".1" fill="none" cx="16.91549431" cy="16.91549431" r="15.91549431"></circle>
-                    <circle class="circle-chart__circle"
-                      stroke-width="2"
-                      [attr.stroke]="colorMap[dataaa.outputData.uneven_skin_percentage_color_code]"
-                      [attr.stroke-dasharray]="dataaa.outputData.uneven_skin_percentage + ', 100'"
-                      stroke-linecap="round" fill="none" cx="16.91549431" cy="16.91549431" r="15.91549431"></circle></svg>
-                  <div class="circle-chart__info">
-                    <span class="circle-chart__percent" [style.color]="colorMap[dataaa.outputData.uneven_skin_percentage_color_code]">{{dataaa.outputData.uneven_skin_percentage}}%</span>
-                  </div>
-                  <span>Uneven<br /> Skin Tone</span>
+                <span>Dullness</span>
+              </div>
+              <div class="circle-svg small hide-on-init animSlideIn anim-delay-4" (click)="ActiveTab($event, 'Uneven Skin Tone', scrollAnalysisIntoViewRef)">
+                <svg class="circle-chart" viewBox="0 0 33.83098862 33.83098862" width="200" height="200" xmlns="http://www.w3.org/2000/svg">
+                  <circle class="circle-chart__background" stroke="#959b90" stroke-width=".1" fill="none" cx="16.91549431" cy="16.91549431" r="15.91549431"></circle>
+                  <circle class="circle-chart__circle"
+                    stroke-width="2"
+                    [attr.stroke]="colorMap[dataaa.outputData.uneven_skin_percentage_color_code]"
+                    [attr.stroke-dasharray]="dataaa.outputData.uneven_skin_percentage + ', 100'"
+                    stroke-linecap="round" fill="none" cx="16.91549431" cy="16.91549431" r="15.91549431"></circle>
+                </svg>
+                <div class="circle-chart__info">
+                  <span class="circle-chart__percent" [style.color]="colorMap[dataaa.outputData.uneven_skin_percentage_color_code]">{{dataaa.outputData.uneven_skin_percentage}}%</span>
                 </div>
-                <div class="circle-svg small hide-on-init animSlideIn anim-delay-5" (click)="ActiveTab($event, 'Fine Lines & wrinkle', scrollAnalysisIntoViewRef)">
-                  <svg class="circle-chart" viewBox="0 0 33.83098862 33.83098862" width="200" height="200" xmlns="http://www.w3.org/2000/svg">
-                    <circle class="circle-chart__background" stroke="#959b90" stroke-width=".1" fill="none" cx="16.91549431" cy="16.91549431" r="15.91549431"></circle>
-                    <circle class="circle-chart__circle"
-                      stroke-width="2"
-                      [attr.stroke]="colorMap[dataaa.outputData.face_wrinkle_percentage_color_code]"
-                      [attr.stroke-dasharray]="dataaa.outputData.face_wrinkle_percentage + ', 100'"
-                      stroke-linecap="round" fill="none" cx="16.91549431" cy="16.91549431" r="15.91549431"></circle></svg>
-                  <div class="circle-chart__info">
-                    <span class="circle-chart__percent" [style.color]="colorMap[dataaa.outputData.face_wrinkle_percentage_color_code]">{{dataaa.outputData.face_wrinkle_percentage}}%</span>
-                  </div>
-                  <span>Face Lines<br /> &amp; Wrinkles</span>
+                <span>Uneven<br /> Skin Tone</span>
+              </div>
+              <div class="circle-svg small hide-on-init animSlideIn anim-delay-5" (click)="ActiveTab($event, 'Fine Lines & wrinkle', scrollAnalysisIntoViewRef)">
+                <svg class="circle-chart" viewBox="0 0 33.83098862 33.83098862" width="200" height="200" xmlns="http://www.w3.org/2000/svg">
+                  <circle class="circle-chart__background" stroke="#959b90" stroke-width=".1" fill="none" cx="16.91549431" cy="16.91549431" r="15.91549431"></circle>
+                  <circle class="circle-chart__circle"
+                    stroke-width="2"
+                    [attr.stroke]="colorMap[dataaa.outputData.face_wrinkle_percentage_color_code]"
+                    [attr.stroke-dasharray]="dataaa.outputData.face_wrinkle_percentage + ', 100'"
+                    stroke-linecap="round" fill="none" cx="16.91549431" cy="16.91549431" r="15.91549431"></circle>
+                </svg>
+                <div class="circle-chart__info">
+                  <span class="circle-chart__percent" [style.color]="colorMap[dataaa.outputData.face_wrinkle_percentage_color_code]">{{dataaa.outputData.face_wrinkle_percentage}}%</span>
                 </div>
-                <div class="circle-svg small hide-on-init animSlideIn anim-delay-6" (click)="ActiveTab($event, 'Dark Spots', scrollAnalysisIntoViewRef)">
-                  <svg class="circle-chart" viewBox="0 0 33.83098862 33.83098862" width="200" height="200" xmlns="http://www.w3.org/2000/svg">
-                    <circle class="circle-chart__background" stroke="#959b90" stroke-width=".1" fill="none" cx="16.91549431" cy="16.91549431" r="15.91549431"></circle>
-                    <circle class="circle-chart__circle"
-                      stroke-width="2"
-                      [attr.stroke]="colorMap[dataaa.outputData.dark_spot_percentage_color_code]"
-                      [attr.stroke-dasharray]="dataaa.outputData.dark_spot_percentage + ', 100'"
-                      stroke-linecap="round" fill="none" cx="16.91549431" cy="16.91549431" r="15.91549431"></circle></svg>
-                  <div class="circle-chart__info">
-                    <span class="circle-chart__percent" [style.color]="colorMap[dataaa.outputData.dark_spot_percentage_color_code]">{{dataaa.outputData.dark_spot_percentage}}%</span>
-                  </div>
-                  <span>Dark Spots</span>
+                <span>Face Lines<br /> &amp; Wrinkles</span>
+              </div>
+              <div class="circle-svg small hide-on-init animSlideIn anim-delay-6" (click)="ActiveTab($event, 'Dark Spots', scrollAnalysisIntoViewRef)">
+                <svg class="circle-chart" viewBox="0 0 33.83098862 33.83098862" width="200" height="200" xmlns="http://www.w3.org/2000/svg">
+                  <circle class="circle-chart__background" stroke="#959b90" stroke-width=".1" fill="none" cx="16.91549431" cy="16.91549431" r="15.91549431"></circle>
+                  <circle class="circle-chart__circle"
+                    stroke-width="2"
+                    [attr.stroke]="colorMap[dataaa.outputData.dark_spot_percentage_color_code]"
+                    [attr.stroke-dasharray]="dataaa.outputData.dark_spot_percentage + ', 100'"
+                    stroke-linecap="round" fill="none" cx="16.91549431" cy="16.91549431" r="15.91549431"></circle>
+                </svg>
+                <div class="circle-chart__info">
+                  <span class="circle-chart__percent" [style.color]="colorMap[dataaa.outputData.dark_spot_percentage_color_code]">{{dataaa.outputData.dark_spot_percentage}}%</span>
                 </div>
+                <span>Dark Spots</span>
               </div>
             </div>
-            <div class="sw-colorindicator">
-              <ul>
-                <li>
-                  High<br/>Priority
-                </li>
-                <li>
-                  Medium<br/>Priority
-                </li>
-                <li>
-                  Low<br/>Priority
-                </li>
-              </ul>
-            </div>
           </div>
-          <div class="score-recommendation hide-on-init" animateOnScroll animationName="animated slideIn" offset="10">
-            <!-- [class.inView]="isRecommendationScrolledIntoView || isAnalysisAlreadyRendered" #scrollRecommendationIntoViewRef> -->
-            <h1>Your key skin concerns &<br /> Dermafique recommendations</h1>
-            <ng-container *ngIf="{ tp: dataaa.priorityInfo.topPriorities } as topPriorities">
-              <ul class="d-flex">
-                <ng-container *ngFor="let priority of topPriorities.tp; let i = index;">
-                  <ng-container *ngIf="i < 3">
-                    <li class="sr-wrapper">
-                      <div class="sr-circle-wrapper">
-                        <div class="circle-svg small" (click)="ActiveTab($event, priority.priority_name, scrollAnalysisIntoViewRef)">
-                          <svg class="circle-chart" viewBox="0 0 33.83098862 33.83098862" width="200" height="200" xmlns="http://www.w3.org/2000/svg">
-                            <circle class="circle-chart__background" stroke="#959b90" stroke-width=".1" fill="none" cx="16.91549431" cy="16.91549431" r="15.91549431"></circle>
-                            <circle class="circle-chart__circle"
-                              stroke-width="2"
-                              [attr.stroke]="colorMap[priority.priority_color_code]"
-                              [attr.stroke-dasharray]="priority.priority_score + ', 100'"
-                              stroke-linecap="round" fill="none" cx="16.91549431" cy="16.91549431" r="15.91549431"></circle></svg>
-                          <div class="circle-chart__info">
-                            <span class="circle-chart__percent" [style.color]="colorMap[priority.priority_color_code]">{{priority.priority_score}}%</span>
-                          </div>
-                        </div>
-                        <span class="lh-18">{{priority.priority_title}}</span>
-                      </div>
-                      <div class="sr-buycard">
-                        <img [src]="priority.priority_product_info.product_image_thumbnail" />
-                        <a class="btnStyle" target="_blank" [href]="priority.priority_product_info.product_link">
-                          <img src="assets/newassets/bagico.png" alt="bagicon" />&nbsp;Buy Now →
-                        </a>
-                      </div>
-                    </li>
-                  </ng-container>
-                </ng-container>
-              </ul>
-            </ng-container>
+          <div class="sw-colorindicator">
+            <ul>
+              <li>
+                High<br/>Priority
+              </li>
+              <li>
+                Medium<br/>Priority
+              </li>
+              <li>
+                Low<br/>Priority
+              </li>
+            </ul>
           </div>
-          <ng-container *ngIf="{ data: skinResultSelected } as selectedVal">
-            <div class="skin-analysiswrapper" #scrollAnalysisIntoViewRef>
-            <!-- [class.inView]="isAnalysisScrolledIntoView || isAnalysisAlreadyRendered" #scrollAnalysisIntoViewRef> -->
-              <div class="skin-detailanalysis mt-20 hide-on-init" animateOnScroll animationName="animated slideIn" offset="10">
-                <h2>Your Detailed Skin Analysis Report</h2>
-                  <div class="sd-top">
-                    <section class="d-flex mt-20 mb-10">
-                      <div class="circle-svg medium mr-10">
+        </div>
+        <div class="score-recommendation hide-on-init" animateOnScroll animationName="animated slideIn" offset="10">
+          <h1>Your key skin concerns &<br /> Dermafique recommendations</h1>
+          <ng-container *ngIf="{ tp: dataaa.priorityInfo.topPriorities } as topPriorities">
+            <ul class="d-flex">
+              <ng-container *ngFor="let priority of topPriorities.tp; let i = index;">
+                <ng-container *ngIf="i < 3">
+                  <li class="sr-wrapper">
+                    <div class="sr-circle-wrapper">
+                      <div class="circle-svg small" (click)="ActiveTab($event, priority.priority_name, scrollAnalysisIntoViewRef)">
                         <svg class="circle-chart" viewBox="0 0 33.83098862 33.83098862" width="200" height="200" xmlns="http://www.w3.org/2000/svg">
                           <circle class="circle-chart__background" stroke="#959b90" stroke-width=".1" fill="none" cx="16.91549431" cy="16.91549431" r="15.91549431"></circle>
                           <circle class="circle-chart__circle"
                             stroke-width="2"
-                            [attr.stroke]="colorMap[selectedVal.data.priority_color_code]"
-                            [attr.stroke-dasharray]="selectedVal.data.priority_score + ', 100'"
-                            stroke-linecap="round" fill="none" cx="16.91549431" cy="16.91549431" r="15.91549431"></circle></svg>
+                            [attr.stroke]="colorMap[priority.priority_color_code]"
+                            [attr.stroke-dasharray]="priority.priority_score + ', 100'"
+                            stroke-linecap="round" fill="none" cx="16.91549431" cy="16.91549431" r="15.91549431"></circle>
+                        </svg>
                         <div class="circle-chart__info">
-                          <span class="circle-chart__percent" [style.color]="colorMap[selectedVal.data.priority_color_code]">
-                            {{selectedVal.data.priority_score}}%
-                          </span>
+                          <span class="circle-chart__percent" [style.color]="colorMap[priority.priority_color_code]">{{priority.priority_score}}%</span>
                         </div>
                       </div>
-                      <span class="fs-16 lh-22 textcolor">{{selectedVal.data.priority_product_info.skin_analysis_report}}</span>
-                    </section>
-                    <div class="sd-product mb-20">
-                      <div class="sdp-left pr-20">
-                        <img [src]="selectedVal.data.priority_product_info.product_image" />
-                      </div>
-                      <div class="sdp-right">
-                        <div class="sdpr-title">{{selectedVal.data.priority_product_info.product_name}}</div>
-                        <div class="sdpr-subtitle">{{selectedVal.data.priority_product_info.product_desc}}</div>
-                        <a class="btnStyle" target="_blank" [href]="selectedVal.data.priority_product_info.product_link">
-                          <img src="assets/newassets/bagico.png" alt="bagicon" />&nbsp;Buy Now →
-                        </a>
+                      <span class="lh-18">{{priority.priority_title}}</span>
+                    </div>
+                    <div class="sr-buycard">
+                      <img [src]="priority.priority_product_info.product_image_thumbnail" [alt]="priority.priority_title">
+                      <a class="btnStyle" target="_blank" [href]="priority.priority_product_info.product_link">
+                        <img src="assets/newassets/bagico.png" alt="bagicon" />&nbsp;Buy Now →
+                      </a>
+                    </div>
+                  </li>
+                </ng-container>
+              </ng-container>
+            </ul>
+          </ng-container>
+        </div>
+        <ng-container *ngIf="{ data: skinResultSelected } as selectedVal">
+          <div class="skin-analysiswrapper" #scrollAnalysisIntoViewRef>
+            <div class="skin-detailanalysis mt-20 hide-on-init" animateOnScroll animationName="animated slideIn" offset="10">
+              <h2>Your Detailed Skin Analysis Report</h2>
+                <div class="sd-top">
+                  <section class="d-flex mt-20 mb-10">
+                    <div class="circle-svg medium mr-10">
+                      <svg class="circle-chart" viewBox="0 0 33.83098862 33.83098862" width="200" height="200" xmlns="http://www.w3.org/2000/svg">
+                        <circle class="circle-chart__background" stroke="#959b90" stroke-width=".1" fill="none" cx="16.91549431" cy="16.91549431" r="15.91549431"></circle>
+                        <circle class="circle-chart__circle"
+                          stroke-width="2"
+                          [attr.stroke]="colorMap[selectedVal.data.priority_color_code]"
+                          [attr.stroke-dasharray]="selectedVal.data.priority_score + ', 100'"
+                          stroke-linecap="round" fill="none" cx="16.91549431" cy="16.91549431" r="15.91549431"></circle>
+                      </svg>
+                      <div class="circle-chart__info">
+                        <span class="circle-chart__percent" [style.color]="colorMap[selectedVal.data.priority_color_code]">
+                          {{selectedVal.data.priority_score}}%
+                        </span>
                       </div>
                     </div>
+                    <span class="fs-16 lh-22 textcolor">{{selectedVal.data.priority_product_info.skin_analysis_report}}</span>
+                  </section>
+                  <div class="sd-product mb-20">
+                    <div class="sdp-left pr-20">
+                      <img [src]="selectedVal.data.priority_product_info.product_image">
+                    </div>
+                    <div class="sdp-right">
+                      <div class="sdpr-title">{{selectedVal.data.priority_product_info.product_name}}</div>
+                      <div class="sdpr-subtitle">{{selectedVal.data.priority_product_info.product_desc}}</div>
+                      <a class="btnStyle" target="_blank" [href]="selectedVal.data.priority_product_info.product_link">
+                        <img src="assets/newassets/bagico.png" alt="bagicon">&nbsp;Buy Now →
+                      </a>
+                    </div>
                   </div>
+                </div>
+            </div>
+            <div class="consolexpert">
+              <div class="cse-card mb-20 mt-20 hide-on-init" animateOnScroll animationName="animated slideIn" offset="10">
+                <div class="cse-title">Concern</div>
+                <ng-container *ngIf="{ c: selectedVal.data.priority_product_info.concerns } as concern">
+                  <ul class="cse-content">
+                    <li class="d-flex df-a-fs mb-20">
+                      <div class="csec-image">
+                        <img [src]="concern.c.causes.image">
+                      </div>
+                      <div class="csec-text">
+                        <h4>How this is caused:</h4>
+                        <p class="">
+                          <ng-container *ngFor="let point of concern.c.causes.points">
+                            {{point}}
+                          </ng-container>
+                        </p>
+                      </div>
+                    </li>
+                    <li class="d-flex df-a-fs">
+                      <div class="csec-image">
+                        <img [src]="concern.c.needs.image">
+                      </div>
+                      <div class="csec-text">
+                        <h4>What you need:</h4>
+                        <p class="">
+                          <ng-container *ngFor="let point of concern.c.needs.points">
+                            {{point}}
+                          </ng-container>
+                        </p>
+                      </div>
+                    </li>
+                  </ul>
+                </ng-container>
+              </div>
+
+              <div class="cse-card mb-20 mt-20 hide-on-init" animateOnScroll animationName="animated slideIn" offset="10">
+                <div class="cse-title">Solution</div>
+                <ng-container *ngIf="{ s: selectedVal.data.priority_product_info.solution } as solution">
+                  <ul class="cse-content">
+                    <div class="csec-text text-center mb-20">
+                      <p class="">{{solution.s.solution_recommends}}</p>
+                    </div>
+                    <ng-container *ngFor="let point of solution.s.points">
+                      <li class="d-flex df-a-fs mb-10">
+                        <div class="csec-image">
+                          <img [src]="point.image">
+                        </div>
+                        <div class="csec-text">
+                          <p class="">
+                            {{point.point}}
+                          </p>
+                        </div>
+                      </li>
+                    </ng-container>
+                    <div class="csec-text text-center mt-20">
+                      <p class="">{{solution.s.solution_concluding_paragraph}}</p>
+                    </div>
+                  </ul>
+                </ng-container>
+              </div>
+
+              <div class="cse-card mb-20 mt-20 hide-on-init" animateOnScroll animationName="animated slideIn" offset="10">
+                <div class="cse-title">Expert Tip</div>
+                <ng-container *ngIf="{ e: selectedVal.data.priority_product_info.expert } as expert">
+                  <ul class="cse-content">
+                    <div class="csec-text text-center mb-20">
+                      <h4>How this is caused:</h4>
+                      <p class="">{{expert.e.expert_tip}}</p>
+                    </div>
+                    <ng-container *ngFor="let point of expert.e.points">
+                      <li class="d-flex df-a-fs mb-10">
+                        <div class="csec-image">
+                          <img [src]="point.image">
+                        </div>
+                        <div class="csec-text">
+                          <p class="">{{point.point}}</p>
+                        </div>
+                      </li>
+                    </ng-container>
+                    <div class="csec-text text-center mt-20">
+                      <p class="">{{expert.e.expert_tip_concluding_paragraph}}</p>
+                    </div>
+                  </ul>
+                </ng-container>
+              </div>
+            </div>
+          </div>
+        </ng-container>
+        <ng-container *ngIf="{ dataArr: dataaa.priorityInfo.topPriorities } as topPriorities">
+          <div class="skin-healthparameters mb-20 w100" [class.paramTabsSticky]="isAnalysisScrolledIntoView">
+            <h4 class="fs-14 text-center mb-10">Click below to view other Skin Health Parameters</h4>
+            <ul>
+              <ng-container *ngFor="let data of topPriorities.dataArr; let i = index">
+                <li [class.d-none]="(i > 2 && showRestTabs === false)"
+                  [class.selected]="activeResultTab === data.priority_name"
+                  (click)="ActiveTab($event, data.priority_name, scrollAnalysisIntoViewRef)">{{data.priority_name}}</li>
+              </ng-container>
+              <li (click)="ShowRestTabFn()" [class.selected]="showRestTabs">&nbsp; {{ showRestTabs == true ? '-' : '+' }} &nbsp;</li>
+            </ul>
+          </div>
+        </ng-container>
+        <ng-container *ngIf="!pdfSent">
+          <div class="thank-form">
+            <img src="assets/newassets/thankyoutick.png">
+            <h1>
+              Thank you for taking<br />the skin analysis!
+            </h1>
+            <p>In case you haven't signed up already, please enter your details below<br /> to recieve the full report on your Phone or Email ID.</p>
+            <div>
+              <form class="registerBx" [formGroup]="thankYouForm">
+                <input type="text" id="txtThankYouNumber" formControlName="txtThankYouNumber" placeholder="Mobile Number" />
+                <input type="email" id="txtThankYouEmail" formControlName="txtThankYouEmail" placeholder="Email ID"
+                  [class.invalid]="thankYouForm.get('txtThankYouEmail').invalid && (thankYouForm.get('txtThankYouEmail').dirty || thankYouForm.get('txtThankYouEmail').touched)"
+                />
+                <a (click)="SendSaveImage()" class="btnStyle" [class.disabled]="!thankYouForm.valid">Send →</a>
+              </form>
+            </div>
+          </div>
+        </ng-container>
+        <ng-container *ngIf="pdfSent">
+          <div class="thank-form">
+            <img src="assets/newassets/thankyoutick.png">
+            <h1>
+              Thank you for taking<br />the skin analysis!
+            </h1>
+          </div>
+        </ng-container>
+        <div class="static-banner">
+          <img src="assets/newassets/resultbanner.png" class="w100" alt="banner">
+        </div>
+      </div>
+    </div>
+  </ng-container>
+  <ng-container *ngIf="downloadPDF">
+    <div class="print-pdf-wrapper">
+      <div class="loader-container" *ngIf="showLoader">
+        <div class="loader">
+          loading...
+        </div>
+      </div>
+      <div id="printPDF" #screenRef>
+        <div class="topcurve" style="position: relative; z-index: 1;">
+          <img src="assets/newassets/topcurve.png" alt="topcurve" #imageBase64Ref>
+          <div class="topcurve-container">
+            <h1 class="mt-20">Let's go through the detailed<br />
+              breakdown of your result</h1>
+            <section class="d-flex">
+              <div class="circle-svg large mr-10">
+                <!-- <svg class="circle-chart" viewBox="0 0 33.83098862 33.83098862" width="200" height="200" xmlns="http://www.w3.org/2000/svg">
+                  <circle class="circle-chart__background" stroke="#959b90" stroke-width=".1" fill="none" cx="16.91549431" cy="16.91549431" r="15.91549431"></circle>
+                  <circle class="circle-chart__circle main"
+                    stroke-width="2"
+                    [attr.stroke]="colorMap['G']"
+                    [attr.stroke-dasharray]="dataaa.outputData.skin_health_score + ', 100'"
+                    stroke-linecap="round" fill="none" cx="16.91549431" cy="16.91549431" r="15.91549431"></circle>
+                </svg> -->
+                <div class="circle-chart__info">
+                  <span class="circle-chart__percent" [style.color]="colorMap['G']">{{dataaa.outputData.skin_health_score}}%</span>
+                </div>
+              </div>
+              <span class="fs-18 textcolor">Skin Health<br>Score</span>
+            </section>
+          </div>
+        </div>
+        <div class="score-wrapper">
+          <div class="sw-photopersent">
+            <img [src]="url">
+            <div>
+              <div class="circle-svg small" (click)="ActiveTab($event, 'Firmness', scrollAnalysisIntoViewRef)">
+                <!-- <svg class="circle-chart" viewBox="0 0 33.83098862 33.83098862" width="200" height="200" xmlns="http://www.w3.org/2000/svg">
+                  <circle class="circle-chart__background" stroke="#959b90" stroke-width=".1" fill="none" cx="16.91549431" cy="16.91549431" r="15.91549431"></circle>
+                  <circle class="circle-chart__circle"
+                    stroke-width="2"
+                    [attr.stroke]="colorMap[dataaa.outputData.face_firmness_percentage_color_code]"
+                    [attr.stroke-dasharray]="dataaa.outputData.face_firmness_percentage + ', 100'"
+                    stroke-linecap="round" fill="none" cx="16.91549431" cy="16.91549431" r="15.91549431"></circle>
+                </svg> -->
+                <div class="circle-chart__info">
+                  <span class="circle-chart__percent" [style.color]="colorMap[dataaa.outputData.face_firmness_percentage_color_code]">{{dataaa.outputData.face_firmness_percentage}}%</span>
+                </div>
+                <span>Firmness</span>
+              </div>
+              <div class="circle-svg small" (click)="ActiveTab($event, 'Smoothness', scrollAnalysisIntoViewRef)">
+                <!-- <svg class="circle-chart" viewBox="0 0 33.83098862 33.83098862" width="200" height="200" xmlns="http://www.w3.org/2000/svg">
+                  <circle class="circle-chart__background" stroke="#959b90" stroke-width=".1" fill="none" cx="16.91549431" cy="16.91549431" r="15.91549431"></circle>
+                  <circle class="circle-chart__circle"
+                    stroke-width="2"
+                    [attr.stroke]="colorMap[dataaa.outputData.Smoothness_color_code]"
+                    [attr.stroke-dasharray]="dataaa.outputData.Smoothness + ', 100'"
+                    stroke-linecap="round" fill="none" cx="16.91549431" cy="16.91549431" r="15.91549431"></circle>
+                </svg> -->
+                <div class="circle-chart__info">
+                  <span class="circle-chart__percent" [style.color]="colorMap[dataaa.outputData.Smoothness_color_code]">{{dataaa.outputData.Smoothness}}%</span>
+                </div>
+                <span>Smoothness</span>
+              </div>
+              <div class="circle-svg small" (click)="ActiveTab($event, 'Hydration Score', scrollAnalysisIntoViewRef)">
+                <!-- <svg class="circle-chart" viewBox="0 0 33.83098862 33.83098862" width="200" height="200" xmlns="http://www.w3.org/2000/svg">
+                  <circle class="circle-chart__background" stroke="#959b90" stroke-width=".1" fill="none" cx="16.91549431" cy="16.91549431" r="15.91549431"></circle>
+                  <circle class="circle-chart__circle"
+                    stroke-width="2"
+                    [attr.stroke]="colorMap[dataaa.outputData.hydration_score_color_code]"
+                    [attr.stroke-dasharray]="dataaa.outputData.hydration_score + ', 100'"
+                    stroke-linecap="round" fill="none" cx="16.91549431" cy="16.91549431" r="15.91549431"></circle>
+                </svg> -->
+                <div class="circle-chart__info">
+                  <span class="circle-chart__percent" [style.color]="colorMap[dataaa.outputData.hydration_score_color_code]">{{dataaa.outputData.hydration_score}}%</span>
+                </div>
+                <span>Hydration Score</span>
+              </div>
+              <div class="circle-svg small" (click)="ActiveTab($event, 'Dullness', scrollAnalysisIntoViewRef)">
+                <!-- <svg class="circle-chart" viewBox="0 0 33.83098862 33.83098862" width="200" height="200" xmlns="http://www.w3.org/2000/svg">
+                  <circle class="circle-chart__background" stroke="#959b90" stroke-width=".1" fill="none" cx="16.91549431" cy="16.91549431" r="15.91549431"></circle>
+                  <circle class="circle-chart__circle"
+                    stroke-width="2"
+                    [attr.stroke]="colorMap[dataaa.outputData.skin_dullness_percentage_color_code]"
+                    [attr.stroke-dasharray]="dataaa.outputData.skin_dullness_percentage + ', 100'"
+                    stroke-linecap="round" fill="none" cx="16.91549431" cy="16.91549431" r="15.91549431"></circle>
+                </svg> -->
+                <div class="circle-chart__info">
+                  <span class="circle-chart__percent" [style.color]="colorMap[dataaa.outputData.skin_dullness_percentage_color_code]">{{dataaa.outputData.skin_dullness_percentage}}%</span>
+                </div>
+                <span>Dullness</span>
+              </div>
+              <div class="circle-svg small" (click)="ActiveTab($event, 'Uneven Skin Tone', scrollAnalysisIntoViewRef)">
+                <!-- <svg class="circle-chart" viewBox="0 0 33.83098862 33.83098862" width="200" height="200" xmlns="http://www.w3.org/2000/svg">
+                  <circle class="circle-chart__background" stroke="#959b90" stroke-width=".1" fill="none" cx="16.91549431" cy="16.91549431" r="15.91549431"></circle>
+                  <circle class="circle-chart__circle"
+                    stroke-width="2"
+                    [attr.stroke]="colorMap[dataaa.outputData.uneven_skin_percentage_color_code]"
+                    [attr.stroke-dasharray]="dataaa.outputData.uneven_skin_percentage + ', 100'"
+                    stroke-linecap="round" fill="none" cx="16.91549431" cy="16.91549431" r="15.91549431"></circle>
+                </svg> -->
+                <div class="circle-chart__info">
+                  <span class="circle-chart__percent" [style.color]="colorMap[dataaa.outputData.uneven_skin_percentage_color_code]">{{dataaa.outputData.uneven_skin_percentage}}%</span>
+                </div>
+                <span>Uneven<br /> Skin Tone</span>
+              </div>
+              <div class="circle-svg small" (click)="ActiveTab($event, 'Fine Lines & wrinkle', scrollAnalysisIntoViewRef)">
+                <!-- <svg class="circle-chart" viewBox="0 0 33.83098862 33.83098862" width="200" height="200" xmlns="http://www.w3.org/2000/svg">
+                  <circle class="circle-chart__background" stroke="#959b90" stroke-width=".1" fill="none" cx="16.91549431" cy="16.91549431" r="15.91549431"></circle>
+                  <circle class="circle-chart__circle"
+                    stroke-width="2"
+                    [attr.stroke]="colorMap[dataaa.outputData.face_wrinkle_percentage_color_code]"
+                    [attr.stroke-dasharray]="dataaa.outputData.face_wrinkle_percentage + ', 100'"
+                    stroke-linecap="round" fill="none" cx="16.91549431" cy="16.91549431" r="15.91549431"></circle>
+                </svg> -->
+                <div class="circle-chart__info">
+                  <span class="circle-chart__percent" [style.color]="colorMap[dataaa.outputData.face_wrinkle_percentage_color_code]">{{dataaa.outputData.face_wrinkle_percentage}}%</span>
+                </div>
+                <span>Face Lines<br /> &amp; Wrinkles</span>
+              </div>
+              <div class="circle-svg small" (click)="ActiveTab($event, 'Dark Spots', scrollAnalysisIntoViewRef)">
+                <!-- <svg class="circle-chart" viewBox="0 0 33.83098862 33.83098862" width="200" height="200" xmlns="http://www.w3.org/2000/svg">
+                  <circle class="circle-chart__background" stroke="#959b90" stroke-width=".1" fill="none" cx="16.91549431" cy="16.91549431" r="15.91549431"></circle>
+                  <circle class="circle-chart__circle"
+                    stroke-width="2"
+                    [attr.stroke]="colorMap[dataaa.outputData.dark_spot_percentage_color_code]"
+                    [attr.stroke-dasharray]="dataaa.outputData.dark_spot_percentage + ', 100'"
+                    stroke-linecap="round" fill="none" cx="16.91549431" cy="16.91549431" r="15.91549431"></circle>
+                </svg> -->
+                <div class="circle-chart__info">
+                  <span class="circle-chart__percent" [style.color]="colorMap[dataaa.outputData.dark_spot_percentage_color_code]">{{dataaa.outputData.dark_spot_percentage}}%</span>
+                </div>
+                <span>Dark Spots</span>
+              </div>
+            </div>
+          </div>
+          <div class="sw-colorindicator">
+            <ul>
+              <li>
+                High<br/>Priority
+              </li>
+              <li>
+                Medium<br/>Priority
+              </li>
+              <li>
+                Low<br/>Priority
+              </li>
+            </ul>
+          </div>
+        </div>
+        <div class="score-recommendation inView">
+          <h1>Your key skin concerns &<br /> Dermafique recommendations</h1>
+          <ng-container *ngIf="{ tp: dataaa.priorityInfo.topPriorities } as topPriorities">
+            <ul class="d-flex">
+              <ng-container *ngFor="let priority of topPriorities.tp; let i = index;">
+                <ng-container *ngIf="i < 3">
+                  <li class="sr-wrapper">
+                    <div class="sr-circle-wrapper">
+                      <div class="circle-svg small" (click)="ActiveTab($event, priority.priority_name, scrollAnalysisIntoViewRef)">
+                        <!-- <svg class="circle-chart" viewBox="0 0 33.83098862 33.83098862" width="200" height="200" xmlns="http://www.w3.org/2000/svg">
+                          <circle class="circle-chart__background" stroke="#959b90" stroke-width=".1" fill="none" cx="16.91549431" cy="16.91549431" r="15.91549431"></circle>
+                          <circle class="circle-chart__circle"
+                            stroke-width="2"
+                            [attr.stroke]="colorMap[priority.priority_color_code]"
+                            [attr.stroke-dasharray]="priority.priority_score + ', 100'"
+                            stroke-linecap="round" fill="none" cx="16.91549431" cy="16.91549431" r="15.91549431"></circle>
+                        </svg> -->
+                        <div class="circle-chart__info">
+                          <span class="circle-chart__percent" [style.color]="colorMap[priority.priority_color_code]">{{priority.priority_score}}%</span>
+                        </div>
+                      </div>
+                      <span class="lh-18">{{priority.priority_title}}</span>
+                    </div>
+                    <div class="sr-buycard">
+                      <img [src]="priority.priority_product_info.product_image_thumbnail" #imageBase64Ref>
+                      <!-- <p style="font-size: 10px;">https://shorturl.at/qDLO5</p> -->
+                      <a class="btnStyle" href="">
+                        <img src="assets/newassets/bagico.png" alt="bagicon" #imageBase64Ref>&nbsp;Buy Now →
+                      </a>
+                    </div>
+                  </li>
+                </ng-container>
+              </ng-container>
+            </ul>
+          </ng-container>
+        </div>
+        <ng-container *ngIf="{ dataArr: dataaa.priorityInfo.topPriorities } as topPriorities">
+          <ng-container *ngFor="let selectedVal of topPriorities.dataArr">
+            <div class="skin-analysiswrapper inView">
+              <div class="skin-detailanalysis mt-20">
+                <h2>Your Detailed Skin Analysis Report</h2>
+                <div class="sd-top">
+                  <section class="d-flex mt-20 mb-10">
+                    <div class="circle-svg medium mr-10">
+                      <!-- <svg class="circle-chart" viewBox="0 0 33.83098862 33.83098862" width="200" height="200" xmlns="http://www.w3.org/2000/svg">
+                        <circle class="circle-chart__background" stroke="#959b90" stroke-width=".1" fill="none" cx="16.91549431" cy="16.91549431" r="15.91549431"></circle>
+                        <circle class="circle-chart__circle"
+                          stroke-width="2"
+                          [attr.stroke]="colorMap[selectedVal.priority_color_code]"
+                          [attr.stroke-dasharray]="selectedVal.priority_score + ', 100'"
+                          stroke-linecap="round" fill="none" cx="16.91549431" cy="16.91549431" r="15.91549431"></circle>
+                      </svg> -->
+                      <div class="circle-chart__info">
+                        <span class="circle-chart__percent" [style.color]="colorMap[selectedVal.priority_color_code]">
+                          {{selectedVal.priority_score}}%
+                        </span>
+                      </div>
+                    </div>
+                    <span class="fs-16 lh-22 textcolor">{{selectedVal.priority_product_info.skin_analysis_report}}</span>
+                  </section>
+                  <div class="sd-product mb-20">
+                    <div class="sdp-left pr-20">
+                      <img [src]="selectedVal.priority_product_info.product_image" #imageBase64Ref>
+                    </div>
+                    <div class="sdp-right">
+                      <div class="sdpr-title">{{selectedVal.priority_product_info.product_name}}</div>
+                      <div class="sdpr-subtitle">{{selectedVal.priority_product_info.product_desc}}</div>
+                      <a class="btnStyle" target="_blank" [href]="selectedVal.priority_product_info.product_link">
+                        <img src="assets/newassets/bagico.png" alt="bagicon" #imageBase64Ref>&nbsp;Buy Now →
+                      </a>
+                    </div>
+                  </div>
+                </div>
               </div>
               <div class="consolexpert">
-                <div class="cse-card mb-20 mt-20 hide-on-init" animateOnScroll animationName="animated slideIn" offset="10">
+                <div class="cse-card mb-20 mt-20">
                   <div class="cse-title">Concern</div>
-                  <ng-container *ngIf="{ c: selectedVal.data.priority_product_info.concerns } as concern">
+                  <ng-container *ngIf="{ c: selectedVal.priority_product_info.concerns } as concern">
                     <ul class="cse-content">
                       <li class="d-flex df-a-fs mb-20">
                         <div class="csec-image">
-                          <img [src]="concern.c.causes.image" />
+                          <img [src]="concern.c.causes.image" #imageBase64Ref>
                         </div>
                         <div class="csec-text">
                           <h4>How this is caused:</h4>
@@ -740,7 +1103,7 @@
                       </li>
                       <li class="d-flex df-a-fs">
                         <div class="csec-image">
-                          <img [src]="concern.c.needs.image" />
+                          <img [src]="concern.c.needs.image" #imageBase64Ref>
                         </div>
                         <div class="csec-text">
                           <h4>What you need:</h4>
@@ -755,9 +1118,9 @@
                   </ng-container>
                 </div>
 
-                <div class="cse-card mb-20 mt-20 hide-on-init" animateOnScroll animationName="animated slideIn" offset="10">
+                <div class="cse-card mb-20 mt-20">
                   <div class="cse-title">Solution</div>
-                  <ng-container *ngIf="{ s: selectedVal.data.priority_product_info.solution } as solution">
+                  <ng-container *ngIf="{ s: selectedVal.priority_product_info.solution } as solution">
                     <ul class="cse-content">
                       <div class="csec-text text-center mb-20">
                         <p class="">{{solution.s.solution_recommends}}</p>
@@ -765,7 +1128,7 @@
                       <ng-container *ngFor="let point of solution.s.points">
                         <li class="d-flex df-a-fs mb-10">
                           <div class="csec-image">
-                            <img [src]="point.image" />
+                            <img [src]="point.image" #imageBase64Ref>
                           </div>
                           <div class="csec-text">
                             <p class="">
@@ -781,9 +1144,9 @@
                   </ng-container>
                 </div>
 
-                <div class="cse-card mb-20 mt-20 hide-on-init" animateOnScroll animationName="animated slideIn" offset="10">
+                <div class="cse-card mb-20 mt-20">
                   <div class="cse-title">Expert Tip</div>
-                  <ng-container *ngIf="{ e: selectedVal.data.priority_product_info.expert } as expert">
+                  <ng-container *ngIf="{ e: selectedVal.priority_product_info.expert } as expert">
                     <ul class="cse-content">
                       <div class="csec-text text-center mb-20">
                         <h4>How this is caused:</h4>
@@ -792,7 +1155,7 @@
                       <ng-container *ngFor="let point of expert.e.points">
                         <li class="d-flex df-a-fs mb-10">
                           <div class="csec-image">
-                            <img [src]="point.image" />
+                            <img [src]="point.image" #imageBase64Ref>
                           </div>
                           <div class="csec-text">
                             <p class="">{{point.point}}</p>
@@ -808,361 +1171,9 @@
               </div>
             </div>
           </ng-container>
-          <ng-container *ngIf="{ dataArr: dataaa.priorityInfo.topPriorities } as topPriorities">
-            <div class="skin-healthparameters mb-20 w100" [class.paramTabsSticky]="isAnalysisScrolledIntoView">
-              <h4 class="fs-14 text-center mb-10">Click below to view other Skin Health Parameters</h4>
-              <ul>
-                <ng-container *ngFor="let data of topPriorities.dataArr; let i = index">
-                  <li [class.d-none]="(i > 2 && showRestTabs === false)"
-                      [class.selected]="activeResultTab === data.priority_name"
-                      (click)="ActiveTab($event, data.priority_name, scrollAnalysisIntoViewRef)">{{data.priority_name}}</li>
-                </ng-container>
-                <li (click)="ShowRestTabFn()" [class.selected]="showRestTabs">&nbsp; {{ showRestTabs == true ? '-' : '+' }} &nbsp;</li>
-              </ul>
-            </div>
-          </ng-container>
-          <ng-container *ngIf="!pdfSent">
-            <div class="thank-form">
-              <img src="assets/newassets/thankyoutick.png" />
-              <h1>
-                Thank you for taking<br />the skin analysis!
-              </h1>
-              <!-- <ng-template [ngIf]="guestResult" [ngIfElse]="notGuest"> -->
-              <p>In case you haven't signed up already, please enter your details below<br /> to recieve the full report on your Phone or Email ID.</p>
-              <div >
-                <form class="registerBx" [formGroup]="thankYouForm">
-                  <input type="text" id="txtThankYouNumber" formControlName="txtThankYouNumber" placeholder="Mobile Number" />
-                  <input type="email" id="txtThankYouEmail" formControlName="txtThankYouEmail" placeholder="Email ID"
-                    [class.invalid]="thankYouForm.get('txtThankYouEmail').invalid && (thankYouForm.get('txtThankYouEmail').dirty || thankYouForm.get('txtThankYouEmail').touched)"
-                  />
-                  <a (click)="SendSaveImage()" class="btnStyle" [class.disabled]="!thankYouForm.valid">Send →</a>
-                </form>
-              </div>
-              <!-- </ng-template> -->
-              <!-- <ng-template #notGuest>
-                <a (click)="SendSaveImage()" class="btnStyle mt-20">Send →</a>
-              </ng-template> -->
-            </div>
-          </ng-container>
-          <ng-container *ngIf="pdfSent">
-            <div class="thank-form">
-              <img src="assets/newassets/thankyoutick.png" />
-              <h1>
-                Thank you for taking<br />the skin analysis!
-              </h1>
-            </div>
-          </ng-container>
-          <div class="static-banner">
-            <img src="assets/newassets/resultbanner.png" class="w100" alt="banner" />
-          </div>
-        </div>
+        </ng-container>
       </div>
-    </ng-container>
-    <ng-container *ngIf="downloadPDF">
-      <div class="print-pdf-wrapper">
-        <div class="loader-container" *ngIf="showLoader">
-          <div class="loader">
-            loading...
-          </div>
-        </div>
-        <div id="printPDF" #screenRef>
-          <div class="topcurve" style="position: relative; z-index: 1;">
-            <img src="assets/newassets/topcurve.png" alt="topcurve" #imageBase64Ref style="width: 100%; height: 100%;" />
-            <div class="topcurve-container" style="position: absolute; left: 0; right: 0; top: 0; bottom: 0;">
-              <h1 class="mt-20">Let's go through the detailed<br />
-                breakdown of your result</h1>
-              <section class="d-flex">
-                <!-- <div class="circle-svg large mr-10">
-                  <svg class="circle-chart" viewBox="0 0 33.83098862 33.83098862" width="200" height="200" xmlns="http://www.w3.org/2000/svg">
-                    <circle class="circle-chart__background" stroke="#959b90" stroke-width=".1" fill="none" cx="16.91549431" cy="16.91549431" r="15.91549431"></circle>
-                    <circle class="circle-chart__circle main"
-                      stroke-width="2"
-                      [attr.stroke]="colorMap['G']"
-                      [attr.stroke-dasharray]="dataaa.outputData.skin_health_score + ', 100'"
-                      stroke-linecap="round" fill="none" cx="16.91549431" cy="16.91549431" r="15.91549431"></circle>
-                  </svg>
-                  <div class="circle-chart__info">
-                    <span class="circle-chart__percent" [style.color]="colorMap['G']">{{dataaa.outputData.skin_health_score}}%</span>
-                  </div>
-                </div> -->
-                <span class="fs-18 textcolor">Skin Health<br>Score</span>
-              </section>
-            </div>
-          </div>
-          <div class="score-wrapper">
-            <!-- <div class="sw-photopersent">
-              <img [src]="url" />
-              <div>
-                <div class="circle-svg small" (click)="ActiveTab($event, 'Firmness', scrollAnalysisIntoViewRef)">
-                  <svg class="circle-chart" viewBox="0 0 33.83098862 33.83098862" width="200" height="200" xmlns="http://www.w3.org/2000/svg">
-                    <circle class="circle-chart__background" stroke="#959b90" stroke-width=".1" fill="none" cx="16.91549431" cy="16.91549431" r="15.91549431"></circle>
-                    <circle class="circle-chart__circle"
-                      stroke-width="2"
-                      [attr.stroke]="colorMap[dataaa.outputData.face_firmness_percentage_color_code]"
-                      [attr.stroke-dasharray]="dataaa.outputData.face_firmness_percentage + ', 100'"
-                      stroke-linecap="round" fill="none" cx="16.91549431" cy="16.91549431" r="15.91549431"></circle></svg>
-                  <div class="circle-chart__info">
-                    <span class="circle-chart__percent" [style.color]="colorMap[dataaa.outputData.face_firmness_percentage_color_code]">{{dataaa.outputData.face_firmness_percentage}}%</span>
-                  </div>
-                  <span>Firmness</span>
-                </div>
-                <div class="circle-svg small" (click)="ActiveTab($event, 'Smoothness', scrollAnalysisIntoViewRef)">
-                  <svg class="circle-chart" viewBox="0 0 33.83098862 33.83098862" width="200" height="200" xmlns="http://www.w3.org/2000/svg">
-                    <circle class="circle-chart__background" stroke="#959b90" stroke-width=".1" fill="none" cx="16.91549431" cy="16.91549431" r="15.91549431"></circle>
-                    <circle class="circle-chart__circle"
-                      stroke-width="2"
-                      [attr.stroke]="colorMap[dataaa.outputData.Smoothness_color_code]"
-                      [attr.stroke-dasharray]="dataaa.outputData.Smoothness + ', 100'"
-                      stroke-linecap="round" fill="none" cx="16.91549431" cy="16.91549431" r="15.91549431"></circle></svg>
-                  <div class="circle-chart__info">
-                    <span class="circle-chart__percent" [style.color]="colorMap[dataaa.outputData.Smoothness_color_code]">{{dataaa.outputData.Smoothness}}%</span>
-                  </div>
-                  <span>Smoothness</span>
-                </div>
-                <div class="circle-svg small" (click)="ActiveTab($event, 'Hydration Score', scrollAnalysisIntoViewRef)">
-                  <svg class="circle-chart" viewBox="0 0 33.83098862 33.83098862" width="200" height="200" xmlns="http://www.w3.org/2000/svg">
-                    <circle class="circle-chart__background" stroke="#959b90" stroke-width=".1" fill="none" cx="16.91549431" cy="16.91549431" r="15.91549431"></circle>
-                    <circle class="circle-chart__circle"
-                      stroke-width="2"
-                      [attr.stroke]="colorMap[dataaa.outputData.hydration_score_color_code]"
-                      [attr.stroke-dasharray]="dataaa.outputData.hydration_score + ', 100'"
-                      stroke-linecap="round" fill="none" cx="16.91549431" cy="16.91549431" r="15.91549431"></circle></svg>
-                  <div class="circle-chart__info">
-                    <span class="circle-chart__percent" [style.color]="colorMap[dataaa.outputData.hydration_score_color_code]">{{dataaa.outputData.hydration_score}}%</span>
-                  </div>
-                  <span>Hydration Score</span>
-                </div>
-                <div class="circle-svg small" (click)="ActiveTab($event, 'Dullness', scrollAnalysisIntoViewRef)">
-                  <svg class="circle-chart" viewBox="0 0 33.83098862 33.83098862" width="200" height="200" xmlns="http://www.w3.org/2000/svg">
-                    <circle class="circle-chart__background" stroke="#959b90" stroke-width=".1" fill="none" cx="16.91549431" cy="16.91549431" r="15.91549431"></circle>
-                    <circle class="circle-chart__circle"
-                      stroke-width="2"
-                      [attr.stroke]="colorMap[dataaa.outputData.skin_dullness_percentage_color_code]"
-                      [attr.stroke-dasharray]="dataaa.outputData.skin_dullness_percentage + ', 100'"
-                      stroke-linecap="round" fill="none" cx="16.91549431" cy="16.91549431" r="15.91549431"></circle></svg>
-                  <div class="circle-chart__info">
-                    <span class="circle-chart__percent" [style.color]="colorMap[dataaa.outputData.skin_dullness_percentage_color_code]">{{dataaa.outputData.skin_dullness_percentage}}%</span>
-                  </div>
-                  <span>Dullness</span>
-                </div>
-                <div class="circle-svg small" (click)="ActiveTab($event, 'Uneven Skin Tone', scrollAnalysisIntoViewRef)">
-                  <svg class="circle-chart" viewBox="0 0 33.83098862 33.83098862" width="200" height="200" xmlns="http://www.w3.org/2000/svg">
-                    <circle class="circle-chart__background" stroke="#959b90" stroke-width=".1" fill="none" cx="16.91549431" cy="16.91549431" r="15.91549431"></circle>
-                    <circle class="circle-chart__circle"
-                      stroke-width="2"
-                      [attr.stroke]="colorMap[dataaa.outputData.uneven_skin_percentage_color_code]"
-                      [attr.stroke-dasharray]="dataaa.outputData.uneven_skin_percentage + ', 100'"
-                      stroke-linecap="round" fill="none" cx="16.91549431" cy="16.91549431" r="15.91549431"></circle></svg>
-                  <div class="circle-chart__info">
-                    <span class="circle-chart__percent" [style.color]="colorMap[dataaa.outputData.uneven_skin_percentage_color_code]">{{dataaa.outputData.uneven_skin_percentage}}%</span>
-                  </div>
-                  <span>Uneven<br /> Skin Tone</span>
-                </div>
-                <div class="circle-svg small" (click)="ActiveTab($event, 'Fine Lines & wrinkle', scrollAnalysisIntoViewRef)">
-                  <svg class="circle-chart" viewBox="0 0 33.83098862 33.83098862" width="200" height="200" xmlns="http://www.w3.org/2000/svg">
-                    <circle class="circle-chart__background" stroke="#959b90" stroke-width=".1" fill="none" cx="16.91549431" cy="16.91549431" r="15.91549431"></circle>
-                    <circle class="circle-chart__circle"
-                      stroke-width="2"
-                      [attr.stroke]="colorMap[dataaa.outputData.face_wrinkle_percentage_color_code]"
-                      [attr.stroke-dasharray]="dataaa.outputData.face_wrinkle_percentage + ', 100'"
-                      stroke-linecap="round" fill="none" cx="16.91549431" cy="16.91549431" r="15.91549431"></circle></svg>
-                  <div class="circle-chart__info">
-                    <span class="circle-chart__percent" [style.color]="colorMap[dataaa.outputData.face_wrinkle_percentage_color_code]">{{dataaa.outputData.face_wrinkle_percentage}}%</span>
-                  </div>
-                  <span>Face Lines<br /> &amp; Wrinkles</span>
-                </div>
-                <div class="circle-svg small" (click)="ActiveTab($event, 'Dark Spots', scrollAnalysisIntoViewRef)">
-                  <svg class="circle-chart" viewBox="0 0 33.83098862 33.83098862" width="200" height="200" xmlns="http://www.w3.org/2000/svg">
-                    <circle class="circle-chart__background" stroke="#959b90" stroke-width=".1" fill="none" cx="16.91549431" cy="16.91549431" r="15.91549431"></circle>
-                    <circle class="circle-chart__circle"
-                      stroke-width="2"
-                      [attr.stroke]="colorMap[dataaa.outputData.dark_spot_percentage_color_code]"
-                      [attr.stroke-dasharray]="dataaa.outputData.dark_spot_percentage + ', 100'"
-                      stroke-linecap="round" fill="none" cx="16.91549431" cy="16.91549431" r="15.91549431"></circle></svg>
-                  <div class="circle-chart__info">
-                    <span class="circle-chart__percent" [style.color]="colorMap[dataaa.outputData.dark_spot_percentage_color_code]">{{dataaa.outputData.dark_spot_percentage}}%</span>
-                  </div>
-                  <span>Dark Spots</span>
-                </div>
-              </div>
-            </div> -->
-            <div class="sw-colorindicator">
-              <ul>
-                <li>
-                  High<br/>Priority
-                </li>
-                <li>
-                  Medium<br/>Priority
-                </li>
-                <li>
-                  Low<br/>Priority
-                </li>
-              </ul>
-            </div>
-          </div>
-          <div class="score-recommendation inView">
-            <h1>Your key skin concerns &<br /> Dermafique recommendations</h1>
-            <ng-container *ngIf="{ tp: dataaa.priorityInfo.topPriorities } as topPriorities">
-              <ul class="d-flex">
-                <ng-container *ngFor="let priority of topPriorities.tp; let i = index;">
-                  <ng-container *ngIf="i < 3">
-                    <li class="sr-wrapper">
-                      <div class="sr-circle-wrapper">
-                        <!-- <div class="circle-svg small" (click)="ActiveTab($event, priority.priority_name, scrollAnalysisIntoViewRef)">
-                          <svg class="circle-chart" viewBox="0 0 33.83098862 33.83098862" width="200" height="200" xmlns="http://www.w3.org/2000/svg">
-                            <circle class="circle-chart__background" stroke="#959b90" stroke-width=".1" fill="none" cx="16.91549431" cy="16.91549431" r="15.91549431"></circle>
-                            <circle class="circle-chart__circle"
-                              stroke-width="2"
-                              [attr.stroke]="colorMap[priority.priority_color_code]"
-                              [attr.stroke-dasharray]="priority.priority_score + ', 100'"
-                              stroke-linecap="round" fill="none" cx="16.91549431" cy="16.91549431" r="15.91549431"></circle></svg>
-                          <div class="circle-chart__info">
-                            <span class="circle-chart__percent" [style.color]="colorMap[priority.priority_color_code]">{{priority.priority_score}}%</span>
-                          </div>
-                        </div> -->
-                        <span class="lh-18">{{priority.priority_title}}</span>
-                      </div>
-                      <div class="sr-buycard">
-                        <img [src]="priority.priority_product_info.product_image_thumbnail" #imageBase64Ref />
-                        <p style="font-size: 10px;">https://shorturl.at/qDLO5</p>
-                        <a class="btnStyle" href='https://www.nykaa.com/dermafique-bio-cellulose-tone-perfecting-face-mask/p/958791?productId=958791&pps=7?utm_source=social%20media&utm_medium=banner%20ad&utm_campaign=dermafique%20dec%2021'>Buy</a>
-                          <!-- <img src="assets/newassets/bagico.png" alt="bagicon" #imageBase64Ref />&nbsp;Buy Now →
-                        </a> -->
-                      </div>
-                    </li>
-                  </ng-container>
-                </ng-container>
-              </ul>
-            </ng-container>
-          </div>
-          <ng-container *ngIf="{ dataArr: dataaa.priorityInfo.topPriorities } as topPriorities">
-            <ng-container *ngFor="let selectedVal of topPriorities.dataArr">
-              <div class="skin-analysiswrapper inView">
-                <div class="skin-detailanalysis mt-20">
-                  <h2>Your Detailed Skin Analysis Report</h2>
-                  <div class="sd-top">
-                    <section class="d-flex mt-20 mb-10">
-                      <!-- <div class="circle-svg medium mr-10">
-                        <svg class="circle-chart" viewBox="0 0 33.83098862 33.83098862" width="200" height="200" xmlns="http://www.w3.org/2000/svg">
-                          <circle class="circle-chart__background" stroke="#959b90" stroke-width=".1" fill="none" cx="16.91549431" cy="16.91549431" r="15.91549431"></circle>
-                          <circle class="circle-chart__circle"
-                            stroke-width="2"
-                            [attr.stroke]="colorMap[selectedVal.priority_color_code]"
-                            [attr.stroke-dasharray]="selectedVal.priority_score + ', 100'"
-                            stroke-linecap="round" fill="none" cx="16.91549431" cy="16.91549431" r="15.91549431"></circle></svg>
-                        <div class="circle-chart__info">
-                          <span class="circle-chart__percent" [style.color]="colorMap[selectedVal.priority_color_code]">
-                            {{selectedVal.priority_score}}%
-                          </span>
-                        </div>
-                      </div> -->
-                      <span class="fs-16 lh-22 textcolor">{{selectedVal.priority_product_info.skin_analysis_report}}</span>
-                    </section>
-                    <div class="sd-product mb-20">
-                      <div class="sdp-left pr-20">
-                        <img [src]="selectedVal.priority_product_info.product_image" #imageBase64Ref />
-                      </div>
-                      <div class="sdp-right">
-                        <div class="sdpr-title">{{selectedVal.priority_product_info.product_name}}</div>
-                        <div class="sdpr-subtitle">{{selectedVal.priority_product_info.product_desc}}</div>
-                        <a class="btnStyle" target="_blank" [href]="selectedVal.priority_product_info.product_link">
-                          <img src="assets/newassets/bagico.png" alt="bagicon" #imageBase64Ref />&nbsp;Buy Now →
-                        </a>
-                      </div>
-                    </div>
-                  </div>
-                </div>
-                <div class="consolexpert">
-                  <div class="cse-card mb-20 mt-20">
-                    <div class="cse-title">Concern</div>
-                    <ng-container *ngIf="{ c: selectedVal.priority_product_info.concerns } as concern">
-                      <ul class="cse-content">
-                        <li class="d-flex df-a-fs mb-20">
-                          <div class="csec-image">
-                            <img [src]="concern.c.causes.image" #imageBase64Ref />
-                          </div>
-                          <div class="csec-text">
-                            <h4>How this is caused:</h4>
-                            <p class="">
-                              <ng-container *ngFor="let point of concern.c.causes.points">
-                                {{point}}
-                              </ng-container>
-                            </p>
-                          </div>
-                        </li>
-                        <li class="d-flex df-a-fs">
-                          <div class="csec-image">
-                            <img [src]="concern.c.needs.image" #imageBase64Ref />
-                          </div>
-                          <div class="csec-text">
-                            <h4>What you need:</h4>
-                            <p class="">
-                              <ng-container *ngFor="let point of concern.c.needs.points">
-                                {{point}}
-                              </ng-container>
-                            </p>
-                          </div>
-                        </li>
-                      </ul>
-                    </ng-container>
-                  </div>
-
-                  <div class="cse-card mb-20 mt-20">
-                    <div class="cse-title">Solution</div>
-                    <ng-container *ngIf="{ s: selectedVal.priority_product_info.solution } as solution">
-                      <ul class="cse-content">
-                        <div class="csec-text text-center mb-20">
-                          <p class="">{{solution.s.solution_recommends}}</p>
-                        </div>
-                        <ng-container *ngFor="let point of solution.s.points">
-                          <li class="d-flex df-a-fs mb-10">
-                            <div class="csec-image">
-                              <img [src]="point.image" #imageBase64Ref />
-                            </div>
-                            <div class="csec-text">
-                              <p class="">
-                                {{point.point}}
-                              </p>
-                            </div>
-                          </li>
-                        </ng-container>
-                        <div class="csec-text text-center mt-20">
-                          <p class="">{{solution.s.solution_concluding_paragraph}}</p>
-                        </div>
-                      </ul>
-                    </ng-container>
-                  </div>
-
-                  <div class="cse-card mb-20 mt-20">
-                    <div class="cse-title">Expert Tip</div>
-                    <ng-container *ngIf="{ e: selectedVal.priority_product_info.expert } as expert">
-                      <ul class="cse-content">
-                        <div class="csec-text text-center mb-20">
-                          <h4>How this is caused:</h4>
-                          <p class="">{{expert.e.expert_tip}}</p>
-                        </div>
-                        <ng-container *ngFor="let point of expert.e.points">
-                          <li class="d-flex df-a-fs mb-10">
-                            <div class="csec-image">
-                              <img [src]="point.image" #imageBase64Ref />
-                            </div>
-                            <div class="csec-text">
-                              <p class="">{{point.point}}</p>
-                            </div>
-                          </li>
-                        </ng-container>
-                        <div class="csec-text text-center mt-20">
-                          <p class="">{{expert.e.expert_tip_concluding_paragraph}}</p>
-                        </div>
-                      </ul>
-                    </ng-container>
-                  </div>
-                </div>
-              </div>
-            </ng-container>
-          </ng-container>
-        </div>
-      
-      </div>
-    </ng-container>
+    
+    </div>
+  </ng-container>
 </section>
