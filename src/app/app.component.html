@@ -523,12 +523,12 @@
               <circle class="circle-chart__background" stroke="#959b90" stroke-width=".1" fill="none" cx="16.91549431" cy="16.91549431" r="15.91549431"></circle>
               <circle class="circle-chart__circle main slowAnime"
                 stroke-width="2"
-                [attr.stroke]="colorMap['G']"
+                [attr.stroke]="colorMap[dataaa.outputData.skin_health_score_color_code]"
                 [attr.stroke-dasharray]="dataaa.outputData.skin_health_score + ', 100'"
                 stroke-linecap="round" fill="none" cx="16.91549431" cy="16.91549431" r="15.91549431"></circle>
             </svg>
             <div class="circle-chart__info">
-              <span class="circle-chart__percent" [style.color]="colorMap['G']">{{dataaa.outputData.skin_health_score}}%</span>
+              <span class="circle-chart__percent" [style.color]="colorMap[dataaa.outputData.skin_health_score_color_code]">{{dataaa.outputData.skin_health_score}}%</span>
             </div>
           </div>
           <span class="fs-18 textcolor">Skin Health<br>Score</span>
@@ -655,14 +655,14 @@
             </ul>
           </div>
         </div>
-        <div class="score-recommendation hide-on-init" animateOnScroll animationName="animated slideIn" offset="10">
-          <h1>Your key skin concerns &<br /> Dermafique recommendations</h1>
+        <div class="score-recommendation">
+          <h1 class="hide-on-init" animateOnScroll animationName="animated slideIn" offset="120">Your key skin concerns &<br /> Dermafique recommendations</h1>
           <ng-container *ngIf="{ tp: dataaa.priorityInfo.topPriorities } as topPriorities">
             <ul class="d-flex">
               <ng-container *ngFor="let priority of topPriorities.tp; let i = index;">
                 <ng-container *ngIf="i < 3">
                   <li class="sr-wrapper">
-                    <div class="sr-circle-wrapper">
+                    <div class="sr-circle-wrapper hide-on-init" animateOnScroll animationName="animated slideIn" offset="120">
                       <div class="circle-svg small" (click)="ActiveTab($event, priority.priority_name, scrollAnalysisIntoViewRef)">
                         <svg class="circle-chart" viewBox="0 0 33.83098862 33.83098862" width="200" height="200" xmlns="http://www.w3.org/2000/svg">
                           <circle class="circle-chart__background" stroke="#959b90" stroke-width=".1" fill="none" cx="16.91549431" cy="16.91549431" r="15.91549431"></circle>
@@ -678,7 +678,7 @@
                       </div>
                       <span class="lh-18">{{priority.priority_title}}</span>
                     </div>
-                    <div class="sr-buycard">
+                    <div class="sr-buycard hide-on-init" animateOnScroll animationName="animated slideIn" offset="120">
                       <img [src]="priority.priority_product_info.product_image_thumbnail" [alt]="priority.priority_title">
                       <a class="btnStyle" target="_blank" [href]="priority.priority_product_info.product_link">
                         <img src="assets/newassets/bagico.png" alt="bagicon" />&nbsp;Buy Now →
@@ -692,40 +692,40 @@
         </div>
         <ng-container *ngIf="{ data: skinResultSelected } as selectedVal">
           <div class="skin-analysiswrapper" #scrollAnalysisIntoViewRef>
-            <div class="skin-detailanalysis mt-20 hide-on-init" animateOnScroll animationName="animated slideIn" offset="10">
-              <h2>Your Detailed Skin Analysis Report</h2>
-                <div class="sd-top">
-                  <section class="d-flex mt-20 mb-10">
-                    <div class="circle-svg medium mr-10">
-                      <svg class="circle-chart" viewBox="0 0 33.83098862 33.83098862" width="200" height="200" xmlns="http://www.w3.org/2000/svg">
-                        <circle class="circle-chart__background" stroke="#959b90" stroke-width=".1" fill="none" cx="16.91549431" cy="16.91549431" r="15.91549431"></circle>
-                        <circle class="circle-chart__circle"
-                          stroke-width="2"
-                          [attr.stroke]="colorMap[selectedVal.data.priority_color_code]"
-                          [attr.stroke-dasharray]="selectedVal.data.priority_score + ', 100'"
-                          stroke-linecap="round" fill="none" cx="16.91549431" cy="16.91549431" r="15.91549431"></circle>
-                      </svg>
-                      <div class="circle-chart__info">
-                        <span class="circle-chart__percent" [style.color]="colorMap[selectedVal.data.priority_color_code]">
-                          {{selectedVal.data.priority_score}}%
-                        </span>
-                      </div>
-                    </div>
-                    <span class="fs-16 lh-22 textcolor">{{selectedVal.data.priority_product_info.skin_analysis_report}}</span>
-                  </section>
-                  <div class="sd-product mb-20">
-                    <div class="sdp-left pr-20">
-                      <img [src]="selectedVal.data.priority_product_info.product_image">
-                    </div>
-                    <div class="sdp-right">
-                      <div class="sdpr-title">{{selectedVal.data.priority_product_info.product_name}}</div>
-                      <div class="sdpr-subtitle">{{selectedVal.data.priority_product_info.product_desc}}</div>
-                      <a class="btnStyle" target="_blank" [href]="selectedVal.data.priority_product_info.product_link">
-                        <img src="assets/newassets/bagico.png" alt="bagicon">&nbsp;Buy Now →
-                      </a>
+            <div class="skin-detailanalysis mt-20">
+              <h2 class="hide-on-init" animateOnScroll animationName="animated slideIn" offset="120">Your Detailed Skin Analysis Report</h2>
+              <div class="sd-top">
+                <section class="d-flex mt-20 mb-10 hide-on-init" animateOnScroll animationName="animated slideIn" offset="120">
+                  <div class="circle-svg medium mr-10">
+                    <svg class="circle-chart" viewBox="0 0 33.83098862 33.83098862" width="200" height="200" xmlns="http://www.w3.org/2000/svg">
+                      <circle class="circle-chart__background" stroke="#959b90" stroke-width=".1" fill="none" cx="16.91549431" cy="16.91549431" r="15.91549431"></circle>
+                      <circle class="circle-chart__circle"
+                        stroke-width="2"
+                        [attr.stroke]="colorMap[selectedVal.data.priority_color_code]"
+                        [attr.stroke-dasharray]="selectedVal.data.priority_score + ', 100'"
+                        stroke-linecap="round" fill="none" cx="16.91549431" cy="16.91549431" r="15.91549431"></circle>
+                    </svg>
+                    <div class="circle-chart__info">
+                      <span class="circle-chart__percent" [style.color]="colorMap[selectedVal.data.priority_color_code]">
+                        {{selectedVal.data.priority_score}}%
+                      </span>
                     </div>
                   </div>
+                  <span class="fs-16 lh-22 textcolor">{{selectedVal.data.priority_product_info.skin_analysis_report}}</span>
+                </section>
+                <div class="sd-product mb-20 hide-on-init" animateOnScroll animationName="animated slideIn" offset="120">
+                  <div class="sdp-left pr-20">
+                    <img [src]="selectedVal.data.priority_product_info.product_image">
+                  </div>
+                  <div class="sdp-right">
+                    <div class="sdpr-title">{{selectedVal.data.priority_product_info.product_name}}</div>
+                    <div class="sdpr-subtitle">{{selectedVal.data.priority_product_info.product_desc}}</div>
+                    <a class="btnStyle" target="_blank" [href]="selectedVal.data.priority_product_info.product_link">
+                      <img src="assets/newassets/bagico.png" alt="bagicon">&nbsp;Buy Now →
+                    </a>
+                  </div>
                 </div>
+              </div>
             </div>
             <div class="consolexpert">
               <div class="cse-card mb-20 mt-20 hide-on-init" animateOnScroll animationName="animated slideIn" offset="10">
