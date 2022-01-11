@@ -12,7 +12,7 @@ import { ViewChild, ElementRef } from '@angular/core'
 import { KeyValuePipe } from '@angular/common';
 import { jsPDF } from 'jspdf';
 import html2canvas from 'html2canvas';
-import { CarouselService } from 'ngx-owl-carousel-o/lib/services/carousel.service';
+// import { CarouselService } from 'ngx-owl-carousel-o/lib/services/carousel.service';
 import { NgxCaptureService } from 'ngx-capture';
 import { DomSanitizer } from '@angular/platform-browser';
 import * as html2pdf from 'html2pdf.js';
@@ -70,7 +70,7 @@ export class AppComponent implements OnInit, AfterViewInit {
   public slide6Show = false;
   public slide7Show = false;
   public slideLogin = false;
-  // inputnumber = 20;
+  inputnumber = 35;
   selectedSkin = "os";
   selectedAge: string = '35';
   selectedGender = "female";
@@ -1315,18 +1315,15 @@ export class AppComponent implements OnInit, AfterViewInit {
 
   
 
-  // plus()
-  // {
-  //  this.inputnumber = this.inputnumber+1;
+  plus() {
+   this.inputnumber = this.inputnumber+1;
+  }
 
-  // }
-  // minus()
-  // {
-  //   if(this.inputnumber != 0)
-  // {
-  //  this.inputnumber = this.inputnumber-1;
-  // }
-  // }
+  minus() {
+    if(this.inputnumber != 0) {
+      this.inputnumber = this.inputnumber-1;
+    }
+  }
 
   // Change(event, ids) {
   //   this.selectedSkin = event.target.value;
@@ -1374,10 +1371,10 @@ export class AppComponent implements OnInit, AfterViewInit {
     this.slide5Show = false;
     this.slide4Show = true;
 	  this.slideLogin = false;
-    this.changeDetector.detectChanges();
-    let anyService = this.ageSliderRef as any;
-    let carouselService = anyService.carouselService as CarouselService;
-    carouselService.to(23, 0);
+    // this.changeDetector.detectChanges();
+    // // let anyService = this.ageSliderRef as any;
+    // // let carouselService = anyService.carouselService as CarouselService;
+    // // carouselService.to(23, 0);
     return false;
   }
 
