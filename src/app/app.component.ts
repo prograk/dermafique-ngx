@@ -834,10 +834,12 @@ export class AppComponent implements OnInit, AfterViewInit {
 
   // @ViewChild('scrollRecommendationIntoViewRef', { static: false }) private scrollRecommendationIntoViewRef: ElementRef<HTMLDivElement>;
   @ViewChild('scrollAnalysisIntoViewRef', { static: false }) public scrollAnalysisIntoViewRef: ElementRef<HTMLDivElement>;
-  isRecommendationScrolledIntoView = false;
-  isRecommendationAlreadyRendered = false;
+  @ViewChild('scrollHealthParamTabsIntoViewRef', { static: false }) public scrollHealthParamTabsIntoViewRef: ElementRef<HTMLDivElement>;
+  // isRecommendationScrolledIntoView = false;
+  // isRecommendationAlreadyRendered = false;
   isAnalysisScrolledIntoView = false;
   isAnalysisAlreadyRendered = false;
+  isHealthParamTabsScrolledIntoView = false;
 
   @HostListener('window:scroll', [])
   isScrolledIntoView() {
@@ -854,6 +856,10 @@ export class AppComponent implements OnInit, AfterViewInit {
       if(this.isAnalysisScrolledIntoView && !this.isAnalysisAlreadyRendered) {
         this.isAnalysisAlreadyRendered = true;
       }
+    }
+    if(this.scrollHealthParamTabsIntoViewRef) {
+      const el = this.scrollHealthParamTabsIntoViewRef.nativeElement;
+      this.isHealthParamTabsScrolledIntoView = this.isElementXPercentInViewport(el, 10);
     }
   }
 
@@ -1160,28 +1166,28 @@ export class AppComponent implements OnInit, AfterViewInit {
   // this.img = img;
   // }
 
-  public sendFile:any;
+  public sendFile:any = '';
 
   SendSaveImage() {
-    this.downloadPDF = true;
-    this.showLoader = true;
-    this.changeDetector.detectChanges();
+    // this.downloadPDF = true;
+    // this.showLoader = true;
+    // this.changeDetector.detectChanges();
 
-    let counter = 1;
+    // let counter = 1;
 
-    if(this.base64Converted === false) {
-      this.imageBase64Ref.map(async (e: any) => {
-        const { nativeElement } = e;
-        const { src } = nativeElement;
-        const data: any = await this.getBase64FromUrl(src);
-        this.renderer.setProperty(nativeElement, 'src', data);
-        counter++;
-        if(this.imageBase64Ref.length === counter) {
-          this.base64Converted = true;
-          this.SendSavePDF();
-        }
-      });
-    }
+    // if(this.base64Converted === false) {
+    //   this.imageBase64Ref.map(async (e: any) => {
+    //     const { nativeElement } = e;
+    //     const { src } = nativeElement;
+    //     const data: any = await this.getBase64FromUrl(src);
+    //     this.renderer.setProperty(nativeElement, 'src', data);
+    //     counter++;
+    //     if(this.imageBase64Ref.length === counter) {
+    //       this.base64Converted = true;
+    //       this.SendSavePDF();
+    //     }
+    //   });
+    // }
   }
 
   async SendSavePDF() {
@@ -1209,7 +1215,7 @@ export class AppComponent implements OnInit, AfterViewInit {
         this.pdfSent = true;
       },
       (err: HttpErrorResponse) => {
-        this.showLoader = false;
+        // this.showLoader = false;
         this.pdfSent = true;
         // console.log(err.error.error.message);
         // this.code = err.error.error.code;

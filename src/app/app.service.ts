@@ -18,6 +18,7 @@ export class AppService {
   readonly clientKey = 'IOS9B6E7369D7D0CCE2002101AA32CD5EA4078A182CF491C7452487195B801D63E7';
 
   // readonly rootUrl = 'https://smartskinadvisor.orbo.tech/api';
+  // readonly pdfSendUrl = 'https://smartskinadvisor.com/api/sendmail.php';
   // readonly clientKey = 'IOS9B6E7369D7D0CCE2002101AA32CD5EA4078A182CF491C7452487195B801D63E7';
 
   constructor(private _http: HttpClient) { }
