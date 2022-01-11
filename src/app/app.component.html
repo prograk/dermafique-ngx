@@ -737,7 +737,7 @@
                         <img [src]="concern.c.causes.image">
                       </div>
                       <div class="csec-text">
-                        <h4>How this is caused:</h4>
+                        <!-- <h4>How this is caused:</h4> -->
                         <p class="">
                           <ng-container *ngFor="let point of concern.c.causes.points">
                             {{point}}
@@ -793,7 +793,7 @@
                 <ng-container *ngIf="{ e: selectedVal.data.priority_product_info.expert } as expert">
                   <ul class="cse-content">
                     <div class="csec-text text-center mb-20">
-                      <h4>How this is caused:</h4>
+                      <!-- <h4>How this is caused:</h4> -->
                       <p class="">{{expert.e.expert_tip}}</p>
                     </div>
                     <ng-container *ngFor="let point of expert.e.points">
