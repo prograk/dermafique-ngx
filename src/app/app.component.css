@@ -447,7 +447,7 @@ section.slide3 .bottomcurve-container li a.selected strong {
 .slide4 h3{font-size: 1em; text-align: center; margin-top: 2em; font-style: italic;}
 .slide4 p{font-size: 0.9em; text-align: center; font-style: italic;}
 /*.slide3 input[type="radio"]{width: 1px; height: 1px; overflow: hidden; visibility: hidden;}*/
-.slide4 .ageSelector{padding: 2em 0; text-align: center;}
+.slide4 .ageSelector{display: flex; align-items: center; justify-content: center;}
 .slide4 .ageSelector .ageInput{padding: 0; border: 0; font-size: 3em; text-align: center; margin: 0; width: 100%; font-weight: bold; margin-bottom: 3em;}
 .glyphicon{width: 20px; height: 20px;}
 .slide4 .ageSelectorBx{padding: 2em 0;}
@@ -602,6 +602,34 @@ p.bottomdesc {
 
 .ac-content .analysisAfter {
   left: 50%;
+}
+
+.analysingText {
+  /* animation-name: fadeInAnalyseText;
+  animation-duration: 2.90s;
+  animation-timing-function: linear;
+  animation-iteration-count: infinite; */
+  /* animation-fill-mode: forwards; */
+  /* animation-direction: alternate; */
+}
+
+@keyframes fadeInAnalyseText {
+  0% {
+    opacity: 0;
+    transform: translateY(20px);
+  }
+  50% {
+    opacity: 0;
+    transform: translateY(10px);
+  }
+  70% {
+    opacity: 1;
+    transform: translateY(7px);
+  }
+  100% {
+    opacity: 1;
+    transform: translateY(0);
+  }
 }
 
 /* @keyframes widthInc {
@@ -2331,6 +2359,17 @@ span.regFormError.error {
   border-radius: 100%;
 }
 
+.btnRound span {
+  font-size: 25px;
+  line-height: 16px;
+}
+
+.btnStyle.btnRound {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
 .slide7 .c100 strong{
 	display: block; font-size: 23px; color: #5b5a5a; line-height: 25px; padding-top: 10px; font-weight: normal;
 }
@@ -2466,6 +2505,18 @@ span.regFormError.error {
 
   .btnStyle {
     padding: 10px 34px;
+  }
+}
+
+@media screen and (max-height: 800px) {
+  .onboardSlideWhiteOverlay-container {
+    padding: 100px 25px 0;
+  }
+  .bottomcurve .bottomcurve-container {
+    padding: 100px 25px 0;
+  }
+  .bottomcurve .bottomcurve-container .nextPrevBx {
+    /* margin-top: 10px !important; */
   }
 }
 

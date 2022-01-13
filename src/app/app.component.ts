@@ -3,7 +3,7 @@ import { FormsModule, ReactiveFormsModule, FormControl, FormGroup, FormBuilder, 
 import { HttpErrorResponse } from '@angular/common/http';
 import { WebcamImage, WebcamInitError, WebcamUtil } from 'ngx-webcam';
 import { CarouselComponent, OwlOptions, SlidesOutputData } from 'ngx-owl-carousel-o';
-import { Subject, Observable, interval } from 'rxjs';
+import { Subject, Observable, interval, timer } from 'rxjs';
 import { AppService } from './app.service';
 import { IGetResult } from './GetResult';
 import { IGetResultNew } from './GetResultNew';
@@ -17,6 +17,7 @@ import { NgxCaptureService } from 'ngx-capture';
 import { DomSanitizer } from '@angular/platform-browser';
 import * as html2pdf from 'html2pdf.js';
 import domToPdf from 'dom-to-pdf';
+import { animate, state, style, transition, trigger } from '@angular/animations';
 // import domtoimage from 'dom-to-image';
 
 declare var FB: any;
@@ -29,7 +30,14 @@ declare var computedStyleToInlineStyle: any;
 @Component({
   selector: 'app-root',
   templateUrl: './app.component.html',
-  styleUrls: ['./app.component.css']
+  styleUrls: ['./app.component.css'],
+  animations:[
+    trigger('analyzeFadeIn', [
+      state('in', style({ opacity: 1 })),
+      transition(':enter', [ style({ opacity: 0 }), animate(2000) ]),
+      transition(':leave', animate(2000, style({ opacity: 0 })))
+    ])
+  ]
 })
 
 export class AppComponent implements OnInit, AfterViewInit {
@@ -745,6 +753,10 @@ export class AppComponent implements OnInit, AfterViewInit {
   public skinResultSelected: any;
   public activeResultTab:string;
   public showRestTabs = false;
+  public analyzeTextArr = ['Analysing fine lines &...', 'fine lines & wrinkles...', 'Analysing lines & wrinkles...', 'Analysing fine & wrinkles...'];
+  public analyzeTextActive = 'Analysing fine lines &...';
+  analyseTextCounter = 0;
+
 
   ngOnInit() {
     this.regForm = this._formBuilder.group({
@@ -821,6 +833,29 @@ export class AppComponent implements OnInit, AfterViewInit {
     // aninElem.forEach(el => {
     //   this.renderer.addClass(el, 'animated');
     //   this.renderer.addClass(el, 'slideInDelay');
+    // });
+    // this.analyseTextCounter = 1;
+    // const maxTimerAnalyze = 3;
+    // const el = document.querySelector('.analysingText');
+    // el.animate([
+    //   { opacity: '0', transform: 'translateY(30px)' },
+    //   { opacity: '1', transform: 'translateY(0)' },
+    // ], {
+    //   duration: 1999,
+    //   iterations: Infinity
+    // });
+    // // this.renderer.listen(el, '', (event) => {
+      
+    // // })
+    // const int = interval(2000).subscribe(() => {
+    //   if(maxTimerAnalyze === this.analyseTextCounter) this.analyseTextCounter = 0;
+    //   // this.renderer.setStyle(el, "opacity", 0);
+    //   // this.renderer.setStyle(el, "transition", "opacity 2s");
+    //   // this.renderer.setProperty(el, '@analyzeFadeIn', 'false');
+    //   this.analyzeTextActive = this.analyzeTextArr[this.analyseTextCounter];
+    //   this.analyseTextCounter++;
+    //   this.changeDetector.detectChanges();
+    //   // this.renderer.setProperty(el, '@analyzeFadeIn', 'true');
     // });
   }
 
@@ -1672,12 +1707,29 @@ export class AppComponent implements OnInit, AfterViewInit {
     this.message = 'Loading...';
 	  // document.getElementById("analysing").style.display = "block";
     this.showAnalyseVideo = true;
+    this.changeDetector.detectChanges();
     this.analyseCounter = 0;
     const maxTimer = 106;
     const int = interval(50).subscribe((val) => {
       if(maxTimer === this.analyseCounter) return;
       this.analyseCounter++; 
     })
+    this.analyseTextCounter = 1;
+    const maxTimerAnalyze = 3;
+    const el = document.querySelector('.analysingText');
+    el.animate([
+      { opacity: '0', transform: 'translateY(30px)' },
+      { opacity: '1', transform: 'translateY(0)' },
+    ], {
+      duration: 1999,
+      iterations: Infinity
+    });
+    const intAnalyze = interval(2000).subscribe(() => {
+      if(maxTimerAnalyze === this.analyseTextCounter) this.analyseTextCounter = 0;
+      this.analyzeTextActive = this.analyzeTextArr[this.analyseTextCounter];
+      this.analyseTextCounter++;
+      this.changeDetector.detectChanges();
+    });
     this._appService.checkSkin(this.imgFile, this.selectedSkin, this.selectedAge).subscribe((res: any) => {
       this.code = 'SUCCESSFUL';
       this.dataaa = res;
@@ -1687,6 +1739,7 @@ export class AppComponent implements OnInit, AfterViewInit {
       this.message = JSON.stringify(res);
       // this.showSlide7();
       int.unsubscribe();
+      intAnalyze.unsubscribe();
       this.showSlideLogin();
     },
       (err: HttpErrorResponse) => {
@@ -1695,6 +1748,7 @@ export class AppComponent implements OnInit, AfterViewInit {
         this.message = err.error && err.error.error && err.error.error.message;
 		    // document.getElementById("analysing").style.display = "none";
         int.unsubscribe();
+        intAnalyze.unsubscribe();
         this.showAnalyseVideo = false;
         if(this.imageViaCamera) this.showWebcam = true;
       });

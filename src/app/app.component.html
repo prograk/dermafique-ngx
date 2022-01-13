@@ -264,10 +264,9 @@
       <span class="ageTxtBig">{{inputnumber}}</span>
       <button class="btnStyle btnRound" (click)="plus()"><span>+</span></button>
     </div>
-
-      <h3>Derma Truth</h3>
+      <!-- <h3>Derma Truth</h3>
       <p>Structural differences are noticed between
-          men’s skin and women’s skin.</p>
+          men’s skin and women’s skin.</p> -->
   </div>
   <div class="bottomcurve">
     <img src="assets/newassets/bottomcurve.png" alt="bottomcurve" />
@@ -420,13 +419,20 @@
 						<source media="(min-width:961px)" [srcset]="url">
 						<img [src]="url" class="w100" alt="Pic">
 					</picture>
+          <!-- <picture>
+						<source media="(max-width:960px)" srcset="./../assets/newassets/a3.jpeg">
+						<source media="(min-width:961px)" srcset="./../assets/newassets/a3.jpeg">
+						<img src="./../assets/newassets/a3.jpeg" class="w100" alt="Pic">
+					</picture> -->
           <span class="analysisAfter"></span>
         </div>
       </div>
       <div class="bottomcurve">
         <img src="assets/newassets/bottomcurve.png" alt="bottomcurve" />
         <div class="bottomcurve-container d-flex">
-          <p class="c-red">Analysing fine lines & wrinkles...</p>
+          <div class="analyzePoints">
+            <p class="c-red analysingText">{{analyzeTextActive}}</p>
+          </div>
         </div>
       </div>
     </div>
@@ -751,10 +757,12 @@
                         <img [src]="concern.c.causes.image">
                       </div>
                       <div class="csec-text">
-                        <!-- <h4>How this is caused:</h4> -->
+                        <h4>How this is caused:</h4>
                         <p class="">
                           <ng-container *ngFor="let point of concern.c.causes.points">
-                            {{point}}
+                            <p class="">
+                              {{point}}
+                            </p>
                           </ng-container>
                         </p>
                       </div>
@@ -767,7 +775,9 @@
                         <h4>What you need:</h4>
                         <p class="">
                           <ng-container *ngFor="let point of concern.c.needs.points">
-                            {{point}}
+                            <p class="">
+                              {{point}}
+                            </p>
                           </ng-container>
                         </p>
                       </div>
@@ -806,7 +816,7 @@
                 <div class="cse-title">Expert Tip</div>
                 <ng-container *ngIf="{ e: selectedVal.data.priority_product_info.expert } as expert">
                   <ul class="cse-content">
-                    <div class="csec-text text-center mb-20">
+                    <div class="csec-text text-center mb-20 w100">
                       <!-- <h4>How this is caused:</h4> -->
                       <p class="">{{expert.e.expert_tip}}</p>
                     </div>
@@ -844,13 +854,13 @@
             </div>
           </div>
         </ng-container>
-        <ng-container *ngIf="!pdfSent">
+        <!-- <ng-container *ngIf="!pdfSent">
           <div class="thank-form">
             <img src="assets/newassets/thankyoutick.png">
             <h1>
-              Thank you for taking<br />the skin analysis!
+              Thank you for taking the skin analysis!
             </h1>
-            <p>In case you haven't signed up already, please enter your details below<br /> to recieve the full report on your Phone or Email ID.</p>
+            <p>In case you haven't signed up already, please enter your details below  to recieve the full report on your Phone or Email ID.</p>
             <div>
               <form class="registerBx" [formGroup]="thankYouForm">
                 <input type="text" id="txtThankYouNumber" formControlName="txtThankYouNumber" placeholder="Mobile Number" />
@@ -869,7 +879,7 @@
               Thank you for taking<br />the skin analysis!
             </h1>
           </div>
-        </ng-container>
+        </ng-container> -->
         <div class="static-banner">
           <img src="assets/newassets/resultbanner.png" class="w100" alt="banner">
         </div>
