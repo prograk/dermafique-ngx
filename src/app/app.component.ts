@@ -795,11 +795,11 @@ export class AppComponent implements OnInit, AfterViewInit {
     this._appService.GetSkinTypes().subscribe((data: IGetSkinTypes[]) => this.GetSkinTypes = data);
 
     this.hideMe = false;
-    this.showMe = false;
+    this.showMe = true;
     this.hideUntilCalled = false;
     this.slide4Show = false;
     this.slide5Show = false;
-    this.slide6Show = true;
+    this.slide6Show = false;
     this.slide7Show = false;
     this.slideLogin = false;
 
@@ -829,47 +829,47 @@ export class AppComponent implements OnInit, AfterViewInit {
 
   ngAfterViewInit() {
     console.log("afterinit");
-    // const aninElem = document.querySelectorAll('.animSlideIn');
-    // aninElem.forEach(el => {
-    //   this.renderer.addClass(el, 'animated');
-    //   this.renderer.addClass(el, 'slideInDelay');
-    // });
-    this.analyseTextCounter = 1;
-    const maxTimerAnalyze = 3;
-    // const el = document.querySelector('.analysingText');
-    // el.animate([
-    //   { opacity: '0', transform: 'translateY(30px)' },
-    //   { opacity: '1', transform: 'translateY(0)' },
-    // ], {
-    //   duration: 2000,
-    //   iterations: Infinity
-    // });
-    // this.renderer.listen(el, '', (event) => {
+    // // const aninElem = document.querySelectorAll('.animSlideIn');
+    // // aninElem.forEach(el => {
+    // //   this.renderer.addClass(el, 'animated');
+    // //   this.renderer.addClass(el, 'slideInDelay');
+    // // });
+    // this.analyseTextCounter = 1;
+    // const maxTimerAnalyze = 3;
+    // // const el = document.querySelector('.analysingText');
+    // // el.animate([
+    // //   { opacity: '0', transform: 'translateY(30px)' },
+    // //   { opacity: '1', transform: 'translateY(0)' },
+    // // ], {
+    // //   duration: 2000,
+    // //   iterations: Infinity
+    // // });
+    // // this.renderer.listen(el, '', (event) => {
       
-    // })
-    // this.analyzeTextArr.forEach((text) => {
-    //   console.log('forEach');
-    //   this.renderer.addClass(el, 'animated');
-    //   this.renderer.addClass(el, 'slideIn');
-    const int = interval(2000).subscribe(() => {
-      // this.renderer.removeClass(el, 'animated');
-      // this.renderer.removeClass(el, 'slideIn');
-      // this.renderer.setStyle(el, "opacity", 0);
-      if(maxTimerAnalyze === this.analyseTextCounter) this.analyseTextCounter = 0;
-      // this.renderer.setStyle(el, "opacity", 0);
-      // this.renderer.setStyle(el, "transition", "opacity 2s");
-      // this.renderer.setProperty(el, '@analyzeFadeIn', 'false');
-      // this.analyzeTextActive = this.analyzeTextArr[this.analyseTextCounter];
-      // this.analyseTextCounter++;
-      this.analyseTextCounter++;
-      this.analyzeTextActive = this.analyzeTextArr[this.analyseTextCounter];
-      // setTimeout(() => {
-      //   this.renderer.addClass(el, 'animated');
-      //   this.renderer.addClass(el, 'slideIn');
-      // }, 10);
-      this.changeDetector.detectChanges();
-      // this.renderer.setProperty(el, '@analyzeFadeIn', 'true');
-    });
+    // // })
+    // // this.analyzeTextArr.forEach((text) => {
+    // //   console.log('forEach');
+    // //   this.renderer.addClass(el, 'animated');
+    // //   this.renderer.addClass(el, 'slideIn');
+    // const int = interval(2000).subscribe(() => {
+    //   // this.renderer.removeClass(el, 'animated');
+    //   // this.renderer.removeClass(el, 'slideIn');
+    //   // this.renderer.setStyle(el, "opacity", 0);
+    //   if(maxTimerAnalyze === this.analyseTextCounter) this.analyseTextCounter = 0;
+    //   // this.renderer.setStyle(el, "opacity", 0);
+    //   // this.renderer.setStyle(el, "transition", "opacity 2s");
+    //   // this.renderer.setProperty(el, '@analyzeFadeIn', 'false');
+    //   // this.analyzeTextActive = this.analyzeTextArr[this.analyseTextCounter];
+    //   // this.analyseTextCounter++;
+    //   this.analyseTextCounter++;
+    //   this.analyzeTextActive = this.analyzeTextArr[this.analyseTextCounter];
+    //   // setTimeout(() => {
+    //   //   this.renderer.addClass(el, 'animated');
+    //   //   this.renderer.addClass(el, 'slideIn');
+    //   // }, 10);
+    //   this.changeDetector.detectChanges();
+    //   // this.renderer.setProperty(el, '@analyzeFadeIn', 'true');
+    // });
     //   int.unsubscribe();
     // })
   }
@@ -1731,14 +1731,14 @@ export class AppComponent implements OnInit, AfterViewInit {
     })
     this.analyseTextCounter = 1;
     const maxTimerAnalyze = 3;
-    const el = document.querySelector('.analysingText');
-    el.animate([
-      { opacity: '0', transform: 'translateY(30px)' },
-      { opacity: '1', transform: 'translateY(0)' },
-    ], {
-      duration: 1999,
-      iterations: Infinity
-    });
+    // const el = document.querySelector('.analysingText');
+    // el.animate([
+    //   { opacity: '0', transform: 'translateY(30px)' },
+    //   { opacity: '1', transform: 'translateY(0)' },
+    // ], {
+    //   duration: 1999,
+    //   iterations: Infinity
+    // });
     const intAnalyze = interval(2000).subscribe(() => {
       if(maxTimerAnalyze === this.analyseTextCounter) this.analyseTextCounter = 0;
       this.analyzeTextActive = this.analyzeTextArr[this.analyseTextCounter];
