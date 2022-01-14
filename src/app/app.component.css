@@ -512,7 +512,7 @@ section.slide3 .bottomcurve-container li a.selected strong {
 .webcam .video-overlay{width: 100%;height: 100%; object-fit: contain;}
 .slide6 .imageCta{display: flex; align-items: center; justify-content: center; text-align: center; margin: 1em 0 0;}
 .slide6 .imageCta a{position: relative; display: block;}
-.slide6 .imageCta img{width: 100px; padding: 0 10px;}
+.slide6 .imageCta img{width: 100px; height: 80px; object-fit: contain; padding: 0 10px;}
 .slide6 .imageCta input{position: absolute; top: 0; left: 0; width: 100%; height: 100%; opacity: 0; z-index: 1;}
 /* .slide6 p{padding: 0 2em;} */
 #analysing{width: 100%; position: absolute; top: 0; left: 0; z-index: 9; background: #fff6db; background: -moz-linear-gradient(top,  #fff6db 0%, #fcdad1 100%); background: -webkit-linear-gradient(top,  #fff6db 0%,#fcdad1 100%); background: linear-gradient(to bottom,  #fff6db 0%,#fcdad1 100%); filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#fff6db', endColorstr='#fcdad1',GradientType=0 );}
@@ -1124,6 +1124,11 @@ ul.cse-content {
 .csec-text h4 {
   font-size: 14px;
   margin-bottom: 5px;
+}
+
+.cseculli {
+  list-style: disc;
+  padding-left: 15px;
 }
 
 .skin-analysiswrapper {

@@ -461,10 +461,13 @@
         <p class="textcolor fs-16 lh-22">Click the picture in natural light and<br />
           keep a neutral expression</p>
         <div class="imageCta">
-          <a href="javascript:;"><img src="assets/newassets/uploadicon.png">
+          <a href="javascript:;">
+            <img src="assets/newassets/uploadicon.png">
             <input id="imgFile" type="file" (change)="changeImage($event)" accept="image/*">
           </a>
-          <a href="javascript:;" (click)="triggerSnapshot();"><img src="assets/newassets/cameraicon.png"></a>
+          <a href="javascript:;" (click)="triggerSnapshot();">
+            <img src="assets/newassets/cameraicon.png">
+          </a>
         </div>
       </div>
     </div>
@@ -758,13 +761,13 @@
                       </div>
                       <div class="csec-text">
                         <h4>How this is caused:</h4>
-                        <p class="">
+                        <ul class="cseculli">
                           <ng-container *ngFor="let point of concern.c.causes.points">
-                            <p class="">
+                            <li class="">
                               {{point}}
-                            </p>
+                            </li>
                           </ng-container>
-                        </p>
+                        </ul>
                       </div>
                     </li>
                     <li class="d-flex df-a-fs">
@@ -773,13 +776,13 @@
                       </div>
                       <div class="csec-text">
                         <h4>What you need:</h4>
-                        <p class="">
+                        <ul class="cseculli">
                           <ng-container *ngFor="let point of concern.c.needs.points">
-                            <p class="">
+                            <li class="">
                               {{point}}
-                            </p>
+                            </li>
                           </ng-container>
-                        </p>
+                        </ul>
                       </div>
                     </li>
                   </ul>
