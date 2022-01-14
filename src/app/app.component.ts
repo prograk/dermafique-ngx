@@ -753,8 +753,13 @@ export class AppComponent implements OnInit, AfterViewInit {
   public skinResultSelected: any;
   public activeResultTab:string;
   public showRestTabs = false;
-  public analyzeTextArr = ['Analysing fine lines &...', 'fine lines & wrinkles...', 'Analysing lines & wrinkles...', 'Analysing fine & wrinkles...'];
-  public analyzeTextActive = 'Analysing fine lines &...';
+  public analyzeTextArr = [
+    'Analyzing dark spots....', 
+    'Analyzing fine lines & wrinkles....', 
+    'Analyzing firmness....', 
+    'Analyzing smoothness....'
+  ];
+  public analyzeTextActive = 'Analyzing dark spots....';
   analyseTextCounter = 0;
 
 

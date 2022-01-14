@@ -510,8 +510,8 @@ section.slide3 .bottomcurve-container li a.selected strong {
 .webcamUnit video, .mirrored{display: block; width: 100%;}
 .webcam{overflow: hidden; width: 80%; position: relative; margin: 1em auto; max-width: 288px; max-height: 384px; height: 50%; width: 70%;}
 .webcam .video-overlay{width: 100%;height: 100%; object-fit: contain;}
-.slide6 .imageCta{text-align: center; padding: 1em 0 0;}
-.slide6 .imageCta a{position: relative; display: inline-block;}
+.slide6 .imageCta{display: flex; align-items: center; justify-content: center; text-align: center; margin: 1em 0 0;}
+.slide6 .imageCta a{position: relative; display: block;}
 .slide6 .imageCta img{width: 100px; padding: 0 10px;}
 .slide6 .imageCta input{position: absolute; top: 0; left: 0; width: 100%; height: 100%; opacity: 0; z-index: 1;}
 /* .slide6 p{padding: 0 2em;} */
@@ -1255,7 +1255,7 @@ ul.cse-content {
 
 
 .static-banner {
-  padding-bottom: 16rem;
+  /* padding-bottom: 16rem; */
   margin-left: -10px;
   margin-right: -10px;
 }
