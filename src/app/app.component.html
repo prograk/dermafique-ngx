@@ -460,14 +460,18 @@
         <div class="error" [class.d-none]="!showWebcam" style="color: red;">{{ code }} - {{message}}</div>
         <p class="textcolor fs-16 lh-22">Click the picture in natural light and<br />
           keep a neutral expression</p>
+        <!-- <div class="test">
+          <img src="assets/newassets/uploadicon.png">
+          <img src="assets/newassets/cameraicon.png">
+        </div> -->
         <div class="imageCta">
-          <a href="javascript:;">
+          <label>
             <img src="assets/newassets/uploadicon.png">
             <input id="imgFile" type="file" (change)="changeImage($event)" accept="image/*">
-          </a>
-          <a href="javascript:;" (click)="triggerSnapshot();">
+          </label>
+          <div (click)="triggerSnapshot();">
             <img src="assets/newassets/cameraicon.png">
-          </a>
+          </div>
         </div>
       </div>
     </div>
@@ -755,6 +759,9 @@
                 <div class="cse-title">Concern</div>
                 <ng-container *ngIf="{ c: selectedVal.data.priority_product_info.concerns } as concern">
                   <ul class="cse-content">
+                    <div class="csec-text text-center mb-20">
+                      <p class="">{{concern.c.concern_write_up_A}}</p>
+                    </div>
                     <li class="d-flex df-a-fs mb-20">
                       <div class="csec-image">
                         <img [src]="concern.c.causes.image">
