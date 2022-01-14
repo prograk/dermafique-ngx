@@ -452,7 +452,7 @@ section.slide3 .bottomcurve-container li a.selected strong {
 .glyphicon{width: 20px; height: 20px;}
 .slide4 .ageSelectorBx{padding: 2em 0;}
 .slide4 .ageSelectorBx button{width: 50px; height: 50px; padding: 0; font-style: normal; display: inline-block;}
-.slide4 .ageSelectorBx .ageTxtBig{background: none; border: 0; font-size: 5rem; text-align: center; display: inline-block; width: 150px; vertical-align: middle;}
+.slide4 .ageSelectorBx .ageTxtBig{background: none; border: 0; font-size: 5rem; text-align: center; display: inline-block; width: 150px; vertical-align: middle; color: var(--red)}
 .btnNext{font-weight: bold; padding: 1em 0; display: block; width: 44%; text-align: right; text-transform: uppercase; font-size: 0.9em;}
 .btnNext.toRight{text-align: left;}
 /* .nextPrevBx{background: url(../assets/pagination-border.png) no-repeat center center; background-size: auto 70%; margin-top: 2em;} */
@@ -505,12 +505,12 @@ section.slide3 .bottomcurve-container li a.selected strong {
 /* .slide5 .skinSlider{padding: 4em 0 2em 0; overflow: hidden;} */
 
 /*Slide 6*/
-.slide6{padding: 3em 0;}
+.slide6{padding: 3em 0 0;}
 /* .slide6 h1{text-align: center; font-size: 1.5em; color: #5b5a5a; padding-top: 1em;} */
 .webcamUnit video, .mirrored{display: block; width: 100%;}
-.webcam{overflow: hidden; width: 80%; position: relative; margin: 1em auto; width: 288px; height: 384px;}
-.webcam .video-overlay{width: 100%;}
-.slide6 .imageCta{text-align: center; padding: 1em 0;}
+.webcam{overflow: hidden; width: 80%; position: relative; margin: 1em auto; max-width: 288px; max-height: 384px; height: 50%; width: 70%;}
+.webcam .video-overlay{width: 100%;height: 100%; object-fit: contain;}
+.slide6 .imageCta{text-align: center; padding: 1em 0 0;}
 .slide6 .imageCta a{position: relative; display: inline-block;}
 .slide6 .imageCta img{width: 100px; padding: 0 10px;}
 .slide6 .imageCta input{position: absolute; top: 0; left: 0; width: 100%; height: 100%; opacity: 0; z-index: 1;}
@@ -605,30 +605,43 @@ p.bottomdesc {
 }
 
 .analysingText {
-  /* animation-name: fadeInAnalyseText;
-  animation-duration: 2.90s;
+  opacity: 0;
+  animation-name: fadeInAnalyseText;
+  animation-duration: 2s;
   animation-timing-function: linear;
-  animation-iteration-count: infinite; */
+  animation-iteration-count: infinite;
   /* animation-fill-mode: forwards; */
   /* animation-direction: alternate; */
 }
 
 @keyframes fadeInAnalyseText {
   0% {
+    /* top: 20px; */
+    transform: translateY(20%);
     opacity: 0;
-    transform: translateY(20px);
+  }
+  15% {
+    transform: translateY(0);
+    /* top: 0px; */
+    opacity: 1;
+  }
+  30% {
+    transform: translateY(0);
+    /* top: 0; */
+    opacity: 1;
   }
   50% {
-    opacity: 0;
-    transform: translateY(10px);
-  }
-  70% {
     opacity: 1;
-    transform: translateY(7px);
   }
-  100% {
-    opacity: 1;
+  65% {
+    opacity: 0.1;
     transform: translateY(0);
+    /* top: 0; */
+  }
+  80% {
+    opacity: 0;
+    transform: translateY(20%);
+    /* top: 20px; */
   }
 }
 
@@ -2531,7 +2544,7 @@ span.regFormError.error {
     margin-top: 10px !important;
   }
   section.slide3 > div:nth-child(2) {
-    flex: .5;
+    flex: .8;
   }
   section.slideLogin > div:nth-child(2) {
     z-index: 9;
