@@ -1,23 +1,23 @@
-import { Component, OnInit, AfterViewInit, OnChanges, ChangeDetectorRef, HostListener, ViewChildren, Renderer2 } from '@angular/core';
-import { FormsModule, ReactiveFormsModule, FormControl, FormGroup, FormBuilder, Validators } from '@angular/forms';
+import { Component, OnInit, AfterViewInit, ChangeDetectorRef, HostListener, ViewChildren, Renderer2 } from '@angular/core';
+import { FormControl, FormGroup, FormBuilder, Validators } from '@angular/forms';
 import { HttpErrorResponse } from '@angular/common/http';
 import { WebcamImage, WebcamInitError, WebcamUtil } from 'ngx-webcam';
 import { CarouselComponent, OwlOptions, SlidesOutputData } from 'ngx-owl-carousel-o';
 import { Subject, Observable, interval, timer } from 'rxjs';
 import { AppService } from './app.service';
-import { IGetResult } from './GetResult';
-import { IGetResultNew } from './GetResultNew';
+// import { IGetResult } from './GetResult';
+// import { IGetResultNew } from './GetResultNew';
 import { IGetSkinTypes } from './GetSkinTypes';
 import { ViewChild, ElementRef } from '@angular/core'
-import { KeyValuePipe } from '@angular/common';
+// import { KeyValuePipe } from '@angular/common';
 import { jsPDF } from 'jspdf';
-import html2canvas from 'html2canvas';
+// import html2canvas from 'html2canvas';
 // import { CarouselService } from 'ngx-owl-carousel-o/lib/services/carousel.service';
 import { NgxCaptureService } from 'ngx-capture';
 import { DomSanitizer } from '@angular/platform-browser';
 import * as html2pdf from 'html2pdf.js';
-import domToPdf from 'dom-to-pdf';
-import { animate, state, style, transition, trigger } from '@angular/animations';
+// import domToPdf from 'dom-to-pdf';
+// import { animate, state, style, transition, trigger } from '@angular/animations';
 // import domtoimage from 'dom-to-image';
 
 declare var FB: any;
@@ -31,13 +31,13 @@ declare var computedStyleToInlineStyle: any;
   selector: 'app-root',
   templateUrl: './app.component.html',
   styleUrls: ['./app.component.css'],
-  animations:[
-    trigger('analyzeFadeIn', [
-      state('in', style({ opacity: 1 })),
-      transition(':enter', [ style({ opacity: 0 }), animate(2000) ]),
-      transition(':leave', animate(2000, style({ opacity: 0 })))
-    ])
-  ]
+  // animations:[
+  //   trigger('analyzeFadeIn', [
+  //     state('in', style({ opacity: 1 })),
+  //     transition(':enter', [ style({ opacity: 0 }), animate(2000) ]),
+  //     transition(':leave', animate(2000, style({ opacity: 0 })))
+  //   ])
+  // ]
 })
 
 export class AppComponent implements OnInit, AfterViewInit {
@@ -1368,8 +1368,6 @@ export class AppComponent implements OnInit, AfterViewInit {
   //   });
   // }
 
-  
-
   plus() {
    this.inputnumber = this.inputnumber+1;
   }
@@ -1378,6 +1376,12 @@ export class AppComponent implements OnInit, AfterViewInit {
     if(this.inputnumber != 0) {
       this.inputnumber = this.inputnumber-1;
     }
+  }
+
+  public showTermsPrivacyBool = false;
+  
+  showTermsPrivacy() {
+    this.showTermsPrivacyBool = !this.showTermsPrivacyBool;
   }
 
   // Change(event, ids) {

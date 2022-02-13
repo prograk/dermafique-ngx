@@ -105,7 +105,7 @@
               <label class="termsprivacy textcolor">
                   <input type="checkbox" (change)="PolicyAgree($event)" value="I agree with your terms and privacy" />
                   <span></span>
-                  I agree with your&nbsp;<a>terms of privacy</a>
+                  I agree with your&nbsp;<a href="https://smartskinadvisor.com/privacy.html" target="_blank">terms of privacy</a>
               </label>
               <input type="submit" value="Let's start" class="btnStyle" (click)="showSlide3()">
             </form>
@@ -115,7 +115,7 @@
     </ng-template>
   </owl-carousel-o>
   <ng-container *ngIf="onboardinActiveSlide !== 2">
-	  <a class="onboardingSkip" (click)="owlOnboarding.to('2')">SKIP</a>
+	  <a class="onboardingSkip" href="javascript:;" (click)="owlOnboarding.to('2')">SKIP</a>
     <!-- <a class="btnStyle" (click)="showSlideLogin()">Login</a> -->
 	</ng-container>
 </section>
@@ -802,6 +802,9 @@
                   <ul class="cse-content">
                     <div class="csec-text text-center mb-20">
                       <p class="">{{solution.s.solution_recommends}}</p>
+                      <ng-container *ngIf="solution.s.solution_recommends_desc !== null">
+                        <p class="mt-10">{{solution.s.solution_recommends_desc}}</p>
+                      </ng-container>
                     </div>
                     <ng-container *ngFor="let point of solution.s.points">
                       <li class="d-flex df-a-fs mb-10">
@@ -829,6 +832,9 @@
                     <div class="csec-text text-center mb-20 w100">
                       <!-- <h4>How this is caused:</h4> -->
                       <p class="">{{expert.e.expert_tip}}</p>
+                      <ng-container *ngIf="expert.e.expert_tip_desc !== null">
+                        <p class="mt-10">{{expert.e.expert_tip_desc}}</p>
+                      </ng-container>
                     </div>
                     <ng-container *ngFor="let point of expert.e.points">
                       <li class="d-flex df-a-fs mb-10">
@@ -1212,3 +1218,7 @@
     </div>
   </ng-container> -->
 </section>
+
+<!-- <section class="termsprivacy" *ngIf="showTermsPrivacyBool">
+  Terms Privacy
+</section> -->
