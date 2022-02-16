@@ -1606,6 +1606,11 @@ export class AppComponent implements OnInit, AfterViewInit {
     // if(isLoggedIn === false) {
       FB.login((response) => {
         console.log('submitLogin', response);
+        if(response && response.name !== undefined) {
+          this.LoginName = response.name;
+          this.LoginEmail = response.email;
+          this.SignIn(true);
+        }
         FB.api('/me',
           (response) => {
             console.log('me response');
@@ -1618,12 +1623,6 @@ export class AppComponent implements OnInit, AfterViewInit {
             this.showLoader = false;
             console.log(error);
           });
-
-          if(response && response.name !== undefined) {
-            this.LoginName = response.name;
-            this.LoginEmail = response.email;
-            this.SignIn(true);
-          }
 
       }, { scope: 'email, public_profile' });
     // }
