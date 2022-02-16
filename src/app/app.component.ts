@@ -1613,6 +1613,20 @@ export class AppComponent implements OnInit, AfterViewInit {
         // } else {
         //   console.log('User login failed');
         // }
+
+        FB.api('/me',
+          (response) => {
+            console.log('me response');
+            console.log(response);
+            this.LoginName = response.name;
+            this.LoginEmail = response.email;
+            this.SignIn(true);
+          },
+          (error) => {
+            this.showLoader = false;
+            console.log(error);
+          });
+
       }, { scope: 'email, public_profile' });
     }
 
