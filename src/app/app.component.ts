@@ -1603,7 +1603,7 @@ export class AppComponent implements OnInit, AfterViewInit {
       if(response.status === 'connected') isLoggedIn = true;
     });
 
-    if(isLoggedIn === false) {
+    // if(isLoggedIn === false) {
       FB.login((response) => {
         console.log('submitLogin', response);
         // if (response.authResponse) {
@@ -1628,20 +1628,20 @@ export class AppComponent implements OnInit, AfterViewInit {
           });
 
       }, { scope: 'email, public_profile' });
-    }
+    // }
 
-    FB.api('/me',
-      (response) => {
-        console.log('me response');
-        console.log(response);
-        this.LoginName = response.name;
-        this.LoginEmail = response.email;
-        this.SignIn(true);
-      },
-      (error) => {
-        this.showLoader = false;
-        console.log(error);
-      });
+    // FB.api('/me',
+    //   (response) => {
+    //     console.log('me response');
+    //     console.log(response);
+    //     this.LoginName = response.name;
+    //     this.LoginEmail = response.email;
+    //     this.SignIn(true);
+    //   },
+    //   (error) => {
+    //     this.showLoader = false;
+    //     console.log(error);
+    //   });
   }
 
   public triggerSnapshot(): void {
