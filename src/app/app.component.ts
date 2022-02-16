@@ -1611,19 +1611,20 @@ export class AppComponent implements OnInit, AfterViewInit {
         //   this.LoginEmail = response.email;
         //   this.SignIn(true);
         // }
-        FB.api('/me',
-          (response) => {
-            console.log('me response');
-            console.log(response);
-            this.LoginName = response.name;
-            this.LoginEmail = response.email;
-            this.SignIn(true);
-          },
-          (error) => {
-            this.showLoader = false;
-            console.log(error);
-          });
-
+        if (response.authResponse) {
+          console.log('Welcome!  Fetching your information.... ');
+          FB.api('/me',
+            (response) => {
+              console.log('me response');
+              console.log(response);
+              this.LoginName = response.name;
+              this.LoginEmail = response.email;
+              this.SignIn(true);
+            })
+         } else {
+          console.log('User cancelled login or did not fully authorize.');
+          this.showLoader = false;
+         }
       }, { scope: 'email, public_profile' });
     // }
 
