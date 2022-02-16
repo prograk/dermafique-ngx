@@ -1022,14 +1022,14 @@ ul.cse-content {
 }
 
 .loader-container {
-  position: fixed;
+  position: absolute;
   top: 0;
   left: 0;
   bottom: 0;
   right: 0;
   width: 100%;
   max-width: 450px;
-  z-index: 9;
+  z-index: 99;
   background: rgb(0 0 0 / 60%);
   display: flex;
   align-items: center;
