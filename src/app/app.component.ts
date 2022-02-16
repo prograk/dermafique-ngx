@@ -1606,11 +1606,11 @@ export class AppComponent implements OnInit, AfterViewInit {
     // if(isLoggedIn === false) {
       FB.login((response) => {
         console.log('submitLogin', response);
-        if(response && response.name !== undefined) {
-          this.LoginName = response.name;
-          this.LoginEmail = response.email;
-          this.SignIn(true);
-        }
+        // if(response && response.name !== undefined) {
+        //   this.LoginName = response.name;
+        //   this.LoginEmail = response.email;
+        //   this.SignIn(true);
+        // }
         FB.api('/me',
           (response) => {
             console.log('me response');
