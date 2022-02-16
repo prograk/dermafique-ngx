@@ -1619,7 +1619,7 @@ export class AppComponent implements OnInit, AfterViewInit {
             console.log(error);
           });
 
-          if(response?.name !== undefined) {
+          if(response && response.name !== undefined) {
             this.LoginName = response.name;
             this.LoginEmail = response.email;
             this.SignIn(true);
