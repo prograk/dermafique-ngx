@@ -80,12 +80,14 @@ section {
 
 .modal-container {
   max-width: 90%;
-  padding: 40px 20px 10px 10px;
+  padding: 60px 20px 15px;
   max-height: 85%;
+  height: 85%;
   display: block;
   margin: 60px auto;
   overflow: auto;
   background: #F5E0DE;
+  position: relative;
 }
 
 .modal-container * {
@@ -93,9 +95,16 @@ section {
   text-align: center;
 }
 
+.modal-body {
+  max-height: 100% !important;
+  height: 100% !important;
+  overflow: auto !important;
+}
+
 .modal-bootstrap .modal-container .modal-close-button {
-  position: sticky;
-  top: 0;
+  position: absolute;
+  right: 20px;
+  top: 20px;
   display: flex;
   justify-content: flex-end;
   z-index: 1;
@@ -282,7 +291,7 @@ label.termsprivacy input:checked + span:before {
   font-size: 16px;
 }
 
-label.termsprivacy a:hover {
+label.termsprivacy a {
   text-decoration: underline;
 }
 
