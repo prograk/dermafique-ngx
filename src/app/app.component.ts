@@ -19,6 +19,9 @@ import * as html2pdf from 'html2pdf.js';
 // import domToPdf from 'dom-to-pdf';
 // import { animate, state, style, transition, trigger } from '@angular/animations';
 // import domtoimage from 'dom-to-image';
+// import { NgbModal, ModalDismissReasons } from '@ng-bootstrap/ng-bootstrap';
+// import { NgbPaginationModule, NgbAlertModule, NgbModal } from '@ng-bootstrap/ng-bootstrap';
+
 
 declare var FB: any;
 declare var xepOnline: any;
@@ -46,9 +49,7 @@ export class AppComponent implements OnInit, AfterViewInit {
     private _appService: AppService,
     private _formBuilder: FormBuilder,
     private changeDetector: ChangeDetectorRef,
-    private elementRef: ElementRef,
     private captureService: NgxCaptureService,
-    private _sanitizer: DomSanitizer,
     private renderer: Renderer2,
   ) { }
 
@@ -97,6 +98,7 @@ export class AppComponent implements OnInit, AfterViewInit {
   public allowCameraSwitch = false;
   public multipleWebcamsAvailable = false;
   public deviceId: string;
+  public showTermsConditions: boolean = false;
   public videoOptions: MediaTrackConstraints = {
     // facingMode: "user"
     // width: 300,
@@ -1405,6 +1407,12 @@ export class AppComponent implements OnInit, AfterViewInit {
     {
       this.checked = false;
     }
+  }
+
+  TermsClick(event) {
+    event.preventDefault();
+    this.showTermsConditions = !this.showTermsConditions;
+    // this.modalService.open(longContent, { scrollable: true }); 
   }
 
   showSlide3() {
