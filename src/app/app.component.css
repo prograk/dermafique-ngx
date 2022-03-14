@@ -90,9 +90,13 @@ section {
   position: relative;
 }
 
-.modal-container * {
+/* .modal-container * {
   background: #F5E0DE !important;
   text-align: center;
+} */
+
+.termsPrivacyBx ol {
+  padding-left: 20px !important;
 }
 
 .modal-body {
