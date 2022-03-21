@@ -75,6 +75,8 @@ section {
   right: 0;
   bottom: 0;
   z-index: 1;
+  max-width: 450px;
+  margin: 0 auto;
   background: rgb(0 0 0 / 20%);
 }
 
