@@ -79,9 +79,9 @@ export class AppComponent implements OnInit, AfterViewInit {
   public slide6Show = false;
   public slide7Show = false;
   public slideLogin = false;
-  inputnumber = 35;
+  inputNumber = 35;
   selectedSkin = "os";
-  selectedAge: string = '35';
+  // selectedAge: string = '35';
   selectedGender = "female";
   apiId:any;
   LoginMobile = "";
@@ -1371,12 +1371,12 @@ export class AppComponent implements OnInit, AfterViewInit {
   // }
 
   plus() {
-   this.inputnumber = this.inputnumber+1;
+   this.inputNumber = this.inputNumber+1;
   }
 
   minus() {
-    if(this.inputnumber != 0) {
-      this.inputnumber = this.inputnumber-1;
+    if(this.inputNumber != 0) {
+      this.inputNumber = this.inputNumber-1;
     }
   }
 
@@ -1528,7 +1528,7 @@ export class AppComponent implements OnInit, AfterViewInit {
     }
     // let mobile = isSocial === false ? this.regForm.get('txtNumber').value : '';
     // let email = this.LoginEmail !== undefined ? this.LoginEmail : '';
-    this._appService.SignInApp(this.apiId, this.selectedAge, mobile, this.selectedSkin, this.selectedGender, email, this.LoginName)
+    this._appService.SignInApp(this.apiId, this.inputNumber, mobile, this.selectedSkin, this.selectedGender, email, this.LoginName)
       .subscribe((res: any) => {
         this.code = 'SUCCESSFUL';
         console.log(res);
@@ -1544,7 +1544,7 @@ export class AppComponent implements OnInit, AfterViewInit {
   }
 
   ThankYou() {
-    this._appService.SignInApp(this.apiId, this.selectedAge, this.thankYouForm.get('txtThankYouNumber').value, this.selectedSkin, this.selectedGender, this.thankYouForm.get('txtThankYouEmail').value, this.LoginName)
+    this._appService.SignInApp(this.apiId, this.inputNumber, this.thankYouForm.get('txtThankYouNumber').value, this.selectedSkin, this.selectedGender, this.thankYouForm.get('txtThankYouEmail').value, this.LoginName)
       .subscribe((res: any) => {
         this.code = 'SUCCESSFUL';
         console.log(res);
@@ -1774,7 +1774,7 @@ export class AppComponent implements OnInit, AfterViewInit {
       this.analyseTextCounter++;
       this.changeDetector.detectChanges();
     });
-    this._appService.checkSkin(this.imgFile, this.selectedSkin, this.selectedAge).subscribe((res: any) => {
+    this._appService.checkSkin(this.imgFile, this.selectedSkin, this.inputNumber).subscribe((res: any) => {
       this.code = 'SUCCESSFUL';
       this.dataaa = res;
       this.apiId = this.dataaa.id;
@@ -1810,12 +1810,12 @@ export class AppComponent implements OnInit, AfterViewInit {
     console.log(this.selectedGender);
   }
 
-  getAgeData(data: SlidesOutputData) {
-    const { slides } = data;
-    if(slides.length > 0)
-      this.selectedAge = slides[0].id;
-    console.log(this.selectedAge);
-  }
+  // getAgeData(data: SlidesOutputData) {
+  //   const { slides } = data;
+  //   if(slides.length > 0)
+  //     this.selectedAge = slides[0].id;
+  //   // console.log(this.selectedAge);
+  // }
 
   getSkinData(data: SlidesOutputData) {
     const { slides } = data;
